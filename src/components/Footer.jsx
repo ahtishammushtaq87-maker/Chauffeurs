@@ -16,6 +16,7 @@ import mascot from "../assets/images/chauffeur-mascot.png";
 const PHONE_1 = "+1 (615) 882-1722";
 const PHONE_2 = "+1 (201) 979-7374";
 const EMAIL = "contact@swiftchauffeurs.com";
+const MAP_QUERY = "Nashville, TN, USA"; // replace with the real business address
 
 const socials = [
   { label: "Facebook", href: "#", Icon: FacebookIcon },
@@ -57,69 +58,51 @@ export default function Footer() {
             </p>
           </div>
 
-          <a
-            href={`mailto:${EMAIL}`}
-            className="flex flex-shrink-0 items-center gap-2.5 text-sm text-ink-fg-muted transition-colors hover:text-gold-light lg:mt-7.5"
-          >
-            <MailIcon width={16} height={16} className="flex-shrink-0 text-gold-light" />
-            {EMAIL}
-          </a>
+          <div className="flex flex-shrink-0 flex-col gap-5 lg:mt-7.5">
+            <a
+              href={`mailto:${EMAIL}`}
+              className="flex items-center gap-2.5 text-sm text-ink-fg-muted transition-colors hover:text-gold-light"
+            >
+              <MailIcon width={16} height={16} className="flex-shrink-0 text-gold-light" />
+              {EMAIL}
+            </a>
+
+            <div>
+              <h4 className="mb-3.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">
+                Follow Us
+              </h4>
+              <div className="flex items-center gap-3.5">
+                {socials.map(({ label, href, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="text-ink-fg-muted transition-colors hover:text-gold-light"
+                  >
+                    <Icon />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
 
           <div className="flex-shrink-0">
-            <h4 className="mb-3.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase lg:text-right">
-              Follow Us
+            <h4 className="mb-3.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">
+              Find Us
             </h4>
-            <div className="flex items-center gap-3.5 lg:justify-end">
-              {socials.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="text-ink-fg-muted transition-colors hover:text-gold-light"
-                >
-                  <Icon />
-                </a>
-              ))}
-            </div>
+            {/* TODO: replace the q= value below with the real business address */}
+            <iframe
+              title="Swift Chauffeurs location"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=12&output=embed`}
+              className="h-40 w-full rounded-md border border-ink-border grayscale transition-all hover:grayscale-0 lg:w-64"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
 
-        <div className="border-t border-gold-dim" />
-
-        {/* About + Top Cities */}
-        <div className="grid grid-cols-1 gap-10 py-12 lg:grid-cols-[0.8fr_2.4fr] lg:gap-8">
-          <div>
-            <h4 className="mb-5 text-[13px] tracking-wide text-ink-fg uppercase">About Company</h4>
-            <ul className="flex flex-col gap-3">
-              <li>
-                <Link to="/about" className="text-[13px] text-ink-fg-muted transition-colors hover:text-gold-light">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/service-area" className="text-[13px] text-ink-fg-muted transition-colors hover:text-gold-light">
-                  Service Area
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="mb-5 text-[13px] tracking-wide text-ink-fg uppercase">Top Cities</h4>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
-              {cityAreaLinks.map((city) => (
-                <Link
-                  key={city.path}
-                  to={city.path}
-                  className="text-[13px] text-ink-fg-muted transition-colors hover:text-gold-light"
-                >
-                  {city.label} TN
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-gold-dim" />
+        <div className="border-t border-white" />
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-3 py-6 text-center sm:flex-row sm:text-left">
