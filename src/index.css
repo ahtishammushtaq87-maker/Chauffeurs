@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f5f0;
+  --color-panel: #ffffff;
+  --color-panel-alt: #f1efe8;
+  --color-border: rgba(23, 20, 13, 0.1);
+  --color-border-strong: rgba(23, 20, 13, 0.18);
+  --color-gold: #a8792f;
+  --color-gold-light: #c9a15a;
+  --color-gold-dim: rgba(168, 121, 47, 0.35);
+  --color-text: #1c1a17;
+  --color-text-muted: #6b655c;
+  --color-text-faint: #837c6a;
+
+  /* Dark "ink" surface, reserved for the header and footer only. */
+  --color-ink: #0a0a0b;
+  --color-ink-alt: #111113;
+  --color-ink-panel: #161618;
+  --color-ink-border: rgba(255, 255, 255, 0.08);
+  --color-ink-border-strong: rgba(255, 255, 255, 0.14);
+  --color-ink-fg: #f2f0ec;
+  --color-ink-fg-muted: #a8a6a2;
+  --color-ink-fg-faint: #77746f;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+  }
+
+  #root {
+    @apply min-h-svh overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-4 text-[13px] tracking-[1.5px] uppercase font-semibold rounded-sm border border-transparent transition-all duration-200 whitespace-nowrap;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-[#17140d] hover:bg-gold-light;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-border-strong text-text hover:border-gold hover:text-gold;
+  }
+
+  .eyebrow {
+    @apply text-[13px] tracking-[3px] uppercase text-gold font-semibold mb-3.5 inline-block;
+  }
+}

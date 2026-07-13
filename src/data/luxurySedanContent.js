@@ -1,0 +1,83 @@
+import heroImg from "../assets/images/car-audi.jpg";
+import featuresImg from "../assets/images/fleet-sedan.jpg";
+import fleetPrimary from "../assets/images/car-mercedes.jpg";
+import fleetSecondary from "../assets/images/car-porsche.jpg";
+import airportImg from "../assets/images/svc-airport.jpg";
+import birthdayImg from "../assets/images/svc-birthday.jpg";
+import blackCarImg from "../assets/images/svc-blackcar.jpg";
+import concertImg from "../assets/images/svc-concert.jpg";
+import executiveImg from "../assets/images/svc-executive.jpg";
+import promImg from "../assets/images/prom-dining.jpg";
+import weddingImg from "../assets/images/svc-wedding.jpg";
+
+export const luxurySedanImages = {
+  heroImg,
+  featuresImg,
+};
+
+export const luxurySedanFeatures = [
+  "Premium black Mercedes-Benz sedans with luxurious interiors",
+  "Professional, experienced, and discreet chauffeurs",
+  "On-time pickups with real-time flight and traffic monitoring",
+  "Ideal for executive travel, airport transfers, VIP transportation, and special events",
+  "Spotlessly cleaned, inspected, and maintained before every journey",
+  "Comfortable seating, climate control, and a quiet ride environment",
+];
+
+export const luxurySedanFleet = [
+  {
+    name: "Mercedes Chauffeur Service",
+    desc: "Feel true comfort and style with our affordable Mercedes chauffeur service. From business travels to special events, we ensure that every ride is easy, dependable, and exceptional.",
+    image: fleetPrimary,
+  },
+  {
+    name: "Mercedes S-Class S560",
+    desc: "Looking for a dependable chauffeur service? Our exceptional Mercedes Benz S560 chauffeur service is designed to satisfy the highest requirements for elegance, comfort, and professionalism.",
+    image: fleetSecondary,
+  },
+];
+
+export const luxurySedanCrossSell = [
+  {
+    title: "Airport Transfer",
+    desc: "Reliable, all-inclusive airport transportation with real-time flight monitoring.",
+    image: airportImg,
+    path: "/services/airport",
+  },
+  {
+    title: "Birthday Chauffeur",
+    desc: "Celebrate in style with a party-ready limo built for unforgettable nights.",
+    image: birthdayImg,
+    path: "/services/birthday",
+  },
+  {
+    title: "Black Car Service",
+    desc: "Premium comfort and professionalism with black car service, perfect for any special trip.",
+    image: blackCarImg,
+    path: "/services/black-car",
+  },
+  {
+    title: "Concert Transportation",
+    desc: "Skip the traffic and parking — arrive at every show in comfort and style.",
+    image: concertImg,
+    path: "/services/concert",
+  },
+  {
+    title: "Executive Chauffeur",
+    desc: "Polished, punctual chauffeur service for business travel and VIP clients.",
+    image: executiveImg,
+    path: "/services/executive",
+  },
+  {
+    title: "Prom Limo Rental",
+    desc: "Arrive at prom with elegance using our limousine service, creating unforgettable memories forever.",
+    image: promImg,
+    path: "/services/prom",
+  },
+  {
+    title: "Wedding Chauffeur",
+    desc: "Experience luxury with our Mercedes chauffeur service, tailored to meet every demand perfectly.",
+    image: weddingImg,
+    path: "/services/wedding",
+  },
+];
