@@ -80,7 +80,20 @@ export default function GenericPage() {
                 <span className="eyebrow">What We Offer</span>
                 <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Our Chauffeur Services</h2>
               </div>
-              <CardSlider items={chauffeurServices} buttonLabel="Book Now" autoPlayMs={4500} />
+              <CardSlider
+                items={chauffeurServices}
+                autoPlayMs={4500}
+                renderActions={(item) => (
+                  <div className="flex gap-3">
+                    <Link to={item.path} className="btn btn-outline flex-1">
+                      View More
+                    </Link>
+                    <Link to="/contact" className="btn btn-gold flex-1">
+                      Book Now
+                    </Link>
+                  </div>
+                )}
+              />
             </div>
           </section>
         </>

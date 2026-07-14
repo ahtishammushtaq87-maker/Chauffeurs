@@ -11,7 +11,7 @@ import {
   stretchLimoCrossSell,
 } from "../data/stretchLimoContent";
 
-const PHONE = "tel:+18885552739";
+const PHONE = "tel:+16158821722";
 
 export default function StretchLimoPage() {
   return (
@@ -112,7 +112,19 @@ export default function StretchLimoPage() {
             <span className="eyebrow">Our Premium</span>
             <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Chauffeurs Service</h2>
           </div>
-          <CardSlider items={stretchLimoCrossSell} buttonLabel="Book Now" />
+          <CardSlider
+            items={stretchLimoCrossSell}
+            renderActions={(item) => (
+              <div className="flex gap-3">
+                <Link to={item.path} className="btn btn-outline flex-1">
+                  View More
+                </Link>
+                <Link to="/contact" className="btn btn-gold flex-1">
+                  Book Now
+                </Link>
+              </div>
+            )}
+          />
         </div>
       </section>
 

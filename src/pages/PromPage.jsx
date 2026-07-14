@@ -27,7 +27,7 @@ import {
   promSteps,
 } from "../data/promContent";
 
-const PHONE = "tel:+18885552739";
+const PHONE = "tel:+16158821722";
 
 function CtaButtons({ className = "" }) {
   return (

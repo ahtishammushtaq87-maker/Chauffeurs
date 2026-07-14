@@ -30,11 +30,11 @@
 
 @layer base {
   body {
-    @apply bg-bg text-text font-sans antialiased;
+    @apply overflow-x-hidden bg-bg text-text font-sans antialiased;
   }
 
   #root {
-    @apply min-h-svh overflow-x-hidden;
+    @apply min-h-svh;
   }
 }
 

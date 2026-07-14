@@ -1,5 +1,5 @@
-const WHATSAPP_NUMBER = "18885552739"; // (888) 555-APEX — replace with real number
-const PREFILLED_MESSAGE = "Hi Apex Motors, I'd like to know more about your inventory.";
+const WHATSAPP_NUMBER = "16158821722";
+const PREFILLED_MESSAGE = "Hi Swift Chauffeurs, I'd like to know more about your services.";
 
 export default function WhatsAppButton() {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PREFILLED_MESSAGE)}`;

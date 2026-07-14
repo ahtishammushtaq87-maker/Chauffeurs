@@ -20,12 +20,18 @@ import StretchLimoPage from "./pages/StretchLimoPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsPage from "./pages/TermsPage";
 import GenericPage from "./pages/GenericPage";
+import FleetPage from "./pages/FleetPage";
+import ServicesPage from "./pages/ServicesPage";
+import BlogPage from "./pages/BlogPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
 
 // Pages with bespoke content; everything else in the nav renders GenericPage.
 const dedicatedPages = {
   "/": <HomePage />,
   "/about": <AboutPage />,
   "/contact": <ContactPage />,
+  "/fleet": <FleetPage />,
+  "/services": <ServicesPage />,
   "/services/prom": <PromPage />,
   "/services/airport": <AirportPage />,
   "/services/birthday": <BirthdayPage />,
@@ -41,6 +47,7 @@ const dedicatedPages = {
   "/fleet/stretch-limousine": <StretchLimoPage />,
   "/privacy-policy": <PrivacyPolicyPage />,
   "/terms": <TermsPage />,
+  "/blog": <BlogPage />,
 };
 
 function App() {
@@ -56,6 +63,7 @@ function App() {
           }
           return <Route key={route.path} path={route.path} element={element} />;
         })}
+        <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="*" element={<GenericPage />} />
       </Route>
     </Routes>

@@ -11,7 +11,7 @@ import {
   partyBusCrossSell,
 } from "../data/partyBusContent";
 
-const PHONE = "tel:+18885552739";
+const PHONE = "tel:+16158821722";
 
 export default function PartyBusPage() {
   return (
@@ -104,7 +104,19 @@ export default function PartyBusPage() {
             <span className="eyebrow">Our Premium</span>
             <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Chauffeurs Service</h2>
           </div>
-          <CardSlider items={partyBusCrossSell} buttonLabel="Book Now" />
+          <CardSlider
+            items={partyBusCrossSell}
+            renderActions={(item) => (
+              <div className="flex gap-3">
+                <Link to={item.path} className="btn btn-outline flex-1">
+                  View More
+                </Link>
+                <Link to="/contact" className="btn btn-gold flex-1">
+                  Book Now
+                </Link>
+              </div>
+            )}
+          />
         </div>
       </section>
 

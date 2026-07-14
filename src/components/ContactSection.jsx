@@ -3,6 +3,10 @@ import { PhoneIcon, MailIcon, PinIcon } from "./Icons";
 import PlaceholderImage from "./PlaceholderImage";
 import { dealershipImg } from "../data/content";
 
+const PHONE_1 = "+1 (615) 882-1722";
+const PHONE_2 = "+1 (201) 979-7374";
+const EMAIL = "contact@swiftchauffeurs.com";
+
 const inputClasses =
   "w-full rounded-sm border border-border-strong bg-panel px-4 py-3.5 text-sm text-text outline-none transition-colors placeholder:text-text-faint focus:border-gold";
 
@@ -42,11 +46,21 @@ export default function ContactSection() {
           <ul className="mb-7.5 flex flex-col gap-3.5 text-sm text-text-muted">
             <li className="flex items-center gap-3">
               <PhoneIcon width={18} height={18} className="flex-shrink-0 text-gold" />
-              (888) 555-APEX
+              <a href={`tel:${PHONE_1.replace(/[^\d+]/g, "")}`} className="transition-colors hover:text-gold">
+                {PHONE_1}
+              </a>
+            </li>
+            <li className="flex items-center gap-3">
+              <PhoneIcon width={18} height={18} className="flex-shrink-0 text-gold" />
+              <a href={`tel:${PHONE_2.replace(/[^\d+]/g, "")}`} className="transition-colors hover:text-gold">
+                {PHONE_2}
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <MailIcon width={18} height={18} className="flex-shrink-0 text-gold" />
-              hello@apexmotors.com
+              <a href={`mailto:${EMAIL}`} className="transition-colors hover:text-gold">
+                {EMAIL}
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <PinIcon width={18} height={18} className="flex-shrink-0 text-gold" />

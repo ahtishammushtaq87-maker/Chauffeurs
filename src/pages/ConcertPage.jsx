@@ -26,7 +26,7 @@ import {
   concertSteps,
 } from "../data/concertContent";
 
-const PHONE = "tel:+18885552739";
+const PHONE = "tel:+16158821722";
 
 const serviceIcons = [ClockIcon, ShieldIcon, AwardIcon, DiamondIcon];
 
