@@ -10,6 +10,8 @@ import {
   PinterestIcon,
   TiktokIcon,
   XIcon,
+  GoogleIcon,
+  StarIcon,
 } from "./Icons";
 import mascot from "../assets/images/chauffeur-mascot.png";
 
@@ -38,11 +40,22 @@ export default function Footer() {
         <div className="flex flex-col gap-10 pb-10 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
           <div className="flex flex-shrink-0 flex-col gap-3 sm:max-w-70">
             <Link to="/" className="flex items-center gap-2.5">
-              <img src={mascot} alt="Swift Chauffeurs" className="h-12 w-auto" />
+              <img src={mascot} alt="Swift Chauffeurs" className="h-12 w-auto md:h-14" />
             </Link>
             <p className="text-sm leading-relaxed text-ink-fg-muted">
               Arrive in style. Nashville's trusted chauffeured rides for every occasion, day or night.
             </p>
+            <div className="flex w-fit items-center gap-2 rounded-full border border-ink-border-strong bg-ink-panel/70 px-4 py-2.5 backdrop-blur-sm">
+              <GoogleIcon width={16} height={16} />
+              <span className="flex gap-0.5 text-gold-light">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon key={i} width={11} height={11} />
+                ))}
+              </span>
+              <span className="text-xs font-semibold text-ink-fg">
+                4.9 <span className="font-normal text-ink-fg-muted">(261 Reviews)</span>
+              </span>
+            </div>
           </div>
 
           <div className="flex-shrink-0">
@@ -66,7 +79,7 @@ export default function Footer() {
             </div> 
           </div>
 
-          <div className="flex flex-shrink-0 flex-col gap-5 lg:mt-7.5">
+          <div className="flex flex-shrink-0 flex-col gap-5">
             <div>
               <h4 className="mb-3.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">
                 Follow Us

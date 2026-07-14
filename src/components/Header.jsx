@@ -16,7 +16,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink-border bg-ink/90 backdrop-blur-md">
+    <header className="sticky top-0 z-[200] border-b border-ink-border bg-ink/90 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-(--breakpoint-l) items-center justify-between gap-6 px-6 md:px-10">
         <Link to="/" aria-label="Swift Chauffeurs" className="flex min-w-0 flex-shrink-0 items-center gap-2.5" onClick={closeMobile}>
           <img src={mascot} alt="" className="h-10 w-auto flex-shrink-0 sm:h-12 md:h-14" />
