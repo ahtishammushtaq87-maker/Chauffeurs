@@ -2,18 +2,17 @@ import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
 import CardSlider from "../components/CardSlider";
+import FleetHighlightSection from "../components/FleetHighlightSection";
 import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons";
 import TrustBadges from "../components/TrustBadges";
-import {
-  executiveSuvImages,
-  executiveSuvFeatures,
-  executiveSuvFleet,
-  executiveSuvCrossSell,
-} from "../data/executiveSuvContent";
+import { executiveSuvImages, executiveSuvFeatures } from "../data/executiveSuvContent";
+import { useAllServices } from "../hooks/useAllServices";
 
 const PHONE = "tel:+16158821722";
 
 export default function ExecutiveSuvPage() {
+  const allServices = useAllServices();
+
   return (
     <>
       {/* Hero (with quote form) */}
@@ -74,36 +73,11 @@ export default function ExecutiveSuvPage() {
         </div>
       </section>
 
-      {/* Fleet highlight */}
-      <section className="border-y border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 text-center">
-            <span className="eyebrow">The Perfect Luxury SUV for Every Occasion</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Our SUV Fleet</h2>
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {executiveSuvFleet.map((item) => (
-              <div key={item.name} className="overflow-hidden rounded-xl border border-border bg-panel">
-                <div className="relative aspect-[16/10]">
-                  <PlaceholderImage src={item.image} alt={item.name} />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-serif text-xl text-text">{item.name}</h3>
-                  <p className="mt-3 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <a href="#quote" className="btn btn-outline">
-                      View More
-                    </a>
-                    <Link to="/contact" className="btn btn-gold">
-                      Book Now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FleetHighlightSection
+        slug="executive-suv-fleet"
+        eyebrow="The Perfect Luxury SUV for Every Occasion"
+        heading="Our SUV Fleet"
+      />
 
       {/* Cross-sell: Our Premium Chauffeurs Service */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
@@ -113,7 +87,7 @@ export default function ExecutiveSuvPage() {
             <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Chauffeurs Service</h2>
           </div>
           <CardSlider
-            items={executiveSuvCrossSell}
+            items={allServices}
             renderActions={(item) => (
               <div className="flex gap-3">
                 <Link to={item.path} className="btn btn-outline flex-1">

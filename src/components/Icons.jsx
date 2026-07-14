@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 const base = {
   width: 22,
   height: 22,
@@ -250,20 +252,35 @@ export function SendIcon(props) {
   );
 }
 
+// Brand-colored badge icons (fixed brand colors, not theme-tinted via currentColor).
 export function FacebookIcon(props) {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M15 8.5h2.5V5h-2.5c-2.21 0-4 1.79-4 4v2H9v3.5h2v7h3.5v-7h2.5l.5-3.5h-3V9c0-.28.22-.5.5-.5z" />
+    <svg width="16" height="16" viewBox="0 0 24 24" {...props}>
+      <circle cx="12" cy="12" r="12" fill="#1877F2" />
+      <path
+        d="M15.4 12.5h-2v7.4h-3v-7.4H8.9V10h1.5V8.5c0-1.9 1-3 3.2-3h2v2.5h-1.3c-.5 0-.9.4-.9.9V10h2.2l-.2 2.5z"
+        fill="#fff"
+      />
     </svg>
   );
 }
 
 export function InstagramIcon(props) {
+  const gradId = useId();
   return (
-    <svg {...base} width="16" height="16" {...props}>
-      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none" />
+    <svg width="16" height="16" viewBox="0 0 24 24" {...props}>
+      <defs>
+        <linearGradient id={gradId} x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#FFDD55" />
+          <stop offset="30%" stopColor="#FF543E" />
+          <stop offset="60%" stopColor="#C837AB" />
+          <stop offset="100%" stopColor="#5851DB" />
+        </linearGradient>
+      </defs>
+      <rect width="24" height="24" rx="6" fill={`url(#${gradId})`} />
+      <rect x="6.3" y="6.3" width="11.4" height="11.4" rx="3.5" fill="none" stroke="#fff" strokeWidth="1.6" />
+      <circle cx="12" cy="12" r="3.3" fill="none" stroke="#fff" strokeWidth="1.6" />
+      <circle cx="16.2" cy="7.8" r="1.1" fill="#fff" />
     </svg>
   );
 }
@@ -302,9 +319,14 @@ export function PinterestIcon(props) {
 }
 
 export function TiktokIcon(props) {
+  const notePath =
+    "M16.5 2h-3v13.5a2.5 2.5 0 1 1-2.5-2.5c.17 0 .34.02.5.05V9.9a5.6 5.6 0 0 0-.5-.02 5.6 5.6 0 1 0 5.6 5.62V8.3c1.1.79 2.44 1.25 3.9 1.25V6.55c-2.1 0-3.9-1.6-3.9-3.55V2z";
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M16.5 2h-3v13.5a2.5 2.5 0 1 1-2.5-2.5c.17 0 .34.02.5.05V9.9a5.6 5.6 0 0 0-.5-.02 5.6 5.6 0 1 0 5.6 5.62V8.3c1.1.79 2.44 1.25 3.9 1.25V6.55c-2.1 0-3.9-1.6-3.9-3.55V2z" />
+    <svg width="16" height="16" viewBox="0 0 24 24" {...props}>
+      <rect width="24" height="24" rx="6" fill="#000000" />
+      <path d={notePath} fill="#25F4EE" transform="translate(-0.6,0.6)" />
+      <path d={notePath} fill="#FE2C55" transform="translate(0.6,-0.6)" />
+      <path d={notePath} fill="#ffffff" />
     </svg>
   );
 }

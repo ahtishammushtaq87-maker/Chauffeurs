@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BoltIcon, SearchIcon } from "./Icons";
+import { apiJson } from "../lib/api";
 
 const inputClasses =
   "w-full rounded-sm border border-border-strong bg-bg/60 px-4 py-3 text-sm text-text outline-none transition-colors placeholder:text-text-faint focus:border-gold";
@@ -31,30 +32,61 @@ const vehicleOptions = [
   "Motor Coach (up to 56 passengers)",
 ];
 
+const emptyForm = {
+  name: "",
+  passengers: "",
+  contactNo: "",
+  email: "",
+  serviceType: "",
+  vehicle: "",
+  pickupDate: "",
+  pickupTime: "",
+  hours: "",
+  pickupAddress: "",
+  destinationAddress: "",
+  consent: false,
+};
+
 export default function QuoteForm({ submitLabel = "Get My Quote" }) {
-  const [form, setForm] = useState({
-    name: "",
-    passengers: "",
-    contactNo: "",
-    email: "",
-    serviceType: "",
-    vehicle: "",
-    pickupDate: "",
-    pickupTime: "",
-    hours: "",
-    pickupAddress: "",
-    destinationAddress: "",
-    consent: false,
-  });
+  const { pathname } = useLocation();
+  const [form, setForm] = useState(emptyForm);
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
     setForm((f) => ({ ...f, [name]: type === "checkbox" ? checked : value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setStatus("submitting");
+    try {
+      await apiJson("/quotes", "POST", { ...form, sourcePath: pathname });
+      setForm(emptyForm);
+      setStatus("success");
+    } catch (err) {
+      setError(err.message);
+      setStatus("error");
+    }
   };
+
+  if (status === "success") {
+    return (
+      <div className="w-full rounded border border-border-strong bg-panel/85 p-6 text-center backdrop-blur-md sm:p-8">
+        <h2 className="mb-2 text-lg font-bold tracking-wide text-text uppercase">
+          Request <span className="text-gold">Received</span>
+        </h2>
+        <p className="text-sm text-text-muted">
+          Thanks — we've got your details and will be in touch shortly with your quote.
+        </p>
+        <button type="button" onClick={() => setStatus("idle")} className="btn btn-outline mt-5">
+          Submit Another Request
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full rounded border border-border-strong bg-panel/85 p-6 backdrop-blur-md sm:p-8">
@@ -156,18 +188,20 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
         </label>
         <p className="text-xs text-text-faint">
           View our{" "}
-          <Link to="/about" className="text-gold hover:underline">
+          <Link to="/privacy-policy" className="text-gold hover:underline">
             Privacy Policy
           </Link>{" "}
           and{" "}
-          <Link to="/about" className="text-gold hover:underline">
+          <Link to="/terms" className="text-gold hover:underline">
             Terms &amp; Conditions
           </Link>
           .
         </p>
 
-        <button type="submit" className="btn btn-gold mt-1.5 w-full py-4">
-          {submitLabel}
+        {error && <p className="text-xs text-red-500">{error}</p>}
+
+        <button type="submit" disabled={status === "submitting"} className="btn btn-gold mt-1.5 w-full py-4 disabled:opacity-60">
+          {status === "submitting" ? "Submitting…" : submitLabel}
         </button>
       </form>
     </div>

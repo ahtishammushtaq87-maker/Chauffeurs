@@ -1,9 +1,10 @@
 import { useLocation, Link } from "react-router-dom";
-import { navMeta, getHeroImage, chauffeurServices } from "../data/content";
+import { navMeta, getHeroImage } from "../data/content";
 import PageHero from "../components/PageHero";
 import PlaceholderImage from "../components/PlaceholderImage";
 import CardSlider from "../components/CardSlider";
 import ComingSoonSection from "../components/ComingSoonSection";
+import { useAllServices } from "../hooks/useAllServices";
 
 // Contextual copy based on which nav section the page belongs to.
 const groupCopy = {
@@ -49,6 +50,7 @@ export default function GenericPage() {
   const copy = groupCopy[meta.parent] || defaultCopy;
   const eyebrow = meta.parent || "Swift Chauffeurs";
   const isAreaPage = pathname.startsWith("/service-area");
+  const allServices = useAllServices();
 
   return (
     <>
@@ -81,7 +83,7 @@ export default function GenericPage() {
                 <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Our Chauffeur Services</h2>
               </div>
               <CardSlider
-                items={chauffeurServices}
+                items={allServices}
                 autoPlayMs={4500}
                 renderActions={(item) => (
                   <div className="flex gap-3">

@@ -1,40 +1,45 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import PlaceholderImage from "../components/PlaceholderImage";
 import { SearchIcon } from "../components/Icons";
 import { getHeroImage } from "../data/content";
-import { luxurySedanFleet } from "../data/luxurySedanContent";
-import { executiveSuvFleet } from "../data/executiveSuvContent";
-import { stretchLimoFleet } from "../data/stretchLimoContent";
-import { partyBusFleet } from "../data/partyBusContent";
-import { sprinterVanFleet } from "../data/sprinterVanContent";
-import { motorCoachFleet } from "../data/motorCoachContent";
-
-const categories = [
-  { label: "Luxury Sedan", path: "/fleet/luxury-sedan", items: luxurySedanFleet },
-  { label: "Executive SUV", path: "/fleet/executive-suv", items: executiveSuvFleet },
-  { label: "Stretch Limousine", path: "/fleet/stretch-limousine", items: stretchLimoFleet },
-  { label: "Party Bus", path: "/fleet/party-bus", items: partyBusFleet },
-  { label: "Sprinter Van", path: "/fleet/sprinter-van", items: sprinterVanFleet },
-  { label: "Motor Coach", path: "/fleet/motor-coach", items: motorCoachFleet },
-];
-
-const allVehicles = categories.flatMap((cat) =>
-  cat.items.map((item) => ({
-    name: item.name || item.title,
-    desc: item.desc,
-    image: item.image,
-    category: cat.label,
-    path: cat.path,
-  }))
-);
-
-const filterOptions = ["All", ...categories.map((c) => c.label)];
+import { apiGet } from "../lib/api";
+import { FLEET_SECTION_PAGE_PATHS } from "../data/fleetSections";
 
 export default function FleetPage() {
+  const [allVehicles, setAllVehicles] = useState([]);
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+
+  useEffect(() => {
+    Promise.all([apiGet("/fleet"), apiGet("/fleet/sections")])
+      .then(([{ vehicles }, { sections }]) => {
+        const fromSections = sections.flatMap((section) =>
+          section.cards.map((card) => ({
+            name: card.title,
+            desc: card.description,
+            image: card.image,
+            category: section.category,
+            path: FLEET_SECTION_PAGE_PATHS[section.slug] || `/fleet/${section.slug}`,
+          }))
+        );
+        const fromDashboard = vehicles.map((v) => ({
+          name: v.name,
+          desc: v.excerpt || v.description,
+          image: v.image,
+          category: v.category || "More Vehicles",
+          path: `/fleet/${v.slug}`,
+        }));
+        setAllVehicles([...fromSections, ...fromDashboard]);
+      })
+      .catch(() => setAllVehicles([]));
+  }, []);
+
+  const filterOptions = useMemo(
+    () => ["All", ...Array.from(new Set(allVehicles.map((v) => v.category)))],
+    [allVehicles]
+  );
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -43,7 +48,7 @@ export default function FleetPage() {
       const matchesQuery = !q || `${v.name} ${v.desc} ${v.category}`.toLowerCase().includes(q);
       return matchesCategory && matchesQuery;
     });
-  }, [query, activeCategory]);
+  }, [allVehicles, query, activeCategory]);
 
   return (
     <>
@@ -104,8 +109,8 @@ export default function FleetPage() {
                   key={`${v.name}-${i}`}
                   className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel"
                 >
-                  <div className="relative aspect-[4/3]">
-                    <PlaceholderImage src={v.image} alt={v.name} />
+                  <div className="relative h-56 flex-shrink-0 overflow-hidden">
+                    <PlaceholderImage src={v.image} alt={v.name} className="absolute inset-0" />
                     <span className="absolute top-3 left-3 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[11px] font-semibold tracking-wide text-white uppercase backdrop-blur-sm">
                       {v.category}
                     </span>

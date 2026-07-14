@@ -2,18 +2,17 @@ import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
 import CardSlider from "../components/CardSlider";
+import FleetHighlightSection from "../components/FleetHighlightSection";
 import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons";
 import TrustBadges from "../components/TrustBadges";
-import {
-  luxurySedanImages,
-  luxurySedanFeatures,
-  luxurySedanFleet,
-  luxurySedanCrossSell,
-} from "../data/luxurySedanContent";
+import { luxurySedanImages, luxurySedanFeatures } from "../data/luxurySedanContent";
+import { useAllServices } from "../hooks/useAllServices";
 
 const PHONE = "tel:+16158821722";
 
 export default function LuxurySedanPage() {
+  const allServices = useAllServices();
+
   return (
     <>
       {/* Hero (with quote form) */}
@@ -73,36 +72,11 @@ export default function LuxurySedanPage() {
         </div>
       </section>
 
-      {/* Fleet highlight */}
-      <section className="border-y border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 text-center">
-            <span className="eyebrow">We Have the Perfect Option for Every Journey</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Our Mercedes Fleet</h2>
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {luxurySedanFleet.map((item) => (
-              <div key={item.name} className="overflow-hidden rounded-xl border border-border bg-panel">
-                <div className="relative aspect-[16/10]">
-                  <PlaceholderImage src={item.image} alt={item.name} />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-serif text-xl text-text">{item.name}</h3>
-                  <p className="mt-3 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <a href="#quote" className="btn btn-outline">
-                      View More
-                    </a>
-                    <Link to="/contact" className="btn btn-gold">
-                      Book Now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FleetHighlightSection
+        slug="luxury-sedan-fleet"
+        eyebrow="We Have the Perfect Option for Every Journey"
+        heading="Our Mercedes Fleet"
+      />
 
       {/* Cross-sell: Our Premium Chauffeurs Service */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
@@ -112,7 +86,7 @@ export default function LuxurySedanPage() {
             <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Chauffeurs Service</h2>
           </div>
           <CardSlider
-            items={luxurySedanCrossSell}
+            items={allServices}
             renderActions={(item) => (
               <div className="flex gap-3">
                 <Link to={item.path} className="btn btn-outline flex-1">

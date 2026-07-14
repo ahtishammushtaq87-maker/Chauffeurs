@@ -1,13 +1,38 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { navLinks, sortByLabel } from "../data/content";
 import { ChevronDown, ChevronRight } from "./Icons";
+import { apiGet } from "../lib/api";
 import mascot from "../assets/images/chauffeur-mascot.png";
+import HeaderMobileActions from "./HeaderMobileActions";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openTop, setOpenTop] = useState(null);
   const [openSub, setOpenSub] = useState(null);
+  const [dynamicMenu, setDynamicMenu] = useState({ services: [], fleet: [] });
+
+  useEffect(() => {
+    apiGet("/menu")
+      .then(setDynamicMenu)
+      .catch(() => {});
+  }, []);
+
+  // Newly added services/fleet vehicles (from the dashboard) are appended to
+  // their matching dropdown automatically, without touching the static nav data.
+  const mergedNavLinks = useMemo(
+    () =>
+      navLinks.map((link) => {
+        if (link.label === "Services" && dynamicMenu.services.length) {
+          return { ...link, dropdown: [...link.dropdown, ...dynamicMenu.services] };
+        }
+        if (link.label === "Our Fleet" && dynamicMenu.fleet.length) {
+          return { ...link, dropdown: [...link.dropdown, ...dynamicMenu.fleet] };
+        }
+        return link;
+      }),
+    [dynamicMenu]
+  );
 
   const closeMobile = () => {
     setMobileOpen(false);
@@ -25,7 +50,7 @@ export default function Header() {
         {/* Desktop nav */}
         <nav className="hidden lg:block">
           <ul className="flex items-center gap-15">
-            {navLinks.map((link) => (
+            {mergedNavLinks.map((link) => (
               <li key={link.label} className="group/item relative">
                 <NavLink
                   to={link.path}
@@ -83,13 +108,14 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="flex flex-shrink-0 items-center gap-6">
+        <div className="flex flex-shrink-0 items-center gap-3 sm:gap-6">
           <Link
             to="/contact"
             className="btn btn-outline hidden border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light md:inline-flex"
           >
             Book Appointment
           </Link>
+          <HeaderMobileActions />
           <button
             className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 lg:hidden"
             aria-label="Toggle menu"
@@ -106,7 +132,7 @@ export default function Header() {
       {mobileOpen && (
         <nav className="max-h-[calc(100svh-5rem)] overflow-y-auto border-t border-ink-border bg-ink lg:hidden">
           <ul className="flex flex-col px-6 py-3">
-            {navLinks.map((link) => (
+            {mergedNavLinks.map((link) => (
               <li key={link.label} className="border-b border-ink-border/60 last:border-0">
                 {link.dropdown ? (
                   <>

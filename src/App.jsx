@@ -24,6 +24,22 @@ import FleetPage from "./pages/FleetPage";
 import ServicesPage from "./pages/ServicesPage";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
+import FleetVehicleDetailPage from "./pages/FleetVehicleDetailPage";
+
+import { AuthProvider } from "./admin/AuthContext";
+import RequireAuth from "./admin/RequireAuth";
+import AdminLayout from "./admin/AdminLayout";
+import LoginPage from "./admin/pages/LoginPage";
+import DashboardHome from "./admin/pages/DashboardHome";
+import ServicesAdmin from "./admin/pages/ServicesAdmin";
+import FleetAdmin from "./admin/pages/FleetAdmin";
+import BlogAdmin from "./admin/pages/BlogAdmin";
+import UsersAdmin from "./admin/pages/UsersAdmin";
+import SeoAdmin from "./admin/pages/SeoAdmin";
+import AppointmentsAdmin from "./admin/pages/AppointmentsAdmin";
+import QuoteRequestsAdmin from "./admin/pages/QuoteRequestsAdmin";
+import SettingsAdmin from "./admin/pages/SettingsAdmin";
 
 // Pages with bespoke content; everything else in the nav renders GenericPage.
 const dedicatedPages = {
@@ -54,19 +70,58 @@ function App() {
   const routes = flattenNavRoutes();
 
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        {routes.map((route) => {
-          const element = dedicatedPages[route.path] || <GenericPage />;
-          if (route.path === "/") {
-            return <Route key={route.path} index element={element} />;
+    <AuthProvider>
+      <Routes>
+        <Route element={<Layout />}>
+          {routes.map((route) => {
+            const element = dedicatedPages[route.path] || <GenericPage />;
+            if (route.path === "/") {
+              return <Route key={route.path} index element={element} />;
+            }
+            return <Route key={route.path} path={route.path} element={element} />;
+          })}
+          {/* Fallback routes for services/fleet items added via the dashboard. */}
+          <Route path="/services/:slug" element={<ServiceDetailPage />} />
+          <Route path="/fleet/:slug" element={<FleetVehicleDetailPage />} />
+          <Route path="/blog/:slug" element={<BlogDetailPage />} />
+          <Route path="*" element={<GenericPage />} />
+        </Route>
+
+        <Route path="/admin/login" element={<LoginPage />} />
+        <Route
+          path="/admin"
+          element={
+            <RequireAuth>
+              <AdminLayout />
+            </RequireAuth>
           }
-          return <Route key={route.path} path={route.path} element={element} />;
-        })}
-        <Route path="/blog/:slug" element={<BlogDetailPage />} />
-        <Route path="*" element={<GenericPage />} />
-      </Route>
-    </Routes>
+        >
+          <Route index element={<DashboardHome />} />
+          <Route path="services" element={<ServicesAdmin />} />
+          <Route path="fleet" element={<FleetAdmin />} />
+          <Route path="blog" element={<BlogAdmin />} />
+          <Route path="seo" element={<SeoAdmin />} />
+          <Route path="appointments" element={<AppointmentsAdmin />} />
+          <Route path="quotes" element={<QuoteRequestsAdmin />} />
+          <Route
+            path="users"
+            element={
+              <RequireAuth roles={["admin"]}>
+                <UsersAdmin />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="settings"
+            element={
+              <RequireAuth roles={["admin"]}>
+                <SettingsAdmin />
+              </RequireAuth>
+            }
+          />
+        </Route>
+      </Routes>
+    </AuthProvider>
   );
 }
 

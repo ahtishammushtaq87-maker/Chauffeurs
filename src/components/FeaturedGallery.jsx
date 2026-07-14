@@ -1,12 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
-import { featuredCars } from "../data/content";
 import { ChevronLeft, ChevronRight } from "./Icons";
+import { apiGet } from "../lib/api";
+import { FLEET_SECTION_PAGE_PATHS } from "../data/fleetSections";
 
 gsap.registerPlugin(Draggable);
-
-const galleryItems = [...featuredCars, ...featuredCars];
 
 function buildSeamlessLoop(items, spacing, animateFunc) {
   const overlap = Math.ceil(1 / spacing);
@@ -42,6 +42,37 @@ function buildSeamlessLoop(items, spacing, animateFunc) {
 }
 
 export default function FeaturedGallery() {
+  const [dynamicVehicles, setDynamicVehicles] = useState([]);
+
+  useEffect(() => {
+    Promise.all([apiGet("/fleet"), apiGet("/fleet/sections")])
+      .then(([{ vehicles }, { sections }]) => {
+        const fromDashboard = vehicles
+          .filter((v) => v.image)
+          .map((v) => ({ image: v.image, year: "", make: v.name, price: null, path: `/fleet/${v.slug}` }));
+
+        const fromSections = sections.flatMap((section) =>
+          section.cards
+            .filter((c) => c.image)
+            .map((c) => ({
+              image: c.image,
+              year: "",
+              make: c.title,
+              price: null,
+              path: FLEET_SECTION_PAGE_PATHS[section.slug] || `/fleet/${section.slug}`,
+            }))
+        );
+
+        setDynamicVehicles([...fromSections, ...fromDashboard]);
+      })
+      .catch(() => {});
+  }, []);
+
+  const galleryItems = useMemo(() => {
+    if (dynamicVehicles.length === 0) return [];
+    return [...dynamicVehicles, ...dynamicVehicles];
+  }, [dynamicVehicles]);
+
   const galleryRef = useRef(null);
   const stackRef = useRef(null);
   const cardsRef = useRef([]);
@@ -52,6 +83,7 @@ export default function FeaturedGallery() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const cards = cardsRef.current.filter(Boolean);
+      if (cards.length === 0) return;
       gsap.set(cards, { xPercent: 400, opacity: 0, scale: 0 });
 
       const spacing = 0.1;
@@ -125,7 +157,9 @@ export default function FeaturedGallery() {
     }, galleryRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [galleryItems]);
+
+  if (galleryItems.length === 0) return null;
 
   return (
     <div
@@ -140,12 +174,14 @@ export default function FeaturedGallery() {
             className="absolute top-0 left-0 h-[26rem] w-72 overflow-hidden rounded-2xl bg-cover bg-center sm:h-[28rem] sm:w-80"
             style={{ backgroundImage: `url(${car.image})` }}
           >
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4 text-left">
-              <p className="text-sm font-semibold text-white">
-                {car.year} {car.make}
-              </p>
-              <p className="text-sm text-gold">{car.price}</p>
-            </div>
+            <Link to={car.path} className="absolute inset-0 block">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4 text-left">
+                <p className="text-sm font-semibold text-white">
+                  {car.year} {car.make}
+                </p>
+                {car.price && <p className="text-sm text-gold">{car.price}</p>}
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

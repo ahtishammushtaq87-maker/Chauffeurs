@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import PlaceholderImage from "../components/PlaceholderImage";
 import { SearchIcon } from "../components/Icons";
-import { getHeroImage, chauffeurServices } from "../data/content";
+import { getHeroImage } from "../data/content";
+import { useAllServices } from "../hooks/useAllServices";
 
 export default function ServicesPage() {
+  const allServices = useAllServices();
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return chauffeurServices;
-    return chauffeurServices.filter((s) => `${s.title} ${s.desc}`.toLowerCase().includes(q));
-  }, [query]);
+    if (!q) return allServices;
+    return allServices.filter((s) => `${s.title} ${s.desc}`.toLowerCase().includes(q));
+  }, [allServices, query]);
 
   return (
     <>
@@ -44,7 +46,7 @@ export default function ServicesPage() {
           </div>
 
           <p className="mb-6 text-sm text-text-muted">
-            Showing {filtered.length} of {chauffeurServices.length} services
+            Showing {filtered.length} of {allServices.length} services
           </p>
 
           {filtered.length > 0 ? (

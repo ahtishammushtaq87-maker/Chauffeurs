@@ -1,18 +1,6 @@
 import { Link } from "react-router-dom";
 import { cityAreaLinks } from "../data/content";
-import {
-  PhoneIcon,
-  MailIcon,
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  YoutubeIcon,
-  PinterestIcon,
-  TiktokIcon,
-  XIcon,
-  GoogleIcon,
-  StarIcon,
-} from "./Icons";
+import { PhoneIcon, MailIcon, FacebookIcon, InstagramIcon, TiktokIcon, GoogleIcon, StarIcon } from "./Icons";
 import mascot from "../assets/images/chauffeur-mascot.png";
 
 const PHONE_1 = "+1 (615) 882-1722";
@@ -23,11 +11,7 @@ const MAP_QUERY = "Nashville, TN, USA"; // replace with the real business addres
 const socials = [
   { label: "Facebook", href: "#", Icon: FacebookIcon },
   { label: "Instagram", href: "#", Icon: InstagramIcon },
-  { label: "LinkedIn", href: "#", Icon: LinkedinIcon },
-  { label: "YouTube", href: "#", Icon: YoutubeIcon },
-  { label: "Pinterest", href: "#", Icon: PinterestIcon },
   { label: "TikTok", href: "#", Icon: TiktokIcon },
-  { label: "X", href: "#", Icon: XIcon },
 ];
 
 const toTel = (n) => n.replace(/[^\d+]/g, "");
@@ -84,15 +68,10 @@ export default function Footer() {
               <h4 className="mb-3.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">
                 Follow Us
               </h4>
-              <div className="flex items-center gap-3.5">
+              <div className="flex items-center gap-5">
                 {socials.map(({ label, href, Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    className="text-ink-fg-muted transition-colors hover:text-gold-light"
-                  >
-                    <Icon />
+                  <a key={label} href={href} aria-label={label} className="flex-shrink-0 transition-transform hover:scale-110">
+                    <Icon width={32} height={32} />
                   </a>
                 ))}
               </div>

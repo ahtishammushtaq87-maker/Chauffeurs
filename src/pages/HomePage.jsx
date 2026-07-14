@@ -9,9 +9,11 @@ import ContactSection from "../components/ContactSection";
 import CardSlider from "../components/CardSlider";
 import AreasWeServe from "../components/AreasWeServe";
 import { airportAreas } from "../data/airportContent";
-import { chauffeurServices } from "../data/content";
+import { useAllServices } from "../hooks/useAllServices";
 
 export default function HomePage() {
+  const allServices = useAllServices();
+
   return (
     <>
       <Hero />
@@ -25,7 +27,7 @@ export default function HomePage() {
             <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Our Chauffeur Services</h2>
           </div>
           <CardSlider
-            items={chauffeurServices}
+            items={allServices}
             autoPlayMs={4500}
             renderActions={(item) => (
               <div className="flex gap-3">
