@@ -5,6 +5,7 @@ import FleetSection from "../components/FleetSection";
 import CardSlider from "../components/CardSlider";
 import { StarIcon, CheckIcon, PhoneIcon, ShieldIcon, AwardIcon, ClockIcon, DiamondIcon, ArrowRightIcon } from "../components/Icons";
 import TrustBadges from "../components/TrustBadges";
+import AreasWeServe from "../components/AreasWeServe";
 import {
   birthdayImages,
   birthdayFleet,
@@ -283,26 +284,7 @@ export default function BirthdayPage() {
         </div>
       </section>
 
-      {/* Areas We Serve */}
-      <section className="px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 text-center">
-            <span className="eyebrow">Birthday Party Buses in Your Neighborhood</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Areas We Serve in Nashville</h2>
-          </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            {birthdayAreas.map((area) => (
-              <div
-                key={area}
-                className="flex items-center gap-2.5 rounded-lg border border-border bg-panel px-4 py-3.5 text-sm text-text-muted transition-colors hover:border-gold-dim hover:text-gold"
-              >
-                <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-                {area}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AreasWeServe eyebrow="Birthday Party Buses in Your Neighborhood" areas={birthdayAreas} />
 
       {/* Booking steps */}
       <section className="border-t border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">

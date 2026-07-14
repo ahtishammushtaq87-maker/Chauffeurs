@@ -27,7 +27,7 @@ export default function ContactSection() {
 
   return (
     <section className="px-6 py-16 md:px-16 lg:px-24">
-      <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-start gap-12 lg:grid-cols-[1.2fr_1fr]">
+      <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-stretch gap-12 lg:grid-cols-[1.2fr_1fr]">
         <div>
           <span className="eyebrow">Get in Touch</span>
           <h2 className="mb-4 font-serif text-[34px] leading-tight font-medium text-text">
@@ -88,7 +88,7 @@ export default function ContactSection() {
           </form>
         </div>
 
-        <div className="relative min-h-80 overflow-hidden rounded border border-border lg:min-h-[480px]">
+        <div className="relative min-h-80 overflow-hidden rounded border border-border lg:min-h-0 lg:h-full">
           <div className="absolute inset-0">
             <PlaceholderImage src={dealershipImg} label="Dealership Photo" alt="Apex Motors showroom" />
           </div>

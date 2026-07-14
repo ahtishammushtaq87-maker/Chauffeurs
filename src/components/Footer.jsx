@@ -36,9 +36,14 @@ export default function Footer() {
       <div className="mx-auto max-w-(--breakpoint-l) px-6 md:px-16 lg:px-24">
         {/* Top: logo, reservations, email, socials */}
         <div className="flex flex-col gap-10 pb-10 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
-          <Link to="/" className="flex flex-shrink-0 items-center gap-2.5">
-            <img src={mascot} alt="Swift Chauffeurs" className="h-12 w-auto" />
-          </Link>
+          <div className="flex flex-shrink-0 flex-col gap-3 sm:max-w-70">
+            <Link to="/" className="flex items-center gap-2.5">
+              <img src={mascot} alt="Swift Chauffeurs" className="h-12 w-auto" />
+            </Link>
+            <p className="text-sm leading-relaxed text-ink-fg-muted">
+              Arrive in style. Nashville's trusted chauffeured rides for every occasion, day or night.
+            </p>
+          </div>
 
           <div className="flex-shrink-0">
             <h4 className="mb-2.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">Reservations:</h4>
@@ -51,22 +56,17 @@ export default function Footer() {
                 <PhoneIcon width={14} height={14} className="flex-shrink-0 text-gold-light" />
                 {PHONE_2}
               </a>
-            </div>
-            <p className="mt-2.5 max-w-70 text-xs leading-relaxed text-ink-fg-faint">
-              Text <span className="font-semibold text-ink-fg">HELP</span> for assistance or{" "}
-              <span className="font-semibold text-ink-fg">STOP</span> to unsubscribe.
-            </p>
-          </div>
-
-          <div className="flex flex-shrink-0 flex-col gap-5 lg:mt-7.5">
-            <a
+              <a
               href={`mailto:${EMAIL}`}
               className="flex items-center gap-2.5 text-sm text-ink-fg-muted transition-colors hover:text-gold-light"
             >
               <MailIcon width={16} height={16} className="flex-shrink-0 text-gold-light" />
               {EMAIL}
             </a>
+            </div> 
+          </div>
 
+          <div className="flex flex-shrink-0 flex-col gap-5 lg:mt-7.5">
             <div>
               <h4 className="mb-3.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">
                 Follow Us
