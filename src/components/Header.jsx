@@ -16,7 +16,7 @@ export default function Header() {
 
   useEffect(() => {
     apiGet("/menu")
-      .then(setDynamicMenu)
+      .then((data) => setDynamicMenu({ services: data?.services || [], fleet: data?.fleet || [] }))
       .catch(() => {});
   }, []);
 
