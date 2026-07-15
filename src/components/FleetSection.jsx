@@ -19,7 +19,12 @@ export default function FleetSection({
           renderCard={(item) => (
             <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel">
               <div className="relative h-56 flex-shrink-0 overflow-hidden">
-                <PlaceholderImage src={item.image} alt={item.name} className="absolute inset-0" />
+                <PlaceholderImage
+                  src={item.image}
+                  alt={item.imageAlt || item.name}
+                  title={item.imageTitle}
+                  className="absolute inset-0"
+                />
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-serif text-lg text-text">{item.name}</h3>

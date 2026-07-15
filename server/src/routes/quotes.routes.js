@@ -3,6 +3,7 @@ import db from "../db/index.js";
 import { requireAuth, requireRole } from "../middleware/auth.js";
 import { sendNotificationEmail } from "../utils/mailer.js";
 import { renderQuoteEmail } from "../utils/emailTemplates.js";
+import { verifyChallenge } from "../utils/captcha.js";
 
 const router = Router();
 
@@ -20,6 +21,9 @@ const deleteQuote = db.prepare("DELETE FROM quote_requests WHERE id = ?");
 // Public: anyone submitting the "Get An Instant Quote" form on any page.
 router.post("/", (req, res) => {
   const b = req.body || {};
+  if (!verifyChallenge(b.captchaToken, b.captchaAnswer)) {
+    return res.status(400).json({ error: "Please complete the CAPTCHA verification." });
+  }
   if (!b.name?.trim() && !b.contactNo?.trim() && !b.email?.trim()) {
     return res.status(400).json({ error: "Please provide at least a name, phone, or email." });
   }

@@ -14,13 +14,14 @@ const getBySlug = db.prepare("SELECT * FROM blog_posts WHERE slug = ?");
 const getById = db.prepare("SELECT * FROM blog_posts WHERE id = ?");
 const slugExists = db.prepare("SELECT 1 FROM blog_posts WHERE slug = ?");
 const insertPost = db.prepare(`
-  INSERT INTO blog_posts (title, slug, category, excerpt, content, image, author, published, published_at)
-  VALUES (@title, @slug, @category, @excerpt, @content, @image, @author, @published, datetime('now'))
+  INSERT INTO blog_posts (title, slug, category, excerpt, content, image, image_alt, image_title, author, published, published_at)
+  VALUES (@title, @slug, @category, @excerpt, @content, @image, @image_alt, @image_title, @author, @published, datetime('now'))
 `);
 const updatePost = db.prepare(`
   UPDATE blog_posts
   SET title = @title, category = @category, excerpt = @excerpt, content = @content,
-      image = COALESCE(@image, image), author = @author, published = @published,
+      image = COALESCE(@image, image), image_alt = @image_alt, image_title = @image_title,
+      author = @author, published = @published,
       updated_at = datetime('now')
   WHERE id = @id
 `);
@@ -40,8 +41,16 @@ router.get("/:slug", (req, res) => {
 });
 
 router.post("/", requireAuth, requireRole("admin", "editor"), upload.single("image"), (req, res) => {
-  const { title, category = "", excerpt = "", content = "", author = "Swift Chauffeurs Team", published = "1" } =
-    req.body || {};
+  const {
+    title,
+    category = "",
+    excerpt = "",
+    content = "",
+    image_alt = "",
+    image_title = "",
+    author = "Swift Chauffeurs Team",
+    published = "1",
+  } = req.body || {};
   if (!title || !title.trim()) {
     return res.status(400).json({ error: "Title is required." });
   }
@@ -55,6 +64,8 @@ router.post("/", requireAuth, requireRole("admin", "editor"), upload.single("ima
     excerpt: excerpt.trim(),
     content: content.trim(),
     image,
+    image_alt: image_alt.trim(),
+    image_title: image_title.trim(),
     author: author.trim() || "Swift Chauffeurs Team",
     published: published === "0" ? 0 : 1,
   });
@@ -66,7 +77,7 @@ router.patch("/:id", requireAuth, requireRole("admin", "editor"), upload.single(
   const existing = getById.get(id);
   if (!existing) return res.status(404).json({ error: "Post not found." });
 
-  const { title, category, excerpt, content, author, published } = req.body || {};
+  const { title, category, excerpt, content, image_alt, image_title, author, published } = req.body || {};
   const image = req.file ? `/uploads/${req.file.filename}` : null;
 
   updatePost.run({
@@ -76,6 +87,8 @@ router.patch("/:id", requireAuth, requireRole("admin", "editor"), upload.single(
     excerpt: (excerpt ?? existing.excerpt).trim(),
     content: (content ?? existing.content).trim(),
     image,
+    image_alt: (image_alt ?? existing.image_alt ?? "").trim(),
+    image_title: (image_title ?? existing.image_title ?? "").trim(),
     author: (author ?? existing.author).trim(),
     published: published === undefined ? existing.published : published === "0" ? 0 : 1,
   });

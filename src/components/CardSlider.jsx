@@ -55,7 +55,7 @@ export default function CardSlider({ items, buttonLabel = "Book Now", renderActi
               ) : (
                 <div className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel">
                   <div className="relative aspect-[4/3]">
-                    <PlaceholderImage src={item.image} alt={item.title} />
+                    <PlaceholderImage src={item.image} alt={item.imageAlt || item.title} title={item.imageTitle} />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-[15px] font-semibold text-text">{item.title}</h3>

@@ -1,13 +1,13 @@
-import heroImg from "../assets/images/trade-bg.jpg";
+import heroImg from "../assets/images/trade-bg.webp";
 import introImg from "../assets/images/financing-bg.jpg";
-import fleetLimo from "../assets/images/car-mercedes.jpg";
-import fleetCoach from "../assets/images/fleet-coach.jpg";
-import fleetCoach2 from "../assets/images/fleet-partybus.jpg";
-import whyImg from "../assets/images/svc-prom.jpg";
-import partyImg from "../assets/images/prom-party.jpg";
-import diningImg from "../assets/images/prom-dining.jpg";
+import fleetLimo from "../assets/images/car-mercedes.webp";
+import fleetCoach from "../assets/images/fleet-coach.webp";
+import fleetCoach2 from "../assets/images/fleet-partybus.webp";
+import whyImg from "../assets/images/svc-prom.webp";
+import partyImg from "../assets/images/prom-party.webp";
+import diningImg from "../assets/images/prom-dining.webp";
 import spotlightImg from "../assets/images/hero.webp";
-import trustImg from "../assets/images/car-porsche.jpg";
+import trustImg from "../assets/images/car-porsche.webp";
 
 export const promImages = {
   heroImg,

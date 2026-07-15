@@ -9,9 +9,20 @@ const emptyForm = {
   published: true,
   image: null,
   fleetIds: [],
+  image_alt: "",
+  image_title: "",
 };
 
-const emptySection = { eyebrow: "", heading: "", text: "", image: null, existingImage: null, keepImage: false };
+const emptySection = {
+  eyebrow: "",
+  heading: "",
+  text: "",
+  image: null,
+  existingImage: null,
+  keepImage: false,
+  image_alt: "",
+  image_title: "",
+};
 
 function ServiceSectionFields({ section, index, onChange, onRemove }) {
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -64,6 +75,18 @@ function ServiceSectionFields({ section, index, onChange, onRemove }) {
             <img src={previewUrl} alt="Preview" className="h-full w-full object-cover" />
           </div>
         )}
+        <input
+          value={section.image_alt}
+          onChange={(e) => onChange({ ...section, image_alt: e.target.value })}
+          placeholder="Image alt text (for SEO)"
+          className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
+        />
+        <input
+          value={section.image_title}
+          onChange={(e) => onChange({ ...section, image_title: e.target.value })}
+          placeholder="Image title (for SEO)"
+          className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
+        />
       </div>
     </div>
   );
@@ -116,6 +139,8 @@ export default function ServicesAdmin() {
       published: Boolean(item.published),
       image: null,
       fleetIds: [],
+      image_alt: item.image_alt || "",
+      image_title: item.image_title || "",
     });
     setSections([]);
     try {
@@ -129,6 +154,8 @@ export default function ServicesAdmin() {
           image: null,
           existingImage: s.image || null,
           keepImage: Boolean(s.image),
+          image_alt: s.image_alt || "",
+          image_title: s.image_title || "",
         }))
       );
     } catch {
@@ -167,6 +194,8 @@ export default function ServicesAdmin() {
       fd.append("description", form.description);
       fd.append("published", form.published ? "1" : "0");
       fd.append("fleetIds", JSON.stringify(form.fleetIds));
+      fd.append("image_alt", form.image_alt);
+      fd.append("image_title", form.image_title);
       if (form.image) fd.append("image", form.image);
 
       const sectionsPayload = sections.map((s) => ({
@@ -174,6 +203,8 @@ export default function ServicesAdmin() {
         heading: s.heading.trim(),
         text: s.text.trim(),
         keepImage: Boolean(s.keepImage && !s.image),
+        imageAlt: s.image_alt.trim(),
+        imageTitle: s.image_title.trim(),
       }));
       fd.append("sections", JSON.stringify(sectionsPayload));
       sections.forEach((s, i) => {
@@ -251,6 +282,30 @@ export default function ServicesAdmin() {
               accept="image/*"
               onChange={(e) => setForm((f) => ({ ...f, image: e.target.files?.[0] || null }))}
               className="w-full text-sm text-text-muted"
+            />
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold tracking-wide text-text-muted uppercase">
+              Image Alt Text (for SEO)
+            </label>
+            <input
+              value={form.image_alt}
+              onChange={(e) => setForm((f) => ({ ...f, image_alt: e.target.value }))}
+              placeholder="e.g. Chauffeur opening door of black SUV for airport pickup"
+              className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
+            />
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold tracking-wide text-text-muted uppercase">
+              Image Title (for SEO)
+            </label>
+            <input
+              value={form.image_title}
+              onChange={(e) => setForm((f) => ({ ...f, image_title: e.target.value }))}
+              placeholder="e.g. Swift Chauffeurs Airport Car Service"
+              className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
             />
           </div>
 

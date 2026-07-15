@@ -19,11 +19,10 @@ import {
   aboutSafetyFeatures,
   aboutReviews,
 } from "../data/aboutContent";
-
-const PHONE = "+1 (201) 979-7374";
-const EMAIL = "contact@swiftchauffeurs.com";
+import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 export default function AboutPage() {
+  const settings = useSiteSettings();
   return (
     <>
       {/* Hero */}
@@ -206,13 +205,13 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="flex flex-col gap-5 lg:border-l lg:border-border lg:pl-10">
-              <a href={`tel:${PHONE.replace(/[^\d+]/g, "")}`} className="flex items-center gap-3 text-text hover:text-gold">
+              <a href={toTelHref(settings.phone_2)} className="flex items-center gap-3 text-text hover:text-gold">
                 <PhoneIcon width={18} height={18} className="flex-shrink-0 text-gold" />
-                {PHONE}
+                {settings.phone_2}
               </a>
-              <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-text hover:text-gold">
+              <a href={`mailto:${settings.email}`} className="flex items-center gap-3 text-text hover:text-gold">
                 <MailIcon width={18} height={18} className="flex-shrink-0 text-gold" />
-                {EMAIL}
+                {settings.email}
               </a>
               <Link to="/contact" className="btn btn-gold mt-2">
                 Contact Us

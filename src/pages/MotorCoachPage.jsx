@@ -7,10 +7,11 @@ import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons"
 import TrustBadges from "../components/TrustBadges";
 import { motorCoachImages, motorCoachFeatures } from "../data/motorCoachContent";
 import { useAllServices } from "../hooks/useAllServices";
-
-const PHONE = "tel:+16158821722";
+import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 export default function MotorCoachPage() {
+  const settings = useSiteSettings();
+  const PHONE = toTelHref(settings.phone_1);
   const allServices = useAllServices();
 
   return (

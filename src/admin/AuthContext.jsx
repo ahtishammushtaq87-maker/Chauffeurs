@@ -22,8 +22,13 @@ export function AuthProvider({ children }) {
     refresh();
   }, [refresh]);
 
-  const login = async (email, password) => {
-    const { user } = await apiJson("/auth/login", "POST", { email, password });
+  const login = async (email, password, captcha) => {
+    const { user } = await apiJson("/auth/login", "POST", {
+      email,
+      password,
+      captchaToken: captcha?.token,
+      captchaAnswer: captcha?.answer,
+    });
     setUser(user);
     return user;
   };

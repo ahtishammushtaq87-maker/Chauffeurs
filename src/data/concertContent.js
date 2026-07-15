@@ -1,9 +1,9 @@
-import heroImg from "../assets/images/svc-concert.jpg";
-import limoRoadImg from "../assets/images/concert-limo-road.jpg";
+import heroImg from "../assets/images/svc-concert.webp";
+import limoRoadImg from "../assets/images/concert-limo-road.webp";
 import chauffeurImg from "../assets/images/financing-bg.jpg";
-import fleetLimo from "../assets/images/car-mercedes.jpg";
-import fleetCoach from "../assets/images/fleet-coach.jpg";
-import fleetSedan from "../assets/images/fleet-partybus.jpg";
+import fleetLimo from "../assets/images/car-mercedes.webp";
+import fleetCoach from "../assets/images/fleet-coach.webp";
+import fleetSedan from "../assets/images/fleet-partybus.webp";
 
 export const concertImages = {
   heroImg,

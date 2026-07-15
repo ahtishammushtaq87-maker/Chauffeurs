@@ -1,17 +1,17 @@
-import heroImg from "../assets/images/fleet-coach.jpg";
-import featuresImg from "../assets/images/fleet-partybus.jpg";
-import coach25 from "../assets/images/fleet-coach.jpg";
-import coach31 from "../assets/images/fleet-partybus.jpg";
-import coach40 from "../assets/images/fleet-coach.jpg";
-import coach43 from "../assets/images/fleet-partybus.jpg";
-import coach56 from "../assets/images/fleet-coach.jpg";
-import airportImg from "../assets/images/svc-airport.jpg";
-import birthdayImg from "../assets/images/svc-birthday.jpg";
+import heroImg from "../assets/images/fleet-coach.webp";
+import featuresImg from "../assets/images/fleet-partybus.webp";
+import coach25 from "../assets/images/fleet-coach.webp";
+import coach31 from "../assets/images/fleet-partybus.webp";
+import coach40 from "../assets/images/fleet-coach.webp";
+import coach43 from "../assets/images/fleet-partybus.webp";
+import coach56 from "../assets/images/fleet-coach.webp";
+import airportImg from "../assets/images/svc-airport.webp";
+import birthdayImg from "../assets/images/svc-birthday.webp";
 import blackCarImg from "../assets/images/svc-blackcar.jpg";
-import concertImg from "../assets/images/svc-concert.jpg";
-import executiveImg from "../assets/images/svc-executive.jpg";
-import promImg from "../assets/images/prom-dining.jpg";
-import weddingImg from "../assets/images/svc-wedding.jpg";
+import concertImg from "../assets/images/svc-concert.webp";
+import executiveImg from "../assets/images/svc-executive.webp";
+import promImg from "../assets/images/prom-dining.webp";
+import weddingImg from "../assets/images/svc-wedding.webp";
 
 export const motorCoachImages = {
   heroImg,

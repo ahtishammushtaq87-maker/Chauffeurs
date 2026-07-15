@@ -2,13 +2,15 @@ import PageHero from "../components/PageHero";
 import { PhoneIcon, MailIcon, PinIcon } from "../components/Icons";
 import { Section, Dot } from "../components/LegalDoc";
 import { getHeroImage } from "../data/content";
+import { useSiteSettings } from "../context/SiteSettingsContext";
 
-const PHONE_1 = "+1 (201)-979-7374";
-const PHONE_2 = "+1 (615) 882-1772";
-const EMAIL = "contact@swiftchauffeurs.com";
 const WEBSITE = "https://swiftchauffeurs.com/";
 
 export default function PrivacyPolicyPage() {
+  const settings = useSiteSettings();
+  const PHONE_1 = settings.phone_1;
+  const PHONE_2 = settings.phone_2;
+  const EMAIL = settings.email;
   return (
     <>
       <PageHero eyebrow="Legal" title="Privacy Policy" image={getHeroImage("/privacy-policy")} />

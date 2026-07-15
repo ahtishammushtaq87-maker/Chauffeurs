@@ -1,22 +1,17 @@
 import { Link } from "react-router-dom";
 import { cityAreaLinks } from "../data/content";
 import { PhoneIcon, MailIcon, FacebookIcon, InstagramIcon, TiktokIcon, GoogleIcon, StarIcon } from "./Icons";
-import mascot from "../assets/images/chauffeur-mascot.png";
-
-const PHONE_1 = "+1 (615) 882-1722";
-const PHONE_2 = "+1 (201) 979-7374";
-const EMAIL = "contact@swiftchauffeurs.com";
-const MAP_QUERY = "Nashville, TN, USA"; // replace with the real business address
-
-const socials = [
-  { label: "Facebook", href: "#", Icon: FacebookIcon },
-  { label: "Instagram", href: "#", Icon: InstagramIcon },
-  { label: "TikTok", href: "#", Icon: TiktokIcon },
-];
-
-const toTel = (n) => n.replace(/[^\d+]/g, "");
+import mascot from "../assets/images/chauffeur-mascot.webp";
+import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 export default function Footer() {
+  const settings = useSiteSettings();
+  const socials = [
+    settings.facebook_url && { label: "Facebook", href: settings.facebook_url, Icon: FacebookIcon },
+    settings.instagram_url && { label: "Instagram", href: settings.instagram_url, Icon: InstagramIcon },
+    settings.tiktok_url && { label: "TikTok", href: settings.tiktok_url, Icon: TiktokIcon },
+  ].filter(Boolean);
+
   return (
     <footer className="border-t border-ink-border bg-ink-alt pt-14">
       <div className="mx-auto max-w-(--breakpoint-l) px-6 md:px-16 lg:px-24">
@@ -24,7 +19,7 @@ export default function Footer() {
         <div className="flex flex-col gap-10 pb-10 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
           <div className="flex flex-shrink-0 flex-col gap-3 sm:max-w-70">
             <Link to="/" className="flex items-center gap-2.5">
-              <img src={mascot} alt="Swift Chauffeurs" className="h-12 w-auto md:h-14" />
+              <img src={settings.logo_url || mascot} alt="Swift Chauffeurs" className="h-12 w-auto md:h-14" />
             </Link>
             <p className="text-sm leading-relaxed text-ink-fg-muted">
               Arrive in style. Nashville's trusted chauffeured rides for every occasion, day or night.
@@ -45,47 +40,55 @@ export default function Footer() {
           <div className="flex-shrink-0">
             <h4 className="mb-2.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">Reservations:</h4>
             <div className="flex flex-col gap-2 text-sm text-ink-fg-muted">
-              <a href={`tel:${toTel(PHONE_1)}`} className="flex items-center gap-2.5 transition-colors hover:text-gold-light">
+              <a href={toTelHref(settings.phone_1)} className="flex items-center gap-2.5 transition-colors hover:text-gold-light">
                 <PhoneIcon width={14} height={14} className="flex-shrink-0 text-gold-light" />
-                {PHONE_1}
+                {settings.phone_1}
               </a>
-              <a href={`tel:${toTel(PHONE_2)}`} className="flex items-center gap-2.5 transition-colors hover:text-gold-light">
+              <a href={toTelHref(settings.phone_2)} className="flex items-center gap-2.5 transition-colors hover:text-gold-light">
                 <PhoneIcon width={14} height={14} className="flex-shrink-0 text-gold-light" />
-                {PHONE_2}
+                {settings.phone_2}
               </a>
               <a
-              href={`mailto:${EMAIL}`}
+              href={`mailto:${settings.email}`}
               className="flex items-center gap-2.5 text-sm text-ink-fg-muted transition-colors hover:text-gold-light"
             >
               <MailIcon width={16} height={16} className="flex-shrink-0 text-gold-light" />
-              {EMAIL}
+              {settings.email}
             </a>
-            </div> 
-          </div>
-
-          <div className="flex flex-shrink-0 flex-col gap-5">
-            <div>
-              <h4 className="mb-3.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">
-                Follow Us
-              </h4>
-              <div className="flex items-center gap-5">
-                {socials.map(({ label, href, Icon }) => (
-                  <a key={label} href={href} aria-label={label} className="flex-shrink-0 transition-transform hover:scale-110">
-                    <Icon width={32} height={32} />
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
+
+          {socials.length > 0 && (
+            <div className="flex flex-shrink-0 flex-col gap-5">
+              <div>
+                <h4 className="mb-3.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">
+                  Follow Us
+                </h4>
+                <div className="flex items-center gap-5">
+                  {socials.map(({ label, href, Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="flex-shrink-0 transition-transform hover:scale-110"
+                    >
+                      <Icon width={32} height={32} />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="flex-shrink-0">
             <h4 className="mb-3.5 text-[13px] font-semibold tracking-wide text-ink-fg uppercase">
               Find Us
             </h4>
-            {/* TODO: replace the q= value below with the real business address */}
             <iframe
               title="Swift Chauffeurs location"
-              src={`https://maps.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=12&output=embed`}
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(settings.address)}&z=12&output=embed`}
               className="h-40 w-full rounded-md border border-ink-border grayscale transition-all hover:grayscale-0 lg:w-64"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -105,6 +108,12 @@ export default function Footer() {
             </Link>
             <Link to="/terms" className="text-xs text-ink-fg-faint transition-colors hover:text-gold-light">
               Terms &amp; Conditions
+            </Link>
+            <Link
+              to="/gdpr-compliance"
+              className="text-xs text-ink-fg-faint transition-colors hover:text-gold-light"
+            >
+              GDPR Compliance
             </Link>
           </div>
         </div>

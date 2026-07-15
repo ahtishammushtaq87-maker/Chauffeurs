@@ -15,6 +15,8 @@ export function useAllServices() {
             title: s.title,
             desc: s.excerpt || s.description,
             image: s.image,
+            imageAlt: s.image_alt,
+            imageTitle: s.image_title,
             path: `/services/${s.slug}`,
           }))
         );

@@ -1,8 +1,10 @@
-const WHATSAPP_NUMBER = "16158821722";
+import { useSiteSettings } from "../context/SiteSettingsContext";
+
 const PREFILLED_MESSAGE = "Hi Swift Chauffeurs, I'd like to know more about your services.";
 
 export default function WhatsAppButton() {
-  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PREFILLED_MESSAGE)}`;
+  const { whatsapp_number } = useSiteSettings();
+  const href = `https://wa.me/${whatsapp_number}?text=${encodeURIComponent(PREFILLED_MESSAGE)}`;
 
   return (
     <a

@@ -1,8 +1,8 @@
-import heroImg from "../assets/images/area-nashville.jpg";
-import whyChooseImg from "../assets/images/exec-businessman.jpg";
-import storyImg from "../assets/images/dealership.jpg";
-import safetyImg1 from "../assets/images/svc-executive.jpg";
-import safetyImg2 from "../assets/images/exec-suit.jpg";
+import heroImg from "../assets/images/area-nashville.webp";
+import whyChooseImg from "../assets/images/exec-businessman.webp";
+import storyImg from "../assets/images/dealership.webp";
+import safetyImg1 from "../assets/images/svc-executive.webp";
+import safetyImg2 from "../assets/images/exec-suit.webp";
 
 export const aboutImages = {
   heroImg,

@@ -3,10 +3,8 @@ import PageHero from "../components/PageHero";
 import { PhoneIcon, MailIcon, PinIcon } from "../components/Icons";
 import { Section, Dot } from "../components/LegalDoc";
 import { getHeroImage } from "../data/content";
+import { useSiteSettings } from "../context/SiteSettingsContext";
 
-const PHONE_1 = "+1 (201)-979-7374";
-const PHONE_2 = "+1 (615) 882-1772";
-const EMAIL = "contact@swiftchauffeurs.com";
 const WEBSITE = "https://swiftchauffeurs.com";
 
 const holidays = [
@@ -22,6 +20,10 @@ const holidays = [
 ];
 
 export default function TermsPage() {
+  const settings = useSiteSettings();
+  const PHONE_1 = settings.phone_1;
+  const PHONE_2 = settings.phone_2;
+  const EMAIL = settings.email;
   return (
     <>
       <PageHero eyebrow="Legal" title="Terms & Conditions" image={getHeroImage("/terms")} />
@@ -224,7 +226,7 @@ export default function TermsPage() {
               <p>
                 You can cancel the SMS service at any time. Just text "STOP" to{" "}
                 <a href={`tel:${PHONE_1.replace(/[^\d+]/g, "")}`} className="text-gold hover:underline">
-                  (201) 979-7374
+                  {PHONE_1}
                 </a>
                 . After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you
                 have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to
@@ -236,7 +238,7 @@ export default function TermsPage() {
                 </a>{" "}
                 or{" "}
                 <a href={`tel:${PHONE_1.replace(/[^\d+]/g, "")}`} className="text-gold hover:underline">
-                  (201) 979-7374
+                  {PHONE_1}
                 </a>
                 .
               </p>

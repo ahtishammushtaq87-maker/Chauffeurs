@@ -1,12 +1,12 @@
-import heroImg from "../assets/images/svc-wedding.jpg";
-import introImg from "../assets/images/fleet-sedan.jpg";
-import fleetLimo from "../assets/images/car-mercedes.jpg";
-import fleetCoach from "../assets/images/fleet-coach.jpg";
-import fleetCoach2 from "../assets/images/car-bmw.jpg";
-import whyImg from "../assets/images/concert-limo-road.jpg";
+import heroImg from "../assets/images/svc-wedding.webp";
+import introImg from "../assets/images/fleet-sedan.webp";
+import fleetLimo from "../assets/images/car-mercedes.webp";
+import fleetCoach from "../assets/images/fleet-coach.webp";
+import fleetCoach2 from "../assets/images/car-bmw.webp";
+import whyImg from "../assets/images/concert-limo-road.webp";
 import affordabilityBg from "../assets/images/financing-bg.jpg";
-import trustImg from "../assets/images/car-bmw.jpg";
-import redCarpetImg from "../assets/images/trade-bg.jpg";
+import trustImg from "../assets/images/car-bmw.webp";
+import redCarpetImg from "../assets/images/trade-bg.webp";
 
 export const weddingImages = {
   heroImg,

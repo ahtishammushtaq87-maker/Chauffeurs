@@ -19,6 +19,7 @@ import SprinterVanPage from "./pages/SprinterVanPage";
 import StretchLimoPage from "./pages/StretchLimoPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsPage from "./pages/TermsPage";
+import GdprCompliancePage from "./pages/GdprCompliancePage";
 import GenericPage from "./pages/GenericPage";
 import FleetPage from "./pages/FleetPage";
 import ServicesPage from "./pages/ServicesPage";
@@ -27,6 +28,8 @@ import BlogDetailPage from "./pages/BlogDetailPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import FleetVehicleDetailPage from "./pages/FleetVehicleDetailPage";
 
+import FaviconManager from "./components/FaviconManager";
+import ScrollToTop from "./components/ScrollToTop";
 import { AuthProvider } from "./admin/AuthContext";
 import RequireAuth from "./admin/RequireAuth";
 import AdminLayout from "./admin/AdminLayout";
@@ -63,6 +66,7 @@ const dedicatedPages = {
   "/fleet/stretch-limousine": <StretchLimoPage />,
   "/privacy-policy": <PrivacyPolicyPage />,
   "/terms": <TermsPage />,
+  "/gdpr-compliance": <GdprCompliancePage />,
   "/blog": <BlogPage />,
 };
 
@@ -71,6 +75,8 @@ function App() {
 
   return (
     <AuthProvider>
+      <FaviconManager />
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           {routes.map((route) => {

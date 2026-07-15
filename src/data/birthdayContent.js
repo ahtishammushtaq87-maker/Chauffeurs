@@ -1,11 +1,11 @@
-import heroImg from "../assets/images/bday-hero.jpg";
-import giftImg from "../assets/images/bday-gifts.jpg";
-import cakeImg from "../assets/images/bday-cake.jpg";
-import friendsImg from "../assets/images/bday-friends.jpg";
-import discoImg from "../assets/images/bday-disco.jpg";
-import fleetLimo from "../assets/images/fleet-partybus.jpg";
-import fleetCoach from "../assets/images/fleet-coach.jpg";
-import fleetSedan from "../assets/images/car-mercedes.jpg";
+import heroImg from "../assets/images/bday-hero.webp";
+import giftImg from "../assets/images/bday-gifts.webp";
+import cakeImg from "../assets/images/bday-cake.webp";
+import friendsImg from "../assets/images/bday-friends.webp";
+import discoImg from "../assets/images/bday-disco.webp";
+import fleetLimo from "../assets/images/fleet-partybus.webp";
+import fleetCoach from "../assets/images/fleet-coach.webp";
+import fleetSedan from "../assets/images/car-mercedes.webp";
 
 export const birthdayImages = {
   heroImg,

@@ -51,7 +51,7 @@ export default function BlogPage() {
                   className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel"
                 >
                   <div className="relative aspect-[4/3]">
-                    <PlaceholderImage src={post.image} alt={post.title} />
+                    <PlaceholderImage src={post.image} alt={post.image_alt || post.title} title={post.image_title} />
                     {post.category && (
                       <span className="absolute top-3 left-3 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[11px] font-semibold tracking-wide text-white uppercase backdrop-blur-sm">
                         {post.category}

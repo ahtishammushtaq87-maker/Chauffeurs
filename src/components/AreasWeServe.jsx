@@ -1,4 +1,4 @@
-import areaNashville from "../assets/images/area-nashville.jpg";
+import areaNashville from "../assets/images/area-nashville.webp";
 
 export default function AreasWeServe({ eyebrow = "Locations", areas = [] }) {
   return (

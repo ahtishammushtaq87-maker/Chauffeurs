@@ -1,10 +1,10 @@
-import heroImg from "../assets/images/svc-executive.jpg";
-import introImg from "../assets/images/exec-suit.jpg";
-import fleetLimo from "../assets/images/car-mercedes.jpg";
-import fleetCoach from "../assets/images/fleet-coach.jpg";
-import fleetCoach2 from "../assets/images/fleet-partybus.jpg";
-import whyImg from "../assets/images/exec-businessman.jpg";
-import affordabilityBg from "../assets/images/exec-cityskyline.jpg";
+import heroImg from "../assets/images/svc-executive.webp";
+import introImg from "../assets/images/exec-suit.webp";
+import fleetLimo from "../assets/images/car-mercedes.webp";
+import fleetCoach from "../assets/images/fleet-coach.webp";
+import fleetCoach2 from "../assets/images/fleet-partybus.webp";
+import whyImg from "../assets/images/exec-businessman.webp";
+import affordabilityBg from "../assets/images/exec-cityskyline.webp";
 
 export const executiveImages = {
   heroImg,

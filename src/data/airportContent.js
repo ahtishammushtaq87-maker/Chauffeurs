@@ -1,13 +1,13 @@
 import heroImg from "../assets/images/hero.webp";
-import suvImg from "../assets/images/car-rangerover.jpg";
-import fleetSprinter from "../assets/images/fleet-partybus.jpg";
-import fleetCoach from "../assets/images/fleet-coach.jpg";
-import fleetLimo from "../assets/images/car-mercedes.jpg";
-import serviceImg from "../assets/images/airport-jet.jpg";
-import preferredImg from "../assets/images/airport-terminal.jpg";
+import suvImg from "../assets/images/car-rangerover.webp";
+import fleetSprinter from "../assets/images/fleet-partybus.webp";
+import fleetCoach from "../assets/images/fleet-coach.webp";
+import fleetLimo from "../assets/images/car-mercedes.webp";
+import serviceImg from "../assets/images/airport-jet.webp";
+import preferredImg from "../assets/images/airport-terminal.webp";
 import affordabilityImg from "../assets/images/financing-bg.jpg";
-import skyImg from "../assets/images/airport-sky.jpg";
-import trustImg from "../assets/images/car-porsche.jpg";
+import skyImg from "../assets/images/airport-sky.webp";
+import trustImg from "../assets/images/car-porsche.webp";
 
 export const airportImages = {
   heroImg,

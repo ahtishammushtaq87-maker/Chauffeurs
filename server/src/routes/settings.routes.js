@@ -1,11 +1,54 @@
 import { Router } from "express";
 import { requireAuth, requireRole } from "../middleware/auth.js";
 import { getEmailSettings, saveEmailSettings, sendTestEmail } from "../utils/mailer.js";
+import { getSiteSettings, saveSiteSettings } from "../utils/siteSettings.js";
+import { uploadBranding } from "../middleware/upload.js";
 
 const router = Router();
 
+// Public: the site-wide contact/social info shown in the header, footer, and
+// every "Call Now" / WhatsApp button. Read-only here — editing requires auth below.
+router.get("/site", (_req, res) => {
+  const settings = getSiteSettings();
+  res.json({
+    settings: {
+      phone_1: settings?.phone_1 || "",
+      phone_2: settings?.phone_2 || "",
+      email: settings?.email || "",
+      whatsapp_number: settings?.whatsapp_number || "",
+      address: settings?.address || "",
+      facebook_url: settings?.facebook_url || "",
+      instagram_url: settings?.instagram_url || "",
+      tiktok_url: settings?.tiktok_url || "",
+      logo_url: settings?.logo_url || "",
+      favicon_url: settings?.favicon_url || "",
+    },
+  });
+});
+
 // Admin-only: these routes expose/manage SMTP credentials.
 router.use(requireAuth, requireRole("admin"));
+
+router.put("/site", uploadBranding.any(), (req, res) => {
+  const b = req.body || {};
+  const files = Array.isArray(req.files) ? req.files : [];
+  const logoFile = files.find((f) => f.fieldname === "logo");
+  const faviconFile = files.find((f) => f.fieldname === "favicon");
+
+  const saved = saveSiteSettings({
+    phone_1: b.phone_1?.trim(),
+    phone_2: b.phone_2?.trim(),
+    email: b.email?.trim(),
+    whatsapp_number: b.whatsapp_number?.trim(),
+    address: b.address?.trim(),
+    facebook_url: b.facebook_url?.trim(),
+    instagram_url: b.instagram_url?.trim(),
+    tiktok_url: b.tiktok_url?.trim(),
+    logo_url: logoFile ? `/uploads/${logoFile.filename}` : undefined,
+    favicon_url: faviconFile ? `/uploads/${faviconFile.filename}` : undefined,
+  });
+  res.json({ settings: saved });
+});
 
 router.get("/email", (_req, res) => {
   const settings = getEmailSettings();

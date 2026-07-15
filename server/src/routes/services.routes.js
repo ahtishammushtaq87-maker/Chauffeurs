@@ -12,13 +12,14 @@ const getBySlug = db.prepare("SELECT * FROM services WHERE slug = ?");
 const getById = db.prepare("SELECT * FROM services WHERE id = ?");
 const slugExists = db.prepare("SELECT 1 FROM services WHERE slug = ?");
 const insertService = db.prepare(`
-  INSERT INTO services (title, slug, excerpt, description, image, published)
-  VALUES (@title, @slug, @excerpt, @description, @image, @published)
+  INSERT INTO services (title, slug, excerpt, description, image, image_alt, image_title, published)
+  VALUES (@title, @slug, @excerpt, @description, @image, @image_alt, @image_title, @published)
 `);
 const updateService = db.prepare(`
   UPDATE services
   SET title = @title, excerpt = @excerpt, description = @description,
-      image = COALESCE(@image, image), published = @published, updated_at = datetime('now')
+      image = COALESCE(@image, image), image_alt = @image_alt, image_title = @image_title,
+      published = @published, updated_at = datetime('now')
   WHERE id = @id
 `);
 const deleteService = db.prepare("DELETE FROM services WHERE id = ?");
@@ -28,6 +29,8 @@ const getLinkedFleet = db.prepare(`
     (CASE WHEN sf.kind = 'vehicle' THEN 'v' ELSE 'c' END) || ':' || sf.ref_id AS id,
     CASE WHEN sf.kind = 'vehicle' THEN v.name ELSE c.title END AS name,
     CASE WHEN sf.kind = 'vehicle' THEN v.image ELSE c.image END AS image,
+    CASE WHEN sf.kind = 'vehicle' THEN v.image_alt ELSE c.image_alt END AS image_alt,
+    CASE WHEN sf.kind = 'vehicle' THEN v.image_title ELSE c.image_title END AS image_title,
     CASE WHEN sf.kind = 'vehicle' THEN NULLIF(v.excerpt, '') ELSE NULL END AS excerpt,
     CASE WHEN sf.kind = 'vehicle' THEN v.description ELSE c.description END AS description
   FROM service_fleet sf
@@ -44,12 +47,12 @@ const vehicleExists = db.prepare("SELECT 1 FROM fleet_vehicles WHERE id = ?");
 const cardExists = db.prepare("SELECT 1 FROM fleet_cards WHERE id = ?");
 
 const listSections = db.prepare(
-  "SELECT id, eyebrow, heading, text, image, sort_order FROM service_sections WHERE service_id = ? ORDER BY sort_order ASC, id ASC"
+  "SELECT id, eyebrow, heading, text, image, image_alt, image_title, sort_order FROM service_sections WHERE service_id = ? ORDER BY sort_order ASC, id ASC"
 );
 const deleteSections = db.prepare("DELETE FROM service_sections WHERE service_id = ?");
 const insertSection = db.prepare(`
-  INSERT INTO service_sections (service_id, eyebrow, heading, text, image, sort_order)
-  VALUES (@service_id, @eyebrow, @heading, @text, @image, @sort_order)
+  INSERT INTO service_sections (service_id, eyebrow, heading, text, image, image_alt, image_title, sort_order)
+  VALUES (@service_id, @eyebrow, @heading, @text, @image, @image_alt, @image_title, @sort_order)
 `);
 
 // Each selection is a string like "v:6" (fleet_vehicles.id) or "c:12" (fleet_cards.id).
@@ -79,7 +82,7 @@ function saveFleetLinks(serviceId, selections) {
   });
 }
 
-// `sections` arrives as a JSON string: [{ eyebrow, heading, text, keepImage }, ...].
+// `sections` arrives as a JSON string: [{ eyebrow, heading, text, keepImage, imageAlt, imageTitle }, ...].
 // Any new file for section index i is sent as a separate field named sectionImage_<i>.
 function parseSectionsInput(req) {
   let raw = [];
@@ -96,6 +99,8 @@ function parseSectionsInput(req) {
       eyebrow: String(section.eyebrow || "").trim(),
       heading: String(section.heading || "").trim(),
       text: String(section.text || "").trim(),
+      imageAlt: String(section.imageAlt || "").trim(),
+      imageTitle: String(section.imageTitle || "").trim(),
       keepImage: Boolean(section.keepImage),
       file: files.find((f) => f.fieldname === `sectionImage_${i}`) || null,
     }))
@@ -117,6 +122,8 @@ function saveSections(serviceId, sections, previousSections = []) {
       heading: section.heading,
       text: section.text,
       image,
+      image_alt: section.imageAlt,
+      image_title: section.imageTitle,
       sort_order: i,
     });
   });
@@ -143,7 +150,8 @@ router.get("/:slug", (req, res) => {
 });
 
 router.post("/", requireAuth, requireRole("admin", "editor"), upload.any(), (req, res) => {
-  const { title, excerpt = "", description = "", published = "1" } = req.body || {};
+  const { title, excerpt = "", description = "", image_alt = "", image_title = "", published = "1" } =
+    req.body || {};
   if (!title || !title.trim()) {
     return res.status(400).json({ error: "Title is required." });
   }
@@ -157,6 +165,8 @@ router.post("/", requireAuth, requireRole("admin", "editor"), upload.any(), (req
     excerpt: excerpt.trim(),
     description: description.trim(),
     image,
+    image_alt: image_alt.trim(),
+    image_title: image_title.trim(),
     published: published === "0" ? 0 : 1,
   });
 
@@ -178,7 +188,7 @@ router.patch("/:id", requireAuth, requireRole("admin", "editor"), upload.any(), 
   const existing = getById.get(id);
   if (!existing) return res.status(404).json({ error: "Service not found." });
 
-  const { title, excerpt, description, published } = req.body || {};
+  const { title, excerpt, description, image_alt, image_title, published } = req.body || {};
   const mainImage = findMainImageFile(req);
   const image = mainImage ? `/uploads/${mainImage.filename}` : null;
 
@@ -188,6 +198,8 @@ router.patch("/:id", requireAuth, requireRole("admin", "editor"), upload.any(), 
     excerpt: (excerpt ?? existing.excerpt).trim(),
     description: (description ?? existing.description).trim(),
     image,
+    image_alt: (image_alt ?? existing.image_alt ?? "").trim(),
+    image_title: (image_title ?? existing.image_title ?? "").trim(),
     published: published === undefined ? existing.published : published === "0" ? 0 : 1,
   });
 

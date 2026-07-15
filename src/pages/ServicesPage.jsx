@@ -57,7 +57,7 @@ export default function ServicesPage() {
                   className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel"
                 >
                   <div className="relative aspect-[4/3]">
-                    <PlaceholderImage src={s.image} alt={s.title} />
+                    <PlaceholderImage src={s.image} alt={s.imageAlt || s.title} title={s.imageTitle} />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-[15px] font-semibold text-text">{s.title}</h3>

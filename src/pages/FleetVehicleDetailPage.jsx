@@ -7,8 +7,7 @@ import TrustBadges from "../components/TrustBadges";
 import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons";
 import { apiGet } from "../lib/api";
 import { useAllServices } from "../hooks/useAllServices";
-
-const PHONE = "tel:+16158821722";
+import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 const genericFeatures = [
   "Professional, licensed, and experienced chauffeurs",
@@ -18,6 +17,8 @@ const genericFeatures = [
 ];
 
 export default function FleetVehicleDetailPage() {
+  const settings = useSiteSettings();
+  const PHONE = toTelHref(settings.phone_1);
   const { slug } = useParams();
   const [vehicle, setVehicle] = useState(null);
   const [status, setStatus] = useState("loading");
@@ -56,13 +57,34 @@ export default function FleetVehicleDetailPage() {
 
   const highlightItems =
     vehicle.cards && vehicle.cards.length > 0
-      ? vehicle.cards.map((c) => ({ name: c.title, title: c.title, desc: c.description, image: c.image }))
-      : [{ name: vehicle.name, title: vehicle.name, desc: vehicle.excerpt, image: vehicle.image }];
+      ? vehicle.cards.map((c) => ({
+          name: c.title,
+          title: c.title,
+          desc: c.description,
+          image: c.image,
+          imageAlt: c.image_alt,
+          imageTitle: c.image_title,
+        }))
+      : [
+          {
+            name: vehicle.name,
+            title: vehicle.name,
+            desc: vehicle.excerpt,
+            image: vehicle.image,
+            imageAlt: vehicle.image_alt,
+            imageTitle: vehicle.image_title,
+          },
+        ];
 
   const highlightCard = (item) => (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel">
       <div className="relative h-56 flex-shrink-0 overflow-hidden">
-        <PlaceholderImage src={item.image} alt={item.name} className="absolute inset-0" />
+        <PlaceholderImage
+          src={item.image}
+          alt={item.imageAlt || item.name}
+          title={item.imageTitle}
+          className="absolute inset-0"
+        />
       </div>
       <div className="p-6">
         <h3 className="font-serif text-xl text-text">{item.name}</h3>
@@ -84,7 +106,7 @@ export default function FleetVehicleDetailPage() {
       {/* Hero (with quote form) */}
       <section id="quote" className="relative flex items-center overflow-hidden border-b border-ink-border bg-ink">
         <div className="absolute inset-0">
-          <PlaceholderImage src={vehicle.image} alt={vehicle.name} />
+          <PlaceholderImage src={vehicle.image} alt={vehicle.image_alt || vehicle.name} title={vehicle.image_title} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink from-35% via-ink/85 via-58% to-transparent to-90% sm:from-10% sm:via-40% sm:to-80%" />
 
@@ -118,7 +140,7 @@ export default function FleetVehicleDetailPage() {
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-xl border border-border lg:order-1">
-            <PlaceholderImage src={vehicle.image} alt={vehicle.name} />
+            <PlaceholderImage src={vehicle.image} alt={vehicle.image_alt || vehicle.name} title={vehicle.image_title} />
           </div>
           <div className="order-1 lg:order-2">
             <span className="eyebrow">Why Choose Us</span>

@@ -1,14 +1,14 @@
-import heroImg from "../assets/images/concert-limo-road.jpg";
-import featuresImg from "../assets/images/car-bmw.jpg";
-import fleetEscalade from "../assets/images/car-rangerover.jpg";
-import fleetLincoln from "../assets/images/fleet-sedan.jpg";
-import airportImg from "../assets/images/svc-airport.jpg";
-import birthdayImg from "../assets/images/svc-birthday.jpg";
+import heroImg from "../assets/images/concert-limo-road.webp";
+import featuresImg from "../assets/images/car-bmw.webp";
+import fleetEscalade from "../assets/images/car-rangerover.webp";
+import fleetLincoln from "../assets/images/fleet-sedan.webp";
+import airportImg from "../assets/images/svc-airport.webp";
+import birthdayImg from "../assets/images/svc-birthday.webp";
 import blackCarImg from "../assets/images/svc-blackcar.jpg";
-import concertImg from "../assets/images/svc-concert.jpg";
-import executiveImg from "../assets/images/svc-executive.jpg";
-import promImg from "../assets/images/prom-dining.jpg";
-import weddingImg from "../assets/images/svc-wedding.jpg";
+import concertImg from "../assets/images/svc-concert.webp";
+import executiveImg from "../assets/images/svc-executive.webp";
+import promImg from "../assets/images/prom-dining.webp";
+import weddingImg from "../assets/images/svc-wedding.webp";
 
 export const stretchLimoImages = {
   heroImg,

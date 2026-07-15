@@ -16,12 +16,13 @@ import {
   birthdayServiceFeatures,
   birthdayAreas,
 } from "../data/birthdayContent";
-
-const PHONE = "tel:+16158821722";
+import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 const serviceIcons = [ClockIcon, ShieldIcon, AwardIcon, DiamondIcon];
 
 export default function BirthdayPage() {
+  const settings = useSiteSettings();
+  const PHONE = toTelHref(settings.phone_1);
   return (
     <>
       {/* Hero (with quote form, matching home hero) */}

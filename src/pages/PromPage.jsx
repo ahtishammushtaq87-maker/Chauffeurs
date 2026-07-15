@@ -26,8 +26,7 @@ import {
   promAreas,
   promSteps,
 } from "../data/promContent";
-
-const PHONE = "tel:+16158821722";
+import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 function CtaButtons({ className = "" }) {
   return (
@@ -45,6 +44,8 @@ function CtaButtons({ className = "" }) {
 const spotlightIcons = [ClockIcon, ShieldIcon, AwardIcon, DiamondIcon];
 
 export default function PromPage() {
+  const settings = useSiteSettings();
+  const PHONE = toTelHref(settings.phone_1);
   return (
     <>
       {/* Hero (with quote form, matching home hero) */}

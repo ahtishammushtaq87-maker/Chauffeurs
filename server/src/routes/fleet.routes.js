@@ -15,28 +15,29 @@ const getBySlug = db.prepare("SELECT * FROM fleet_vehicles WHERE slug = ?");
 const getById = db.prepare("SELECT * FROM fleet_vehicles WHERE id = ?");
 const slugExists = db.prepare("SELECT 1 FROM fleet_vehicles WHERE slug = ?");
 const insertVehicle = db.prepare(`
-  INSERT INTO fleet_vehicles (name, slug, category, excerpt, description, image, passenger_capacity, published)
-  VALUES (@name, @slug, @category, @excerpt, @description, @image, @passenger_capacity, @published)
+  INSERT INTO fleet_vehicles (name, slug, category, excerpt, description, image, image_alt, image_title, passenger_capacity, published)
+  VALUES (@name, @slug, @category, @excerpt, @description, @image, @image_alt, @image_title, @passenger_capacity, @published)
 `);
 const updateVehicle = db.prepare(`
   UPDATE fleet_vehicles
   SET name = @name, category = @category, excerpt = @excerpt, description = @description,
-      image = COALESCE(@image, image), passenger_capacity = @passenger_capacity,
+      image = COALESCE(@image, image), image_alt = @image_alt, image_title = @image_title,
+      passenger_capacity = @passenger_capacity,
       published = @published, updated_at = datetime('now')
   WHERE id = @id
 `);
 const deleteVehicle = db.prepare("DELETE FROM fleet_vehicles WHERE id = ?");
 
 const listCardsByVehicle = db.prepare(
-  "SELECT id, title, description, image, sort_order FROM fleet_cards WHERE vehicle_id = ? ORDER BY sort_order ASC, id ASC"
+  "SELECT id, title, description, image, image_alt, image_title, sort_order FROM fleet_cards WHERE vehicle_id = ? ORDER BY sort_order ASC, id ASC"
 );
 const deleteCardsByVehicle = db.prepare("DELETE FROM fleet_cards WHERE vehicle_id = ?");
 const insertCard = db.prepare(`
-  INSERT INTO fleet_cards (vehicle_id, title, description, image, sort_order)
-  VALUES (@vehicle_id, @title, @description, @image, @sort_order)
+  INSERT INTO fleet_cards (vehicle_id, title, description, image, image_alt, image_title, sort_order)
+  VALUES (@vehicle_id, @title, @description, @image, @image_alt, @image_title, @sort_order)
 `);
 
-// `cards` arrives as a JSON string: [{ title, description, keepImage }, ...].
+// `cards` arrives as a JSON string: [{ title, description, keepImage, imageAlt, imageTitle }, ...].
 // Any new file for card index i is sent as a separate field named cardImage_<i>.
 // keepImage tells us whether to carry over that card's previous image when no new file was sent.
 function parseCardsInput(req) {
@@ -53,6 +54,8 @@ function parseCardsInput(req) {
     .map((card, i) => ({
       title: String(card.title || "").trim(),
       description: String(card.description || "").trim(),
+      imageAlt: String(card.imageAlt || "").trim(),
+      imageTitle: String(card.imageTitle || "").trim(),
       keepImage: Boolean(card.keepImage),
       file: files.find((f) => f.fieldname === `cardImage_${i}`) || null,
     }))
@@ -73,6 +76,8 @@ function saveCards(vehicleId, cards, previousCards = []) {
       title: card.title,
       description: card.description,
       image,
+      image_alt: card.imageAlt,
+      image_title: card.imageTitle,
       sort_order: i,
     });
   });
@@ -105,8 +110,16 @@ router.get("/:slug", (req, res) => {
 });
 
 router.post("/", requireAuth, requireRole("admin", "editor"), upload.any(), (req, res) => {
-  const { name, category = "", excerpt = "", description = "", passenger_capacity = "", published = "1" } =
-    req.body || {};
+  const {
+    name,
+    category = "",
+    excerpt = "",
+    description = "",
+    image_alt = "",
+    image_title = "",
+    passenger_capacity = "",
+    published = "1",
+  } = req.body || {};
   if (!name || !name.trim()) {
     return res.status(400).json({ error: "Name is required." });
   }
@@ -121,6 +134,8 @@ router.post("/", requireAuth, requireRole("admin", "editor"), upload.any(), (req
     excerpt: excerpt.trim(),
     description: description.trim(),
     image,
+    image_alt: image_alt.trim(),
+    image_title: image_title.trim(),
     passenger_capacity: passenger_capacity.trim(),
     published: published === "0" ? 0 : 1,
   });
@@ -136,7 +151,8 @@ router.patch("/:id", requireAuth, requireRole("admin", "editor"), upload.any(), 
   const existing = getById.get(id);
   if (!existing) return res.status(404).json({ error: "Vehicle not found." });
 
-  const { name, category, excerpt, description, passenger_capacity, published } = req.body || {};
+  const { name, category, excerpt, description, image_alt, image_title, passenger_capacity, published } =
+    req.body || {};
   const mainImage = findMainImageFile(req);
   const image = mainImage ? `/uploads/${mainImage.filename}` : null;
 
@@ -147,6 +163,8 @@ router.patch("/:id", requireAuth, requireRole("admin", "editor"), upload.any(), 
     excerpt: (excerpt ?? existing.excerpt).trim(),
     description: (description ?? existing.description).trim(),
     image,
+    image_alt: (image_alt ?? existing.image_alt ?? "").trim(),
+    image_title: (image_title ?? existing.image_title ?? "").trim(),
     passenger_capacity: (passenger_capacity ?? existing.passenger_capacity).trim(),
     published: published === undefined ? existing.published : published === "0" ? 0 : 1,
   });

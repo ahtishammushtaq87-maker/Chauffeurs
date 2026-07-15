@@ -17,9 +17,9 @@ export default function FeaturedInventory() {
     <section className="py-20 bg-bg-alt">
       <div className="mx-auto max-w-(--breakpoint-xl) px-6 md:px-16 lg:px-24">
         <div className="mb-4 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <span className="eyebrow mb-0">Featured Inventory</span>
-          <Link to="/inventory" className="flex items-center gap-2 text-[13px] font-semibold tracking-wide text-gold uppercase">
-            View All Inventory <ArrowRightIcon />
+          <span className="eyebrow mb-0">Featured Fleet </span>
+          <Link to="/fleet" className="flex items-center gap-2 text-[13px] font-semibold tracking-wide text-gold uppercase">
+            View All Fleet <ArrowRightIcon />
           </Link>
         </div>
       </div>

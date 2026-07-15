@@ -13,6 +13,7 @@ import seoRoutes from "./routes/seo.routes.js";
 import quotesRoutes from "./routes/quotes.routes.js";
 import appointmentsRoutes from "./routes/appointments.routes.js";
 import settingsRoutes from "./routes/settings.routes.js";
+import captchaRoutes from "./routes/captcha.routes.js";
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use("/api/seo", seoRoutes);
 app.use("/api/quotes", quotesRoutes);
 app.use("/api/appointments", appointmentsRoutes);
 app.use("/api/settings", settingsRoutes);
+app.use("/api/captcha", captchaRoutes);
 
 // Multer and other request errors land here instead of crashing the process.
 app.use((err, _req, res, _next) => {

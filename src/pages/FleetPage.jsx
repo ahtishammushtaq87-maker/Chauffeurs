@@ -20,6 +20,8 @@ export default function FleetPage() {
             name: card.title,
             desc: card.description,
             image: card.image,
+            imageAlt: card.image_alt,
+            imageTitle: card.image_title,
             category: section.category,
             path: FLEET_SECTION_PAGE_PATHS[section.slug] || `/fleet/${section.slug}`,
           }))
@@ -28,6 +30,8 @@ export default function FleetPage() {
           name: v.name,
           desc: v.excerpt || v.description,
           image: v.image,
+          imageAlt: v.image_alt,
+          imageTitle: v.image_title,
           category: v.category || "More Vehicles",
           path: `/fleet/${v.slug}`,
         }));
@@ -110,7 +114,12 @@ export default function FleetPage() {
                   className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel"
                 >
                   <div className="relative h-56 flex-shrink-0 overflow-hidden">
-                    <PlaceholderImage src={v.image} alt={v.name} className="absolute inset-0" />
+                    <PlaceholderImage
+                      src={v.image}
+                      alt={v.imageAlt || v.name}
+                      title={v.imageTitle}
+                      className="absolute inset-0"
+                    />
                     <span className="absolute top-3 left-3 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[11px] font-semibold tracking-wide text-white uppercase backdrop-blur-sm">
                       {v.category}
                     </span>

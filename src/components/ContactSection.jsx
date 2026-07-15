@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { PhoneIcon, MailIcon, PinIcon } from "./Icons";
 import PlaceholderImage from "./PlaceholderImage";
 import { dealershipImg } from "../data/content";
 import { apiJson } from "../lib/api";
-
-const PHONE_1 = "+1 (615) 882-1722";
-const PHONE_2 = "+1 (201) 979-7374";
-const EMAIL = "contact@swiftchauffeurs.com";
+import Captcha from "./Captcha";
+import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 const inputClasses =
   "w-full rounded-sm border border-border-strong bg-panel px-4 py-3.5 text-sm text-text outline-none transition-colors placeholder:text-text-faint focus:border-gold";
@@ -24,21 +22,39 @@ const emptyForm = {
 
 export default function ContactSection() {
   const { pathname } = useLocation();
+  const settings = useSiteSettings();
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
+  const [captcha, setCaptcha] = useState(null);
+
+  useEffect(() => {
+    if (status !== "success") return;
+    const timer = setTimeout(() => setStatus("idle"), 6000);
+    return () => clearTimeout(timer);
+  }, [status]);
 
   const handleChange = (e) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setError("");
+    if (!captcha) {
+      setError("Please complete the \"I'm not a robot\" verification.");
+      return;
+    }
     setStatus("submitting");
     try {
-      await apiJson("/appointments", "POST", { ...form, sourcePath: pathname });
+      await apiJson("/appointments", "POST", {
+        ...form,
+        sourcePath: pathname,
+        captchaToken: captcha.token,
+        captchaAnswer: captcha.answer,
+      });
       setForm(emptyForm);
+      setCaptcha(null);
       setStatus("success");
     } catch (err) {
       setError(err.message);
@@ -63,25 +79,25 @@ export default function ContactSection() {
           <ul className="mb-7.5 flex flex-col gap-3.5 text-sm text-text-muted">
             <li className="flex items-center gap-3">
               <PhoneIcon width={18} height={18} className="flex-shrink-0 text-gold" />
-              <a href={`tel:${PHONE_1.replace(/[^\d+]/g, "")}`} className="transition-colors hover:text-gold">
-                {PHONE_1}
+              <a href={toTelHref(settings.phone_1)} className="transition-colors hover:text-gold">
+                {settings.phone_1}
               </a>
             </li>
             <li className="flex items-center gap-3">
               <PhoneIcon width={18} height={18} className="flex-shrink-0 text-gold" />
-              <a href={`tel:${PHONE_2.replace(/[^\d+]/g, "")}`} className="transition-colors hover:text-gold">
-                {PHONE_2}
+              <a href={toTelHref(settings.phone_2)} className="transition-colors hover:text-gold">
+                {settings.phone_2}
               </a>
             </li>
             <li className="flex items-center gap-3">
               <MailIcon width={18} height={18} className="flex-shrink-0 text-gold" />
-              <a href={`mailto:${EMAIL}`} className="transition-colors hover:text-gold">
-                {EMAIL}
+              <a href={`mailto:${settings.email}`} className="transition-colors hover:text-gold">
+                {settings.email}
               </a>
             </li>
             <li className="flex items-center gap-3">
               <PinIcon width={18} height={18} className="flex-shrink-0 text-gold" />
-              Nashville, TN, USA
+              {settings.address}
             </li>
           </ul>
 
@@ -120,8 +136,16 @@ export default function ContactSection() {
                 </select>
               </div>
               <textarea className={`${inputClasses} resize-y`} name="message" placeholder="Message" rows={5} value={form.message} onChange={handleChange} />
+
+              <Captcha onVerifiedChange={setCaptcha} />
+
               {error && <p className="text-xs text-red-500">{error}</p>}
-              <button type="submit" disabled={status === "submitting"} className="btn btn-gold mt-1 w-full py-4 disabled:opacity-60">
+              <button
+                type="button"
+                onClick={handleSubmit}
+                disabled={status === "submitting" || !captcha}
+                className="btn btn-gold mt-1 w-full py-4 disabled:opacity-60"
+              >
                 {status === "submitting" ? "Sending…" : "Send Message"}
               </button>
             </form>
@@ -135,9 +159,9 @@ export default function ContactSection() {
           <div className="absolute right-6 bottom-6 left-6 z-10 flex items-start gap-3.5 rounded border border-border-strong bg-bg/75 p-5 text-gold backdrop-blur-md">
             <PinIcon width={18} height={18} className="mt-0.5 flex-shrink-0" />
             <div>
-              <p className="mb-2 text-[13px] leading-relaxed text-text">Nashville, TN, USA</p>
+              <p className="mb-2 text-[13px] leading-relaxed text-text">{settings.address}</p>
               <a
-                href="https://maps.google.com/maps?q=Nashville%2C%20TN%2C%20USA"
+                href={`https://maps.google.com/maps?q=${encodeURIComponent(settings.address)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-semibold tracking-wide text-gold uppercase"

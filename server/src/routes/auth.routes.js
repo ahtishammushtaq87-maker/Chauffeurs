@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import db from "../db/index.js";
 import { signToken } from "../utils/jwt.js";
 import { requireAuth } from "../middleware/auth.js";
+import { verifyChallenge } from "../utils/captcha.js";
 
 const router = Router();
 
@@ -18,7 +19,10 @@ const cookieOptions = {
 };
 
 router.post("/login", (req, res) => {
-  const { email, password } = req.body || {};
+  const { email, password, captchaToken, captchaAnswer } = req.body || {};
+  if (!verifyChallenge(captchaToken, captchaAnswer)) {
+    return res.status(400).json({ error: "Please complete the CAPTCHA verification." });
+  }
   if (!email || !password) {
     return res.status(400).json({ error: "Email and password are required." });
   }

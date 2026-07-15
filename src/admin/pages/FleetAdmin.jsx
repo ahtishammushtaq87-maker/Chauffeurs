@@ -12,9 +12,19 @@ const emptyForm = {
   published: true,
   image: null,
   existingImage: null,
+  image_alt: "",
+  image_title: "",
 };
 
-const emptyCard = { title: "", description: "", image: null, existingImage: null, keepImage: false };
+const emptyCard = {
+  title: "",
+  description: "",
+  image: null,
+  existingImage: null,
+  keepImage: false,
+  image_alt: "",
+  image_title: "",
+};
 
 function FleetCardFields({ card, index, onChange, onRemove }) {
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -61,6 +71,18 @@ function FleetCardFields({ card, index, onChange, onRemove }) {
             <img src={previewUrl} alt="Preview" className="h-full w-full object-cover" />
           </div>
         )}
+        <input
+          value={card.image_alt}
+          onChange={(e) => onChange({ ...card, image_alt: e.target.value })}
+          placeholder="Image alt text (for SEO)"
+          className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
+        />
+        <input
+          value={card.image_title}
+          onChange={(e) => onChange({ ...card, image_title: e.target.value })}
+          placeholder="Image title (for SEO)"
+          className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
+        />
       </div>
     </div>
   );
@@ -117,6 +139,8 @@ export default function FleetAdmin() {
       published: Boolean(item.published),
       image: null,
       existingImage: item.image || null,
+      image_alt: item.image_alt || "",
+      image_title: item.image_title || "",
     });
     try {
       const { vehicle } = await apiGet(`/fleet/${item.slug}`, { includeUnpublished: true });
@@ -127,6 +151,8 @@ export default function FleetAdmin() {
           image: null,
           existingImage: c.image || null,
           keepImage: Boolean(c.image),
+          image_alt: c.image_alt || "",
+          image_title: c.image_title || "",
         }))
       );
     } catch {
@@ -159,12 +185,16 @@ export default function FleetAdmin() {
       fd.append("excerpt", form.excerpt);
       fd.append("description", form.description);
       fd.append("published", form.published ? "1" : "0");
+      fd.append("image_alt", form.image_alt);
+      fd.append("image_title", form.image_title);
       if (form.image) fd.append("image", form.image);
 
       const cardsPayload = cards.map((c) => ({
         title: c.title.trim(),
         description: c.description.trim(),
         keepImage: Boolean(c.keepImage && !c.image),
+        imageAlt: c.image_alt.trim(),
+        imageTitle: c.image_title.trim(),
       }));
       fd.append("cards", JSON.stringify(cardsPayload));
       cards.forEach((c, i) => {
@@ -275,6 +305,30 @@ export default function FleetAdmin() {
                 <img src={previewUrl} alt="Preview" className="h-full w-full object-cover" />
               </div>
             )}
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold tracking-wide text-text-muted uppercase">
+              Image Alt Text (for SEO)
+            </label>
+            <input
+              value={form.image_alt}
+              onChange={(e) => setForm((f) => ({ ...f, image_alt: e.target.value }))}
+              placeholder="e.g. Black Mercedes S-Class sedan parked outside Nashville venue"
+              className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
+            />
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold tracking-wide text-text-muted uppercase">
+              Image Title (for SEO)
+            </label>
+            <input
+              value={form.image_title}
+              onChange={(e) => setForm((f) => ({ ...f, image_title: e.target.value }))}
+              placeholder="e.g. Swift Chauffeurs Luxury Sedan"
+              className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
+            />
           </div>
 
           <label className="flex items-center gap-2 text-sm text-text-muted">

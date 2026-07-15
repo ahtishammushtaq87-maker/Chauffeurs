@@ -9,8 +9,7 @@ import AreasWeServe from "../components/AreasWeServe";
 import { StarIcon, PhoneIcon, ArrowRightIcon } from "../components/Icons";
 import { apiGet } from "../lib/api";
 import { airportAreas } from "../data/airportContent";
-
-const PHONE = "tel:+16158821722";
+import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 const genericReviews = [
   {
@@ -63,7 +62,11 @@ function renderContentSection(section, key, imageLeft, service, phone) {
             imageLeft ? "" : "lg:order-2"
           }`}
         >
-          <PlaceholderImage src={section.image} alt={section.heading || service.title} />
+          <PlaceholderImage
+            src={section.image}
+            alt={section.image_alt || section.heading || service.title}
+            title={section.image_title}
+          />
         </div>
         <div className={imageLeft ? "" : "lg:order-1"}>
           {section.eyebrow && <span className="eyebrow">{section.eyebrow}</span>}
@@ -90,6 +93,8 @@ function renderContentSection(section, key, imageLeft, service, phone) {
 }
 
 export default function ServiceDetailPage() {
+  const settings = useSiteSettings();
+  const PHONE = toTelHref(settings.phone_1);
   const { slug } = useParams();
   const [service, setService] = useState(null);
   const [status, setStatus] = useState("loading");
@@ -128,7 +133,7 @@ export default function ServiceDetailPage() {
       {/* Hero (with quote form, matching every other service page) */}
       <section className="relative flex items-center overflow-hidden border-b border-ink-border bg-ink">
         <div className="absolute inset-0">
-          <PlaceholderImage src={service.image} alt={service.title} />
+          <PlaceholderImage src={service.image} alt={service.image_alt || service.title} title={service.image_title} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink from-35% via-ink/85 via-58% to-transparent to-90% sm:from-10% sm:via-40% sm:to-80%" />
 
@@ -166,7 +171,13 @@ export default function ServiceDetailPage() {
         <FleetSection
           eyebrow="Your Dream, Our Destination"
           heading="Tennessee's Best Limousine Fleet"
-          items={service.fleet.map((v) => ({ name: v.name, desc: v.excerpt || v.description, image: v.image }))}
+          items={service.fleet.map((v) => ({
+            name: v.name,
+            desc: v.excerpt || v.description,
+            image: v.image,
+            imageAlt: v.image_alt,
+            imageTitle: v.image_title,
+          }))}
         />
       )}
 

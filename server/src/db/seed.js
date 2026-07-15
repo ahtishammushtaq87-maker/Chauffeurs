@@ -379,8 +379,24 @@ function seedStaticServices() {
   }
 }
 
+// Seeds the site-wide contact/social settings row once, using the values that
+// used to be hardcoded across the site, so nothing goes blank before an admin
+// visits Settings. Safe to run repeatedly — only inserts if the table is empty.
+function seedSiteSettings() {
+  const count = db.prepare("SELECT COUNT(*) AS n FROM site_settings").get().n;
+  if (count > 0) return;
+
+  db.prepare(
+    `INSERT INTO site_settings (id, phone_1, phone_2, email, whatsapp_number, address, facebook_url, instagram_url, tiktok_url)
+     VALUES (1, ?, ?, ?, ?, ?, '', '', '')`
+  ).run("+1 (615) 882-1722", "+1 (201) 979-7374", "contact@swiftchauffeurs.com", "16158821722", "Nashville, TN, USA");
+
+  console.log("Seeded default site contact settings.");
+}
+
 seedAdmin();
 seedBlogPosts();
 seedStaticFleet();
 seedStaticServices();
+seedSiteSettings();
 console.log("Seed complete.");

@@ -30,3 +30,30 @@ export const upload = multer({
   fileFilter,
   limits: { fileSize: 8 * 1024 * 1024 }, // 8MB
 });
+
+// Separate, slightly more permissive config for site branding (logo/favicon),
+// which commonly come as SVG or ICO — kept distinct so the stricter fileFilter
+// above (used by fleet/services/blog image uploads) is untouched.
+const BRANDING_ALLOWED_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+  "image/svg+xml",
+  "image/x-icon",
+  "image/vnd.microsoft.icon",
+]);
+
+function brandingFileFilter(_req, file, cb) {
+  if (!BRANDING_ALLOWED_TYPES.has(file.mimetype)) {
+    cb(new Error("Only JPEG, PNG, WEBP, GIF, SVG, or ICO images are allowed."));
+    return;
+  }
+  cb(null, true);
+}
+
+export const uploadBranding = multer({
+  storage,
+  fileFilter: brandingFileFilter,
+  limits: { fileSize: 2 * 1024 * 1024 }, // 2MB — logos/favicons should be small
+});

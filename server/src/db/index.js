@@ -144,6 +144,21 @@ db.exec(`
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
   );
 
+  CREATE TABLE IF NOT EXISTS site_settings (
+    id INTEGER PRIMARY KEY CHECK (id = 1),
+    phone_1 TEXT NOT NULL DEFAULT '',
+    phone_2 TEXT NOT NULL DEFAULT '',
+    email TEXT NOT NULL DEFAULT '',
+    whatsapp_number TEXT NOT NULL DEFAULT '',
+    address TEXT NOT NULL DEFAULT '',
+    facebook_url TEXT NOT NULL DEFAULT '',
+    instagram_url TEXT NOT NULL DEFAULT '',
+    tiktok_url TEXT NOT NULL DEFAULT '',
+    logo_url TEXT NOT NULL DEFAULT '',
+    favicon_url TEXT NOT NULL DEFAULT '',
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+
   CREATE TABLE IF NOT EXISTS blog_posts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
@@ -172,6 +187,28 @@ try {
   db.exec("ALTER TABLE services ADD COLUMN hidden_from_nav INTEGER NOT NULL DEFAULT 0;");
 } catch {
   // Column already exists.
+}
+
+// Migration: add SEO alt text / title columns to every table that stores an
+// uploaded image, for databases created before these columns existed.
+for (const table of ["fleet_vehicles", "fleet_cards", "services", "service_sections", "blog_posts"]) {
+  for (const column of ["image_alt", "image_title"]) {
+    try {
+      db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} TEXT NOT NULL DEFAULT '';`);
+    } catch {
+      // Column already exists.
+    }
+  }
+}
+
+// Migration for databases created before the site_settings `logo_url` /
+// `favicon_url` columns existed.
+for (const column of ["logo_url", "favicon_url"]) {
+  try {
+    db.exec(`ALTER TABLE site_settings ADD COLUMN ${column} TEXT NOT NULL DEFAULT '';`);
+  } catch {
+    // Column already exists.
+  }
 }
 
 export default db;

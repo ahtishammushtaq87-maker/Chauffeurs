@@ -10,6 +10,8 @@ const emptyForm = {
   content: "",
   published: true,
   image: null,
+  image_alt: "",
+  image_title: "",
 };
 
 export default function BlogAdmin() {
@@ -40,6 +42,8 @@ export default function BlogAdmin() {
       content: item.content,
       published: Boolean(item.published),
       image: null,
+      image_alt: item.image_alt || "",
+      image_title: item.image_title || "",
     });
     setError("");
   };
@@ -62,6 +66,8 @@ export default function BlogAdmin() {
       fd.append("excerpt", form.excerpt);
       fd.append("content", form.content);
       fd.append("published", form.published ? "1" : "0");
+      fd.append("image_alt", form.image_alt);
+      fd.append("image_title", form.image_title);
       if (form.image) fd.append("image", form.image);
 
       if (form.id) {
@@ -158,6 +164,30 @@ export default function BlogAdmin() {
               accept="image/*"
               onChange={(e) => setForm((f) => ({ ...f, image: e.target.files?.[0] || null }))}
               className="w-full text-sm text-text-muted"
+            />
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold tracking-wide text-text-muted uppercase">
+              Image Alt Text (for SEO)
+            </label>
+            <input
+              value={form.image_alt}
+              onChange={(e) => setForm((f) => ({ ...f, image_alt: e.target.value }))}
+              placeholder="e.g. Bride and groom stepping out of a white stretch limo"
+              className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
+            />
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold tracking-wide text-text-muted uppercase">
+              Image Title (for SEO)
+            </label>
+            <input
+              value={form.image_title}
+              onChange={(e) => setForm((f) => ({ ...f, image_title: e.target.value }))}
+              placeholder="e.g. Swift Chauffeurs Wedding Transportation"
+              className="w-full rounded-sm border border-border-strong bg-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-gold"
             />
           </div>
 

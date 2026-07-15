@@ -55,3 +55,23 @@
     @apply text-[13px] tracking-[3px] uppercase text-gold font-semibold mb-3.5 inline-block;
   }
 }
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+}

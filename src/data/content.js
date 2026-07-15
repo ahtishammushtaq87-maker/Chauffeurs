@@ -1,30 +1,30 @@
 import heroImg from "../assets/images/hero.webp";
-import carMercedes from "../assets/images/car-mercedes.jpg";
-import carPorsche from "../assets/images/car-porsche.jpg";
-import carAudi from "../assets/images/car-audi.jpg";
-import carRangeRover from "../assets/images/car-rangerover.jpg";
-import carBmw from "../assets/images/car-bmw.jpg";
+import carMercedes from "../assets/images/car-mercedes.webp";
+import carPorsche from "../assets/images/car-porsche.webp";
+import carAudi from "../assets/images/car-audi.webp";
+import carRangeRover from "../assets/images/car-rangerover.webp";
+import carBmw from "../assets/images/car-bmw.webp";
 import financingBg from "../assets/images/financing-bg.jpg";
-import tradeBg from "../assets/images/trade-bg.jpg";
-import dealershipImg from "../assets/images/dealership.jpg";
+import tradeBg from "../assets/images/trade-bg.webp";
+import dealershipImg from "../assets/images/dealership.webp";
 
 // Per-page hero backgrounds
-import fleetSedan from "../assets/images/fleet-sedan.jpg";
-import fleetPartybus from "../assets/images/fleet-partybus.jpg";
-import fleetVan from "../assets/images/fleet-van.jpg";
-import fleetCoach from "../assets/images/fleet-coach.jpg";
-import svcProm from "../assets/images/svc-prom.jpg";
-import svcAirport from "../assets/images/svc-airport.jpg";
-import svcBirthday from "../assets/images/svc-birthday.jpg";
-import svcWedding from "../assets/images/svc-wedding.jpg";
-import svcConcert from "../assets/images/svc-concert.jpg";
+import fleetSedan from "../assets/images/fleet-sedan.webp";
+import fleetPartybus from "../assets/images/fleet-partybus.webp";
+import fleetVan from "../assets/images/fleet-van.webp";
+import fleetCoach from "../assets/images/fleet-coach.webp";
+import svcProm from "../assets/images/svc-prom.webp";
+import svcAirport from "../assets/images/svc-airport.webp";
+import svcBirthday from "../assets/images/svc-birthday.webp";
+import svcWedding from "../assets/images/svc-wedding.webp";
+import svcConcert from "../assets/images/svc-concert.webp";
 import svcBlackcar from "../assets/images/svc-blackcar.jpg";
-import svcExecutive from "../assets/images/svc-executive.jpg";
-import areaNashville from "../assets/images/area-nashville.jpg";
-import areaCity from "../assets/images/area-city.jpg";
-import areaCity2 from "../assets/images/area-city2.jpg";
-import areaTown from "../assets/images/area-town.jpg";
-import miscBlog from "../assets/images/misc-blog.jpg";
+import svcExecutive from "../assets/images/svc-executive.webp";
+import areaNashville from "../assets/images/area-nashville.webp";
+import areaCity from "../assets/images/area-city.webp";
+import areaCity2 from "../assets/images/area-city2.webp";
+import areaTown from "../assets/images/area-town.webp";
+import miscBlog from "../assets/images/misc-blog.webp";
 
 export { heroImg, financingBg, tradeBg, dealershipImg };
 
@@ -76,6 +76,7 @@ export const heroImages = {
   "/about": dealershipImg,
   "/privacy-policy": carPorsche,
   "/terms": carAudi,
+  "/gdpr-compliance": carBmw,
   "/blog": miscBlog,
 };
 
@@ -182,7 +183,10 @@ export const cityAreaLinks = [
 
 // Route/meta-only tree (not rendered in the header) so every city above gets a
 // working route and a proper title via GenericPage.
-const routeOnlyLinks = [{ label: "Service Area", path: "/service-area", dropdown: cityAreaLinks }];
+const routeOnlyLinks = [
+  { label: "Service Area", path: "/service-area", dropdown: cityAreaLinks },
+  { label: "GDPR Compliance", path: "/gdpr-compliance" },
+];
 
 // Flatten nav tree into a unique list of { path, label } route entries.
 export function flattenNavRoutes(links = [...navLinks, ...routeOnlyLinks]) {

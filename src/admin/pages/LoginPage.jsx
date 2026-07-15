@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
+import Captcha from "../../components/Captcha";
 
 export default function LoginPage() {
   const { user, login } = useAuth();
@@ -10,17 +11,22 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [captcha, setCaptcha] = useState(null);
 
   if (user) {
     return <Navigate to={location.state?.from?.pathname || "/admin"} replace />;
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setError("");
+    if (!captcha) {
+      setError("Please complete the \"I'm not a robot\" verification.");
+      return;
+    }
     setSubmitting(true);
     try {
-      await login(email, password);
+      await login(email, password, captcha);
       navigate(location.state?.from?.pathname || "/admin", { replace: true });
     } catch (err) {
       setError(err.message);
@@ -61,9 +67,16 @@ export default function LoginPage() {
             />
           </div>
 
+          <Captcha onVerifiedChange={setCaptcha} />
+
           {error && <p className="text-sm text-red-600">{error}</p>}
 
-          <button type="submit" disabled={submitting} className="btn btn-gold mt-2 w-full disabled:opacity-60">
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={submitting || !captcha}
+            className="btn btn-gold mt-2 w-full disabled:opacity-60"
+          >
             {submitting ? "Signing in…" : "Sign In"}
           </button>
         </form>

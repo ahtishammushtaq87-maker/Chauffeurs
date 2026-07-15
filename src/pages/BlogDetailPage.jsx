@@ -64,7 +64,7 @@ export default function BlogDetailPage() {
         </div>
 
         <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-xl border border-border">
-          <PlaceholderImage src={post.image} alt={post.title} />
+          <PlaceholderImage src={post.image} alt={post.image_alt || post.title} title={post.image_title} />
         </div>
 
         <div className="mt-10">

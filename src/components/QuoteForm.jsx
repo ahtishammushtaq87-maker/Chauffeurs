@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BoltIcon, SearchIcon } from "./Icons";
 import { apiJson } from "../lib/api";
+import Captcha from "./Captcha";
 
 const inputClasses =
   "w-full rounded-sm border border-border-strong bg-bg/60 px-4 py-3 text-sm text-text outline-none transition-colors placeholder:text-text-faint focus:border-gold";
@@ -52,6 +53,13 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
+  const [captcha, setCaptcha] = useState(null);
+
+  useEffect(() => {
+    if (status !== "success") return;
+    const timer = setTimeout(() => setStatus("idle"), 6000);
+    return () => clearTimeout(timer);
+  }, [status]);
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
@@ -59,12 +67,22 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setError("");
+    if (!captcha) {
+      setError("Please complete the \"I'm not a robot\" verification.");
+      return;
+    }
     setStatus("submitting");
     try {
-      await apiJson("/quotes", "POST", { ...form, sourcePath: pathname });
+      await apiJson("/quotes", "POST", {
+        ...form,
+        sourcePath: pathname,
+        captchaToken: captcha.token,
+        captchaAnswer: captcha.answer,
+      });
       setForm(emptyForm);
+      setCaptcha(null);
       setStatus("success");
     } catch (err) {
       setError(err.message);
@@ -198,9 +216,16 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
           .
         </p>
 
+        <Captcha onVerifiedChange={setCaptcha} />
+
         {error && <p className="text-xs text-red-500">{error}</p>}
 
-        <button type="submit" disabled={status === "submitting"} className="btn btn-gold mt-1.5 w-full py-4 disabled:opacity-60">
+        <button
+          type="button"
+          onClick={handleSubmit}
+          disabled={status === "submitting" || !captcha}
+          className="btn btn-gold mt-1.5 w-full py-4 disabled:opacity-60"
+        >
           {status === "submitting" ? "Submitting…" : submitLabel}
         </button>
       </form>

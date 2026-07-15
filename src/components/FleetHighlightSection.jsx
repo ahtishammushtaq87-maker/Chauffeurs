@@ -19,12 +19,24 @@ export default function FleetHighlightSection({ slug, eyebrow, heading }) {
 
   if (!cards || cards.length === 0) return null;
 
-  const items = cards.map((c) => ({ name: c.title, title: c.title, desc: c.description, image: c.image }));
+  const items = cards.map((c) => ({
+    name: c.title,
+    title: c.title,
+    desc: c.description,
+    image: c.image,
+    imageAlt: c.image_alt,
+    imageTitle: c.image_title,
+  }));
 
   const renderFleetCard = (item) => (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel">
       <div className="relative h-56 flex-shrink-0 overflow-hidden">
-        <PlaceholderImage src={item.image} alt={item.name} className="absolute inset-0" />
+        <PlaceholderImage
+          src={item.image}
+          alt={item.imageAlt || item.name}
+          title={item.imageTitle}
+          className="absolute inset-0"
+        />
       </div>
       <div className="p-6">
         <h3 className="font-serif text-xl text-text">{item.name}</h3>
