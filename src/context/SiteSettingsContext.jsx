@@ -9,9 +9,9 @@ const DEFAULT_SETTINGS = {
   email: "contact@swiftchauffeurs.com",
   whatsapp_number: "16158821722",
   address: "Nashville, TN, USA",
-  facebook_url: "",
-  instagram_url: "",
-  tiktok_url: "",
+  facebook_url: "https://facebook.com",
+  instagram_url: "https://instagram.com",
+  tiktok_url: "https://tiktok.com",
   logo_url: "",
   favicon_url: "",
 };
@@ -26,7 +26,16 @@ export function SiteSettingsProvider({ children }) {
 
   useEffect(() => {
     apiGet("/settings/site")
-      .then(({ settings }) => setSettings(settings))
+      .then(({ settings }) => {
+        // Only override a default when the backend actually has a value for
+        // it — an empty/unset field (social links not filled in yet, etc.)
+        // should keep falling back to DEFAULT_SETTINGS instead of going blank.
+        const merged = { ...DEFAULT_SETTINGS };
+        for (const key in settings) {
+          if (settings[key]) merged[key] = settings[key];
+        }
+        setSettings(merged);
+      })
       .catch(() => {});
   }, []);
 
