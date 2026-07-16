@@ -3,7 +3,7 @@ import { Icon } from "./Icons";
 
 export default function WhyChooseUs() {
   return (
-    <section className="px-6 py-20 md:px-16 lg:px-24">
+    <section className="px-6 py-10 md:px-16 lg:px-24">
       <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 lg:grid-cols-[0.85fr_2fr] lg:gap-15">
         <div>
           <span className="eyebrow">Why Choose Apex Motors</span>

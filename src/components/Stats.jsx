@@ -3,8 +3,8 @@ import { Icon } from "./Icons";
 
 export default function Stats() {
   return (
-    <section className="border-y border-border px-6 py-15 md:px-16 lg:px-24 bg-bg-alt">
-      <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-2 text-center md:grid-cols-4">
+    <section className="border-y border-border px-6 py-15 md:px-16 lg:px-24 mb-15">
+      <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-2 gap-x-6 gap-y-10 text-center sm:gap-y-12 md:grid-cols-4 md:gap-y-0">
         {stats.map((stat, i) => (
           <div key={stat.label} className="relative flex flex-col items-center gap-2 text-gold">
             {i !== 0 && i !== 2 && <span className="absolute top-1 bottom-1 left-0 hidden w-px bg-border md:block" />}

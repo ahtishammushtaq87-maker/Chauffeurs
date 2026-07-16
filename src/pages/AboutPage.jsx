@@ -30,7 +30,6 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <PlaceholderImage src={aboutImages.heroImg} alt="Nashville skyline" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink from-35% via-ink/85 via-58% to-transparent to-90% sm:from-10% sm:via-40% sm:to-80%" />
 
         <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 lg:max-w-lg">
@@ -91,7 +90,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Swift Chauffeurs */}
-      <section className="border-y border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-y border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border">
             <PlaceholderImage src={aboutImages.whyChooseImg} alt="Swift Chauffeurs professional chauffeur" />
@@ -148,7 +147,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Commitment to Safety */}
-      <section className="border-y border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-y border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
             <span className="eyebrow">Safety First</span>
@@ -222,7 +221,7 @@ export default function AboutPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="border-t border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">What Our Customer Says About Us</span>

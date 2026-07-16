@@ -84,7 +84,7 @@ export default function CardSlider({ items, buttonLabel = "Book Now", renderActi
             aria-label="Previous"
             onClick={prev}
             disabled={index === 0}
-            className="absolute left-4 top-[35%] z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border-strong bg-bg/80 text-text backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-gold hover:bg-gold hover:text-[#17140d] active:scale-95 disabled:pointer-events-none disabled:opacity-30"
+            className="absolute left-0 top-1/2 z-10 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gold text-[#17140d] shadow-[0_0_14px_rgba(var(--glow-gold),0.5),0_0_28px_rgba(var(--glow-gold),0.28)] transition-all duration-200 hover:scale-105 hover:bg-gold-light hover:shadow-[0_0_20px_rgba(var(--glow-gold),0.7),0_0_40px_rgba(var(--glow-gold),0.4)] active:scale-95 disabled:pointer-events-none disabled:opacity-30 sm:h-11 sm:w-11"
           >
             <ChevronLeft width={18} height={18} />
           </button>
@@ -93,7 +93,7 @@ export default function CardSlider({ items, buttonLabel = "Book Now", renderActi
             aria-label="Next"
             onClick={next}
             disabled={index === maxIndex}
-            className="absolute right-4 top-[35%] z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border-strong bg-bg/80 text-text backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-gold hover:bg-gold hover:text-[#17140d] active:scale-95 disabled:pointer-events-none disabled:opacity-30"
+            className="absolute right-0 top-1/2 z-10 flex h-9 w-9 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gold text-[#17140d] shadow-[0_0_14px_rgba(var(--glow-gold),0.5),0_0_28px_rgba(var(--glow-gold),0.28)] transition-all duration-200 hover:scale-105 hover:bg-gold-light hover:shadow-[0_0_20px_rgba(var(--glow-gold),0.7),0_0_40px_rgba(var(--glow-gold),0.4)] active:scale-95 disabled:pointer-events-none disabled:opacity-30 sm:h-11 sm:w-11"
           >
             <ChevronRight width={18} height={18} />
           </button>

@@ -30,7 +30,6 @@ export default function BirthdayPage() {
         <div className="absolute inset-0">
           <PlaceholderImage src={birthdayImages.heroImg} alt="Birthday celebration party lights" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink from-35% via-ink/85 via-58% to-transparent to-90% sm:from-10% sm:via-40% sm:to-80%" />
 
         <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 lg:max-w-lg">
@@ -92,7 +91,6 @@ export default function BirthdayPage() {
           <div className="overflow-hidden rounded-xl border border-border bg-panel">
             <div className="relative aspect-[16/9]">
               <PlaceholderImage src={birthdayImages.giftImg} alt="Birthday party bus gift" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 to-transparent" />
               <div className="absolute bottom-4 left-5">
                 <span className="text-xs font-semibold tracking-wide text-gold uppercase">Birthday Party Bus</span>
               </div>
@@ -151,7 +149,7 @@ export default function BirthdayPage() {
       </section>
 
       {/* Reviews */}
-      <section className="border-y border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-y border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Reviews From Previous Customers</span>
@@ -228,7 +226,6 @@ export default function BirthdayPage() {
         <div className="absolute inset-0">
           <PlaceholderImage src={birthdayImages.discoImg} alt="Disco lights party atmosphere" />
         </div>
-        <div className="absolute inset-0 bg-ink/88" />
         <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
           <div>
             <span className="eyebrow">Exceptional Services for Your Birthday Celebration</span>
@@ -258,7 +255,7 @@ export default function BirthdayPage() {
       </section>
 
       {/* Celebrate in Style - Exceptional Service features */}
-      <section className="border-t border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">Celebrate in Style on Your Birthday</span>
@@ -288,7 +285,7 @@ export default function BirthdayPage() {
       <AreasWeServe eyebrow="Birthday Party Buses in Your Neighborhood" areas={birthdayAreas} />
 
       {/* Booking steps */}
-      <section className="border-t border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Book the Best Party Buses in Nashville</span>

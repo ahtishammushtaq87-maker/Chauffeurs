@@ -135,7 +135,6 @@ export default function ServiceDetailPage() {
         <div className="absolute inset-0">
           <PlaceholderImage src={service.image} alt={service.image_alt || service.title} title={service.image_title} />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink from-35% via-ink/85 via-58% to-transparent to-90% sm:from-10% sm:via-40% sm:to-80%" />
 
         <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 lg:max-w-lg">
@@ -186,7 +185,7 @@ export default function ServiceDetailPage() {
         .map((section, i) => renderContentSection(section, `section-${i + 1}`, i % 2 === 0, service, PHONE))}
 
       {/* Reviews */}
-      <section className="border-y border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-y border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Customer Reviews</span>
@@ -229,7 +228,7 @@ export default function ServiceDetailPage() {
       <AreasWeServe areas={airportAreas} />
 
       {/* Booking steps */}
-      <section className="border-t border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Book {service.title}</span>

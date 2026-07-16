@@ -1,4 +1,4 @@
-const GOLD = "#a8792f";
+const GOLD = "#f0c420";
 const INK = "#0a0a0b";
 const INK_FG_MUTED = "#a8a6a2";
 const BG_ALT = "#f7f5f0";

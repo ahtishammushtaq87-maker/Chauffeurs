@@ -164,7 +164,7 @@ export default function FeaturedGallery() {
   return (
     <div
       ref={galleryRef}
-      className="relative flex w-full items-center justify-center overflow-hidden bg-bg-alt py-4"
+      className="relative flex w-full items-center justify-center overflow-hidden py-4"
     >
       <ul ref={stackRef} className="relative h-[26rem] w-72 list-none sm:h-[28rem] sm:w-80">
         {galleryItems.map((car, i) => (
@@ -175,7 +175,7 @@ export default function FeaturedGallery() {
             style={{ backgroundImage: `url(${car.image})` }}
           >
             <Link to={car.path} className="absolute inset-0 block">
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4 text-left">
+              <div className="absolute inset-x-0 bottom-0 p-4 text-left">
                 <p className="text-sm font-semibold text-white">
                   {car.year} {car.make}
                 </p>

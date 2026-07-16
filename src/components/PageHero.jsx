@@ -9,7 +9,6 @@ export default function PageHero({ eyebrow, title, image }) {
       <div className="absolute inset-0">
         <PlaceholderImage src={image || heroImg} label="Hero Photo" alt={title || "Chauffeur service"} />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-ink from-35% via-ink/85 via-58% to-transparent to-90% sm:from-10% sm:via-40% sm:to-80%" />
 
       <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
         <div className="flex-shrink-0 lg:max-w-lg">

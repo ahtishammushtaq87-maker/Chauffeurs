@@ -115,7 +115,7 @@ export default function Header() {
             to="/contact"
             className="btn btn-outline hidden border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light md:inline-flex"
           >
-            Book Appointment
+            Book For Ride
           </Link>
           <HeaderMobileActions />
           <button

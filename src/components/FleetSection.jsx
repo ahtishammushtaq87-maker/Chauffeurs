@@ -7,7 +7,7 @@ export default function FleetSection({
   items,
 }) {
   return (
-    <section className="border-y border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+    <section className="border-y border-border px-6 py-20 md:px-16 lg:px-24">
       <div className="mx-auto max-w-(--breakpoint-xl)">
         <div className="mb-10 text-center">
           <span className="eyebrow">{eyebrow}</span>

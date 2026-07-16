@@ -42,7 +42,6 @@ export default function BlackCarPage() {
         <div className="absolute inset-0">
           <PlaceholderImage src={blackCarImages.heroImg} alt="Luxury black car service" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink from-35% via-ink/85 via-58% to-transparent to-90% sm:from-10% sm:via-40% sm:to-80%" />
 
         <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 lg:max-w-lg">
@@ -92,7 +91,6 @@ export default function BlackCarPage() {
           <div className="overflow-hidden rounded-xl border border-border bg-panel">
             <div className="relative aspect-[16/9]">
               <PlaceholderImage src={blackCarImages.pricingImg} alt="Luxury black car service" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 to-transparent" />
               <div className="absolute bottom-4 left-5">
                 <h3 className="font-serif text-xl text-ink-fg">{blackCarPricing.title}</h3>
               </div>
@@ -146,7 +144,7 @@ export default function BlackCarPage() {
       </section>
 
       {/* Reviews */}
-      <section className="border-y border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-y border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Reviews For Luxury Black Car Transportation Nashville TN</span>
@@ -222,7 +220,6 @@ export default function BlackCarPage() {
         <div className="absolute inset-0">
           <PlaceholderImage src={blackCarImages.affordabilityBg} alt="Luxury transportation" />
         </div>
-        <div className="absolute inset-0 bg-ink/88" />
         <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
           <div>
             <span className="eyebrow">Affordability With Peak Level Luxury Limousines</span>
@@ -276,7 +273,7 @@ export default function BlackCarPage() {
       </section>
 
       {/* Exceptional Service features */}
-      <section className="border-t border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">Exceptional Service</span>
@@ -305,7 +302,7 @@ export default function BlackCarPage() {
       <AreasWeServe areas={blackCarAreas} />
 
       {/* Booking steps */}
-      <section className="border-t border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Book the Best Black Car Service</span>

@@ -53,7 +53,6 @@ export default function PromPage() {
         <div className="absolute inset-0">
           <PlaceholderImage src={promImages.heroImg} alt="Luxury limousine at night" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink from-35% via-ink/85 via-58% to-transparent to-90% sm:from-10% sm:via-40% sm:to-80%" />
 
         <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 lg:max-w-lg">
@@ -147,7 +146,7 @@ export default function PromPage() {
       </section>
 
       {/* Reviews */}
-      <section className="border-y border-border bg-bg-alt px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-y border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Reviews From Previous Customers</span>
@@ -215,7 +214,6 @@ export default function PromPage() {
         <div className="absolute inset-0">
           <PlaceholderImage src={promImages.diningImg} alt="Red carpet arrival" />
         </div>
-        <div className="absolute inset-0 bg-ink/85" />
         <div className="relative z-10 mx-auto max-w-(--breakpoint-xl) px-6 py-20 md:px-16 lg:px-24">
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">Step Into the Spotlight</span>

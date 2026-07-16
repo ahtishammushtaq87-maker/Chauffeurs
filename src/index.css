@@ -7,9 +7,11 @@
   --color-panel-alt: #f1efe8;
   --color-border: rgba(23, 20, 13, 0.1);
   --color-border-strong: rgba(23, 20, 13, 0.18);
-  --color-gold: #a8792f;
-  --color-gold-light: #c9a15a;
-  --color-gold-dim: rgba(168, 121, 47, 0.35);
+  --color-gold: #f0c420;
+  --color-gold-light: #f7d451;
+  --color-gold-dim: rgba(240, 196, 32, 0.35);
+  /* Glow tint for gold accents — same hue as --color-gold. Dial the alphas to taste. */
+  --glow-gold: 240, 196, 32;
   --color-text: #1c1a17;
   --color-text-muted: #6b655c;
   --color-text-faint: #837c6a;
@@ -45,6 +47,12 @@
 
   .btn-gold {
     @apply bg-gold text-[#17140d] hover:bg-gold-light;
+    box-shadow: 0 0 14px rgba(var(--glow-gold), 0.5), 0 0 28px rgba(var(--glow-gold), 0.28);
+    transition: box-shadow 0.2s, background-color 0.2s;
+  }
+
+  .btn-gold:hover {
+    box-shadow: 0 0 20px rgba(var(--glow-gold), 0.7), 0 0 40px rgba(var(--glow-gold), 0.4);
   }
 
   .btn-outline {
