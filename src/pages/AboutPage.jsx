@@ -32,7 +32,7 @@ export default function AboutPage() {
         </div>
 
         <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
-          <div className="flex-shrink-0 lg:max-w-lg">
+          <div className="flex-shrink-0 rounded-lg bg-black/50 p-6 lg:max-w-lg">
             <span className="eyebrow">About Swift Chauffeurs</span>
             <h1 className="font-serif text-4xl leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[52px]">
               Professional Chauffeur Service Provider in Tennessee

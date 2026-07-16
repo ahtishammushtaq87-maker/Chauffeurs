@@ -1,4 +1,4 @@
-import heroImg from "../assets/images/hero.webp";
+import heroImg from "../assets/images/bna-airport.webp";
 import suvImg from "../assets/images/car-rangerover.webp";
 import fleetSprinter from "../assets/images/fleet-partybus.webp";
 import fleetCoach from "../assets/images/fleet-coach.webp";

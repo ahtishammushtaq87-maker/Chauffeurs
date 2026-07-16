@@ -11,7 +11,7 @@ export default function PageHero({ eyebrow, title, image }) {
       </div>
 
       <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
-        <div className="flex-shrink-0 lg:max-w-lg">
+        <div className="flex-shrink-0 rounded-lg bg-black/50 p-6 lg:max-w-lg">
           {eyebrow && <span className="eyebrow">{eyebrow}</span>}
           <h1 className="max-w-xl font-serif text-4xl leading-[1.15] font-medium text-ink-fg md:text-5xl">{title}</h1>
           <TrustBadges />
