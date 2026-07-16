@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
+import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CardSlider from "../components/CardSlider";
 import { StarIcon, CheckIcon, PhoneIcon, ShieldIcon, AwardIcon, ClockIcon, DiamondIcon, ArrowRightIcon } from "../components/Icons";
@@ -53,6 +54,7 @@ export default function BirthdayPage() {
           </div>
         </div>
       </section>
+      <HeroMarquee />
 
       {/* Intro */}
       <section className="px-6 py-20 md:px-16 lg:px-24">

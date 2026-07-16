@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
+import HeroMarquee from "../components/HeroMarquee";
 import CardSlider from "../components/CardSlider";
 import TrustBadges from "../components/TrustBadges";
 import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons";
@@ -134,6 +135,7 @@ export default function FleetVehicleDetailPage() {
           </div>
         </div>
       </section>
+      <HeroMarquee />
 
       {/* Why Choose Us */}
       <section className="px-6 py-20 md:px-16 lg:px-24">

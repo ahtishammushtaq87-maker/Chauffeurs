@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
+import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CardSlider from "../components/CardSlider";
 import TrustBadges from "../components/TrustBadges";
@@ -161,6 +162,7 @@ export default function ServiceDetailPage() {
           </div>
         </div>
       </section>
+      <HeroMarquee />
 
       {/* First content section: text left, image right — then Our Fleet, then any
           remaining sections alternate starting image left / text right. */}

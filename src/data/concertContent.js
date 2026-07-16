@@ -1,6 +1,7 @@
 import heroImg from "../assets/images/svc-concert.webp";
 import limoRoadImg from "../assets/images/concert-limo-road.webp";
-import chauffeurImg from "../assets/images/financing-bg.jpg";
+import whyImg from "../assets/images/3rd-Image.jpg.webp";
+import affordabilityBg from "../assets/images/Concert_limo_serv.webp";
 import fleetLimo from "../assets/images/car-mercedes.webp";
 import fleetCoach from "../assets/images/fleet-coach.webp";
 import fleetSedan from "../assets/images/fleet-partybus.webp";
@@ -8,8 +9,8 @@ import fleetSedan from "../assets/images/fleet-partybus.webp";
 export const concertImages = {
   heroImg,
   introImg: limoRoadImg,
-  whyImg: limoRoadImg,
-  affordabilityBg: chauffeurImg,
+  whyImg,
+  affordabilityBg,
 };
 
 export const concertFleet = [

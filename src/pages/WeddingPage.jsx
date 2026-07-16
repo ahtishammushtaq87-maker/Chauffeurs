@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
+import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CardSlider from "../components/CardSlider";
 import TrustBadges from "../components/TrustBadges";
@@ -66,6 +67,7 @@ export default function WeddingPage() {
           </div>
         </div>
       </section>
+      <HeroMarquee />
 
       {/* Intro: features + pricing */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
@@ -103,22 +105,8 @@ export default function WeddingPage() {
           <div className="overflow-hidden rounded-xl border border-border bg-panel">
             <div className="relative aspect-[16/9]">
               <PlaceholderImage src={weddingImages.introImg} alt="Luxury wedding limo" />
-              <div className="absolute bottom-4 left-5">
-                <h3 className="font-serif text-xl text-ink-fg">{weddingPricing.title}</h3>
-              </div>
             </div>
             <div className="p-6">
-              <p className="text-[13px] text-text-muted">{weddingPricing.desc}</p>
-              <p className="mt-5 text-sm font-semibold tracking-wide text-gold uppercase">{weddingPricing.route}</p>
-              <div className="mt-3 grid grid-cols-2 gap-3">
-                {weddingPricing.rates.map((r) => (
-                  <div key={r.label} className="rounded-lg border border-border bg-bg-alt p-4 text-center">
-                    <p className="text-xs text-text-faint">{r.label}</p>
-                    <p className="mt-1 font-serif text-2xl text-gold">{r.price}</p>
-                    <p className="text-[11px] text-text-muted">{r.note}</p>
-                  </div>
-                ))}
-              </div>
               <a href={PHONE} className="btn btn-gold mt-5 w-full">
                 Reserve Now
               </a>
@@ -212,35 +200,7 @@ export default function WeddingPage() {
           <PlaceholderImage src={weddingImages.affordabilityBg} alt="Luxury transportation" />
         </div>
         <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
-          <div>
-            <span className="eyebrow">Affordable Luxury for Your Wedding</span>
-            <h2 className="font-serif text-3xl leading-tight font-medium text-ink-fg md:text-4xl">
-              Make an Entrance, Leave an Impression
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-ink-fg-muted">
-              At Swift Chauffeurs, we believe that luxury shouldn't be reserved for the elite. Our wedding chauffeur hire service in Nashville offers the perfect mix of elegance, comfort, and affordability. From the moment you step into one of our vehicles, you'll experience:
-            </p>
-            <ul className="mt-4 flex flex-col gap-2.5">
-              {weddingAffordablePerks.map((line) => (
-                <li key={line} className="flex items-start gap-3 text-sm text-ink-fg-muted">
-                  <CheckCircleIcon width={18} height={18} className="mt-0.5 flex-shrink-0 text-gold" />
-                  {line}
-                </li>
-              ))}
-            </ul>
-            <blockquote className="mt-7 border-l-2 border-gold pl-5 font-serif text-lg text-ink-fg italic">
-              "Luxury isn't about the price you pay; it's about the experience that leaves a lasting impression."
-            </blockquote>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href={PHONE} className="btn btn-gold">
-                <PhoneIcon width={15} height={15} /> Call Now
-              </a>
-              <Link to="/contact" className="btn btn-outline border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light">
-                Contact Us
-              </Link>
-            </div>
-          </div>
-          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-sm">
+          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-m">
             <h3 className="font-serif text-2xl text-text">Plan Your Perfect Wedding Limo Entrance</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
               Every wedding is unique, and so are your transportation needs. Whether you're planning a grand entrance, coordinating bridal party arrivals, or ensuring seamless transportation for your guests, our customizable wedding limo services in Nashville are here to make it happen.

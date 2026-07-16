@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
+import HeroMarquee from "../components/HeroMarquee";
 import CardSlider from "../components/CardSlider";
 import FleetHighlightSection from "../components/FleetHighlightSection";
 import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons";
@@ -44,6 +45,7 @@ export default function LuxurySedanPage() {
           </div>
         </div>
       </section>
+      <HeroMarquee />
 
       {/* What Sets Swift Chauffeurs Apart */}
       <section className="px-6 py-20 md:px-16 lg:px-24">

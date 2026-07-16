@@ -2,7 +2,7 @@ import heroImg from "../assets/images/svc-blackcar.jpg";
 import pricingImg from "../assets/images/car-mercedes.webp";
 import serviceImg from "../assets/images/car-audi.webp";
 import preferredImg from "../assets/images/car-rangerover.webp";
-import affordabilityBg from "../assets/images/financing-bg.jpg";
+import affordabilityBg from "../assets/images/airport_for.webp";
 import trustImg from "../assets/images/car-bmw.webp";
 import fleetCoach43 from "../assets/images/fleet-coach.webp";
 import fleetCoach57 from "../assets/images/fleet-partybus.webp";

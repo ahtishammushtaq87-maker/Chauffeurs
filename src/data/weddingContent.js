@@ -3,8 +3,8 @@ import introImg from "../assets/images/fleet-sedan.webp";
 import fleetLimo from "../assets/images/car-mercedes.webp";
 import fleetCoach from "../assets/images/fleet-coach.webp";
 import fleetCoach2 from "../assets/images/car-bmw.webp";
-import whyImg from "../assets/images/concert-limo-road.webp";
-import affordabilityBg from "../assets/images/financing-bg.jpg";
+import whyImg from "../assets/images/wed2nd.jpg.webp";
+import affordabilityBg from "../assets/images/enjoying-wedding-drive.webp";
 import trustImg from "../assets/images/car-bmw.webp";
 import redCarpetImg from "../assets/images/trade-bg.webp";
 

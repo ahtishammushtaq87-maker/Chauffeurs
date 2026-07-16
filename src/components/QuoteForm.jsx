@@ -107,7 +107,7 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
   }
 
   return (
-    <div className="w-full rounded border border-border-strong bg-panel/85 p-6 backdrop-blur-md sm:p-8">
+    <div className="w-full rounded border border-border-strong bg-panel/85 p-6 backdrop-blur-m sm:p-8">
       <h2 className="mb-5 text-lg font-bold tracking-wide text-text uppercase">
         Get An <BoltIcon width={16} height={16} className="mb-0.5 inline text-gold" /> <span className="text-gold">Instant Quote</span>
       </h2>

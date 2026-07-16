@@ -1,5 +1,5 @@
 import heroImg from "../assets/images/trade-bg.webp";
-import introImg from "../assets/images/financing-bg.jpg";
+import introImg from "../assets/images/Create-an-image-of-a-1810590a--images-1024x579.webp";
 import fleetLimo from "../assets/images/car-mercedes.webp";
 import fleetCoach from "../assets/images/fleet-coach.webp";
 import fleetCoach2 from "../assets/images/fleet-partybus.webp";

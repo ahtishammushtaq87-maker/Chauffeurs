@@ -2,9 +2,11 @@ import PlaceholderImage from "./PlaceholderImage";
 import QuoteForm from "./QuoteForm";
 import { heroImg } from "../data/content";
 import TrustBadges from "./TrustBadges";
+import HeroMarquee from "./HeroMarquee";
 
 export default function Hero() {
   return (
+    <>
     <section className="relative flex items-center overflow-hidden bg-ink">
       <div className="absolute inset-0">
         <PlaceholderImage src={heroImg} label="Hero Vehicle Photo" alt="Luxury vehicle" />
@@ -28,5 +30,7 @@ export default function Hero() {
         </div>
       </div>
     </section>
+    <HeroMarquee />
+    </>
   );
 }

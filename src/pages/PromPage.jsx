@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
+import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CardSlider from "../components/CardSlider";
 import TrustBadges from "../components/TrustBadges";
@@ -28,10 +29,10 @@ import {
 } from "../data/promContent";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
-function CtaButtons({ className = "" }) {
+function CtaButtons({ phone, className = "" }) {
   return (
     <div className={`flex flex-wrap gap-4 ${className}`}>
-      <a href={PHONE} className="btn btn-gold">
+      <a href={phone} className="btn btn-gold">
         <PhoneIcon width={15} height={15} /> Call Now
       </a>
       <Link to="/contact" className="btn btn-outline">
@@ -61,7 +62,7 @@ export default function PromPage() {
               Arrive in Style on <span className="text-gold italic">Prom Night</span>
             </h1>
             <TrustBadges />
-            <CtaButtons className="mt-9" />
+            <CtaButtons phone={PHONE} className="mt-9" />
           </div>
 
           <div className="w-full max-w-md lg:flex-shrink-0">
@@ -69,6 +70,7 @@ export default function PromPage() {
           </div>
         </div>
       </section>
+      <HeroMarquee />
 
       {/* Intro / experience band */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
@@ -204,7 +206,7 @@ export default function PromPage() {
             <blockquote className="mt-7 border-l-2 border-gold pl-5 font-serif text-lg text-text italic">
               "Luxury isn't about the price you pay; it's about the experience that leaves a lasting impression."
             </blockquote>
-            <CtaButtons className="mt-8" />
+            <CtaButtons phone={PHONE} className="mt-8" />
           </div>
         </div>
       </section>
@@ -230,7 +232,7 @@ export default function PromPage() {
             {promSpotlightFeatures.map((f, i) => {
               const Ico = spotlightIcons[i];
               return (
-                <div key={f.title} className="rounded-xl border border-border bg-panel/80 p-6 backdrop-blur-sm">
+                <div key={f.title} className="rounded-xl border border-border bg-panel/80 p-6 backdrop-blur-m">
                   <Ico width={28} height={28} className="text-gold" />
                   <h3 className="mt-4 text-[15px] font-semibold text-text">{f.title}</h3>
                   <p className="mt-1 text-[13px] text-text-muted">{f.desc}</p>

@@ -2,9 +2,11 @@ import PlaceholderImage from "./PlaceholderImage";
 import QuoteForm from "./QuoteForm";
 import TrustBadges from "./TrustBadges";
 import { heroImg } from "../data/content";
+import HeroMarquee from "./HeroMarquee";
 
 export default function PageHero({ eyebrow, title, image }) {
   return (
+    <>
     <section className="relative flex items-center overflow-hidden border-b border-ink-border bg-ink">
       <div className="absolute inset-0">
         <PlaceholderImage src={image || heroImg} label="Hero Photo" alt={title || "Chauffeur service"} />
@@ -22,5 +24,7 @@ export default function PageHero({ eyebrow, title, image }) {
         </div>
       </div>
     </section>
+    <HeroMarquee />
+    </>
   );
 }

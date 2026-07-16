@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
+import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CardSlider from "../components/CardSlider";
 import TrustBadges from "../components/TrustBadges";
@@ -65,6 +66,7 @@ export default function BlackCarPage() {
           </div>
         </div>
       </section>
+      <HeroMarquee />
 
       {/* Intro: features + pricing */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
@@ -221,22 +223,7 @@ export default function BlackCarPage() {
           <PlaceholderImage src={blackCarImages.affordabilityBg} alt="Luxury transportation" />
         </div>
         <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
-          <div>
-            <span className="eyebrow">Affordability With Peak Level Luxury Limousines</span>
-            <h2 className="font-serif text-3xl leading-tight font-medium text-ink-fg md:text-4xl">
-              Ride Like Royalty, Arrive Like a Boss
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-ink-fg-muted">
-              You don't have to compromise on quality to stick to your budget. Our premium vehicles and professional chauffeurs deliver reliable service at a price that fits your lifestyle. From the moment you step into one of our vehicles, you're treated like royalty.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-ink-fg-muted">
-              Our focus on comfort, elegance, and punctuality ensures you arrive feeling confident and in control. Our black car service Nashville is designed to offer world-class comfort, style, and reliability at a fraction of the cost you'd expect in Nashville, TN. We truly believe that:
-            </p>
-            <blockquote className="mt-7 border-l-2 border-gold pl-5 font-serif text-lg text-ink-fg italic">
-              "Luxury isn't about the price you pay; it's about the experience that leaves a lasting impression."
-            </blockquote>
-          </div>
-          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-sm">
+          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-m">
             <h3 className="font-serif text-2xl text-text">Travel in Style with Luxury Black Car & Chauffeur Service Nashville, TN</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
               We understand that every client has unique needs, which is why we offer personalized packages designed to fit any occasion or preference. Book your ride today and experience why Swift Chauffeurs is Nashville's trusted black car chauffeur company.

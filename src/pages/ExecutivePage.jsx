@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
+import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CardSlider from "../components/CardSlider";
 import TrustBadges from "../components/TrustBadges";
@@ -63,6 +64,7 @@ export default function ExecutivePage() {
           </div>
         </div>
       </section>
+      <HeroMarquee />
 
       {/* Intro */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
@@ -105,7 +107,7 @@ export default function ExecutivePage() {
       {/* Premium Fleet */}
       <FleetSection
         eyebrow="Your Dream, Our Destination"
-        heading="Tennessee's Best Limousine Service"
+        heading="Our Best Fleet"
         items={executiveFleet}
       />
 
@@ -191,34 +193,6 @@ export default function ExecutivePage() {
           <PlaceholderImage src={executiveImages.affordabilityBg} alt="Nashville city skyline" />
         </div>
         <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
-          <div>
-            <span className="eyebrow">Luxury That Fits Your Budget</span>
-            <h2 className="font-serif text-3xl leading-tight font-medium text-ink-fg md:text-4xl">
-              Affordable Corporate Chauffeur Services Without Compromise
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-ink-fg-muted">
-              Your business transportation needs don't have to come at the expense of luxury. We provide expert
-              chauffeur services in Nashville that blend Mercedes-Benz comfort and elegance with reasonable prices.
-              You'll notice a degree of elegance and style as soon as you enter that improves your professional
-              image.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-ink-fg-muted">
-              We prioritize offering a service that is not only dependable but also cozy and on time, so you may
-              reach your location with assurance and readiness. Our focus on comfort, elegance, and punctuality
-              ensures you arrive feeling confident and in control. We truly believe that:
-            </p>
-            <blockquote className="mt-7 border-l-2 border-gold pl-5 font-serif text-lg text-ink-fg italic">
-              "Luxury isn't about the price you pay; it's about the experience that leaves a lasting impression."
-            </blockquote>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href={PHONE} className="btn btn-gold">
-                <PhoneIcon width={15} height={15} /> Call Now
-              </a>
-              <Link to="/contact" className="btn btn-outline border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light">
-                Contact Us
-              </Link>
-            </div>
-          </div>
           <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-sm">
             <h3 className="font-serif text-2xl text-text">Travel Like a Boss with Apex Motors</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
@@ -266,7 +240,7 @@ export default function ExecutivePage() {
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">Exceptional Service</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Reserve True Luxury on the Go
+            True Luxury on the Go
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
               Simplify your travel with Apex Motors. Booking your premium chauffeur service is quick and easy.

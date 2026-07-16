@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
+import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CardSlider from "../components/CardSlider";
 import TrustBadges from "../components/TrustBadges";
@@ -62,6 +63,7 @@ export default function ConcertPage() {
           </div>
         </div>
       </section>
+      <HeroMarquee />
 
       {/* Intro */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
@@ -196,37 +198,7 @@ export default function ConcertPage() {
           <PlaceholderImage src={concertImages.affordabilityBg} alt="Chauffeur driving at sunset" />
         </div>
         <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
-          <div>
-            <span className="eyebrow">Luxury Transportation for Every Music Event</span>
-            <h2 className="font-serif text-3xl leading-tight font-medium text-ink-fg md:text-4xl">
-              Ride in Style to Your Favorite Concert
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-ink-fg-muted">
-              There's nothing like the anticipation of seeing your favorite artist perform live. Make the evening
-              even more special with luxury concert transportation that matches the excitement of the event.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-ink-fg-muted">
-              Our vehicles feature comfortable leather seating, advanced climate control, premium sound systems, and
-              spacious interiors designed for relaxation and entertainment. Gather your friends, enjoy refreshments,
-              and start the celebration before you even reach the venue.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-ink-fg-muted">
-              Whether you're attending a country music concert, rock festival, pop performance, or private music
-              event, Apex Motors ensures your journey is just as enjoyable as the destination.
-            </p>
-            <blockquote className="mt-7 border-l-2 border-gold pl-5 font-serif text-lg text-ink-fg italic">
-              "The best nights deserve the best transportation."
-            </blockquote>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href={PHONE} className="btn btn-gold">
-                <PhoneIcon width={15} height={15} /> Call Now
-              </a>
-              <Link to="/contact" className="btn btn-outline border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light">
-                Contact Us
-              </Link>
-            </div>
-          </div>
-          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-sm">
+          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-m">
             <h3 className="font-serif text-2xl text-text">Travel Like a VIP</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
               Concert Limo Service Tailored to Your Needs. Every concert experience is unique, which is why we offer
@@ -271,7 +243,7 @@ export default function ConcertPage() {
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">Exceptional Service</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Reserve Luxury Concert Transportation Today
+              Luxury Concert Transportation Today
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
               Booking your concert limo service is simple and hassle-free. Whether you're planning weeks in advance
