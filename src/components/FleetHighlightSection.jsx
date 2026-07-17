@@ -22,21 +22,23 @@ export default function FleetHighlightSection({ slug, eyebrow, heading }) {
 
   const renderFleetCard = (item) => (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel">
-      <div className="relative h-56 flex-shrink-0 overflow-hidden">
+      {/* 16:9 matches most fleet uploads, so object-contain shows the whole
+          vehicle with little leftover space around it. */}
+      <div className="aspect-video flex-shrink-0 overflow-hidden bg-panel">
         <PlaceholderImage
           src={item.image}
           alt={item.imageAlt || item.name}
           title={item.imageTitle}
-          className="absolute inset-0"
+          fit="contain"
         />
       </div>
       <div className="p-6">
         <h3 className="font-serif text-xl text-text">{item.name}</h3>
         {item.desc && <p className="mt-3 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>}
         <div className="mt-6 flex flex-wrap gap-3">
-          <a href="#quote" className="btn btn-outline">
+          {/*<a href="#quote" className="btn btn-outline">
             View More
-          </a>
+          </a>*/}
           <a href="#quote" className="btn btn-gold">
                   Book Now
                 </a>

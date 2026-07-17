@@ -1,13 +1,13 @@
 import { CarIcon } from "./Icons";
 
-export default function PlaceholderImage({ label, className = "", src, alt, title }) {
+export default function PlaceholderImage({ label, className = "", src, alt, title, fit = "cover" }) {
   if (src) {
     return (
       <img
         src={src}
         alt={alt || label || ""}
         title={title || undefined}
-        className={`h-full w-full object-cover ${className}`}
+        className={`h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"} ${className}`}
       />
     );
   }
