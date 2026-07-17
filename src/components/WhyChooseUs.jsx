@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { whyChooseUs } from "../data/content";
 import { Icon } from "./Icons";
 
@@ -15,7 +16,9 @@ export default function WhyChooseUs() {
           <p className="mt-4.5 mb-7 max-w-xs text-[15px] text-text-muted lg:max-w-none">
             We deliver a premium experience from start to finish.
           </p>
-          <button className="btn btn-outline">Learn More About Us</button>
+          <Link to="/about" className="btn btn-outline">
+            Learn More About Us
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">

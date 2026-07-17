@@ -40,14 +40,14 @@ export default function BlackCarPage() {
           <PlaceholderImage src={blackCarImages.heroImg} alt="Luxury black car service" />
         </div>
 
-        <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
-          <div className="flex-shrink-0 rounded-lg bg-black/50 p-6 lg:max-w-lg">
+        <div className="relative z-10 flex w-full flex-col items-start gap-6 px-5 py-10 sm:gap-10 sm:px-10 sm:py-14 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
+          <div className="flex-shrink-0 rounded-lg bg-black/50 p-5 sm:p-6 lg:max-w-lg">
             <span className="eyebrow">Luxury Black Car Service</span>
-            <h1 className="font-serif text-4xl leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[56px]">
+            <h1 className="font-serif text-[2rem] leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[56px]">
               Get an <span className="text-gold italic">Instant Quote</span>
             </h1>
             <TrustBadges />
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
               <a href={PHONE} className="btn btn-gold">
                 <PhoneIcon width={15} height={15} /> Call Now
               </a>
@@ -186,9 +186,9 @@ export default function BlackCarPage() {
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
               We understand that every client has unique needs, which is why we offer personalized packages designed to fit any occasion or preference. Book your ride today and experience why Swift Chauffeurs is Nashville's trusted black car chauffeur company.
             </p>
-            <Link to="/contact" className="btn btn-gold mt-6">
-              Book Now
-            </Link>
+            <a href="#quote" className="btn btn-gold mt-6">
+                  Book Now
+                </a>
           </div>
         </div>
       </section>

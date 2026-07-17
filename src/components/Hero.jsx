@@ -12,10 +12,10 @@ export default function Hero() {
         <PlaceholderImage src={heroImg} label="Hero Vehicle Photo" alt="Luxury vehicle" />
       </div>
 
-      <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
-        <div className="flex-shrink-0 lg:max-w-lg bg-black/50 p-6 rounded-lg">
+      <div className="relative z-10 flex w-full flex-col items-start gap-6 px-5 py-10 sm:gap-10 sm:px-10 sm:py-14 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
+        <div className="flex-shrink-0 rounded-lg bg-black/50 p-5 sm:p-6 lg:max-w-lg">
           <span className="eyebrow">Drive Excellence</span>
-          <h1 className="max-w-xl font-serif text-5xl leading-[1.12] font-medium text-ink-fg md:text-[64px]">
+          <h1 className="max-w-xl font-serif text-[2rem] leading-[1.15] font-medium text-ink-fg sm:text-[2.5rem] sm:leading-[1.12] md:text-5xl lg:text-[64px]">
             Luxury.
             <br />
             Performance.

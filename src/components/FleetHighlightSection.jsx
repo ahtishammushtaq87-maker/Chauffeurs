@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import PlaceholderImage from "./PlaceholderImage";
 import CardSlider from "./CardSlider";
 import { fetchFleetSection } from "../lib/fleet";
@@ -38,9 +37,9 @@ export default function FleetHighlightSection({ slug, eyebrow, heading }) {
           <a href="#quote" className="btn btn-outline">
             View More
           </a>
-          <Link to="/contact" className="btn btn-gold">
-            Book Now
-          </Link>
+          <a href="#quote" className="btn btn-gold">
+                  Book Now
+                </a>
         </div>
       </div>
     </div>

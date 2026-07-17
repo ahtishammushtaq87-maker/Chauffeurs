@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BoltIcon, SearchIcon } from "./Icons";
 import { apiJson } from "../lib/api";
+import { useAddressAutocomplete } from "../hooks/useAddressAutocomplete";
 
 const inputClasses =
-  "w-full rounded-sm border border-border-strong bg-bg/60 px-4 py-3 text-sm text-text outline-none transition-colors placeholder:text-text-faint focus:border-gold";
+  "w-full rounded-sm border border-border-strong bg-bg/60 px-3 py-2.5 text-[13px] text-text outline-none transition-colors placeholder:text-text-faint focus:border-gold sm:px-4 sm:py-3 sm:text-sm";
 
 const addressClasses =
-  "w-full rounded-sm border border-border bg-bg/60 px-4 py-3 pl-10 text-sm text-text outline-none transition-colors placeholder:text-text-faint focus:border-gold";
+  "w-full rounded-sm border border-border bg-bg/60 px-3 py-2.5 pl-9 text-[13px] text-text outline-none transition-colors placeholder:text-text-faint focus:border-gold sm:px-4 sm:py-3 sm:pl-10 sm:text-sm";
 
 const serviceTypes = [
   "Point-to-Point",
@@ -52,6 +53,12 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
+  const pickupRef = useRef(null);
+  const destinationRef = useRef(null);
+
+  const setField = (name) => (value) => setForm((f) => ({ ...f, [name]: value }));
+  useAddressAutocomplete(pickupRef, setField("pickupAddress"));
+  useAddressAutocomplete(destinationRef, setField("destinationAddress"));
 
   useEffect(() => {
     if (status !== "success") return;
@@ -98,23 +105,23 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
   }
 
   return (
-    <div className="w-full rounded border border-border-strong bg-panel/85 p-6 backdrop-blur-m sm:p-8">
-      <h2 className="mb-5 text-lg font-bold tracking-wide text-text uppercase">
+    <div className="w-full rounded border border-border-strong bg-panel/85 p-4 backdrop-blur-m sm:p-8">
+      <h2 className="mb-4 text-base font-bold tracking-wide text-text uppercase sm:mb-5 sm:text-lg">
         Get An <BoltIcon width={16} height={16} className="mb-0.5 inline text-gold" /> <span className="text-gold">Instant Quote</span>
       </h2>
 
-      <form className="flex flex-col gap-3.5" onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-3.5">
+      <form className="flex flex-col gap-2.5 sm:gap-3.5" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
           <input className={inputClasses} name="name" placeholder="Full Name" value={form.name} onChange={handleChange} />
           <input className={inputClasses} name="passengers" placeholder="Passengers" value={form.passengers} onChange={handleChange} />
         </div>
 
-        <div className="grid grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
           <input className={inputClasses} type="tel" name="contactNo" placeholder="Contact No" value={form.contactNo} onChange={handleChange} />
           <input className={inputClasses} type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
         </div>
 
-        <div className="grid grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
           <select className={`${inputClasses} text-text-muted`} name="serviceType" value={form.serviceType} onChange={handleChange}>
             <option value="">Select Service Type</option>
             {serviceTypes.map((type) => (
@@ -133,7 +140,7 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
           </select>
         </div>
 
-        <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3.5">
           <input
             className={`${inputClasses} text-text-muted`}
             type="date"
@@ -162,21 +169,25 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
         </div>
 
         <div className="relative">
-          <SearchIcon width={16} height={16} className="pointer-events-none absolute top-1/2 left-3.5 -translate-y-1/2 text-text-faint" />
+          <SearchIcon width={16} height={16} className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-text-faint sm:left-3.5" />
           <input
+            ref={pickupRef}
             className={addressClasses}
             name="pickupAddress"
             placeholder="Enter Pick-up address"
+            autoComplete="off"
             value={form.pickupAddress}
             onChange={handleChange}
           />
         </div>
         <div className="relative">
-          <SearchIcon width={16} height={16} className="pointer-events-none absolute top-1/2 left-3.5 -translate-y-1/2 text-text-faint" />
+          <SearchIcon width={16} height={16} className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-text-faint sm:left-3.5" />
           <input
+            ref={destinationRef}
             className={addressClasses}
             name="destinationAddress"
             placeholder="Enter destination address"
+            autoComplete="off"
             value={form.destinationAddress}
             onChange={handleChange}
           />
@@ -213,7 +224,7 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
           type="button"
           onClick={handleSubmit}
           disabled={status === "submitting"}
-          className="btn btn-gold mt-1.5 w-full py-4 disabled:opacity-60"
+          className="btn btn-gold mt-1.5 w-full py-3 text-sm disabled:opacity-60 sm:py-4 sm:text-base"
         >
           {status === "submitting" ? "Submitting…" : submitLabel}
         </button>

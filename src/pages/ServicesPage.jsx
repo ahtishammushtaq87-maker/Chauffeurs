@@ -66,9 +66,9 @@ export default function ServicesPage() {
                       <Link to={s.path} className="btn btn-outline flex-1">
                         View More
                       </Link>
-                      <Link to="/contact" className="btn btn-gold flex-1">
-                        Book Now
-                      </Link>
+                      <a href="#quote" className="btn btn-gold flex-1">
+                  Book Now
+                </a>
                     </div>
                   </div>
                 </article>

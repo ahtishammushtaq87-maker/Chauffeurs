@@ -24,14 +24,14 @@ export default function PartyBusPage() {
           <PlaceholderImage src={partyBusImages.heroImg} alt="Luxury party bus" />
         </div>
 
-        <div className="relative z-10 flex w-full flex-col items-start gap-10 px-6 py-14 sm:px-10 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
-          <div className="flex-shrink-0 rounded-lg bg-black/50 p-6 lg:max-w-lg">
+        <div className="relative z-10 flex w-full flex-col items-start gap-6 px-5 py-10 sm:gap-10 sm:px-10 sm:py-14 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
+          <div className="flex-shrink-0 rounded-lg bg-black/50 p-5 sm:p-6 lg:max-w-lg">
             <span className="eyebrow">Luxury Party Bus Rental Nashville TN</span>
-            <h1 className="font-serif text-4xl leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[56px]">
+            <h1 className="font-serif text-[2rem] leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[56px]">
               Celebrate Bigger. Travel Together. <span className="text-gold italic">Arrive in Style.</span>
             </h1>
             <TrustBadges />
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
               <a href={PHONE} className="btn btn-gold">
                 <PhoneIcon width={15} height={15} /> Call Now
               </a>
@@ -96,9 +96,9 @@ export default function PartyBusPage() {
                 <Link to={item.path} className="btn btn-outline flex-1">
                   View More
                 </Link>
-                <Link to="/contact" className="btn btn-gold flex-1">
+                <a href="#quote" className="btn btn-gold flex-1">
                   Book Now
-                </Link>
+                </a>
               </div>
             )}
           />

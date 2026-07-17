@@ -25,3 +25,8 @@ black-car-page.png
 *.njsproj
 *.sln
 *.sw?
+
+# Local env files (never commit API keys)
+.env
+.env.local
+.env.*.local

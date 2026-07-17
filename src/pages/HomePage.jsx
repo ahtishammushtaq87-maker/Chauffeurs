@@ -34,9 +34,9 @@ export default function HomePage() {
                 <Link to={item.path} className="btn btn-outline flex-1">
                   View More
                 </Link>
-                <Link to="/contact" className="btn btn-gold flex-1">
+                <a href="#quote" className="btn btn-gold flex-1">
                   Book Now
-                </Link>
+                </a>
               </div>
             )}
           />

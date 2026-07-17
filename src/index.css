@@ -41,8 +41,10 @@
 }
 
 @layer components {
+  /* Mobile keeps tighter padding/tracking so paired buttons (View More + Book Now)
+     fit inside a card on a ~375px screen; full size returns from sm: up. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-4 text-[13px] tracking-[1.5px] uppercase font-semibold rounded-sm border border-transparent transition-all duration-200 whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-3 text-[11px] tracking-[1px] uppercase font-semibold rounded-sm border border-transparent transition-all duration-200 whitespace-nowrap sm:px-7 sm:py-4 sm:text-[13px] sm:tracking-[1.5px];
   }
 
   .btn-gold {
@@ -102,4 +104,51 @@
   .animate-marquee {
     animation-duration: 24s;
   }
+}
+
+/* Google Places autocomplete dropdown. Google renders .pac-container into <body>,
+   so it can't inherit the form's utility classes — these rules match it to the
+   quote form. The "Powered by Google" logo (.pac-container:after) must stay:
+   it's required when suggestions are shown outside a Google map. */
+.pac-container {
+  background: var(--color-panel);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(23, 20, 13, 0.14);
+  font-family: var(--font-sans);
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.pac-item {
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.pac-item:first-child {
+  border-top: none;
+}
+
+.pac-item:hover,
+.pac-item-selected {
+  background: var(--color-panel-alt);
+}
+
+.pac-item-query {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.pac-matched {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.pac-icon {
+  margin-top: 5px;
 }
