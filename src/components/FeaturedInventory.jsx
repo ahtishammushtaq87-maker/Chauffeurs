@@ -12,7 +12,7 @@ function GallerySkeleton() {
 
 export default function FeaturedInventory() {
   return (
-    <section className="py-30 ">
+    <section className="py-15 ">
       <div className="mx-auto max-w-(--breakpoint-xl) px-6 md:px-16 lg:px-24">
         <div className="mb-8 text-center sm:mb-10">
           <span className="eyebrow">Your Dream, Our Destination</span>

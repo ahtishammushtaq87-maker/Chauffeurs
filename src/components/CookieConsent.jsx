@@ -12,7 +12,7 @@ function hasAccepted() {
 }
 
 // Bottom bar shown until the visitor accepts cookies, then hidden for good
-// (remembered in localStorage). Sits above the WhatsApp button while visible.
+// (remembered in localStorage). Sits above the floating call button while visible.
 export default function CookieConsent() {
   const [accepted, setAccepted] = useState(hasAccepted);
   const [shown, setShown] = useState(false);
@@ -39,7 +39,7 @@ export default function CookieConsent() {
     <div
       role="region"
       aria-label="Cookie consent"
-      className={`fixed inset-x-0 bottom-0 z-[70] border-t border-ink-border bg-ink/97 backdrop-blur-md transition-transform duration-300 ease-out ${
+      className={`fixed inset-x-0 bottom-0 z-[130] border-t border-ink-border bg-ink/97 backdrop-blur-md transition-transform duration-300 ease-out ${
         shown ? "translate-y-0" : "translate-y-full"
       }`}
     >

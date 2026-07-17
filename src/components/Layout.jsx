@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import TopBar from "./TopBar";
 import Header from "./Header";
 import Footer from "./Footer";
-import WhatsAppButton from "./WhatsAppButton";
+import CallNowButton from "./CallNowButton";
 import SeoManager from "./SeoManager";
 import CookieConsent from "./CookieConsent";
 import { SiteSettingsProvider } from "../context/SiteSettingsContext";
@@ -17,7 +17,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <WhatsAppButton />
+      <CallNowButton />
       <CookieConsent />
     </SiteSettingsProvider>
   );
