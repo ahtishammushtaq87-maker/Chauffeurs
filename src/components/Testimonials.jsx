@@ -29,8 +29,11 @@ export default function Testimonials() {
           </button>
 
           <div className="grid flex-1 grid-cols-1 gap-5 md:grid-cols-3">
-            {shown.map((t) => (
-              <article key={t.id} className="rounded border border-border bg-panel p-8">
+            {shown.map((t, i) => (
+              <article
+                key={t.id}
+                className={`${i > 0 ? "hidden md:block" : ""} rounded border border-border bg-panel p-8`}
+              >
                 <div className="mb-5 flex items-start justify-between text-gold">
                   <QuoteIcon />
                   <div className="flex gap-0.5">

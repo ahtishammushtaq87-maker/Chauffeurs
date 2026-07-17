@@ -6,6 +6,7 @@ import CardSlider from "../components/CardSlider";
 import FleetHighlightSection from "../components/FleetHighlightSection";
 import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons";
 import TrustBadges from "../components/TrustBadges";
+import CustomerReviews from "../components/CustomerReviews";
 import { motorCoachImages, motorCoachFeatures } from "../data/motorCoachContent";
 import { useAllServices } from "../hooks/useAllServices";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
@@ -103,6 +104,9 @@ export default function MotorCoachPage() {
           />
         </div>
       </section>
+
+      {/* Customer reviews */}
+      <CustomerReviews />
 
       {/* Final CTA */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">

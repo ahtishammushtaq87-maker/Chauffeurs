@@ -1,5 +1,5 @@
-import heroImg from "../assets/images/car-audi.webp";
-import featuresImg from "../assets/images/fleet-sedan.webp";
+import heroImg from "../assets/images/mercedes-benz-s-class_100427375_h-1-1536x933.jpg.webp";
+import featuresImg from "../assets/images/mercedes-benz-s-class_100427375_h-1-1536x933.jpg.webp";
 import fleetPrimary from "../assets/images/car-mercedes.webp";
 import fleetSecondary from "../assets/images/car-porsche.webp";
 import airportImg from "../assets/images/svc-airport.webp";

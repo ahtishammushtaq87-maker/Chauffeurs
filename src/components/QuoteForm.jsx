@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BoltIcon, SearchIcon } from "./Icons";
 import { apiJson } from "../lib/api";
-import Captcha from "./Captcha";
 
 const inputClasses =
   "w-full rounded-sm border border-border-strong bg-bg/60 px-4 py-3 text-sm text-text outline-none transition-colors placeholder:text-text-faint focus:border-gold";
@@ -53,7 +52,6 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
-  const [captcha, setCaptcha] = useState(null);
 
   useEffect(() => {
     if (status !== "success") return;
@@ -69,20 +67,13 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
   const handleSubmit = async (e) => {
     e?.preventDefault();
     setError("");
-    if (!captcha) {
-      setError("Please complete the \"I'm not a robot\" verification.");
-      return;
-    }
     setStatus("submitting");
     try {
       await apiJson("/quotes", "POST", {
         ...form,
         sourcePath: pathname,
-        captchaToken: captcha.token,
-        captchaAnswer: captcha.answer,
       });
       setForm(emptyForm);
-      setCaptcha(null);
       setStatus("success");
     } catch (err) {
       setError(err.message);
@@ -113,17 +104,17 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
       </h2>
 
       <form className="flex flex-col gap-3.5" onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-3.5">
           <input className={inputClasses} name="name" placeholder="Full Name" value={form.name} onChange={handleChange} />
           <input className={inputClasses} name="passengers" placeholder="Passengers" value={form.passengers} onChange={handleChange} />
         </div>
 
-        <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-3.5">
           <input className={inputClasses} type="tel" name="contactNo" placeholder="Contact No" value={form.contactNo} onChange={handleChange} />
           <input className={inputClasses} type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
         </div>
 
-        <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-3.5">
           <select className={`${inputClasses} text-text-muted`} name="serviceType" value={form.serviceType} onChange={handleChange}>
             <option value="">Select Service Type</option>
             {serviceTypes.map((type) => (
@@ -142,7 +133,7 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
           </select>
         </div>
 
-        <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3">
           <input
             className={`${inputClasses} text-text-muted`}
             type="date"
@@ -160,7 +151,7 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
             onChange={handleChange}
           />
           <input
-            className={inputClasses}
+            className={`${inputClasses} col-span-2 sm:col-span-1`}
             type="number"
             min="0"
             name="hours"
@@ -216,14 +207,12 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
           .
         </p>
 
-        <Captcha onVerifiedChange={setCaptcha} />
-
         {error && <p className="text-xs text-red-500">{error}</p>}
 
         <button
           type="button"
           onClick={handleSubmit}
-          disabled={status === "submitting" || !captcha}
+          disabled={status === "submitting"}
           className="btn btn-gold mt-1.5 w-full py-4 disabled:opacity-60"
         >
           {status === "submitting" ? "Submitting…" : submitLabel}

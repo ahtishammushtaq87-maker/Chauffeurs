@@ -3,11 +3,10 @@ import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
 import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
-import CardSlider from "../components/CardSlider";
+import CustomerReviews from "../components/CustomerReviews";
 import TrustBadges from "../components/TrustBadges";
-import AreasWeServe from "../components/AreasWeServe";
+import CitiesWeServe from "../components/CitiesWeServe";
 import {
-  StarIcon,
   CheckIcon,
   CheckCircleIcon,
   ArrowRightIcon,
@@ -21,12 +20,9 @@ import {
   blackCarImages,
   blackCarFeatures,
   blackCarPricing,
-  blackCarFleet,
-  blackCarReviews,
   blackCarPreferred,
   blackCarOffers,
   blackCarServiceFeatures,
-  blackCarAreas,
   blackCarSteps,
 } from "../data/blackCarContent";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
@@ -39,7 +35,7 @@ export default function BlackCarPage() {
   return (
     <>
       {/* Hero (with quote form, matching home hero) */}
-      <section className="relative flex items-center overflow-hidden border-b border-ink-border bg-ink">
+      <section id="quote" className="relative flex items-center overflow-hidden border-b border-ink-border bg-ink">
         <div className="absolute inset-0">
           <PlaceholderImage src={blackCarImages.heroImg} alt="Luxury black car service" />
         </div>
@@ -121,7 +117,7 @@ export default function BlackCarPage() {
       <FleetSection
         eyebrow="Your Dream, Our Destination"
         heading="Our Premium Fleet"
-        items={blackCarFleet}
+        serviceSlug="black-car"
       />
 
       {/* Nashville Black Car Service (descriptive) */}
@@ -145,46 +141,8 @@ export default function BlackCarPage() {
         </div>
       </section>
 
-      {/* Reviews */}
-      <section className="border-y border-border px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 text-center">
-            <span className="eyebrow">Reviews For Luxury Black Car Transportation Nashville TN</span>
-            <h2 className="flex items-center justify-center gap-3 font-serif text-3xl font-medium text-text md:text-4xl">
-              4.9 Rating
-              <span className="flex gap-0.5 text-gold">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon key={i} width={20} height={20} />
-                ))}
-              </span>
-            </h2>
-            <p className="mt-2 text-sm text-text-muted">With 261 Reviews</p>
-          </div>
-          <CardSlider
-            items={blackCarReviews.map((r) => ({ ...r, title: r.name + r.date }))}
-            autoPlayMs={4500}
-            renderCard={(r) => (
-              <article className="h-full rounded-xl border border-border bg-panel p-6">
-                <div className="mb-3 flex gap-0.5 text-gold">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon key={i} width={15} height={15} />
-                  ))}
-                </div>
-                <p className="mb-5 text-sm leading-relaxed text-text-muted">"{r.text}"</p>
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-border-strong bg-panel-alt font-serif text-sm text-gold">
-                    {r.name.charAt(0)}
-                  </span>
-                  <div>
-                    <h4 className="text-sm font-semibold text-text">{r.name}</h4>
-                    <p className="text-xs text-text-faint">{r.date}</p>
-                  </div>
-                </div>
-              </article>
-            )}
-          />
-        </div>
-      </section>
+      {/* Customer reviews */}
+      <CustomerReviews />
 
       {/* Preferred Choice */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
@@ -286,7 +244,7 @@ export default function BlackCarPage() {
         </div>
       </section>
 
-      <AreasWeServe areas={blackCarAreas} />
+      <CitiesWeServe />
 
       {/* Booking steps */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">

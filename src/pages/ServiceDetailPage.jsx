@@ -4,36 +4,12 @@ import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
 import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
-import CardSlider from "../components/CardSlider";
+import CustomerReviews from "../components/CustomerReviews";
 import TrustBadges from "../components/TrustBadges";
-import AreasWeServe from "../components/AreasWeServe";
-import { StarIcon, PhoneIcon, ArrowRightIcon } from "../components/Icons";
+import CitiesWeServe from "../components/CitiesWeServe";
+import { PhoneIcon, ArrowRightIcon } from "../components/Icons";
 import { apiGet } from "../lib/api";
-import { airportAreas } from "../data/airportContent";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
-
-const genericReviews = [
-  {
-    name: "Jordan",
-    date: "2nd Jun 2026",
-    text: "Booking was effortless and the chauffeur was right on time. Comfortable ride from start to finish.",
-  },
-  {
-    name: "Taylor",
-    date: "18th May 2026",
-    text: "Professional, courteous, and the vehicle was spotless. Would book again without hesitation.",
-  },
-  {
-    name: "Morgan",
-    date: "4th May 2026",
-    text: "Exactly the premium experience I was hoping for. Highly recommend Swift Chauffeurs.",
-  },
-  {
-    name: "Casey",
-    date: "22nd Apr 2026",
-    text: "Smooth communication before the ride and a relaxing, on-time trip. Great service overall.",
-  },
-];
 
 const genericSteps = [
   {
@@ -132,7 +108,7 @@ export default function ServiceDetailPage() {
   return (
     <>
       {/* Hero (with quote form, matching every other service page) */}
-      <section className="relative flex items-center overflow-hidden border-b border-ink-border bg-ink">
+      <section id="quote" className="relative flex items-center overflow-hidden border-b border-ink-border bg-ink">
         <div className="absolute inset-0">
           <PlaceholderImage src={service.image} alt={service.image_alt || service.title} title={service.image_title} />
         </div>
@@ -186,48 +162,10 @@ export default function ServiceDetailPage() {
         ?.slice(1)
         .map((section, i) => renderContentSection(section, `section-${i + 1}`, i % 2 === 0, service, PHONE))}
 
-      {/* Reviews */}
-      <section className="border-y border-border px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 text-center">
-            <span className="eyebrow">Customer Reviews</span>
-            <h2 className="flex items-center justify-center gap-3 font-serif text-3xl font-medium text-text md:text-4xl">
-              4.9 Rating
-              <span className="flex gap-0.5 text-gold">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon key={i} width={20} height={20} />
-                ))}
-              </span>
-            </h2>
-            <p className="mt-2 text-sm text-text-muted">From 261 verified reviews</p>
-          </div>
-          <CardSlider
-            items={genericReviews.map((r) => ({ ...r, title: r.name + r.date }))}
-            autoPlayMs={4500}
-            renderCard={(r) => (
-              <article className="h-full rounded-xl border border-border bg-panel p-6">
-                <div className="mb-3 flex gap-0.5 text-gold">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon key={i} width={15} height={15} />
-                  ))}
-                </div>
-                <p className="mb-5 text-sm leading-relaxed text-text-muted">"{r.text}"</p>
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-border-strong bg-panel-alt font-serif text-sm text-gold">
-                    {r.name.charAt(0)}
-                  </span>
-                  <div>
-                    <h4 className="text-sm font-semibold text-text">{r.name}</h4>
-                    <p className="text-xs text-text-faint">{r.date}</p>
-                  </div>
-                </div>
-              </article>
-            )}
-          />
-        </div>
-      </section>
+      {/* Customer reviews */}
+      <CustomerReviews />
 
-      <AreasWeServe areas={airportAreas} />
+      <CitiesWeServe />
 
       {/* Booking steps */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">

@@ -4,7 +4,6 @@ import { PhoneIcon, MailIcon, PinIcon } from "./Icons";
 import PlaceholderImage from "./PlaceholderImage";
 import { dealershipImg } from "../data/content";
 import { apiJson } from "../lib/api";
-import Captcha from "./Captcha";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 const inputClasses =
@@ -26,7 +25,6 @@ export default function ContactSection() {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
-  const [captcha, setCaptcha] = useState(null);
 
   useEffect(() => {
     if (status !== "success") return;
@@ -41,20 +39,13 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e?.preventDefault();
     setError("");
-    if (!captcha) {
-      setError("Please complete the \"I'm not a robot\" verification.");
-      return;
-    }
     setStatus("submitting");
     try {
       await apiJson("/appointments", "POST", {
         ...form,
         sourcePath: pathname,
-        captchaToken: captcha.token,
-        captchaAnswer: captcha.answer,
       });
       setForm(emptyForm);
-      setCaptcha(null);
       setStatus("success");
     } catch (err) {
       setError(err.message);
@@ -137,13 +128,11 @@ export default function ContactSection() {
               </div>
               <textarea className={`${inputClasses} resize-y`} name="message" placeholder="Message" rows={5} value={form.message} onChange={handleChange} />
 
-              <Captcha onVerifiedChange={setCaptcha} />
-
               {error && <p className="text-xs text-red-500">{error}</p>}
               <button
                 type="button"
                 onClick={handleSubmit}
-                disabled={status === "submitting" || !captcha}
+                disabled={status === "submitting"}
                 className="btn btn-gold mt-1 w-full py-4 disabled:opacity-60"
               >
                 {status === "submitting" ? "Sending…" : "Send Message"}

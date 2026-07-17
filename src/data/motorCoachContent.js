@@ -1,5 +1,5 @@
-import heroImg from "../assets/images/fleet-coach.webp";
-import featuresImg from "../assets/images/fleet-partybus.webp";
+import heroImg from "../assets/images/Roller-3-1024x681-1.jpg-1-1-e1782311356605-768x409.webp";
+import featuresImg from "../assets/images/Roller-3-1024x681-1.jpg-1-1-e1782311356605-768x409.webp";
 import coach25 from "../assets/images/fleet-coach.webp";
 import coach31 from "../assets/images/fleet-partybus.webp";
 import coach40 from "../assets/images/fleet-coach.webp";

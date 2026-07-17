@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PlaceholderImage from "./PlaceholderImage";
 import CardSlider from "./CardSlider";
-import { apiGet } from "../lib/api";
+import { fetchFleetSection } from "../lib/fleet";
 
 // Fetches a fleet "page section" by its fixed slug and renders its cards —
 // a grid for 1-2 cards, or a slider once there are more. Cards are managed
@@ -12,21 +12,14 @@ export default function FleetHighlightSection({ slug, eyebrow, heading }) {
   const [cards, setCards] = useState(null);
 
   useEffect(() => {
-    apiGet(`/fleet/${slug}`)
-      .then((data) => setCards(data.vehicle.cards || []))
+    fetchFleetSection(slug)
+      .then(setCards)
       .catch(() => setCards([]));
   }, [slug]);
 
   if (!cards || cards.length === 0) return null;
 
-  const items = cards.map((c) => ({
-    name: c.title,
-    title: c.title,
-    desc: c.description,
-    image: c.image,
-    imageAlt: c.image_alt,
-    imageTitle: c.image_title,
-  }));
+  const items = cards.map((c) => ({ ...c, title: c.name }));
 
   const renderFleetCard = (item) => (
     <div className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-panel">

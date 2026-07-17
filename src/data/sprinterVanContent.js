@@ -1,5 +1,5 @@
-import heroImg from "../assets/images/fleet-van.webp";
-import featuresImg from "../assets/images/fleet-van.webp";
+import heroImg from "../assets/images/Mercedes-Sprinter-Party-Limo7.webp";
+import featuresImg from "../assets/images/Mercedes-Sprinter-Party-Limo7.webp";
 import fleetImg from "../assets/images/car-mercedes.webp";
 import airportImg from "../assets/images/svc-airport.webp";
 import birthdayImg from "../assets/images/svc-birthday.webp";

@@ -367,10 +367,9 @@ export const financingFeatures = [
 ];
 
 export const stats = [
-  { icon: "car", value: "2,000+", label: "Luxury Vehicles Sold" },
   { icon: "trophy", value: "15+", label: "Years in Business" },
   { icon: "people", value: "25,000+", label: "Happy Clients" },
-  { icon: "star", value: "4.9", label: "Average Rating\n(Google Reviews)" },
+  { icon: "star", value: "4.9", label: "Average Rating" },
 ];
 
 export const testimonials = [

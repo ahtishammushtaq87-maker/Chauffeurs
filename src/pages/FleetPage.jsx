@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import PlaceholderImage from "../components/PlaceholderImage";
 import { SearchIcon } from "../components/Icons";
+import CustomerReviews from "../components/CustomerReviews";
 import { getHeroImage } from "../data/content";
-import { apiGet } from "../lib/api";
-import { FLEET_SECTION_PAGE_PATHS } from "../data/fleetSections";
+import { fetchFleetItems } from "../lib/fleet";
 
 export default function FleetPage() {
   const [allVehicles, setAllVehicles] = useState([]);
@@ -13,30 +13,8 @@ export default function FleetPage() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
-    Promise.all([apiGet("/fleet"), apiGet("/fleet/sections")])
-      .then(([{ vehicles }, { sections }]) => {
-        const fromSections = sections.flatMap((section) =>
-          section.cards.map((card) => ({
-            name: card.title,
-            desc: card.description,
-            image: card.image,
-            imageAlt: card.image_alt,
-            imageTitle: card.image_title,
-            category: section.category,
-            path: FLEET_SECTION_PAGE_PATHS[section.slug] || `/fleet/${section.slug}`,
-          }))
-        );
-        const fromDashboard = vehicles.map((v) => ({
-          name: v.name,
-          desc: v.excerpt || v.description,
-          image: v.image,
-          imageAlt: v.image_alt,
-          imageTitle: v.image_title,
-          category: v.category || "More Vehicles",
-          path: `/fleet/${v.slug}`,
-        }));
-        setAllVehicles([...fromSections, ...fromDashboard]);
-      })
+    fetchFleetItems()
+      .then(setAllVehicles)
       .catch(() => setAllVehicles([]));
   }, []);
 
@@ -143,6 +121,9 @@ export default function FleetPage() {
           )}
         </div>
       </section>
+
+      {/* Customer reviews */}
+      <CustomerReviews />
     </>
   );
 }

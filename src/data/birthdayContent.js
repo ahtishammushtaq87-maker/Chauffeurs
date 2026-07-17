@@ -3,9 +3,6 @@ import giftImg from "../assets/images/bday-gifts.webp";
 import cakeImg from "../assets/images/bday-cake.webp";
 import friendsImg from "../assets/images/bday-friends.webp";
 import discoImg from "../assets/images/bday-disco.webp";
-import fleetLimo from "../assets/images/fleet-partybus.webp";
-import fleetCoach from "../assets/images/fleet-coach.webp";
-import fleetSedan from "../assets/images/car-mercedes.webp";
 
 export const birthdayImages = {
   heroImg,
@@ -14,24 +11,6 @@ export const birthdayImages = {
   friendsImg,
   discoImg,
 };
-
-export const birthdayFleet = [
-  {
-    name: "Mercedes Sprinter Party Limo",
-    desc: "With its spacious layout and entertainment features, this limo is the ideal choice for a birthday celebration on the move.",
-    image: fleetLimo,
-  },
-  {
-    name: "Executive 31-Passenger Mini Coach",
-    desc: "Versatility is the key as our mini coach caters to a range of events, making group birthday travel effortless and comfortable.",
-    image: fleetCoach,
-  },
-  {
-    name: "Classic Lincoln Towncar Stretched Limousine",
-    desc: "As you embark on your journey, relish in the cutting-edge technology that accompanies this marvel on wheels.",
-    image: fleetSedan,
-  },
-];
 
 export const birthdayWhy = [
   {

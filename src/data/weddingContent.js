@@ -46,24 +46,6 @@ export const weddingAffordablePerks = [
   "Discreet service ensures your privacy throughout the journey.",
 ];
 
-export const weddingFleet = [
-  {
-    name: "Mercedes Sprinter Party Limo",
-    desc: "With its spacious layout and luxury features, this limo is the ideal choice for a wedding celebration on the move.",
-    image: fleetLimo,
-  },
-  {
-    name: "Executive 31-Passenger Mini Coach",
-    desc: "Versatility is the key as our mini coach caters to a range of events, making group wedding travel effortless and comfortable.",
-    image: fleetCoach,
-  },
-  {
-    name: "Classic Lincoln Towncar Stretched Limousine",
-    desc: "As you embark on your journey, relish in the cutting-edge technology that accompanies this marvel on wheels.",
-    image: fleetCoach2,
-  },
-];
-
 export const weddingReviews = [
   {
     name: "Emily Rose",

@@ -4,11 +4,11 @@ import FeaturedInventory from "../components/FeaturedInventory";
 import WhyChooseUs from "../components/WhyChooseUs";
 import FinancingTrade from "../components/FinancingTrade";
 import Stats from "../components/Stats";
-import Testimonials from "../components/Testimonials";
+import CustomerReviews from "../components/CustomerReviews";
 import ContactSection from "../components/ContactSection";
 import CardSlider from "../components/CardSlider";
-import AreasWeServe from "../components/AreasWeServe";
-import { airportAreas } from "../data/airportContent";
+import CitiesWeServe from "../components/CitiesWeServe";
+import PlanYourTravelBanner from "../components/PlanYourTravelBanner";
 import { useAllServices } from "../hooks/useAllServices";
 
 export default function HomePage() {
@@ -44,8 +44,9 @@ export default function HomePage() {
       </section>
       <FinancingTrade />
       <Stats />
-      <AreasWeServe areas={airportAreas} />
-      <Testimonials />
+      <CitiesWeServe />
+      <PlanYourTravelBanner />
+      <CustomerReviews />
       <ContactSection />
     </>
   );

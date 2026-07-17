@@ -4,9 +4,6 @@ import serviceImg from "../assets/images/car-audi.webp";
 import preferredImg from "../assets/images/car-rangerover.webp";
 import affordabilityBg from "../assets/images/airport_for.webp";
 import trustImg from "../assets/images/car-bmw.webp";
-import fleetCoach43 from "../assets/images/fleet-coach.webp";
-import fleetCoach57 from "../assets/images/fleet-partybus.webp";
-import fleetSuv from "../assets/images/car-rangerover.webp";
 
 export const blackCarImages = {
   heroImg,
@@ -36,24 +33,6 @@ export const blackCarPricing = {
     { label: "Daily", price: "$650", note: "8 Hours" },
   ],
 };
-
-export const blackCarFleet = [
-  {
-    name: "Executive 43-Passenger Coach",
-    desc: "Whether you're planning a corporate event, a stylish group transfer, or any special occasion, this coach delivers unmatched comfort and sophistication.",
-    image: fleetCoach43,
-  },
-  {
-    name: "54/57 Passenger Executive Coach",
-    desc: "Whether it's a grand corporate event or a large group celebration, our executive coach provides premium transportation with ample space and luxury amenities.",
-    image: fleetCoach57,
-  },
-  {
-    name: "Luxurious Suburban SUV",
-    desc: "For those seeking extra style and space, the Suburban SUV offers a sleek and sophisticated ride — perfect for VIP transportation and executive travel.",
-    image: fleetSuv,
-  },
-];
 
 export const blackCarReviews = [
   {

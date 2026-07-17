@@ -394,9 +394,97 @@ function seedSiteSettings() {
   console.log("Seeded default site contact settings.");
 }
 
+// One-time cleanup. An earlier iteration gave every service page its own fleet
+// section, which duplicated cards the six vehicle-type sections already hold and
+// cluttered the Services > Premium Fleet picker with the same vehicle twice. The
+// picker is the right mechanism — it selects from the shared pool — so these
+// containers are removed. Their cards go with them (ON DELETE CASCADE).
+const RETIRED_SERVICE_SECTION_SLUGS = [
+  "prom-fleet",
+  "wedding-fleet",
+  "concert-fleet",
+  "black-car-fleet",
+  "executive-fleet",
+  "airport-fleet",
+  "birthday-fleet",
+];
+
+function removeServicePageSections() {
+  const getBySlug = db.prepare("SELECT id FROM fleet_vehicles WHERE slug = ?");
+  const del = db.prepare("DELETE FROM fleet_vehicles WHERE id = ?");
+
+  let removed = 0;
+  for (const slug of RETIRED_SERVICE_SECTION_SLUGS) {
+    const row = getBySlug.get(slug);
+    if (!row) continue;
+    del.run(row.id);
+    removed += 1;
+  }
+
+  // Drop any picker selection left pointing at a card/vehicle that no longer
+  // exists — including the copies just deleted above.
+  db.exec(`
+    DELETE FROM service_fleet
+    WHERE (kind = 'card' AND ref_id NOT IN (SELECT id FROM fleet_cards))
+       OR (kind = 'vehicle' AND ref_id NOT IN (SELECT id FROM fleet_vehicles))
+  `);
+
+  if (removed > 0) {
+    console.log(`Removed ${removed} per-page fleet section(s) — Services > Premium Fleet now drives those pages.`);
+  }
+}
+
+// The vehicles each bespoke service page listed back when its fleet was
+// hardcoded. Used only to give a page a sensible starting selection: titles are
+// resolved against the six vehicle-type sections, so a page points at the shared
+// pool rather than owning copies. Skipped once an editor has picked their own.
+const serviceFleetDefaults = {
+  prom: ["Classic Lincoln Towncar Stretched Limousine", "43-Passenger Coach", "56-Passenger Coach"],
+  wedding: ["Mercedes Sprinter Party Limo", "31-Passenger Mini Coach", "Classic Lincoln Towncar Stretched Limousine"],
+  concert: ["Mercedes Sprinter Party Limo", "31-Passenger Mini Coach", "Classic Lincoln Towncar Stretched Limousine"],
+  "black-car": ["43-Passenger Coach", "56-Passenger Coach", "Luxurious Suburban SUV"],
+  executive: ["Mercedes Sprinter Party Limo", "31-Passenger Mini Coach", "Classic Lincoln Towncar Stretched Limousine"],
+  airport: ["Mercedes Sprinter Party Limo", "31-Passenger Mini Coach", "Classic Lincoln Towncar Stretched Limousine"],
+  birthday: ["Mercedes Sprinter Party Limo", "31-Passenger Mini Coach", "Classic Lincoln Towncar Stretched Limousine"],
+};
+
+function seedServiceFleetLinks() {
+  const getService = db.prepare("SELECT id FROM services WHERE slug = ?");
+  const countLinks = db.prepare("SELECT COUNT(*) AS n FROM service_fleet WHERE service_id = ?");
+  const findCard = db.prepare(`
+    SELECT c.id FROM fleet_cards c
+    JOIN fleet_vehicles v ON v.id = c.vehicle_id
+    WHERE c.title = ? AND v.hidden = 1
+    ORDER BY c.id ASC LIMIT 1
+  `);
+  const insertLink = db.prepare(
+    "INSERT INTO service_fleet (service_id, kind, ref_id, sort_order) VALUES (?, 'card', ?, ?)"
+  );
+
+  let seeded = 0;
+  for (const [slug, titles] of Object.entries(serviceFleetDefaults)) {
+    const service = getService.get(slug);
+    if (!service) continue;
+    if (countLinks.get(service.id).n > 0) continue;
+
+    let order = 0;
+    for (const title of titles) {
+      const card = findCard.get(title);
+      if (card) insertLink.run(service.id, card.id, order++);
+    }
+    if (order > 0) seeded += 1;
+  }
+
+  if (seeded > 0) {
+    console.log(`Seeded a default Premium Fleet selection for ${seeded} service page(s).`);
+  }
+}
+
 seedAdmin();
 seedBlogPosts();
 seedStaticFleet();
+removeServicePageSections();
 seedStaticServices();
+seedServiceFleetLinks();
 seedSiteSettings();
 console.log("Seed complete.");

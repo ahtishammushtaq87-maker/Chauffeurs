@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
 import HeroMarquee from "../components/HeroMarquee";
-import CardSlider from "../components/CardSlider";
+import CustomerReviews from "../components/CustomerReviews";
 import {
   CheckCircleIcon,
-  StarIcon,
   ArrowRightIcon,
   PhoneIcon,
   MailIcon,
@@ -18,7 +17,6 @@ import {
   aboutWhyChoose,
   aboutStats,
   aboutSafetyFeatures,
-  aboutReviews,
 } from "../data/aboutContent";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
@@ -221,47 +219,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Testimonials */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 text-center">
-            <span className="eyebrow">What Our Customer Says About Us</span>
-            <h2 className="flex items-center justify-center gap-3 font-serif text-3xl font-medium text-text md:text-4xl">
-              4.9 Ratings
-              <span className="flex gap-0.5 text-gold">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon key={i} width={20} height={20} />
-                ))}
-              </span>
-            </h2>
-            <p className="mt-2 text-sm text-text-muted">590 Reviews</p>
-          </div>
-          <CardSlider
-            items={aboutReviews.map((r) => ({ ...r, title: r.name }))}
-            autoPlayMs={4500}
-            renderCard={(r) => (
-              <article className="h-full rounded-xl border border-border bg-panel p-6">
-                <div className="mb-3 flex gap-0.5 text-gold">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon key={i} width={15} height={15} />
-                  ))}
-                </div>
-                <p className="mb-5 text-sm leading-relaxed text-text-muted">"{r.text}"</p>
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-border-strong bg-panel-alt font-serif text-sm text-gold">
-                    {r.name.charAt(0)}
-                  </span>
-                  <div>
-                    <h4 className="text-sm font-semibold text-text">{r.name}</h4>
-                    <p className="text-xs text-text-faint">{r.date}</p>
-                  </div>
-                </div>
-              </article>
-            )}
-          />
-        </div>
-      </section>
+      {/* Customer reviews */}
+      <CustomerReviews />
     </>
   );
 }

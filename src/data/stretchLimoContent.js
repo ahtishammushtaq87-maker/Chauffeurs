@@ -1,5 +1,5 @@
-import heroImg from "../assets/images/concert-limo-road.webp";
-import featuresImg from "../assets/images/car-bmw.webp";
+import heroImg from "../assets/images/home-scaled-3_11zon.webp";
+import featuresImg from "../assets/images/Caddilac-Esclade-Stretch-Limo-1.jpg.webp";
 import fleetEscalade from "../assets/images/car-rangerover.webp";
 import fleetLincoln from "../assets/images/fleet-sedan.webp";
 import airportImg from "../assets/images/svc-airport.webp";

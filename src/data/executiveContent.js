@@ -1,8 +1,5 @@
 import heroImg from "../assets/images/svc-executive.webp";
 import introImg from "../assets/images/exec-suit.webp";
-import fleetLimo from "../assets/images/car-mercedes.webp";
-import fleetCoach from "../assets/images/fleet-coach.webp";
-import fleetCoach2 from "../assets/images/fleet-partybus.webp";
 import whyImg from "../assets/images/exec-businessman.webp";
 import affordabilityBg from "../assets/images/exec-cityskyline.webp";
 
@@ -25,24 +22,6 @@ export const executiveIntro = [
   {
     title: "Versatile Fleet Options",
     desc: "Choose from a range of pristine vehicles, including executive sedans, spacious SUVs, and elegant limousines, to perfectly match your travel needs and preferences.",
-  },
-];
-
-export const executiveFleet = [
-  {
-    name: "Mercedes Sprinter Party Limo",
-    desc: "With its spacious layout and executive features, this limo is the ideal choice for corporate group transfers in style.",
-    image: fleetLimo,
-  },
-  {
-    name: "Executive 31-Passenger Mini Coach",
-    desc: "Versatility is the key as our mini coach caters to a range of corporate events, making group travel effortless and comfortable.",
-    image: fleetCoach,
-  },
-  {
-    name: "Classic Lincoln Towncar Stretched Limousine",
-    desc: "As you embark on your journey, relish in the cutting-edge technology that accompanies this marvel on wheels.",
-    image: fleetCoach2,
   },
 ];
 

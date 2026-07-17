@@ -6,6 +6,7 @@ import HeroMarquee from "../components/HeroMarquee";
 import CardSlider from "../components/CardSlider";
 import TrustBadges from "../components/TrustBadges";
 import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons";
+import CustomerReviews from "../components/CustomerReviews";
 import { apiGet } from "../lib/api";
 import { useAllServices } from "../hooks/useAllServices";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
@@ -202,6 +203,9 @@ export default function FleetVehicleDetailPage() {
           />
         </div>
       </section>
+
+      {/* Customer reviews */}
+      <CustomerReviews />
 
       {/* Final CTA */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">

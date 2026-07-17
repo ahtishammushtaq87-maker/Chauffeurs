@@ -6,6 +6,7 @@ import CardSlider from "../components/CardSlider";
 import FleetHighlightSection from "../components/FleetHighlightSection";
 import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons";
 import TrustBadges from "../components/TrustBadges";
+import CustomerReviews from "../components/CustomerReviews";
 import { luxurySedanImages, luxurySedanFeatures } from "../data/luxurySedanContent";
 import { useAllServices } from "../hooks/useAllServices";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
@@ -102,6 +103,9 @@ export default function LuxurySedanPage() {
           />
         </div>
       </section>
+
+      {/* Customer reviews */}
+      <CustomerReviews />
 
       {/* Final CTA */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">

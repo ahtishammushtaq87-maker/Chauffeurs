@@ -3,7 +3,6 @@ import db from "../db/index.js";
 import { requireAuth, requireRole } from "../middleware/auth.js";
 import { sendNotificationEmail } from "../utils/mailer.js";
 import { renderAppointmentEmail } from "../utils/emailTemplates.js";
-import { verifyChallenge } from "../utils/captcha.js";
 
 const router = Router();
 
@@ -18,9 +17,6 @@ const deleteAppointment = db.prepare("DELETE FROM appointments WHERE id = ?");
 // Public: anyone submitting the "Get in Touch" form (Home page or /contact).
 router.post("/", (req, res) => {
   const b = req.body || {};
-  if (!verifyChallenge(b.captchaToken, b.captchaAnswer)) {
-    return res.status(400).json({ error: "Please complete the CAPTCHA verification." });
-  }
   if (!b.email?.trim() && !b.phone?.trim()) {
     return res.status(400).json({ error: "Please provide at least an email or phone number." });
   }

@@ -4,6 +4,11 @@ import { FLEET_SECTION_PAGE_PATHS } from "../../data/fleetSections";
 
 const emptyForm = {
   id: null,
+  // True while editing a fleet page section (a hidden container row) rather than
+  // a standalone vehicle. The two look identical in this form but publish very
+  // differently: a section shows only its cards, so its own fields are labels.
+  isSection: false,
+  slug: null,
   name: "",
   category: "",
   passenger_capacity: "",
@@ -131,6 +136,8 @@ export default function FleetAdmin() {
     setError("");
     setForm({
       id: item.id,
+      isSection: Boolean(item.hidden),
+      slug: item.slug,
       name: item.name,
       category: item.category,
       passenger_capacity: item.passenger_capacity,
@@ -228,7 +235,19 @@ export default function FleetAdmin() {
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.3fr]">
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 rounded-xl border border-border bg-panel p-6">
-          <h2 className="text-sm font-semibold text-text">{form.id ? "Edit Vehicle" : "Add New Vehicle"}</h2>
+          <h2 className="text-sm font-semibold text-text">
+            {form.isSection ? "Edit Fleet Page Section" : form.id ? "Edit Vehicle" : "Add New Vehicle"}
+          </h2>
+
+          {form.isSection && (
+            <p className="rounded-sm border border-gold-dim bg-gold/5 px-3.5 py-2.5 text-[13px] leading-relaxed text-text-muted">
+              This group feeds the fleet slider on{" "}
+              <strong className="font-semibold text-text">{FLEET_SECTION_PAGE_PATHS[form.slug] || "its page"}</strong>, which
+              shows only the <strong className="font-semibold text-text">cards</strong> below — scroll down to change
+              the vehicles, their text or their photos. The fields on this form name the group inside the dashboard
+              and are not shown on the site.
+            </p>
+          )}
 
           <div>
             <label className="mb-1.5 block text-xs font-semibold tracking-wide text-text-muted uppercase">
@@ -422,8 +441,11 @@ export default function FleetAdmin() {
           <div className="rounded-xl border border-border bg-panel p-6">
             <h2 className="mb-1 text-sm font-semibold text-text">Fleet Page Sections ({sections.length})</h2>
             <p className="mb-4 text-[13px] text-text-muted">
-              The original fleet vehicles built into each fleet category page (Luxury Sedan, Executive SUV, etc).
-              Edit or delete their cards here — changes show up live on that page.
+              The fleet slider on each vehicle-type page (Luxury Sedan, Executive SUV…). Edit a section's{" "}
+              <strong className="font-semibold text-text">cards</strong> and the page below it updates — the group's
+              own name, excerpt and main image only label it here and are never shown on the site. These cards are
+              also the vehicles you pick from under Services → Premium Fleet, so editing one here updates every
+              service page featuring it.
             </p>
             {sectionsLoading ? (
               <p className="text-sm text-text-muted">Loading…</p>

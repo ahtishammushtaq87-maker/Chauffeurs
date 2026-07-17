@@ -2,9 +2,6 @@ import heroImg from "../assets/images/svc-concert.webp";
 import limoRoadImg from "../assets/images/concert-limo-road.webp";
 import whyImg from "../assets/images/3rd-Image.jpg.webp";
 import affordabilityBg from "../assets/images/Concert_limo_serv.webp";
-import fleetLimo from "../assets/images/car-mercedes.webp";
-import fleetCoach from "../assets/images/fleet-coach.webp";
-import fleetSedan from "../assets/images/fleet-partybus.webp";
 
 export const concertImages = {
   heroImg,
@@ -12,24 +9,6 @@ export const concertImages = {
   whyImg,
   affordabilityBg,
 };
-
-export const concertFleet = [
-  {
-    name: "Mercedes Sprinter Party Limo",
-    desc: "With its spacious layout and entertainment features, this limo is the ideal choice for group nights out, blending comfort with vibrant energy.",
-    image: fleetLimo,
-  },
-  {
-    name: "Executive 31-Passenger Mini Coach",
-    desc: "Versatility is the key as our mini coach caters to a range of events, making group concert travel effortless and comfortable.",
-    image: fleetCoach,
-  },
-  {
-    name: "Classic Lincoln Towncar Stretched Limousine",
-    desc: "As you embark on your journey, relish in the cutting-edge technology that accompanies this marvel on wheels, engineered for a smooth, first-class ride to every show.",
-    image: fleetSedan,
-  },
-];
 
 export const concertReviews = [
   {

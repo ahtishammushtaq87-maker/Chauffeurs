@@ -7,7 +7,7 @@ import HeroMarquee from "./HeroMarquee";
 export default function Hero() {
   return (
     <>
-    <section className="relative flex items-center overflow-hidden bg-ink">
+    <section id="quote" className="relative flex items-center overflow-hidden bg-ink">
       <div className="absolute inset-0">
         <PlaceholderImage src={heroImg} label="Hero Vehicle Photo" alt="Luxury vehicle" />
       </div>

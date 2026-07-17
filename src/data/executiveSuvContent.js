@@ -1,5 +1,5 @@
-import heroImg from "../assets/images/car-rangerover.webp";
-import featuresImg from "../assets/images/fleet-van.webp";
+import heroImg from "../assets/images/Main-pic.webp";
+import featuresImg from "../assets/images/Main-pic.webp";
 import fleetPrimary from "../assets/images/car-rangerover.webp";
 import fleetSecondary from "../assets/images/fleet-van.webp";
 import airportImg from "../assets/images/svc-airport.webp";

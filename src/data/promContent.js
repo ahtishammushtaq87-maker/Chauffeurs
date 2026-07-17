@@ -1,8 +1,5 @@
 import heroImg from "../assets/images/trade-bg.webp";
 import introImg from "../assets/images/Create-an-image-of-a-1810590a--images-1024x579.webp";
-import fleetLimo from "../assets/images/car-mercedes.webp";
-import fleetCoach from "../assets/images/fleet-coach.webp";
-import fleetCoach2 from "../assets/images/fleet-partybus.webp";
 import whyImg from "../assets/images/svc-prom.webp";
 import partyImg from "../assets/images/prom-party.webp";
 import diningImg from "../assets/images/prom-dining.webp";
@@ -18,24 +15,6 @@ export const promImages = {
   spotlightImg,
   trustImg,
 };
-
-export const promFleet = [
-  {
-    name: "Classic Lincoln Towncar Stretched Limousine",
-    desc: "As you embark on your journey, relish in the cutting-edge technology that accompanies this marvel on wheels — plush leather, ambient lighting, and a ride that turns every mile into a memory.",
-    image: fleetLimo,
-  },
-  {
-    name: "Executive 43 Passenger Coach",
-    desc: "Whether you're planning a wedding celebration, a stylish prom night, or any special event, this coach delivers space, comfort, and effortless group travel.",
-    image: fleetCoach,
-  },
-  {
-    name: "54/57 Passenger Executive Coach",
-    desc: "Whether it's a grand wedding, a corporate event, or a lively prom party, this executive coach carries your whole crew in first-class comfort.",
-    image: fleetCoach2,
-  },
-];
 
 export const promWhy = [
   {

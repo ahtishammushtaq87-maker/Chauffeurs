@@ -1,8 +1,5 @@
 import heroImg from "../assets/images/bna-airport.webp";
 import suvImg from "../assets/images/car-rangerover.webp";
-import fleetSprinter from "../assets/images/fleet-partybus.webp";
-import fleetCoach from "../assets/images/fleet-coach.webp";
-import fleetLimo from "../assets/images/car-mercedes.webp";
 import serviceImg from "../assets/images/airport-jet.webp";
 import preferredImg from "../assets/images/airport-terminal.webp";
 import affordabilityImg from "../assets/images/financing-bg.jpg";
@@ -38,24 +35,6 @@ export const airportPricing = {
     { label: "Round Trip", price: "$248", note: "All Inclusive" },
   ],
 };
-
-export const airportFleet = [
-  {
-    name: "Mercedes Sprinter Party Limo",
-    desc: "With its spacious layout and entertainment features, this limo is the ideal choice for group airport transfers in style.",
-    image: fleetSprinter,
-  },
-  {
-    name: "Executive 31-Passenger Mini Coach",
-    desc: "Versatility is the key as our mini coach caters to a range of events, making group travel effortless and comfortable.",
-    image: fleetCoach,
-  },
-  {
-    name: "Classic Lincoln Towncar Stretched Limousine",
-    desc: "As you embark on your journey, relish in the cutting-edge technology that accompanies this marvel on wheels.",
-    image: fleetLimo,
-  },
-];
 
 export const airportReviews = [
   {
