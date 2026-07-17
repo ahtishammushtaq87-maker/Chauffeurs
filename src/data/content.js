@@ -1,4 +1,5 @@
 import heroImg from "../assets/images/hero.webp";
+import homeHeroImg from "../assets/images/main_hero.png";
 import carMercedes from "../assets/images/car-mercedes.webp";
 import carPorsche from "../assets/images/car-porsche.webp";
 import carAudi from "../assets/images/car-audi.webp";
@@ -26,42 +27,44 @@ import areaCity2 from "../assets/images/area-city2.webp";
 import areaTown from "../assets/images/area-town.webp";
 import miscBlog from "../assets/images/misc-blog.webp";
 
-export { heroImg, financingBg, tradeBg, dealershipImg };
+// homeHeroImg backs the home hero only. heroImg stays the generic fallback for
+// any route without its own entry in heroImages — keep them separate.
+export { heroImg, homeHeroImg, financingBg, tradeBg, dealershipImg };
 
 // Hero background per route. Falls back to heroImg via getHeroImage().
 export const heroImages = {
   // Our Fleet
   "/fleet": fleetSedan,
-  "/fleet/luxury-sedan": fleetSedan,
-  "/fleet/executive-suv": carRangeRover,
-  "/fleet/stretch-limousine": tradeBg,
-  "/fleet/party-bus": fleetPartybus,
-  "/fleet/sprinter-van": fleetVan,
-  "/fleet/motor-coach": fleetCoach,
+  "/black-mercedes-sedan-hire": fleetSedan,
+  "/luxury-suv-transportation-nashville": carRangeRover,
+  "/stretch-limousine-hire-nashville": tradeBg,
+  "/party-bus-rental-nashville": fleetPartybus,
+  "/luxury-sprinter-van-rental-nashville": fleetVan,
+  "/motor-coach-rental-nashville-tn": fleetCoach,
   // Services
   "/services": svcExecutive,
-  "/services/prom": svcProm,
-  "/services/airport": svcAirport,
-  "/services/birthday": svcBirthday,
-  "/services/wedding": svcWedding,
-  "/services/concert": svcConcert,
-  "/services/black-car": svcBlackcar,
-  "/services/executive": svcExecutive,
+  "/limo-prom-rental": svcProm,
+  "/car-service-nashville-airport": svcAirport,
+  "/birthday-party-bus-rental": svcBirthday,
+  "/wedding-limo-chauffeur": svcWedding,
+  "/concert-transportation": svcConcert,
+  "/black-car-service": svcBlackcar,
+  "/executive-chauffeur": svcExecutive,
   // Service Area
   "/service-area": areaNashville,
-  "/service-area/nashville": areaNashville,
+  "/nashville": areaNashville,
   "/service-area/chattanooga": areaCity,
-  "/service-area/chattanooga/prom-limousine": svcProm,
-  "/service-area/chattanooga/cha-car-service": svcBlackcar,
-  "/service-area/chattanooga/birthday-party-bus": svcBirthday,
-  "/service-area/chattanooga/wedding-chauffeur": svcWedding,
-  "/service-area/brentwood": areaTown,
-  "/service-area/franklin": areaCity2,
-  "/service-area/murfreesboro": areaCity,
+  "/chattanooga/prom-limo-rental": svcProm,
+  "/chattanooga/car-service-to-cha": svcBlackcar,
+  "/chattanooga/birthday-party-bus": svcBirthday,
+  "/chattanooga/wedding-chauffeur-service": svcWedding,
+  "/brentwood": areaTown,
+  "/limo-service-in-franklin-tn": areaCity2,
+  "/murfreesboro-limousine-service": areaCity,
   "/service-area/clarksville": areaNashville,
-  "/service-area/clarksville/nashville-airport-shuttle": svcAirport,
-  "/service-area/clarksville/corporate-airport-shuttle": svcExecutive,
-  "/service-area/spring-hill": areaTown,
+  "/clarksville/shuttle-to-nashville-airport": svcAirport,
+  "/services/airport-shuttle": svcExecutive,
+  "/spring-hill": areaTown,
   "/service-area/mt-juliet": areaTown,
   "/service-area/smyrna": areaCity,
   "/service-area/nolensville": areaCity2,
@@ -73,9 +76,9 @@ export const heroImages = {
   "/service-area/gallatin": areaTown,
   "/service-area/la-vergne": areaCity,
   // About group
-  "/about": dealershipImg,
-  "/privacy-policy": carPorsche,
-  "/terms": carAudi,
+  "/about-us": dealershipImg,
+  "/privacy-policy-swift-chauffeurs": carPorsche,
+  "/terms-conditions": carAudi,
   "/gdpr-compliance": carBmw,
   "/blog": miscBlog,
 };
@@ -95,64 +98,64 @@ export const navLinks = [
     label: "Our Fleet",
     path: "/fleet",
     dropdown: [
-      { label: "Luxury Sedan", path: "/fleet/luxury-sedan" },
-      { label: "Executive SUV", path: "/fleet/executive-suv" },
-      { label: "Stretch Limousine", path: "/fleet/stretch-limousine" },
-      { label: "Party Bus", path: "/fleet/party-bus" },
-      { label: "Sprinter Van", path: "/fleet/sprinter-van" },
-      { label: "Motor Coach", path: "/fleet/motor-coach" },
+      { label: "Luxury Sedan", path: "/black-mercedes-sedan-hire" },
+      { label: "Executive SUV", path: "/luxury-suv-transportation-nashville" },
+      { label: "Stretch Limousine", path: "/stretch-limousine-hire-nashville" },
+      { label: "Party Bus", path: "/party-bus-rental-nashville" },
+      { label: "Sprinter Van", path: "/luxury-sprinter-van-rental-nashville" },
+      { label: "Motor Coach", path: "/motor-coach-rental-nashville-tn" },
     ],
   },
   {
     label: "Services",
     path: "/services",
     dropdown: [
-      { label: "Prom", path: "/services/prom" },
-      { label: "Airport", path: "/services/airport" },
-      { label: "Birthday", path: "/services/birthday" },
-      { label: "Wedding", path: "/services/wedding" },
-      { label: "Concert", path: "/services/concert" },
-      { label: "Black Car", path: "/services/black-car" },
-      { label: "Executive", path: "/services/executive" },
+      { label: "Prom", path: "/limo-prom-rental" },
+      { label: "Airport", path: "/car-service-nashville-airport" },
+      { label: "Birthday", path: "/birthday-party-bus-rental" },
+      { label: "Wedding", path: "/wedding-limo-chauffeur" },
+      { label: "Concert", path: "/concert-transportation" },
+      { label: "Black Car", path: "/black-car-service" },
+      { label: "Executive", path: "/executive-chauffeur" },
     ],
   },
   {
     label: "Service Area",
     path: "/service-area",
     dropdown: [
-      { label: "Nashville", path: "/service-area/nashville" },
+      { label: "Nashville", path: "/nashville" },
       {
         label: "Chattanooga",
         path: "/service-area/chattanooga",
         submenu: [
-          { label: "Prom Limousine", path: "/service-area/chattanooga/prom-limousine" },
-          { label: "CHA Car Service", path: "/service-area/chattanooga/cha-car-service" },
-          { label: "Birthday Party Bus", path: "/service-area/chattanooga/birthday-party-bus" },
-          { label: "Wedding Chauffeur", path: "/service-area/chattanooga/wedding-chauffeur" },
+          { label: "Prom Limousine", path: "/chattanooga/prom-limo-rental" },
+          { label: "CHA Car Service", path: "/chattanooga/car-service-to-cha" },
+          { label: "Birthday Party Bus", path: "/chattanooga/birthday-party-bus" },
+          { label: "Wedding Chauffeur", path: "/chattanooga/wedding-chauffeur-service" },
         ],
       },
-      { label: "Brentwood", path: "/service-area/brentwood" },
-      { label: "Franklin", path: "/service-area/franklin" },
-      { label: "Murfreesboro", path: "/service-area/murfreesboro" },
+      { label: "Brentwood", path: "/brentwood" },
+      { label: "Franklin", path: "/limo-service-in-franklin-tn" },
+      { label: "Murfreesboro", path: "/murfreesboro-limousine-service" },
       {
         label: "Clarksville",
         path: "/service-area/clarksville",
         submenu: [
-          { label: "Shuttle to Nashville Airport", path: "/service-area/clarksville/nashville-airport-shuttle" },
-          { label: "Corporate Airport Shuttle", path: "/service-area/clarksville/corporate-airport-shuttle" },
+          { label: "Shuttle to Nashville Airport", path: "/clarksville/shuttle-to-nashville-airport" },
+          { label: "Corporate Airport Shuttle", path: "/services/airport-shuttle" },
         ],
       },
-      { label: "Spring Hill", path: "/service-area/spring-hill" },
+      { label: "Spring Hill", path: "/spring-hill" },
     ],
   },
   {
     label: "About",
-    path: "/about",
+    path: "/about-us",
     dropdown: [
-      { label: "About Us", path: "/about" },
+      { label: "About Us", path: "/about-us" },
       { label: "Contact Us", path: "/contact" },
-      { label: "Privacy Policy", path: "/privacy-policy" },
-      { label: "Terms & Conditions", path: "/terms" },
+      { label: "Privacy Policy", path: "/privacy-policy-swift-chauffeurs" },
+      { label: "Terms & Conditions", path: "/terms-conditions" },
       { label: "Blog", path: "/blog" },
     ],
   },
@@ -162,13 +165,13 @@ export const navLinks = [
 // block. Kept separate from navLinks so the header dropdown stays short, while
 // these still get real routes and correct page titles via routeOnlyLinks below.
 export const cityAreaLinks = [
-  { label: "Nashville", path: "/service-area/nashville" },
+  { label: "Nashville", path: "/nashville" },
   { label: "Chattanooga", path: "/service-area/chattanooga" },
-  { label: "Brentwood", path: "/service-area/brentwood" },
-  { label: "Franklin", path: "/service-area/franklin" },
-  { label: "Murfreesboro", path: "/service-area/murfreesboro" },
+  { label: "Brentwood", path: "/brentwood" },
+  { label: "Franklin", path: "/limo-service-in-franklin-tn" },
+  { label: "Murfreesboro", path: "/murfreesboro-limousine-service" },
   { label: "Clarksville", path: "/service-area/clarksville" },
-  { label: "Spring Hill", path: "/service-area/spring-hill" },
+  { label: "Spring Hill", path: "/spring-hill" },
   { label: "Mt. Juliet", path: "/service-area/mt-juliet" },
   { label: "Smyrna", path: "/service-area/smyrna" },
   { label: "Nolensville", path: "/service-area/nolensville" },
@@ -280,43 +283,43 @@ export const chauffeurServices = [
     title: "Airport Transfer",
     desc: "Reliable, all-inclusive airport transportation with real-time flight monitoring.",
     image: svcAirport,
-    path: "/services/airport",
+    path: "/car-service-nashville-airport",
   },
   {
     title: "Birthday Chauffeur",
     desc: "Celebrate in style with a party-ready limo built for unforgettable nights.",
     image: svcBirthday,
-    path: "/services/birthday",
+    path: "/birthday-party-bus-rental",
   },
   {
     title: "Black Car Service",
     desc: "Premium comfort and professionalism with black car service, perfect for any special trip.",
     image: svcBlackcar,
-    path: "/services/black-car",
+    path: "/black-car-service",
   },
   {
     title: "Concert Transportation",
     desc: "Skip the traffic and parking — arrive at every show in comfort and style.",
     image: svcConcert,
-    path: "/services/concert",
+    path: "/concert-transportation",
   },
   {
     title: "Executive Chauffeur",
     desc: "Polished, punctual chauffeur service for business travel and VIP clients.",
     image: svcExecutive,
-    path: "/services/executive",
+    path: "/executive-chauffeur",
   },
   {
     title: "Prom Limo Rental",
     desc: "Arrive at prom with elegance using our limousine service, creating unforgettable memories forever.",
     image: svcProm,
-    path: "/services/prom",
+    path: "/limo-prom-rental",
   },
   {
     title: "Wedding Chauffeur",
     desc: "Experience luxury with our Mercedes chauffeur service, tailored to meet every demand perfectly.",
     image: svcWedding,
-    path: "/services/wedding",
+    path: "/wedding-limo-chauffeur",
   },
 ];
 
@@ -343,32 +346,27 @@ export const whyChooseUs = [
   },
 ];
 
-export const financingFeatures = [
+export const bestServiceFeatures = [
   {
-    icon: "percent",
-    title: "Competitive Rates",
-    desc: "From 2.49% APR",
+    icon: "shield",
+    title: "Safety Of Our Customer",
+    desc: "We ensure customer safety with strict protocols, properly maintained vehicles, and trained drivers for a secure and comfortable journey.",
   },
   {
-    icon: "bolt",
-    title: "Quick Approvals",
-    desc: "Get approved in minutes",
+    icon: "money",
+    title: "Affordable Transparent Pricing",
+    desc: "We guarantee transparent pricing with no hidden charges. You'll always receive a clear, upfront price, so there are no surprises for you.",
   },
   {
-    icon: "users",
-    title: "All Credit Welcome",
-    desc: "Good credit, bad credit, we can help",
-  },
-  {
-    icon: "ban",
-    title: "No Prepayment Penalties",
-    desc: "Pay off your loan when you want",
+    icon: "car",
+    title: "Licenced Professional Drivers",
+    desc: "Our licensed drivers are professional, reliable, and undergo thorough background checks and training to ensure safe, smooth travel.",
   },
 ];
 
 export const stats = [
-  { icon: "trophy", value: "15+", label: "Years in Business" },
-  { icon: "people", value: "25,000+", label: "Happy Clients" },
+  { icon: "trophy", value: "5+", label: "Years in Business" },
+  { icon: "people", value: "2,000+", label: "Happy Clients" },
   { icon: "star", value: "4.9", label: "Average Rating" },
 ];
 

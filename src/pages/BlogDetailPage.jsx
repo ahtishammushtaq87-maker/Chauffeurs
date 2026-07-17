@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
+import ShareRail from "../components/ShareRail";
+import RecentBlogs from "../components/RecentBlogs";
 import { ChevronLeft, ClockIcon } from "../components/Icons";
 import { apiGet } from "../lib/api";
 
 const formatDate = (iso) =>
   new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+const readingMinutes = (text = "") => Math.max(1, Math.round(text.trim().split(/\s+/).length / 200));
 
 export default function BlogDetailPage() {
   const { slug } = useParams();
@@ -41,52 +45,70 @@ export default function BlogDetailPage() {
     );
   }
 
+  const shareUrl = typeof window === "undefined" ? "" : window.location.href;
+  const paragraphs = post.content.split(/\n{2,}/).filter(Boolean);
+
   return (
     <section className="px-6 py-16 md:px-16 lg:px-24">
-      <div className="mx-auto max-w-3xl">
-        <Link
-          to="/blog"
-          className="mb-8 inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-wide text-gold uppercase transition-opacity hover:opacity-75"
-        >
-          <ChevronLeft width={14} height={14} /> Back to Blog
-        </Link>
-
-        {post.category && <span className="eyebrow">{post.category}</span>}
-        <h1 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl lg:text-[44px]">
-          {post.title}
-        </h1>
-        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-text-muted">
-          <span className="flex items-center gap-2">
-            <ClockIcon width={15} height={15} className="text-gold" />
-            {formatDate(post.published_at)}
-          </span>
-          <span>By {post.author}</span>
-        </div>
-
-        <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-xl border border-border">
-          <PlaceholderImage src={post.image} alt={post.image_alt || post.title} title={post.image_title} />
-        </div>
-
-        <div className="mt-10">
-          {post.content
-            .split(/\n{2,}/)
-            .filter(Boolean)
-            .map((paragraph, i) => (
-              <p key={i} className="mb-5 text-[15px] leading-relaxed text-text-muted">
-                {paragraph}
-              </p>
-            ))}
-        </div>
-
-        <div className="mt-4 rounded-xl border border-border bg-panel px-7 py-9 text-center">
-          <h3 className="font-serif text-xl text-text">Ready to Book Your Ride?</h3>
-          <p className="mt-2 text-sm text-text-muted">
-            Let Swift Chauffeurs handle the details — reach out and we'll tailor the perfect experience.
-          </p>
-          <Link to="/contact" className="btn btn-gold mt-6 w-fit">
-            Book Now
+      <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-12">
+        {/* Article */}
+        <div className="min-w-0">
+          <Link
+            to="/blog"
+            className="mb-8 inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-wide text-gold uppercase transition-opacity hover:opacity-75"
+          >
+            <ChevronLeft width={14} height={14} /> Back to Blog
           </Link>
+
+          {post.category && <span className="eyebrow">{post.category}</span>}
+          <h1 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl lg:text-[44px]">
+            {post.title}
+          </h1>
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-text-muted">
+            <span className="flex items-center gap-2">
+              <ClockIcon width={15} height={15} className="text-gold" />
+              {formatDate(post.published_at)}
+            </span>
+            <span>By {post.author}</span>
+            <span>{readingMinutes(post.content)} min read</span>
+          </div>
+
+          <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-xl border border-border">
+            <PlaceholderImage src={post.image} alt={post.image_alt || post.title} title={post.image_title} />
+          </div>
+
+          {/* Body + share rail. The rail is a row above the copy on mobile and a
+              sticky vertical column beside it from md: up. */}
+          <div className="mt-10 flex flex-col gap-6 md:flex-row-reverse md:items-start md:gap-8">
+            <ShareRail
+              url={shareUrl}
+              title={post.title}
+              className="md:sticky md:top-24 md:flex-col"
+            />
+            <div className="min-w-0 flex-1">
+              {paragraphs.map((paragraph, i) => (
+                <p key={i} className="mb-5 text-[15px] leading-relaxed text-text-muted">
+                  {paragraph}
+                </p>
+              ))}
+
+              <div className="mt-10 rounded-xl border border-border bg-panel px-7 py-9 text-center">
+                <h3 className="font-serif text-xl text-text">Ready to Book Your Ride?</h3>
+                <p className="mt-2 text-sm text-text-muted">
+                  Let Swift Chauffeurs handle the details — reach out and we'll tailor the perfect experience.
+                </p>
+                <Link to="/contact" className="btn btn-gold mt-6 w-fit">
+                  Book Now
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Sidebar */}
+        <aside className="lg:sticky lg:top-24 lg:self-start">
+          <RecentBlogs excludeSlug={post.slug} />
+        </aside>
       </div>
     </section>
   );

@@ -103,10 +103,10 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-3 py-6 text-center sm:flex-row sm:text-left">
           <p className="text-xs text-ink-fg-faint">{new Date().getFullYear()} &copy; SWIFT CHAUFFEURS</p>
           <div className="flex gap-6">
-            <Link to="/privacy-policy" className="text-xs text-ink-fg-faint transition-colors hover:text-gold-light">
+            <Link to="/privacy-policy-swift-chauffeurs" className="text-xs text-ink-fg-faint transition-colors hover:text-gold-light">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-xs text-ink-fg-faint transition-colors hover:text-gold-light">
+            <Link to="/terms-conditions" className="text-xs text-ink-fg-faint transition-colors hover:text-gold-light">
               Terms &amp; Conditions
             </Link>
             <Link

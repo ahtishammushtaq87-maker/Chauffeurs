@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
   const EMAIL = settings.email;
   return (
     <>
-      <PageHero eyebrow="Legal" title="Privacy Policy" image={getHeroImage("/privacy-policy")} />
+      <PageHero eyebrow="Legal" title="Privacy Policy" image={getHeroImage("/privacy-policy-swift-chauffeurs")} />
 
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">

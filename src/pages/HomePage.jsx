@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import FeaturedInventory from "../components/FeaturedInventory";
 import WhyChooseUs from "../components/WhyChooseUs";
-import FinancingTrade from "../components/FinancingTrade";
+import BestServiceSection from "../components/BestServiceSection";
 import Stats from "../components/Stats";
 import CustomerReviews from "../components/CustomerReviews";
 import ContactSection from "../components/ContactSection";
@@ -18,7 +18,7 @@ export default function HomePage() {
     <>
       <Hero />
       <FeaturedInventory />
-      <WhyChooseUs />
+      
       {/* Our Chauffeur Services */}
       <section className="border-y border-border  px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
@@ -42,7 +42,7 @@ export default function HomePage() {
           />
         </div>
       </section>
-      <FinancingTrade />
+      <BestServiceSection />
       <Stats />
       <CitiesWeServe />
       <PlanYourTravelBanner />

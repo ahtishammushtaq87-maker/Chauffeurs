@@ -26,7 +26,7 @@ export default function TermsPage() {
   const EMAIL = settings.email;
   return (
     <>
-      <PageHero eyebrow="Legal" title="Terms & Conditions" image={getHeroImage("/terms")} />
+      <PageHero eyebrow="Legal" title="Terms & Conditions" image={getHeroImage("/terms-conditions")} />
 
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
@@ -259,7 +259,7 @@ export default function TermsPage() {
             <Section title="Privacy Policy Cross-Link">
               <p>
                 If you have any questions regarding privacy, please read our{" "}
-                <Link to="/privacy-policy" className="text-gold hover:underline">
+                <Link to="/privacy-policy-swift-chauffeurs" className="text-gold hover:underline">
                   Privacy Policy
                 </Link>
                 .

@@ -208,11 +208,11 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
         </label>
         <p className="text-xs text-text-faint">
           View our{" "}
-          <Link to="/privacy-policy" className="text-gold hover:underline">
+          <Link to="/privacy-policy-swift-chauffeurs" className="text-gold hover:underline">
             Privacy Policy
           </Link>{" "}
           and{" "}
-          <Link to="/terms" className="text-gold hover:underline">
+          <Link to="/terms-conditions" className="text-gold hover:underline">
             Terms &amp; Conditions
           </Link>
           .

@@ -26,11 +26,11 @@ export default function GdprCompliancePage() {
               {WEBSITE}
             </a>
             . It should be read alongside our{" "}
-            <Link to="/privacy-policy" className="text-gold hover:underline">
+            <Link to="/privacy-policy-swift-chauffeurs" className="text-gold hover:underline">
               Privacy Policy
             </Link>{" "}
             and{" "}
-            <Link to="/terms" className="text-gold hover:underline">
+            <Link to="/terms-conditions" className="text-gold hover:underline">
               Terms &amp; Conditions
             </Link>
             .

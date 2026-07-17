@@ -125,6 +125,18 @@ export function PercentIcon(props) {
   );
 }
 
+// Money bag with a dollar sign — for pricing/cost copy.
+export function MoneyBagIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M9.7 2.5h4.6l-1.3 3.4h-2z" />
+      <path d="M13 5.9c3.4.5 6 3.7 6 7.5 0 4.2-3.1 7.6-7 7.6s-7-3.4-7-7.6c0-3.8 2.6-7 6-7.5" />
+      <path d="M12 10.1v6.8" />
+      <path d="M13.7 11.5c-.4-.5-1-.8-1.7-.8-1 0-1.8.6-1.8 1.4s.8 1.3 1.8 1.3 1.8.5 1.8 1.3-.8 1.4-1.8 1.4c-.7 0-1.3-.3-1.7-.8" />
+    </svg>
+  );
+}
+
 export function BoltIcon(props) {
   return (
     <svg {...base} {...props}>
@@ -342,12 +354,68 @@ export function GoogleIcon(props) {
   );
 }
 
+export function MusicNoteIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M9 18V5l11-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="17" cy="16" r="3" />
+    </svg>
+  );
+}
+
+export function LightbulbIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M9 18h6M10 21h4" />
+      <path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .9 1.6l.1.5h5l.1-.5c.1-.6.4-1.2.9-1.6A6 6 0 0 0 12 3z" />
+    </svg>
+  );
+}
+
+export function MonitorIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="2.5" y="4" width="19" height="12.5" rx="2" />
+      <path d="M8.5 20.5h7M12 16.5v4" />
+    </svg>
+  );
+}
+
+export function WineGlassIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M7 3h10l-1 6a4 4 0 0 1-8 0z" />
+      <path d="M12 13v7M8.5 20.5h7" />
+    </svg>
+  );
+}
+
+export function SeatIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M6 4h12v8a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3z" />
+      <path d="M4 15h16M5 15v5M19 15v5" />
+    </svg>
+  );
+}
+
+export function SnowflakeIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 2v20M4.4 6.5l15.2 11M19.6 6.5L4.4 17.5" />
+      <path d="M12 6l2.5-2.5M12 6L9.5 3.5M12 18l2.5 2.5M12 18l-2.5 2.5" />
+    </svg>
+  );
+}
+
 const iconMap = {
   diamond: DiamondIcon,
   shield: ShieldIcon,
   award: AwardIcon,
   clock: ClockIcon,
   percent: PercentIcon,
+  money: MoneyBagIcon,
   bolt: BoltIcon,
   users: UsersIcon,
   ban: BanIcon,
@@ -358,6 +426,12 @@ const iconMap = {
   pin: PinIcon,
   heart: HeartIcon,
   check: CheckIcon,
+  music: MusicNoteIcon,
+  lightbulb: LightbulbIcon,
+  monitor: MonitorIcon,
+  wineGlass: WineGlassIcon,
+  seat: SeatIcon,
+  snowflake: SnowflakeIcon,
 };
 
 export function Icon({ name, ...props }) {

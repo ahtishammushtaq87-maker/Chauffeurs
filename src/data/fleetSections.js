@@ -8,10 +8,10 @@
 // under Services > (a service) > Premium Fleet, which picks from the vehicles
 // these sections already hold rather than owning copies of them.
 export const FLEET_SECTION_PAGE_PATHS = {
-  "luxury-sedan-fleet": "/fleet/luxury-sedan",
-  "executive-suv-fleet": "/fleet/executive-suv",
-  "stretch-limo-fleet": "/fleet/stretch-limousine",
-  "party-bus-fleet": "/fleet/party-bus",
-  "sprinter-van-fleet": "/fleet/sprinter-van",
-  "motor-coach-fleet": "/fleet/motor-coach",
+  "luxury-sedan-fleet": "/black-mercedes-sedan-hire",
+  "executive-suv-fleet": "/luxury-suv-transportation-nashville",
+  "stretch-limo-fleet": "/stretch-limousine-hire-nashville",
+  "party-bus-fleet": "/party-bus-rental-nashville",
+  "sprinter-van-fleet": "/luxury-sprinter-van-rental-nashville",
+  "motor-coach-fleet": "/motor-coach-rental-nashville-tn",
 };

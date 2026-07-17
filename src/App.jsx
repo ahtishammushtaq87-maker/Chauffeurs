@@ -1,6 +1,7 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import { flattenNavRoutes } from "./data/content";
+import { LEGACY_REDIRECTS } from "./data/legacyRedirects";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -47,25 +48,25 @@ import SettingsAdmin from "./admin/pages/SettingsAdmin";
 // Pages with bespoke content; everything else in the nav renders GenericPage.
 const dedicatedPages = {
   "/": <HomePage />,
-  "/about": <AboutPage />,
+  "/about-us": <AboutPage />,
   "/contact": <ContactPage />,
   "/fleet": <FleetPage />,
   "/services": <ServicesPage />,
-  "/services/prom": <PromPage />,
-  "/services/airport": <AirportPage />,
-  "/services/birthday": <BirthdayPage />,
-  "/services/black-car": <BlackCarPage />,
-  "/services/concert": <ConcertPage />,
-  "/services/executive": <ExecutivePage />,
-  "/services/wedding": <WeddingPage />,
-  "/fleet/luxury-sedan": <LuxurySedanPage />,
-  "/fleet/executive-suv": <ExecutiveSuvPage />,
-  "/fleet/motor-coach": <MotorCoachPage />,
-  "/fleet/party-bus": <PartyBusPage />,
-  "/fleet/sprinter-van": <SprinterVanPage />,
-  "/fleet/stretch-limousine": <StretchLimoPage />,
-  "/privacy-policy": <PrivacyPolicyPage />,
-  "/terms": <TermsPage />,
+  "/limo-prom-rental": <PromPage />,
+  "/car-service-nashville-airport": <AirportPage />,
+  "/birthday-party-bus-rental": <BirthdayPage />,
+  "/black-car-service": <BlackCarPage />,
+  "/concert-transportation": <ConcertPage />,
+  "/executive-chauffeur": <ExecutivePage />,
+  "/wedding-limo-chauffeur": <WeddingPage />,
+  "/black-mercedes-sedan-hire": <LuxurySedanPage />,
+  "/luxury-suv-transportation-nashville": <ExecutiveSuvPage />,
+  "/motor-coach-rental-nashville-tn": <MotorCoachPage />,
+  "/party-bus-rental-nashville": <PartyBusPage />,
+  "/luxury-sprinter-van-rental-nashville": <SprinterVanPage />,
+  "/stretch-limousine-hire-nashville": <StretchLimoPage />,
+  "/privacy-policy-swift-chauffeurs": <PrivacyPolicyPage />,
+  "/terms-conditions": <TermsPage />,
   "/gdpr-compliance": <GdprCompliancePage />,
   "/blog": <BlogPage />,
 };
@@ -86,6 +87,13 @@ function App() {
             }
             return <Route key={route.path} path={route.path} element={element} />;
           })}
+          {/* Retired URLs. Production serves 301s from vercel.json; these keep
+              in-app links and local dev working, and must stay above the
+              /services|/fleet/:slug fallbacks so old paths redirect instead of
+              rendering an empty detail page. */}
+          {Object.entries(LEGACY_REDIRECTS).map(([oldPath, newPath]) => (
+            <Route key={oldPath} path={oldPath} element={<Navigate to={newPath} replace />} />
+          ))}
           {/* Fallback routes for services/fleet items added via the dashboard. */}
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
           <Route path="/fleet/:slug" element={<FleetVehicleDetailPage />} />

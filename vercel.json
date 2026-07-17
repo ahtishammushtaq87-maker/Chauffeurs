@@ -1,5 +1,150 @@
 {
+  "redirects": [
+    {
+      "source": "/services/airport",
+      "destination": "/car-service-nashville-airport",
+      "permanent": true
+    },
+    {
+      "source": "/services/airport-chauffeur-service-nashville",
+      "destination": "/car-service-nashville-airport",
+      "permanent": true
+    },
+    {
+      "source": "/services/birthday",
+      "destination": "/birthday-party-bus-rental",
+      "permanent": true
+    },
+    {
+      "source": "/services/black-car",
+      "destination": "/black-car-service",
+      "permanent": true
+    },
+    {
+      "source": "/services/concert",
+      "destination": "/concert-transportation",
+      "permanent": true
+    },
+    {
+      "source": "/services/executive",
+      "destination": "/executive-chauffeur",
+      "permanent": true
+    },
+    {
+      "source": "/services/prom",
+      "destination": "/limo-prom-rental",
+      "permanent": true
+    },
+    {
+      "source": "/services/wedding",
+      "destination": "/wedding-limo-chauffeur",
+      "permanent": true
+    },
+    {
+      "source": "/fleet/executive-suv",
+      "destination": "/luxury-suv-transportation-nashville",
+      "permanent": true
+    },
+    {
+      "source": "/fleet/luxury-sedan",
+      "destination": "/black-mercedes-sedan-hire",
+      "permanent": true
+    },
+    {
+      "source": "/fleet/motor-coach",
+      "destination": "/motor-coach-rental-nashville-tn",
+      "permanent": true
+    },
+    {
+      "source": "/fleet/party-bus",
+      "destination": "/party-bus-rental-nashville",
+      "permanent": true
+    },
+    {
+      "source": "/fleet/sprinter-van",
+      "destination": "/luxury-sprinter-van-rental-nashville",
+      "permanent": true
+    },
+    {
+      "source": "/fleet/stretch-limousine",
+      "destination": "/stretch-limousine-hire-nashville",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/brentwood",
+      "destination": "/brentwood",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/franklin",
+      "destination": "/limo-service-in-franklin-tn",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/murfreesboro",
+      "destination": "/murfreesboro-limousine-service",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/nashville",
+      "destination": "/nashville",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/spring-hill",
+      "destination": "/spring-hill",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/chattanooga/birthday-party-bus",
+      "destination": "/chattanooga/birthday-party-bus",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/chattanooga/cha-car-service",
+      "destination": "/chattanooga/car-service-to-cha",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/chattanooga/prom-limousine",
+      "destination": "/chattanooga/prom-limo-rental",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/chattanooga/wedding-chauffeur",
+      "destination": "/chattanooga/wedding-chauffeur-service",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/clarksville/corporate-airport-shuttle",
+      "destination": "/services/airport-shuttle",
+      "permanent": true
+    },
+    {
+      "source": "/service-area/clarksville/nashville-airport-shuttle",
+      "destination": "/clarksville/shuttle-to-nashville-airport",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about-us",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy-swift-chauffeurs",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms-conditions",
+      "permanent": true
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }

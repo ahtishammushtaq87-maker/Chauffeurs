@@ -12,29 +12,29 @@ the instant quote form on the website. Customer service is available 24/7.
 ## Company
 
 - [Home](https://swiftchauffeurs.com/): Overview of Swift Chauffeurs and an instant quote request form.
-- [About Us](https://swiftchauffeurs.com/about): Company background and what sets Swift Chauffeurs apart.
+- [About Us](https://swiftchauffeurs.com/about-us): Company background and what sets Swift Chauffeurs apart.
 - [Contact Us](https://swiftchauffeurs.com/contact): Phone, email, and contact form.
 
 ## Fleet
 
 - [Our Fleet](https://swiftchauffeurs.com/fleet): Full overview of available vehicles.
-- [Luxury Sedan](https://swiftchauffeurs.com/fleet/luxury-sedan)
-- [Executive SUV](https://swiftchauffeurs.com/fleet/executive-suv)
-- [Stretch Limousine](https://swiftchauffeurs.com/fleet/stretch-limousine)
-- [Party Bus](https://swiftchauffeurs.com/fleet/party-bus)
-- [Sprinter Van](https://swiftchauffeurs.com/fleet/sprinter-van)
-- [Motor Coach](https://swiftchauffeurs.com/fleet/motor-coach)
+- [Luxury Sedan](https://swiftchauffeurs.com/black-mercedes-sedan-hire)
+- [Executive SUV](https://swiftchauffeurs.com/luxury-suv-transportation-nashville)
+- [Stretch Limousine](https://swiftchauffeurs.com/stretch-limousine-hire-nashville)
+- [Party Bus](https://swiftchauffeurs.com/party-bus-rental-nashville)
+- [Sprinter Van](https://swiftchauffeurs.com/luxury-sprinter-van-rental-nashville)
+- [Motor Coach](https://swiftchauffeurs.com/motor-coach-rental-nashville-tn)
 
 ## Services
 
 - [All Services](https://swiftchauffeurs.com/services): Full list of chauffeur services offered.
-- [Prom Transportation](https://swiftchauffeurs.com/services/prom)
-- [Airport Transfers](https://swiftchauffeurs.com/services/airport)
-- [Birthday Chauffeur](https://swiftchauffeurs.com/services/birthday)
-- [Wedding Transportation](https://swiftchauffeurs.com/services/wedding)
-- [Concert Transportation](https://swiftchauffeurs.com/services/concert)
-- [Black Car Service](https://swiftchauffeurs.com/services/black-car)
-- [Executive/Corporate Travel](https://swiftchauffeurs.com/services/executive)
+- [Prom Transportation](https://swiftchauffeurs.com/limo-prom-rental)
+- [Airport Transfers](https://swiftchauffeurs.com/car-service-nashville-airport)
+- [Birthday Chauffeur](https://swiftchauffeurs.com/birthday-party-bus-rental)
+- [Wedding Transportation](https://swiftchauffeurs.com/wedding-limo-chauffeur)
+- [Concert Transportation](https://swiftchauffeurs.com/concert-transportation)
+- [Black Car Service](https://swiftchauffeurs.com/black-car-service)
+- [Executive/Corporate Travel](https://swiftchauffeurs.com/executive-chauffeur)
 
 ## Service Area
 
@@ -44,6 +44,6 @@ the instant quote form on the website. Customer service is available 24/7.
 ## Optional
 
 - [Blog](https://swiftchauffeurs.com/blog): Articles about chauffeur services and special occasions.
-- [Privacy Policy](https://swiftchauffeurs.com/privacy-policy)
-- [Terms & Conditions](https://swiftchauffeurs.com/terms)
+- [Privacy Policy](https://swiftchauffeurs.com/privacy-policy-swift-chauffeurs)
+- [Terms & Conditions](https://swiftchauffeurs.com/terms-conditions)
 - [GDPR Compliance](https://swiftchauffeurs.com/gdpr-compliance)

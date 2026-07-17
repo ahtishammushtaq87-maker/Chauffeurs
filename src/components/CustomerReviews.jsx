@@ -1,5 +1,5 @@
 import CardSlider from "./CardSlider";
-import { StarIcon } from "./Icons";
+import { StarIcon, GoogleIcon } from "./Icons";
 import { customerReviews, reviewsSummary } from "../data/reviewsContent";
 
 export default function CustomerReviews() {
@@ -11,9 +11,18 @@ export default function CustomerReviews() {
             What Our <span className="text-gold">Customer</span> Says About{" "}
             <span className="text-gold">Best Chauffeur Service Nashville TN</span>
           </h2>
-          <p className="mt-4 text-sm text-gold">
-            {reviewsSummary.rating} Ratings {reviewsSummary.count} Reviews
-          </p>
+          <div className="mt-5 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 rounded-lg bg-ink px-4 py-2.5">
+            <GoogleIcon width={18} height={18} className="flex-shrink-0" />
+            <span className="flex gap-0.5 text-gold">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <StarIcon key={i} width={15} height={15} />
+              ))}
+            </span>
+            <span className="text-sm font-semibold text-ink-fg">
+              {reviewsSummary.rating}{" "}
+              <span className="font-normal text-ink-fg-muted">({reviewsSummary.count} Reviews)</span>
+            </span>
+          </div>
         </div>
 
         <CardSlider

@@ -3,11 +3,16 @@ import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
 import HeroMarquee from "../components/HeroMarquee";
 import CardSlider from "../components/CardSlider";
-import FleetHighlightSection from "../components/FleetHighlightSection";
-import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "../components/Icons";
+import { CheckCircleIcon, ArrowRightIcon, PhoneIcon, Icon } from "../components/Icons";
 import TrustBadges from "../components/TrustBadges";
 import CustomerReviews from "../components/CustomerReviews";
-import { partyBusImages, partyBusFeatures } from "../data/partyBusContent";
+import {
+  partyBusImages,
+  partyBusFeatures,
+  partyBusExperience,
+  partyFleet,
+  partyBusOnboard,
+} from "../data/partyBusContent";
 import { useAllServices } from "../hooks/useAllServices";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
@@ -76,11 +81,103 @@ export default function PartyBusPage() {
         </div>
       </section>
 
-      <FleetHighlightSection
-        slug="party-bus-fleet"
-        eyebrow="We Have the Perfect Party Bus for Every Occasion"
-        heading="Our Party Bus Fleet"
-      />
+      {/* The Swift Experience */}
+      <section className="border-y border-black/10 bg-white px-6 py-16 md:px-16 md:py-20 lg:px-24">
+        <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-black/10">
+            <PlaceholderImage src={partyBusImages.experienceImg} alt="Guests celebrating inside a party bus" />
+          </div>
+
+          <div>
+            <span className="eyebrow">{partyBusExperience.eyebrow}</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-black sm:text-4xl md:text-5xl">
+              {partyBusExperience.headingLead}{" "}
+              <span className="text-gold italic">{partyBusExperience.headingAccent}</span>
+            </h2>
+
+            <blockquote className="mt-7 border-l-2 border-gold pl-5">
+              <p className="font-serif text-lg leading-relaxed text-gold italic sm:text-xl">
+                “{partyBusExperience.quote}”
+              </p>
+            </blockquote>
+
+            <p className="mt-7 text-[15px] leading-relaxed text-black/70">{partyBusExperience.body}</p>
+
+            <ul className="mt-8 flex flex-wrap gap-2.5">
+              {partyBusExperience.tags.map((tag) => (
+                <li
+                  key={tag}
+                  className="rounded-sm border border-gold-dim bg-gold/10 px-3.5 py-2.5 text-[11px] font-semibold tracking-[1px] text-gold uppercase sm:px-4 sm:text-[12px]"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Party Fleet */}
+      <section className="border-y border-black/10 bg-white px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="mb-12">
+            <span className="eyebrow">{partyFleet.eyebrow}</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-black sm:text-4xl md:text-5xl">
+              {partyFleet.headingLead} <span className="text-gold">{partyFleet.headingAccent}</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-black/70">{partyFleet.intro}</p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {partyFleet.cards.map((car) => (
+              <div
+                key={car.name}
+                className="flex h-full flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm"
+              >
+                <div className="aspect-[4/3] flex-shrink-0 overflow-hidden">
+                  <PlaceholderImage src={car.image} alt={car.name} />
+                </div>
+                <div className="border-t-2 border-gold p-6 text-center">
+                  <h3 className="font-serif text-xl leading-tight text-black">{car.name}</h3>
+                  <p className="mt-2 text-[11px] font-semibold tracking-[1.5px] text-gold uppercase">{car.capacity}</p>
+                  <p className="mt-4 text-[13px] leading-relaxed text-black/70">{car.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Onboard Experience — Built For Pure Fun */}
+      <section className="px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="relative order-2 aspect-square overflow-hidden rounded-xl border border-border lg:order-1">
+            <PlaceholderImage src={partyBusOnboard.image} alt="Guests enjoying the onboard experience" />
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <span className="eyebrow">{partyBusOnboard.eyebrow}</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-text sm:text-4xl md:text-5xl">
+              {partyBusOnboard.headingLead} <span className="text-gold">{partyBusOnboard.headingAccent}</span>
+            </h2>
+            <p className="mt-5 text-[15px] leading-relaxed text-text-muted">{partyBusOnboard.intro}</p>
+
+            <ul className="mt-8 flex flex-col gap-5">
+              {partyBusOnboard.features.map((feature) => (
+                <li key={feature.title} className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-md border border-gold-dim bg-gold/10 text-gold">
+                    <Icon name={feature.icon} width={20} height={20} />
+                  </span>
+                  <div>
+                    <h3 className="text-[15px] font-bold text-text">{feature.title}</h3>
+                    <p className="mt-1 text-[13px] leading-relaxed text-text-muted">{feature.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* Cross-sell: Our Premium Chauffeurs Service */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
