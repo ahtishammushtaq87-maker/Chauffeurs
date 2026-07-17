@@ -47,7 +47,6 @@ export default function HomePage() {
       <CitiesWeServe />
       <PlanYourTravelBanner />
       <CustomerReviews />
-      <ContactSection />
     </>
   );
 }

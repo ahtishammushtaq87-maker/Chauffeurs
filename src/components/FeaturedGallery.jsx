@@ -166,16 +166,19 @@ export default function FeaturedGallery() {
       ref={galleryRef}
       className="relative flex w-full items-center justify-center overflow-hidden py-4"
     >
-      <ul ref={stackRef} className="relative h-[26rem] w-72 list-none sm:h-[28rem] sm:w-80">
+      <ul
+        ref={stackRef}
+        className="relative h-[11.25rem] w-80 list-none sm:h-[18rem] sm:w-[32rem] lg:h-[22.5rem] lg:w-[40rem]"
+      >
         {galleryItems.map((car, i) => (
           <li
             key={i}
             ref={(el) => (cardsRef.current[i] = el)}
-            className="absolute top-0 left-0 h-[26rem] w-72 overflow-hidden rounded-2xl bg-cover bg-center sm:h-[28rem] sm:w-80"
+            className="absolute top-0 left-0 h-[11.25rem] w-80 overflow-hidden rounded-2xl border-2 border-black/60 bg-cover bg-center shadow-[0_8px_24px_rgba(0,0,0,0.3)] sm:h-[18rem] sm:w-[32rem] lg:h-[22.5rem] lg:w-[40rem]"
             style={{ backgroundImage: `url(${car.image})` }}
           >
             <Link to={car.path} className="absolute inset-0 block">
-              <div className="absolute inset-x-0 bottom-0 p-4 text-left">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent p-4 pt-10 text-left">
                 <p className="text-sm font-semibold text-white">
                   {car.year} {car.make}
                 </p>

@@ -3,7 +3,7 @@ import { Icon } from "./Icons";
 
 export default function Stats() {
   return (
-    <section className="border-y border-border px-6 py-15 md:px-16 lg:px-24 mb-15">
+    <section className="border-t border-border px-6 py-15 md:px-16 lg:px-24 mb-15">
       <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-3 gap-x-5 text-center sm:gap-x-8">
         {stats.map((stat, i) => (
           <div key={stat.label} className="relative flex flex-col items-center gap-2 text-gold">
