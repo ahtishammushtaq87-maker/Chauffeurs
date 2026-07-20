@@ -27,8 +27,8 @@ export const partyBusExperience = {
   headingLead: "Where Every Ride Is a",
   headingAccent: "Party",
   quote:
-    "Luxury isn't about the price you pay — it's about the experience that leaves a lasting impression.",
-  body: "Whether you're planning a corporate event, airport transfer, group outing, wedding transportation, or a special trip around the city, our premium Sprinter Vans and Charter Buses provide the perfect combination of comfort, space, and reliability. Enjoy a smooth journey with professional chauffeurs, spacious seating, modern amenities, and dependable service designed for groups of any size. From executive travel to large-scale transportation, we make every mile effortless and enjoyable.",
+    "Nashville Party Bus Rentals for Every Celebration",
+  body: "From bachelorette weekends and birthdays to weddings, concerts, and corporate events, Swift Chauffeurs provides private party bus rentals tailored to your plans. Enjoy professional chauffeur service, comfortable group seating, and dependable transportation throughout Nashville.",
   tags: [
     "LED Lighting",
     "Premium Sound",
@@ -52,18 +52,18 @@ export const partyBusFeatures = [
 
 // Hero copy
 export const partyBusHero = {
-  eyebrow: "Luxury Party Bus Rental Nashville TN",
+  eyebrow: "Party Bus Rentals in Nashville, TN | Swift Chauffeurs",
   h1Lead: "Luxury Party Bus Rental",
   h1Accent: "Nashville, TN",
   subtext:
-    "Nashville Party Bus Rentals are perfect for bachelorette parties, birthdays, and weddings, with private chauffeur rides built for your celebration and unforgettable nights out.",
+    "Private, chauffeured party bus rentals in Nashville, TN, for bachelorette parties, birthdays, weddings, concerts, corporate events, and unforgettable nights out.",
 };
 
 // "What's Included" section
 export const partyBusIncludes = {
   eyebrow: "What's Included",
-  heading: "What Swift Chauffeurs Party Bus Rental Nashville, TN Includes",
-  body: "A party bus rental is a private vehicle with a professional driver, built for groups who want to stay together and keep the energy going between stops. Unlike a limo, which is built for a smaller group riding quietly, a party bus is set up for standing room, dancing, and a sound system loud enough to hear over a dozen people talking at once. Most Nashville party buses come with LED lighting, a stereo or Bluetooth hookup, bench or wraparound leather seating, and climate control. Swift Chauffeurs adds a licensed chauffeur to every trip, so nobody in your group has to worry about driving, parking, or lining up a designated driver for the night.",
+  heading: "What’s Included with Your Nashville Party Bus Rental",
+  body: "Enjoy private group transportation with a professional chauffeur, spacious seating, climate-controlled comfort, and premium entertainment features. Depending on the selected vehicle, amenities may include LED lighting, Bluetooth connectivity, a premium sound system, wraparound seating, and onboard entertainment. Swift Chauffeurs handles the driving, navigation, and parking so your group can relax and enjoy the occasion together.",
   features: [
     "Flat-rate, all-inclusive pricing",
     "No hidden fees. No surge pricing — guaranteed",
@@ -78,39 +78,40 @@ export const partyBusIncludes = {
 // Long-form informational blocks
 export const partyBusInfoSections = [
   {
-    heading: "Private Charter vs. the Downtown Tour Buses",
+    heading: "Private Party Bus vs. Downtown Tour Bus: What’s the Difference?",
     paragraphs: [
       "Party bus Nashville — before, you've probably noticed most results are open-air party bus TN Nashville tours, not private rentals. The companies running the Broadway loops sell individual seats or a block of seats on a bus that follows one fixed route, usually about an hour and 45 minutes, loading from a single pickup spot near downtown. That's a fun, affordable option for a couple of hours, but it isn't private, and you can't change the route once you're on board.",
       "A Swift Chauffeurs private Nashville TN party bus rental works differently. You book the whole vehicle, we pick your group up at your doorstep or hotel, and the route gets built around your plans: dinner, a show, a couple of honky-tonks, then back to where you started. If your group wants Nashville's energy without sharing the ride with people you've never met, or if you need pickup somewhere other than one lot downtown, a private, chauffeured party bus beats a Nashville party bus tour built for strangers.",
     ],
   },
   {
-    heading: "Common Occasions for a Party Bus Rental Nashville TN",
+    heading: "Popular Occasions for Nashville Party Bus Rentals",
     paragraphs: [
       "Booking a Nashville bachelorette party bus is the single most common reason groups reach out to us. The city is one of the most popular bachelorette destinations in the country. A private bus keeps a group of ten to fifteen friends together between the hotel, dinner, and a few honky-tonks instead of splitting into separate rideshares. Birthdays are a close second. Loading a cooler and a playlist onto a bus takes the planning stress off whoever's turning a year older.",
     ],
   },
   {
-    heading: "How Much Does a Party Bus Cost in Nashville?",
+    heading: "How Much Does a Nashville Party Bus Rental Cost?",
     paragraphs: [
       "Party bus pricing in Nashville is almost always hourly, and a few things move the number up or down: the size of the bus, how many hours you book, and the day of the week. A Friday or Saturday night costs more than a weekday afternoon, and pricing tends to climb during Nashville's busiest stretches.",
       "Ask for a quote built around your specific date, group size, and hours needed rather than relying on a general number you find online. A quote based on your actual trip will always be more accurate than a flat rate.",
     ],
   },
   {
-    heading: "Picking the Right Size Bus for Your Group",
+    heading: "Choosing the Right Party Bus for Your Group",
     paragraphs: [
       "Nashville, Tennessee, party buses generally run from around 14 passengers to 30 or more, and getting the size right matters more than people expect. Too small, and half your group is standing the whole ride. Too big, and you're paying for empty seats.",
       "If you need a small party bus TN groups can fill without feeling swallowed by space, the Mercedes Sprinter party limo is the answer — it seats up to about 15 people. It is the most requested size for bachelorette parties and smaller friend groups who want something stylish. A 20-passenger bus gives a mid-size group more room to move around, and a 30-passenger bus fits combined groups, larger birthdays, or a full wedding party. Groups larger than 30 usually need a coach-style vehicle instead of a true party bus.",
+      "Pricing may depend on the vehicle, date, duration, passenger count, pickup area, distance, stops, and seasonal demand.",
     ],
   },
 ];
 
 // Service areas
 export const partyBusServiceAreas = {
-  heading: "Local Nashville Party Bus Rental Service Areas",
+  heading: "Nashville Party Bus Rental Service Areas",
   intro:
-    "Swift Chauffeurs provides private, chauffeured party bus rentals across Nashville and surrounding communities. Common pickup and drop-off areas include:",
+    "Swift Chauffeurs provides private party bus rentals throughout Nashville and surrounding Tennessee communities.",
   areas: [
     { name: "Downtown & Broadway", zip: "37201, 37219" },
     { name: "SoBro, The Gulch, Midtown & Music Row", zip: "37203" },
@@ -144,7 +145,7 @@ export const partyBusChoose = {
     "Can the company confirm pickup at your actual address, or only from one fixed downtown lot?",
   ],
   outro: [
-    "A Swift Chauffeurs party bus rental should feel like part of your celebration, not a logistics headache.",
+    "Your celebration should feel effortless from pickup to final drop-off.",
     "We pick up your group anywhere in Nashville, TN, or nearby Franklin, Brentwood, Murfreesboro, Clarksville, and Spring Hill, with a private, chauffeured vehicle. Whether you're planning a bachelorette weekend, birthday, wedding transfer, or night out, share your group size, pickup location, and date, and we'll provide a clear, straightforward quote.",
   ],
 };
@@ -197,27 +198,27 @@ export const partyBusFleet = [
 
 export const partyFleet = {
   eyebrow: "Choose Your Ride",
-  headingLead: "Our Party",
+  headingLead: "Our Nashville Party Bus",
   headingAccent: "Fleet",
   intro:
-    "From intimate celebrations to mega-group adventures — we have the perfect vehicles Party Bus and Stretch Limos waiting for you.",
+    "Explore our party buses for bachelorette parties, birthdays, weddings, concerts, corporate events, and private group transportation.",
   cards: [
     {
       name: "Party Bus",
       capacity: "Up to 12 Guests",
-      desc: "Experience nightclub-style luxury with a flat-screen TV, premium audio, laser lighting, and a built-in wet bar—perfect for groups celebrating birthdays, bachelor/bachelorette parties, concerts, and unforgettable nights out.",
+      desc: "A private VIP lounge on wheels, perfect for birthdays, bachelor and bachelorette parties, concerts, and nights out with friends. Enjoy an intimate party bus experience with premium entertainment and luxury features.",
       image: fleetPartyBus,
     },
     {
-      name: "Cadillac Escalade Stretch Limousine",
+      name: "Limo Party Coach",
       capacity: "Up to 18 Guests",
-      desc: "Where luxury meets the party. A sleek, sophisticated ride with all the amenities to keep the energy sky-high all night long.",
+      desc: "A spacious party coach for larger groups, ideal for weddings, birthdays, bachelor and bachelorette parties, concerts, sporting events, and group celebrations. Enjoy plenty of room to socialize and celebrate with premium entertainment and comfortable lounge seating.",
       image: fleetEscalade,
     },
     {
       name: "Mercedes Limo Sprinter",
       capacity: "Up to 16 Guests",
-      desc: "Premium entertainment with a flat-screen TV, concert-quality sound, and a built-in wet bar, making it the perfect choice for groups celebrating birthdays, concerts, and unforgettable nights out.",
+      desc: "A spacious luxury limo experience for larger groups, ideal for weddings, birthdays, concerts, corporate events, and group celebrations. Travel together in comfort while enjoying a stylish and exciting atmosphere.",
       image: fleetMercedes,
     },
   ],
@@ -226,10 +227,10 @@ export const partyFleet = {
 export const partyBusOnboard = {
   image: onboardImg,
   eyebrow: "Onboard Experience",
-  headingLead: "Built For",
-  headingAccent: "Pure Fun",
+  headingLead: "Party Bus Features &",
+  headingAccent: "Amenities",
   intro:
-    "Every ride becomes a special occasion when you step inside our luxury Party Buses and Stretch Limousines. Built for celebrations, group outings, weddings, corporate events, and VIP experiences, our fleet combines comfort, style, and entertainment to create the perfect atmosphere on the road. Relax in premium seating, enjoy advanced entertainment features, and travel with confidence while our professional chauffeurs handle every detail.",
+    "Make the journey part of the celebration with spacious seating, climate-controlled comfort, entertainment features, and professional chauffeur service aboard our Nashville party buses.",
   features: [
     {
       icon: "music",

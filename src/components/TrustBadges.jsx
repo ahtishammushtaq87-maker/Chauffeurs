@@ -14,7 +14,7 @@ export default function TrustBadges() {
           ))}
         </span>
         <span className="text-[11px] font-semibold text-ink-fg sm:text-xs">
-          4.9 <span className="font-normal text-ink-fg-muted">(261 Reviews)</span>
+          4.9 <span className="font-normal text-ink-fg-muted">(590 Reviews)</span>
         </span>
       </div>
       <div className={badgeClasses}>

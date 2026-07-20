@@ -111,6 +111,7 @@ db.exec(`
     hours TEXT NOT NULL DEFAULT '',
     pickup_address TEXT NOT NULL DEFAULT '',
     destination_address TEXT NOT NULL DEFAULT '',
+    notes TEXT NOT NULL DEFAULT '',
     source_path TEXT NOT NULL DEFAULT '',
     status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new','contacted','booked','closed')),
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
@@ -174,6 +175,14 @@ db.exec(`
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
   );
 `);
+
+// Migration for databases created before the quote_requests `notes` column
+// existed (the "Anything special you want us to know?" field).
+try {
+  db.exec("ALTER TABLE quote_requests ADD COLUMN notes TEXT NOT NULL DEFAULT '';");
+} catch {
+  // Column already exists.
+}
 
 // Migration for databases created before the `hidden` column existed.
 try {

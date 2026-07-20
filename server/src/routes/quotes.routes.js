@@ -9,9 +9,9 @@ const router = Router();
 const insertQuote = db.prepare(`
   INSERT INTO quote_requests
     (name, passengers, contact_no, email, service_type, vehicle, pickup_date, pickup_time, hours,
-     pickup_address, destination_address, source_path)
+     pickup_address, destination_address, notes, source_path)
   VALUES (@name, @passengers, @contact_no, @email, @service_type, @vehicle, @pickup_date, @pickup_time, @hours,
-          @pickup_address, @destination_address, @source_path)
+          @pickup_address, @destination_address, @notes, @source_path)
 `);
 const getById = db.prepare("SELECT * FROM quote_requests WHERE id = ?");
 const updateStatus = db.prepare("UPDATE quote_requests SET status = ? WHERE id = ?");
@@ -36,6 +36,7 @@ router.post("/", (req, res) => {
     hours: (b.hours || "").trim(),
     pickup_address: (b.pickupAddress || "").trim(),
     destination_address: (b.destinationAddress || "").trim(),
+    notes: (b.notes || "").trim(),
     source_path: (b.sourcePath || "").trim(),
   });
 

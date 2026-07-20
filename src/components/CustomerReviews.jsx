@@ -8,8 +8,8 @@ export default function CustomerReviews() {
       <div className="mx-auto max-w-(--breakpoint-xl)">
         <div className="mb-10 text-center">
           <h2 className="font-serif text-2xl font-medium leading-snug text-text sm:text-3xl md:text-4xl">
-            What Our <span className="text-gold">Customer</span> Says About{" "}
-            <span className="text-gold">Best Chauffeur Service Nashville TN</span>
+            What Our <span className="text-gold">Customers</span> Say About <span className="text-gold">Swift Chauffeurs</span>
+            
           </h2>
           <div className="mt-5 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 rounded-lg bg-ink px-4 py-2.5">
             <GoogleIcon width={18} height={18} className="flex-shrink-0" />

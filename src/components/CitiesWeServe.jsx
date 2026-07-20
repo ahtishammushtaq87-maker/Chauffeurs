@@ -8,7 +8,7 @@ export default function CitiesWeServe() {
         <div className="mb-10 text-center">
           <span className="eyebrow">Locations</span>
           <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">
-            We Are <span className="text-gold">Serving</span>
+            Serving <span className="text-gold">Nashville</span> & Destinations Across  <span className="text-gold">Tennessee</span>  
           </h2>
         </div>
         <CardSlider

@@ -21,6 +21,13 @@ function formatDate(iso) {
   });
 }
 
+// The pickup date is stored as "YYYY-MM-DD" (from the <input type="date">).
+// Show it as month/day/year without letting timezone parsing shift the day.
+function formatPickupDate(value) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value || "");
+  return m ? `${m[2]}/${m[3]}/${m[1]}` : value;
+}
+
 export default function QuoteRequestsAdmin() {
   const [quotes, setQuotes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -194,11 +201,12 @@ export default function QuoteRequestsAdmin() {
                 {q.passengers && <p><span className="text-text-faint">Passengers:</span> {q.passengers}</p>}
                 {q.service_type && <p><span className="text-text-faint">Service:</span> {q.service_type}</p>}
                 {q.vehicle && <p><span className="text-text-faint">Vehicle:</span> {q.vehicle}</p>}
-                {q.pickup_date && <p><span className="text-text-faint">Date:</span> {q.pickup_date}</p>}
+                {q.pickup_date && <p><span className="text-text-faint">Date:</span> {formatPickupDate(q.pickup_date)}</p>}
                 {q.pickup_time && <p><span className="text-text-faint">Time:</span> {q.pickup_time}</p>}
                 {q.hours && <p><span className="text-text-faint">Hours:</span> {q.hours}</p>}
                 {q.pickup_address && <p className="col-span-2"><span className="text-text-faint">Pickup:</span> {q.pickup_address}</p>}
                 {q.destination_address && <p className="col-span-2"><span className="text-text-faint">Destination:</span> {q.destination_address}</p>}
+                {q.notes && <p className="col-span-2"><span className="text-text-faint">Special Requests:</span> {q.notes}</p>}
               </div>
             </div>
           ))}

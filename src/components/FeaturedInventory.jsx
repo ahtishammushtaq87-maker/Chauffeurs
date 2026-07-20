@@ -15,8 +15,8 @@ export default function FeaturedInventory() {
     <section className="py-15 ">
       <div className="mx-auto max-w-(--breakpoint-xl) px-6 md:px-16 lg:px-24">
         <div className="mb-8 text-center sm:mb-10">
-          <span className="eyebrow">Your Dream, Our Destination</span>
-          <p className="mb-2 text-sm text-text-muted sm:text-base">Tennessee&rsquo;s Best Limousine Service</p>
+          <span className="eyebrow">Your Journey, Our Commitment</span>
+          <p className="mb-2 text-sm text-text-muted sm:text-base">Serving Nashville and Destinations Across Tennessee</p>
           <h2 className="font-serif text-2xl font-medium leading-tight text-text sm:text-3xl md:text-4xl">
             Our Premium <span className="text-gold">FLEET</span>
           </h2>

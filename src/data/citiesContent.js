@@ -19,17 +19,17 @@ export const serviceCities = [
   {
     title: "Chattanooga",
     image: cityChattanooga,
-    desc: "Take in the beauty of Chattanooga with a premium ride experience. Our chauffeurs ensure you travel in style, from Lookout …",
+    desc: "Experience Chattanooga in comfort with private chauffeur service tailored to your journey …",
   },
   {
     title: "Murfreesboro",
     image: cityMurfreesboro,
-    desc: "Take in the beauty of Chattanooga with a premium ride experience. Our chauffeurs ensure you travel in style, from Lookout …",
+    desc: "Enjoy refined and dependable chauffeur service throughout Murfreesboro and beyond …",
   },
   {
     title: "Brentwood",
     image: cityKnoxville,
-    desc: "Enjoy Brentwood vibrant energy and scenic views, chauffeured by professionals who know the city's ins and outs for a smooth,",
+    desc: "Travel through Brentwood with discreet, professional service designed around you …",
   },
   {
     title: "Clarksville",

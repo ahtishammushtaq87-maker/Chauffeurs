@@ -56,14 +56,17 @@ export default function PartyBusPage() {
           </div>
 
           <div className="w-full max-w-md lg:flex-shrink-0">
-            <QuoteForm submitLabel="Reserve Your Nashville Party Bus" />
+            <QuoteForm
+              heading={<>Get a Nashville Party Bus <span className="text-gold">Quote</span></>}
+              submitLabel="Check Availability & Pricing"
+            />
           </div>
         </div>
       </section>
       <HeroMarquee />
 
       {/* The Swift Experience */}
-      <section className="border-y border-black/10 bg-white px-6 py-16 md:px-16 md:py-20 lg:px-24">
+      <section className="border-y border-black/10 bg-white px-6 py-10 md:px-16 md:py-20 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-black/10">
             <PlaceholderImage src={partyBusImages.experienceImg} alt="Guests celebrating inside a party bus" />
@@ -99,7 +102,7 @@ export default function PartyBusPage() {
       </section>
 
       {/* Our Party Fleet */}
-      <section className="border-y border-black/10 bg-white px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-y border-black/10 bg-white px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-12">
             <span className="eyebrow">{partyFleet.eyebrow}</span>
@@ -128,7 +131,7 @@ export default function PartyBusPage() {
                   <p className="mt-3 text-[13px] leading-relaxed text-black/70">{car.desc}</p>
                   <div className="mt-5">
                     <a href="#quote" className="btn btn-gold w-full sm:w-auto">
-                      Book Now
+                      Check Availability
                     </a>
                   </div>
                 </div>
@@ -139,7 +142,7 @@ export default function PartyBusPage() {
       </section>
 
       {/* Long-form info: charter vs tours, occasions, cost, sizing */}
-      <section className="relative overflow-hidden border-t border-black/10 bg-gradient-to-b from-white via-amber-50/40 to-white px-6 py-20 md:px-16 lg:px-24">
+      <section className="relative overflow-hidden border-t border-black/10 bg-gradient-to-b from-white via-amber-50/40 to-white px-6 py-10 md:px-16 lg:px-24">
         <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-fuchsia-400/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-sky-400/10 blur-3xl" />
 
@@ -147,7 +150,7 @@ export default function PartyBusPage() {
           <div className="mb-12 max-w-2xl">
             <span className="eyebrow">Everything You Need to Know</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-black sm:text-4xl">
-              Planning Your Nashville Party Bus
+              Plan Your Nashville Party Bus Rental
             </h2>
           </div>
 
@@ -188,15 +191,15 @@ export default function PartyBusPage() {
 
           <div className="mt-12 flex flex-col items-center gap-5 rounded-2xl bg-gradient-to-r from-ink to-ink-panel p-8 text-center shadow-xl sm:flex-row sm:justify-between sm:text-left">
             <div>
-              <h3 className="font-serif text-xl font-medium text-white sm:text-2xl">Ready to lock in your date?</h3>
-              <p className="mt-1 text-sm text-white/70">Get a clear, all-inclusive quote built around your group.</p>
+              <h3 className="font-serif text-xl font-medium text-white sm:text-2xl">Ready to Lock In Your Date?</h3>
+              <p className="mt-1 text-sm text-white/70">Tell us your event date, passenger count, pickup location, and preferred vehicle to receive a personalized party bus quote.</p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap justify-center gap-3">
               <a href="#quote" className="btn btn-gold">
-                <PhoneIcon width={15} height={15} /> Get Your Quote
+                <PhoneIcon width={15} height={15} /> Check Availability & Pricing 
               </a>
               <Link to="/contact" className="btn btn-outline border-white/30 text-white hover:border-gold-light hover:text-gold-light">
-                Contact Us
+                Call Swift Chauffeurs
               </Link>
             </div>
           </div>
@@ -205,7 +208,7 @@ export default function PartyBusPage() {
 
     
     {/* What's Included */}
-      <section className="px-6 py-20 md:px-16 lg:px-24">
+      <section className="px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-xl border border-border lg:order-1">
             <PlaceholderImage src={partyBusImages.featuresImg} alt="Party bus celebration" />
@@ -231,7 +234,7 @@ export default function PartyBusPage() {
       </section>
      
      {/* Local service areas */}
-      <section className="px-6 py-20 md:px-16 lg:px-24">
+      <section className="px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">Service Areas</span>
@@ -258,7 +261,7 @@ export default function PartyBusPage() {
       </section>
     
       {/* Onboard Experience — Built For Pure Fun */}
-      <section className="px-6 py-20 md:px-16 lg:px-24">
+      <section className="px-6 py-8 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="relative order-2 aspect-square overflow-hidden rounded-xl border border-border lg:order-1">
             <PlaceholderImage src={partyBusOnboard.image} alt="Guests enjoying the onboard experience" />
@@ -290,7 +293,7 @@ export default function PartyBusPage() {
 
 
       {/* Safety + How to choose */}
-      <section className="relative overflow-hidden border-y border-black/10 bg-gradient-to-b from-white via-fuchsia-50/30 to-white px-6 py-20 md:px-16 lg:px-24">
+      <section className="relative overflow-hidden border-y border-black/10 bg-gradient-to-b from-white via-fuchsia-50/30 to-white px-6 py-13 md:px-16 lg:px-24">
         <div className="pointer-events-none absolute -top-20 left-1/3 h-72 w-72 rounded-full bg-purple-400/10 blur-3xl" />
 
         <div className="relative mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-start gap-8 lg:grid-cols-2">
@@ -345,7 +348,7 @@ export default function PartyBusPage() {
       </section>
 
        {/* Cross-sell: Our Premium Chauffeurs Service */}
-      <section className="px-6 py-20 md:px-16 lg:px-24">
+      <section className="px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Our Premium</span>
@@ -368,12 +371,12 @@ export default function PartyBusPage() {
       </section>
 
       {/* FAQ */}
-      <section className="px-6 py-20 md:px-16 lg:px-24">
+      <section className="px-6 py-6 md:px-16 lg:px-24">
         <div className="mx-auto max-w-3xl">
           <div className="mb-10 text-center">
             <span className="eyebrow">FAQ</span>
             <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">
-              Frequently Asked Questions about Party Bus Rental Nashville
+              Nashville Party Bus Rental FAQs
             </h2>
           </div>
           <FaqAccordion items={partyBusFaqs} />
@@ -385,18 +388,18 @@ export default function PartyBusPage() {
       <CustomerReviews />
 
       {/* Final CTA */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto flex max-w-(--breakpoint-xl) flex-col items-center gap-5 text-center">
-          <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Reserve Your Ride Today</h2>
+          <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Get Your Nashville Party Bus Quote</h2>
           <p className="max-w-xl text-[15px] text-text-muted">
             Experience the comfort, reliability, and sophistication that define Swift Chauffeurs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={PHONE} className="btn btn-gold">
-              <PhoneIcon width={15} height={15} /> Reserve Now
+              <PhoneIcon width={15} height={15} /> Check Availability
             </a>
             <Link to="/contact" className="btn btn-outline">
-              Contact Us <ArrowRightIcon />
+              Call Now <ArrowRightIcon />
             </Link>
           </div>
         </div>

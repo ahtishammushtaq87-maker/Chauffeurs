@@ -10,6 +10,12 @@ function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
+// Pickup date is stored as "YYYY-MM-DD"; show it as month/day/year.
+function formatPickupDate(value) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value || "");
+  return m ? `${m[2]}/${m[3]}/${m[1]}` : value;
+}
+
 function fieldRow(label, value) {
   if (!value) return "";
   return `
@@ -88,11 +94,12 @@ export function renderQuoteEmail(q) {
     fieldRow("Passengers", q.passengers),
     fieldRow("Service Type", q.service_type),
     fieldRow("Vehicle", q.vehicle),
-    fieldRow("Pickup Date", q.pickup_date),
+    fieldRow("Pickup Date", formatPickupDate(q.pickup_date)),
     fieldRow("Pickup Time", q.pickup_time),
     fieldRow("Hours", q.hours),
     fieldRow("Pickup Address", q.pickup_address),
     fieldRow("Destination", q.destination_address),
+    fieldRow("Special Requests", q.notes),
     fieldRow("Submitted From", q.source_path),
   ].join("");
 

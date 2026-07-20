@@ -89,7 +89,7 @@ export default function AirportPage() {
       <HeroMarquee />
 
       {/* Quick benefits + reserve card */}
-      <section className="px-6 py-20 md:px-16 lg:px-24">
+      <section className="px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
             <span className="eyebrow">Premium BNA Car Service</span>
@@ -130,7 +130,7 @@ export default function AirportPage() {
       />
 
       {/* Arrivals: BNA pickup, meet-and-greet, flight monitoring */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">BNA Arrivals</span>
@@ -156,7 +156,7 @@ export default function AirportPage() {
       </section>
 
       {/* Departure Service */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
             <span className="eyebrow">{airportDeparture.eyebrow}</span>
@@ -186,7 +186,7 @@ export default function AirportPage() {
       </section>
 
       {/* Vehicles for solo travelers, families, and groups */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Choose Your Vehicle</span>
@@ -216,7 +216,7 @@ export default function AirportPage() {
       <CustomerReviews />
 
       {/* Popular BNA routes */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Where We Drive</span>
@@ -243,7 +243,7 @@ export default function AirportPage() {
       </section>
 
 {/* A Private Nashville Airport Ride Built Around Your Flight */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border">
             <PlaceholderImage src={airportImages.serviceImg} alt="Private jet at sunset" />
@@ -277,7 +277,7 @@ export default function AirportPage() {
       </section>
 
       {/* Service areas and ZIP codes */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Service Areas</span>
@@ -308,7 +308,7 @@ export default function AirportPage() {
       </section>
 
       {/* Why a chauffeur instead of a ride app */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">Chauffeur vs. Ride App</span>
@@ -363,7 +363,7 @@ export default function AirportPage() {
       </section>
 
       {/* Booking steps */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Book the Best BNA Car Service</span>
@@ -386,7 +386,7 @@ export default function AirportPage() {
       <CitiesWeServe />
 
       {/* Cost factors + provider checklist */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 gap-12 lg:grid-cols-2">
           <div>
             <span className="eyebrow">Pricing</span>
@@ -435,7 +435,7 @@ export default function AirportPage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-lg)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Good to Know</span>
@@ -448,7 +448,7 @@ export default function AirportPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto flex max-w-(--breakpoint-xl) flex-col items-center gap-5 text-center">
           <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Reserve Your Ride Today</h2>
           <p className="max-w-xl text-[15px] text-text-muted">

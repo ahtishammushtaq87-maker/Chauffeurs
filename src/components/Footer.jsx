@@ -22,7 +22,7 @@ export default function Footer() {
               <img src={settings.logo_url || mascot} alt="Swift Chauffeurs" className="h-12 w-auto md:h-14" />
             </Link>
             <p className="text-sm leading-relaxed text-ink-fg-muted">
-              Arrive in style. Nashville's trusted chauffeured rides for every occasion, day or night.
+              Arrive in style with Nashville’s trusted chauffeur service—for every occasion, day or night.
             </p>
             <div className="flex w-fit items-center gap-2 rounded-full border border-ink-border-strong bg-ink-panel/70 px-4 py-2.5 backdrop-blur-sm">
               <GoogleIcon width={16} height={16} />
@@ -32,7 +32,7 @@ export default function Footer() {
                 ))}
               </span>
               <span className="text-xs font-semibold text-ink-fg">
-                4.9 <span className="font-normal text-ink-fg-muted">(261 Reviews)</span>
+                4.9 <span className="font-normal text-ink-fg-muted">(590 Reviews)</span>
               </span>
             </div>
           </div>

@@ -13,7 +13,7 @@ export default function BestServiceSection() {
 
       <div className="relative mx-auto max-w-(--breakpoint-xl)">
         <h2 className="mx-auto max-w-4xl text-center font-serif text-[26px] leading-tight font-medium text-gold sm:text-4xl md:text-5xl">
-          Best Chauffeur &amp; Limousine Service Nashville TN
+          Premier Chauffeur &amp; Limousine Service in Nashville, TN
         </h2>
 
         <div className="mt-12 grid grid-cols-1 gap-10 sm:mt-14 sm:gap-12 md:grid-cols-3 md:gap-8">

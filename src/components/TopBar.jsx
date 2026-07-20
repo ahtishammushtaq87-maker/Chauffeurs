@@ -13,9 +13,9 @@ export default function TopBar() {
     <div className="hidden bg-gold text-[#17140d] md:block">
       <div className="mx-auto flex h-9 max-w-(--breakpoint-l) items-center justify-between gap-4 px-6 text-[11px] font-medium tracking-wide sm:text-xs md:px-10">
         <div className="flex min-w-0 items-center gap-4 sm:gap-6">
-          <a href={toTelHref(settings.phone_2)} className="flex items-center gap-1.5 whitespace-nowrap transition-opacity hover:opacity-70">
+          <a href={toTelHref(settings.phone_1)} className="flex items-center gap-1.5 whitespace-nowrap transition-opacity hover:opacity-70">
             <PhoneIcon width={12} height={12} className="flex-shrink-0" />
-            <span className="truncate">{settings.phone_2}</span>
+            <span className="truncate">{settings.phone_1}</span>
           </a>
           <a
             href={`mailto:${settings.email}`}

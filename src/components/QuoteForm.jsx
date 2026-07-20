@@ -45,10 +45,11 @@ const emptyForm = {
   hours: "",
   pickupAddress: "",
   destinationAddress: "",
+  notes: "",
   consent: false,
 };
 
-export default function QuoteForm({ submitLabel = "Get My Quote" }) {
+export default function QuoteForm({ submitLabel = "Get My Quote", heading }) {
   const { pathname } = useLocation();
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("idle");
@@ -107,7 +108,11 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
   return (
     <div className="w-full rounded border border-border-strong bg-panel/85 p-4 backdrop-blur-m sm:p-8">
       <h2 className="mb-4 text-base font-bold tracking-wide text-text uppercase sm:mb-5 sm:text-lg">
-        Get An <BoltIcon width={16} height={16} className="mb-0.5 inline text-gold" /> <span className="text-gold">Instant Quote</span>
+        {heading || (
+          <>
+            Get An <BoltIcon width={16} height={16} className="mb-0.5 inline text-gold" /> <span className="text-gold">Instant Quote</span>
+          </>
+        )}
       </h2>
 
       <form className="flex flex-col gap-2.5 sm:gap-3.5" onSubmit={handleSubmit}>
@@ -143,17 +148,27 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
         <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3.5">
           <input
             className={`${inputClasses} text-text-muted`}
-            type="date"
+            type="text"
             name="pickupDate"
+            placeholder="Pick-up mm/dd/yy"
             aria-label="Select Pick-up Date"
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => {
+              if (!e.target.value) e.target.type = "text";
+            }}
             value={form.pickupDate}
             onChange={handleChange}
           />
           <input
             className={`${inputClasses} text-text-muted`}
-            type="time"
+            type="text"
             name="pickupTime"
+            placeholder="Pickup Time"
             aria-label="Pickup Time"
+            onFocus={(e) => (e.target.type = "time")}
+            onBlur={(e) => {
+              if (!e.target.value) e.target.type = "text";
+            }}
             value={form.pickupTime}
             onChange={handleChange}
           />
@@ -162,7 +177,7 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
             type="number"
             min="0"
             name="hours"
-            placeholder="Hours"
+            placeholder="Number of Hours"
             value={form.hours}
             onChange={handleChange}
           />
@@ -193,6 +208,21 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
           />
         </div>
 
+        <div>
+          <label htmlFor="notes" className="mb-1.5 block text-[13px] font-medium text-gold sm:text-sm">
+            Anything special you want us to know?
+          </label>
+          <textarea
+            id="notes"
+            className={`${inputClasses} min-h-20 resize-y`}
+            name="notes"
+            rows={2}
+            placeholder="e.g. It's his/her bachelorette — can we have their name on the screen when they board?"
+            value={form.notes}
+            onChange={handleChange}
+          />
+        </div>
+
         <label className="flex items-start gap-2.5 pt-1 text-xs leading-relaxed text-text-muted">
           <input
             type="checkbox"
@@ -208,11 +238,11 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
         </label>
         <p className="text-xs text-text-faint">
           View our{" "}
-          <Link to="/privacy-policy-swift-chauffeurs" className="text-gold hover:underline">
+          <Link to="/privacy-policy-swift-chauffeurs" className="text-red-600 hover:underline">
             Privacy Policy
           </Link>{" "}
           and{" "}
-          <Link to="/terms-conditions" className="text-gold hover:underline">
+          <Link to="/terms-conditions" className="text-red-600 hover:underline">
             Terms &amp; Conditions
           </Link>
           .
@@ -224,7 +254,7 @@ export default function QuoteForm({ submitLabel = "Get My Quote" }) {
           type="button"
           onClick={handleSubmit}
           disabled={status === "submitting"}
-          className="btn btn-gold mt-1.5 w-full py-3 text-sm disabled:opacity-60 sm:py-4 sm:text-base"
+          className="btn btn-gold mt-1.5 w-full py-3 text-sm normal-case text-white disabled:opacity-60 sm:py-4 sm:text-base"
         >
           {status === "submitting" ? "Submitting…" : submitLabel}
         </button>

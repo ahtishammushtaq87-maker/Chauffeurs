@@ -9,7 +9,7 @@ export default function PlanYourTravelBanner() {
       <div className="absolute inset-0 bg-black/40" />
       <div className="relative mx-auto max-w-3xl text-center">
         <h2 className="text-2xl font-bold leading-tight text-white drop-shadow-lg sm:text-3xl md:text-4xl">
-          Plan Your Next Travel With Best Limousine Service &amp; Chauffeur Nashville TN
+          Plan Your Journey with Nashville’s Premier Chauffeur & Limousine Service 
         </h2>
         <a href="#quote" className="btn btn-gold mt-8 inline-block px-10 py-3.5">
           Book Now

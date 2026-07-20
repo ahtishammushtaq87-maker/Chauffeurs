@@ -349,18 +349,18 @@ export const whyChooseUs = [
 export const bestServiceFeatures = [
   {
     icon: "shield",
-    title: "Safety Of Our Customer",
-    desc: "We ensure customer safety with strict protocols, properly maintained vehicles, and trained drivers for a secure and comfortable journey.",
+    title: "Safety Without Compromise",
+    desc: "We prioritize your safety through strict protocols, professionally maintained vehicles, and trained chauffeurs, ensuring a secure and comfortable journey.",
   },
   {
     icon: "money",
-    title: "Affordable Transparent Pricing",
-    desc: "We guarantee transparent pricing with no hidden charges. You'll always receive a clear, upfront price, so there are no surprises for you.",
+    title: "Transparent, Upfront Pricing",
+    desc: "Enjoy clear pricing with no hidden fees. You will always receive an upfront rate, so there are no unexpected charges.",
   },
   {
     icon: "car",
-    title: "Licenced Professional Drivers",
-    desc: "Our licensed drivers are professional, reliable, and undergo thorough background checks and training to ensure safe, smooth travel.",
+    title: "Licensed Professional Chauffeurs",
+    desc: "Our licensed and experienced chauffeurs are carefully screened and professionally trained to provide safe, smooth, and dependable service.",
   },
 ];
 
