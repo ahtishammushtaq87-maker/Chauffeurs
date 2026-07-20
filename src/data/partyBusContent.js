@@ -210,16 +210,16 @@ export const partyFleet = {
       image: fleetPartyBus,
     },
     {
-      name: "Limo Party Coach",
-      capacity: "Up to 18 Guests",
-      desc: "A spacious party coach for larger groups, ideal for weddings, birthdays, bachelor and bachelorette parties, concerts, sporting events, and group celebrations. Enjoy plenty of room to socialize and celebrate with premium entertainment and comfortable lounge seating.",
-      image: fleetEscalade,
-    },
-    {
       name: "Mercedes Limo Sprinter",
       capacity: "Up to 16 Guests",
       desc: "A spacious luxury limo experience for larger groups, ideal for weddings, birthdays, concerts, corporate events, and group celebrations. Travel together in comfort while enjoying a stylish and exciting atmosphere.",
       image: fleetMercedes,
+    },
+    {
+      name: "Limo Party Coach",
+      capacity: "Up to 18 Guests",
+      desc: "A spacious party coach for larger groups, ideal for weddings, birthdays, bachelor and bachelorette parties, concerts, sporting events, and group celebrations. Enjoy plenty of room to socialize and celebrate with premium entertainment and comfortable lounge seating.",
+      image: fleetEscalade,
     },
   ],
 };
