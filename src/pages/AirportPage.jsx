@@ -92,12 +92,12 @@ export default function AirportPage() {
       <section className="px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <span className="eyebrow">Premium BNA Car Service</span>
+            <span className="eyebrow">PRIVATE BNA AIRPORT TRANSPORTATION</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Effortless Nashville Airport Chauffeur Service, 24/7
+              Private Nashville Airport Car Service, Available 24/7
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              Private BNA airport transfers, anytime. Here's what every transfer includes:
+              Travel to or from Nashville International Airport with private pickup, professional chauffeur service, flight-aware coordination, and a vehicle selected for your passengers and luggage.
             </p>
             <ul className="mt-7 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
               {airportFeatures.map((line) => (
@@ -135,7 +135,7 @@ export default function AirportPage() {
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">BNA Arrivals</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Your Arrival, Handled End to End
+              BNA Airport Arrival Pickup, Handled End to End
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
@@ -220,7 +220,7 @@ export default function AirportPage() {
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Where We Drive</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Popular BNA Airport Chauffeur Routes</h2>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Popular Nashville Airport Car Service Routes</h2>
           </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {airportRoutes.map((route) => (
@@ -349,7 +349,7 @@ export default function AirportPage() {
               departures, hotel transfers, corporate travel, family trips, or group transportation. Share your flight,
               route, passenger count, and luggage details to receive the right vehicle and a complete quote.
             </p>
-            <p className="mt-5 text-[13px] leading-relaxed text-text-faint">
+            <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
               Available for BNA pickups and drop-offs, Downtown Nashville, local neighborhoods, and long-distance
               Middle Tennessee transfers.
             </p>
@@ -366,9 +366,9 @@ export default function AirportPage() {
       <section className="border-t border-border px-6 py-10 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
-            <span className="eyebrow">Book the Best BNA Car Service</span>
+            <span className="eyebrow">BOOK YOUR BNA AIRPORT TRANSFER</span>
             <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">
-              How to Book Your Airport Chauffeur
+              How to Book Your Nashville Airport Car Service
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -440,7 +440,7 @@ export default function AirportPage() {
           <div className="mb-10 text-center">
             <span className="eyebrow">Good to Know</span>
             <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">
-              Frequently Asked Questions
+              Nashville Airport Car Service FAQs
             </h2>
           </div>
           <FaqAccordion items={airportFaqs} />

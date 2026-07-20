@@ -61,7 +61,7 @@ export const airportIntro = {
 // Arrival / meet-and-greet / flight monitoring — rendered as a stacked detail block.
 export const airportArrivalBlocks = [
   {
-    title: "BNA Arrival Pickup without the Usual Stress",
+    title: "Private BNA Arrival Pickup",
     paragraphs: [
       "Nashville International Airport is located at 1 Terminal Drive, Nashville, TN 37214. Commercial ground transportation operates through the airport's Ground Transportation Center in Terminal Garage 2, Level 1. Pickup details can change because of airport operations or construction, so passengers should follow the instructions sent with their booking and stay available by phone after landing.",
       "With a reserved BNA car service, your chauffeur can track the flight and coordinate the meeting point. After you collect your luggage, confirm that you are ready. Your chauffeur will then guide you to the correct pickup area.",
@@ -265,11 +265,11 @@ export const airportFaqs = [
   },
   {
     q: "Is there a shuttle from Nashville Airport to Downtown?",
-    a: "BNA has several ground transportation choices, including shuttles, buses, taxis, ride apps, and private cars. A private Nashville airport shuttle service is different from a shared shuttle because the vehicle is reserved for your party and travels directly to your destination. It can be a useful choice when you have luggage, a fixed meeting time, children, a business guest, or a group that wants to stay together.",
+    a: "Nashville International Airport is approximately 8–10 miles from Downtown Nashville. With a private chauffeur service, the drive typically takes about 15–25 minutes in normal traffic, depending on your exact hotel or venue. Travel time may increase during weekday rush hours, concerts, sporting events, conventions, construction, and busy weekend evenings. When reserving your Nashville airport transportation, provide the exact hotel or destination rather than simply entering “Downtown” so the chauffeur team can plan the route and provide a more accurate pickup and arrival estimate.",
   },
   {
     q: "What is the best way to get from Nashville Airport to Downtown?",
-    a: "The best way to get from Nashville Airport to Downtown depends on your budget, group size, luggage, arrival time, and need for privacy. Public transit may suit a flexible solo traveler. A taxi or ride app may suit a simple trip. A booked chauffeur is often a better fit when you want a confirmed vehicle, direct hotel service, flight monitoring, luggage help, and a clear quote before arrival.",
+    a: "A professional chauffeur service is often the best way to travel from Nashville International Airport to Downtown Nashville when you want a confirmed vehicle, direct hotel transportation, flight monitoring, luggage assistance, privacy, and clear pricing before arrival. Other options, including taxis, ride apps, and public transportation, may suit travelers with flexible schedules or smaller budgets. The right choice ultimately depends on your group size, luggage, arrival time, budget, and preferred level of comfort.",
   },
   {
     q: "How far is Nashville Airport from Downtown?",
@@ -293,7 +293,7 @@ export const airportFaqs = [
   },
   {
     q: "How early should I book an airport chauffeur?",
-    a: "Booking several days in advance gives you more vehicle choices and time to confirm details. Reserve earlier for holidays, large conventions, major concerts, sports weekends, weddings, and group travel. Same-day service may be available, but it depends on vehicle and chauffeur availability. For an early departure or a late arrival, advance booking is especially helpful. Always review the pickup time, cancellation policy, waiting terms, and contact information before the travel date.",
+    a: "We can often arrange sedans, SUVs, and Sprinter vans just a few hours before your airport arrival or departure, depending on availability. However, booking at least two to three days in advance is recommended, especially when reserving a limousine or party bus. These vehicles are booked on a first-come, first-served basis, so early reservations provide better vehicle selection and help prevent last-minute availability issues.",
   },
   {
     q: "Does the airport chauffeur service cover hotels and residential addresses?",

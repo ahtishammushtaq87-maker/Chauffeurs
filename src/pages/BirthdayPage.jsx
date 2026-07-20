@@ -156,7 +156,7 @@ export default function BirthdayPage() {
           <div>
             <span className="eyebrow">Nashville's Top Choice</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Why Choose Apex Motors for Birthday Party Buses
+              Why Choose Swift Chauffeurs for Birthday Party Buses
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
               We provide more than just transportation; we deliver an experience custom to your celebration. Here's
