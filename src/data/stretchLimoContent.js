@@ -1,8 +1,9 @@
-import heroImg from "../assets/images/home-scaled-3_11zon.webp";
-import featuresImg from "../assets/images/Caddilac-Esclade-Stretch-Limo-1.jpg.webp";
-import includesImg from "../assets/images/Caddilac-Esclade-Stretch-Limo-1.jpg.webp";
-import fleetEscalade from "../assets/images/car-rangerover.webp";
-import fleetLincoln from "../assets/images/fleet-sedan.webp";
+import heroImg from "../assets/images/limohero.webp";
+import featuresImg from "../assets/images/secondlimo.webp";
+import includesImg from "../assets/images/limo3.webp";
+import fleetEscalade from "../assets/images/limointerior.webp";
+import fleetLincoln from "../assets/images/clasiclimo.webp";
+import fleetChrysler from "../assets/images/cristalarlimo.wbp.jpg";
 import airportImg from "../assets/images/svc-airport.webp";
 import birthdayImg from "../assets/images/svc-birthday.webp";
 import blackCarImg from "../assets/images/svc-blackcar.jpg";
@@ -48,15 +49,21 @@ export const stretchLimoFleet = {
   cards: [
     {
       name: "Cadillac Escalade Super Stretch Limousine",
-      capacity: "Confirm passenger capacity",
-      desc: "Make a bold entrance in a spacious Cadillac Escalade stretch limousine designed for group celebrations and special occasions. Publish the confirmed passenger capacity and actual lighting, sound, seating, climate-control, and entertainment features for this vehicle.",
+      capacity: "Up to 18 passengers",
+      desc: "Make a bold entrance in a Cadillac Escalade Super Stretch Limousine in Nashville. Designed for weddings, proms, birthdays, bachelor and bachelorette parties, milestone celebrations, and group nights out, this spacious limousine features perimeter seating, a wet bar, premium sound, vibrant mood and strobe lighting, an infinity-style ceiling, climate control, and show-stopping doors. It is an exceptional choice for larger groups seeking luxury, space, and a memorable arrival.",
       image: fleetEscalade,
     },
     {
       name: "Classic Lincoln Town Car Stretch Limousine",
-      capacity: "Confirm passenger capacity",
-      desc: "Choose a classic stretch-limousine experience for weddings, proms, formal events, date nights, and smaller celebrations. Publish the confirmed passenger capacity and actual amenities for this specific vehicle.",
+      capacity: "Up to 8 passengers",
+      desc: "Experience timeless luxury with a Classic Lincoln Town Car stretch limousine rental in Nashville. Featuring comfortable leather seating, a solid privacy partition, a wet bar with glassware, Bluetooth surround sound, elegant interior lighting, and climate control, it is ideal for weddings, proms, anniversaries, formal events, romantic date nights, and smaller celebrations. Choose this classic limousine when traditional style, privacy, and a refined arrival matter.",
       image: fleetLincoln,
+    },
+    {
+      name: "Chrysler 300 Stretch Limousine — Black or White",
+      capacity: "Up to 8 passenger capacity",
+      desc: "Book a Chrysler 300 stretch limousine in Nashville for weddings, proms, anniversaries, romantic evenings, formal events, and intimate celebrations. Available in black or white, this chauffeured limousine features a solid privacy partition, a fully equipped wet bar with glassware, Bluetooth surround sound, a stunning fiber-optic ceiling, and dual-zone climate control. It is the perfect choice for modern luxury, private comfort, and an elegant arrival.",
+      image: fleetChrysler,
     },
   ],
 };

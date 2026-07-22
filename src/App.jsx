@@ -28,6 +28,7 @@ import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import FleetVehicleDetailPage from "./pages/FleetVehicleDetailPage";
+import CityPage from "./pages/CityPage";
 
 import FaviconManager from "./components/FaviconManager";
 import ScrollToTop from "./components/ScrollToTop";
@@ -69,6 +70,21 @@ const dedicatedPages = {
   "/terms-conditions": <TermsPage />,
   "/gdpr-compliance": <GdprCompliancePage />,
   "/blog": <BlogPage />,
+  // Service Area landing pages (SEO-rich city content via CityPage).
+  "/nashville": <CityPage />,
+  "/service-area/chattanooga": <CityPage />,
+  "/brentwood": <CityPage />,
+  "/limo-service-in-franklin-tn": <CityPage />,
+  "/murfreesboro-limousine-service": <CityPage />,
+  "/service-area/clarksville": <CityPage />,
+  "/spring-hill": <CityPage />,
+  // Chattanooga & Clarksville sub-dropdown pages.
+  "/chattanooga/birthday-party-bus": <CityPage />,
+  "/chattanooga/car-service-to-cha": <CityPage />,
+  "/chattanooga/prom-limo-rental": <CityPage />,
+  "/chattanooga/wedding-chauffeur-service": <CityPage />,
+  "/services/airport-shuttle": <CityPage />,
+  "/clarksville/shuttle-to-nashville-airport": <CityPage />,
 };
 
 function App() {

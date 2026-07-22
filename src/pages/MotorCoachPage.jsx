@@ -92,45 +92,13 @@ export default function MotorCoachPage() {
         </div>
       </section>
 
-      {/* Choose the Right Motor Coach — fleet cards */}
-      <section className="border-y border-border bg-panel/40 px-6 py-16 md:px-16 md:py-20 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-12 max-w-2xl">
-            <span className="eyebrow">{motorCoachFleet.eyebrow}</span>
-            <h2 className="font-serif text-3xl leading-tight font-medium text-text sm:text-4xl">
-              {motorCoachFleet.headingLead} <span className="text-gold">{motorCoachFleet.headingAccent}</span>
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-text-muted">{motorCoachFleet.intro}</p>
-          </div>
-
-          <CardSlider
-            items={motorCoachFleet.cards.map((c) => ({ ...c, title: c.name }))}
-            autoPlayMs={5000}
-            renderCard={(coach) => (
-              <div className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-bg shadow-sm">
-                <div className="aspect-[4/3] flex-shrink-0 overflow-hidden">
-                  <PlaceholderImage src={coach.image} alt={`${coach.name} rental in Nashville, TN`} />
-                </div>
-                <div className="flex flex-1 flex-col border-t-2 border-gold p-6 text-center">
-                  <h3 className="font-serif text-xl leading-tight text-text">{coach.name}</h3>
-                  <p className="mt-2 text-[13px] font-semibold tracking-[1.5px] text-gold uppercase">
-                    {coach.capacity}
-                  </p>
-                  <p className="mt-3 flex-1 text-[13px] leading-relaxed text-text-muted">{coach.desc}</p>
-                  <div className="mt-5 flex flex-col gap-3">
-                    <a href="#quote" className="btn btn-outline w-full">
-                      View Coach Details
-                    </a>
-                    <a href="#quote" className="btn btn-gold w-full">
-                      Request Availability
-                    </a>
-                  </div>
-                </div>
-              </div>
-            )}
-          />
-        </div>
-      </section>
+      {/* Live fleet carousel (dashboard-managed) */}
+      <FleetHighlightSection
+        slug="motor-coach-fleet"
+        eyebrow="Our Fleet"
+        heading="Choose the Right Motor Coach for Your Group"
+        subheading="Compare mini coaches and full-size motor coaches by capacity, luggage space, and onboard features. Final suitability depends on the specific vehicle assigned and your itinerary."
+      />
 
       {/* Mini Coach vs. Motor Coach comparison */}
       <section className="px-6 py-16 md:px-16 md:py-20 lg:px-24">
@@ -164,12 +132,6 @@ export default function MotorCoachPage() {
         </div>
       </section>
 
-      {/* Live fleet carousel (dashboard-managed) */}
-      <FleetHighlightSection
-        slug="motor-coach-fleet"
-        eyebrow="Video-Verified Fleet"
-        heading="Our Other Fleets"
-      />
 
       {/* What's Included */}
       <section className="px-6 py-16 md:px-16 md:py-20 lg:px-24">
@@ -272,6 +234,9 @@ export default function MotorCoachPage() {
         </div>
       </section>
 
+      {/* Customer reviews */}
+      <CustomerReviews />      
+
       {/* FAQ */}
       <section className="border-t border-border px-6 py-16 md:px-16 md:py-20 lg:px-24">
         <div className="mx-auto max-w-3xl">
@@ -285,8 +250,6 @@ export default function MotorCoachPage() {
         </div>
       </section>
 
-      {/* Customer reviews */}
-      <CustomerReviews />
 
       {/* Final CTA */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">

@@ -297,6 +297,9 @@ export default function ExecutiveSuvPage() {
         </div>
       </section>
 
+      {/* Customer reviews */}
+      <CustomerReviews />    
+
       {/* FAQ */}
       <section className="border-t border-border px-6 py-16 md:px-16 md:py-20 lg:px-24">
         <div className="mx-auto max-w-3xl">
@@ -310,8 +313,6 @@ export default function ExecutiveSuvPage() {
         </div>
       </section>
 
-      {/* Customer reviews */}
-      <CustomerReviews />
 
       {/* Final CTA */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">

@@ -217,7 +217,7 @@ export const partyFleet = {
     },
     {
       name: "Limo Party Coach",
-      capacity: "Up to 18 Guests",
+      capacity: "Up to 20 Guests",
       desc: "A spacious party coach for larger groups, ideal for weddings, birthdays, bachelor and bachelorette parties, concerts, sporting events, and group celebrations. Enjoy plenty of room to socialize and celebrate with premium entertainment and comfortable lounge seating.",
       image: fleetEscalade,
     },

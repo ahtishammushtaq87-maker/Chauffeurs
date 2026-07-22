@@ -91,6 +91,32 @@ export default function LuxurySedanPage() {
         </div>
       </section>
 
+      {/* Service areas — city slider (shared with home page) */}
+      <section className="px-6 py-16 md:px-16 md:py-20 lg:px-24">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="mb-10 max-w-2xl">
+            <span className="eyebrow">Service Areas</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
+              {luxurySedanServiceAreas.heading}
+            </h2>
+            <p className="mt-5 text-[15px] leading-relaxed text-text-muted">{luxurySedanServiceAreas.intro}</p>
+          </div>
+          <CardSlider
+            items={serviceCities}
+            autoPlayMs={4500}
+            renderActions={(item) =>
+              item.comingSoon ? (
+                <span className="btn btn-outline pointer-events-none w-full opacity-50">Coming Soon</span>
+              ) : (
+                <a href="#quote" className="btn btn-gold w-full">
+                  Book Now
+                </a>
+              )
+            }
+          />
+        </div>
+      </section>
+
       {/* Our Luxury Mercedes Sedan — single consolidated card */}
       <section className="border-y border-border bg-panel/40 px-6 py-16 md:px-16 md:py-20 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
@@ -182,32 +208,6 @@ export default function LuxurySedanPage() {
         </div>
       </section>
 
-      {/* Service areas — city slider (shared with home page) */}
-      <section className="px-6 py-16 md:px-16 md:py-20 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 max-w-2xl">
-            <span className="eyebrow">Service Areas</span>
-            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              {luxurySedanServiceAreas.heading}
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-text-muted">{luxurySedanServiceAreas.intro}</p>
-          </div>
-          <CardSlider
-            items={serviceCities}
-            autoPlayMs={4500}
-            renderActions={(item) =>
-              item.comingSoon ? (
-                <span className="btn btn-outline pointer-events-none w-full opacity-50">Coming Soon</span>
-              ) : (
-                <a href="#quote" className="btn btn-gold w-full">
-                  Book Now
-                </a>
-              )
-            }
-          />
-        </div>
-      </section>
-
       {/* Related services */}
       <section className="border-t border-border px-6 py-16 md:px-16 md:py-20 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
@@ -231,6 +231,9 @@ export default function LuxurySedanPage() {
         </div>
       </section>
 
+      {/* Customer reviews */}
+      <CustomerReviews />
+
       {/* FAQ */}
       <section className="border-t border-border px-6 py-16 md:px-16 md:py-20 lg:px-24">
         <div className="mx-auto max-w-3xl">
@@ -244,8 +247,7 @@ export default function LuxurySedanPage() {
         </div>
       </section>
 
-      {/* Customer reviews */}
-      <CustomerReviews />
+
 
       {/* Final CTA */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">

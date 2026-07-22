@@ -1,6 +1,6 @@
-import heroImg from "../assets/images/Main-pic.webp";
-import featuresImg from "../assets/images/Main-pic.webp";
-import includesImg from "../assets/images/party-escalade-interior.jpeg";
+import heroImg from "../assets/images/suvhero.webp";
+import featuresImg from "../assets/images/suv_first.webp";
+import includesImg from "../assets/images/SUV_interior.webp";
 import fleetEscalade from "../assets/images/car-rangerover.webp";
 import fleetSuburban from "../assets/images/fleet-van.webp";
 import airportImg from "../assets/images/svc-airport.webp";
@@ -57,7 +57,7 @@ export const executiveSuvFleet = {
     },
     {
       name: "Chevrolet Suburban SUV",
-      capacity: "Up to 6 passengers · luggage depends on passenger count & bag size",
+      capacity: "Up to 7 passengers · luggage depends on passenger count & bag size",
       desc: "The Chevrolet Suburban or similar full-size SUV is a practical luxury option for airport transfers, families, corporate guests, and small groups traveling with luggage. Its spacious cabin and smooth ride make it well suited to point-to-point and hourly transportation throughout Nashville.",
       image: fleetSuburban,
     },

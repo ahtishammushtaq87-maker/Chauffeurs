@@ -100,13 +100,13 @@ export default function StretchLimoPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {stretchLimoFleet.cards.map((limo) => (
               <div
                 key={limo.name}
                 className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-bg shadow-sm"
               >
-                <div className="aspect-[16/10] flex-shrink-0 overflow-hidden">
+                <div className="aspect-[5/4] flex-shrink-0 overflow-hidden">
                   <PlaceholderImage src={limo.image} alt={`${limo.name} rental in Nashville, TN`} />
                 </div>
                 <div className="flex flex-1 flex-col border-t-2 border-gold p-6 text-center sm:p-7">
@@ -114,9 +114,6 @@ export default function StretchLimoPage() {
                   <p className="mt-2 text-[13px] font-semibold tracking-[1.5px] text-gold uppercase">{limo.capacity}</p>
                   <p className="mt-3 flex-1 text-[13px] leading-relaxed text-text-muted">{limo.desc}</p>
                   <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-                    <a href="#quote" className="btn btn-outline flex-1">
-                      View Limo Details
-                    </a>
                     <a href="#quote" className="btn btn-gold flex-1">
                       Check Availability
                     </a>
@@ -157,8 +154,8 @@ export default function StretchLimoPage() {
       {/* What's Included */}
       <section className="border-y border-border bg-panel/40 px-6 py-16 md:px-16 md:py-20 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-xl border border-border lg:order-1">
-            <PlaceholderImage src={stretchLimoImages.includesImg} alt="Nashville stretch limousine prepared for a special occasion" />
+          <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-xl border border-border bg-panel lg:order-1">
+            <PlaceholderImage src={stretchLimoImages.includesImg} fit="contain" alt="Nashville stretch limousine prepared for a special occasion" />
           </div>
           <div className="order-1 lg:order-2">
             <span className="eyebrow">{stretchLimoIncludes.eyebrow}</span>
@@ -229,6 +226,9 @@ export default function StretchLimoPage() {
         </div>
       </section>
 
+      {/* Customer reviews */}
+      <CustomerReviews />
+
       {/* FAQ */}
       <section className="border-t border-border px-6 py-16 md:px-16 md:py-20 lg:px-24">
         <div className="mx-auto max-w-3xl">
@@ -241,9 +241,6 @@ export default function StretchLimoPage() {
           <FaqAccordion items={stretchLimoFaqs.map(({ q, a }) => ({ q, a }))} />
         </div>
       </section>
-
-      {/* Customer reviews */}
-      <CustomerReviews />
 
       {/* Final CTA */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">

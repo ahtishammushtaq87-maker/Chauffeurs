@@ -7,7 +7,7 @@ import { fetchFleetSection } from "../lib/fleet";
 // a grid for 1-2 cards, or a slider once there are more. Cards are managed
 // from the dashboard (Fleet > Fleet Page Sections), so edits/deletes there
 // show up here automatically. Renders nothing if the section has no cards.
-export default function FleetHighlightSection({ slug, eyebrow, heading }) {
+export default function FleetHighlightSection({ slug, eyebrow, heading, subheading }) {
   const [cards, setCards] = useState(null);
 
   useEffect(() => {
@@ -53,6 +53,9 @@ export default function FleetHighlightSection({ slug, eyebrow, heading }) {
         <div className="mb-10 text-center">
           <span className="eyebrow">{eyebrow}</span>
           <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">{heading}</h2>
+          {subheading ? (
+            <p className="mx-auto mt-4 max-w-3xl text-text-muted">{subheading}</p>
+          ) : null}
         </div>
         {items.length > 2 ? (
           <CardSlider items={items} renderCard={renderFleetCard} autoPlayMs={4500} />

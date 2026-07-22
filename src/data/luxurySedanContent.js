@@ -1,6 +1,6 @@
 import heroImg from "../assets/images/mercedes-benz-s-class_100427375_h-1-1536x933.jpg.webp";
 import featuresImg from "../assets/images/mercedes-benz-s-class_100427375_h-1-1536x933.jpg.webp";
-import includesImg from "../assets/images/svc-executive.webp";
+import includesImg from "../assets/images/sedaninterior.webp";
 import fleetPrimary from "../assets/images/car-mercedes.webp";
 import airportImg from "../assets/images/svc-airport.webp";
 import birthdayImg from "../assets/images/svc-birthday.webp";
