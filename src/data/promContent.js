@@ -18,20 +18,24 @@ export const promImages = {
 
 export const promWhy = [
   {
-    title: "Experienced and Reliable Chauffeurs",
-    desc: "Our professional chauffeurs are fully licensed and committed to ensuring a safe and comfortable ride.",
+    title: "Professional Chauffeurs",
+    desc: "Licensed, experienced chauffeurs focused on a safe, courteous, and comfortable prom night.",
   },
   {
-    title: "Unmatched Attention to Detail",
-    desc: "From spotless vehicles to personalized service, every aspect of your ride is meticulously crafted for your big day.",
+    title: "Coordinated Pickup and Return Plans",
+    desc: "Pickups, stops, and return timing are planned in advance so parents and students stay informed.",
   },
   {
-    title: "Affordable Elegance",
-    desc: "Enjoy luxury transportation without stretching your budget.",
+    title: "Clean, Maintained Vehicles",
+    desc: "Every vehicle is cleaned, inspected, and prepared before your reservation.",
   },
   {
-    title: "Customizable Packages",
-    desc: "Whether you need a single ride or full-night service, we tailor packages to fit your prom night needs.",
+    title: "Transparent Pricing",
+    desc: "Receive a clear quote based on your vehicle, hours, group size, and itinerary.",
+  },
+  {
+    title: "Vehicle Options for Different Group Sizes",
+    desc: "Choose a stretch limousine, party bus, or executive SUV to match couples or larger parties.",
   },
 ];
 
@@ -119,17 +123,53 @@ export const promAreas = [
 export const promSteps = [
   {
     step: "01",
-    title: "Enter Your Details",
-    desc: "Share your pick-up location, destination, date, and time, along with any special requests for a personalized experience.",
+    title: "Share Your Plans",
+    desc: "Tell us your prom date, pickup time, pickup location, venue, return time, passenger count, and stops.",
   },
   {
     step: "02",
-    title: "Choose A Vehicle",
-    desc: "Select from our fleet of luxury limousines, sedans, SUVs, or sprinter vans that match your style and group size.",
+    title: "Choose Your Vehicle",
+    desc: "Our team helps match your group size with the right stretch limousine, party bus, or SUV and confirms availability.",
   },
   {
     step: "03",
-    title: "Confirm and Relax",
-    desc: "Review your details, make a secure payment, and receive instant confirmation with chauffeur contact info for a premium journey.",
+    title: "Confirm Your Reservation",
+    desc: "Approve your clear quote and receive confirmation with the details for your scheduled prom transportation.",
+  },
+];
+
+// "Nashville Prom Limo FAQs" — CONFIRM pricing, capacity, and included amenities before launch.
+export const promFaqs = [
+  {
+    q: "How much does a prom limo cost in Nashville?",
+    a: "Pricing may depend on the vehicle, prom date, rental hours, passenger count, pickup area, stops, distance, and seasonal demand. Share your details for a clear quote rather than a general estimate.",
+  },
+  {
+    q: "How far in advance should we reserve?",
+    a: "Prom season books quickly, so reserve as early as possible for the best vehicle choice. Popular dates and larger vehicles fill up first.",
+  },
+  {
+    q: "How many passengers can ride?",
+    a: "Capacity depends on the specific vehicle. Share your group size and we'll confirm the right limousine, party bus, or SUV and its verified passenger capacity.",
+  },
+  {
+    q: "Can parents coordinate the booking?",
+    a: "Yes. A parent, school representative, or organizer can book, provide pickup details, and stay informed about the schedule.",
+  },
+  {
+    q: "Can we schedule multiple stops?",
+    a: "Yes. Multiple stops for photos, dinner, the venue, and the after-party can be arranged when provided in advance so the schedule and pricing reflect the full night.",
+  },
+  {
+    q: "What vehicles are available?",
+    a: "We offer stretch limousines, party buses, and executive SUVs for prom. Share your group size and preferences and we'll recommend the best fit.",
+  },
+  {
+    q: "Is a party bus available for larger groups?",
+    a: "Yes. A party bus is a great option for larger prom groups who want to travel together. Confirm your passenger count so we can match the right vehicle.",
+  },
+  {
+    q: "What is included with the reservation?",
+    a: "Your reservation includes a professional chauffeur, a clean and prepared vehicle, and a coordinated pickup and return plan. We confirm the verified amenities of your selected vehicle before booking.",
   },
 ];

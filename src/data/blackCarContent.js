@@ -74,16 +74,56 @@ export const blackCarReviews = [
 
 export const blackCarPreferred = [
   {
-    title: "Attention to Detail",
-    desc: "From vehicle cleanliness to driver etiquette, we set the bar high.",
+    title: "Professional Chauffeurs",
+    desc: "Experienced, courteous chauffeurs focused on a safe, discreet, and polished experience.",
   },
   {
-    title: "Competitive Pricing",
-    desc: "Enjoy chauffeur service that feels premium without a premium price tag.",
+    title: "Punctual Pickup Coordination",
+    desc: "Pickups are planned and coordinated in advance so you are never left waiting.",
   },
   {
-    title: "Customer-Centric Approach",
-    desc: "We're here to make sure you're happy, every step of the way.",
+    title: "Clean, Maintained Vehicles",
+    desc: "Every black car is cleaned, inspected, and prepared before your reservation.",
+  },
+  {
+    title: "Transparent Pricing",
+    desc: "Receive a clear quote based on your vehicle, schedule, route, and trip details.",
+  },
+  {
+    title: "24/7 Reservation Support",
+    desc: "Reach our reservation team around the clock for bookings and travel changes.",
+  },
+];
+
+// "Nashville Black Car Service FAQs" — CONFIRM pricing, availability, and coverage before launch.
+export const blackCarFaqs = [
+  {
+    q: "How much does black car service cost in Nashville?",
+    a: "Pricing may depend on the vehicle type, pickup time, distance, waiting time, airport fees, stops, and any hourly requirements. Share your trip details for a clear quote rather than a general estimate.",
+  },
+  {
+    q: "Do you offer airport black car service?",
+    a: "Yes. We provide private black car transfers to and from Nashville International Airport (BNA) and area facilities, with flight-aware coordination and luggage assistance.",
+  },
+  {
+    q: "Can I book hourly chauffeur service?",
+    a: "Yes. Hourly black car service is available for multi-stop schedules, meetings, events, and flexible itineraries. Share your start time and estimated hours when requesting a quote.",
+  },
+  {
+    q: "Which vehicles are available?",
+    a: "Our black car fleet includes professional sedans and SUVs. Share your passenger and luggage count and we'll confirm the right vehicle and its verified capacity.",
+  },
+  {
+    q: "Can you accommodate luggage?",
+    a: "Yes. Luggage capacity depends on the selected vehicle and passenger count. Let us know your bag count so we can recommend a sedan or SUV that fits comfortably.",
+  },
+  {
+    q: "Do you provide service outside Nashville?",
+    a: "Yes. Black car service is available throughout Nashville and surrounding Tennessee communities, with longer-distance travel based on the requested route and vehicle availability.",
+  },
+  {
+    q: "How far in advance should I reserve?",
+    a: "Earlier booking provides more vehicle choice, especially for airport travel, corporate schedules, and busy periods. Reserve as soon as your date and pickup time are set.",
   },
 ];
 
@@ -142,17 +182,17 @@ export const blackCarAreas = [
 export const blackCarSteps = [
   {
     step: "01",
-    title: "Enter Your Details",
-    desc: "Share your pick-up location, destination, date, and time, along with any special requests for a personalized experience.",
+    title: "Share Your Plans",
+    desc: "Tell us your service type, pickup date and time, pickup location, destination, passenger count, and luggage.",
   },
   {
     step: "02",
-    title: "Choose A Vehicle",
-    desc: "Select from our fleet of luxury limousines, sedans, SUVs, or sprinter vans that match your style and group size.",
+    title: "Choose Your Vehicle",
+    desc: "Our team helps match your trip with the right black sedan or SUV and confirms availability.",
   },
   {
     step: "03",
-    title: "Confirm and Relax",
-    desc: "Review your details, make a secure payment, and receive instant confirmation with chauffeur contact info for a premium journey.",
+    title: "Confirm Your Reservation",
+    desc: "Approve your clear quote and receive confirmation with the details for your scheduled black car service.",
   },
 ];

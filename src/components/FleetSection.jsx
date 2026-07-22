@@ -13,6 +13,7 @@ import { fetchServiceFleet } from "../lib/fleet";
 export default function FleetSection({
   eyebrow = "Your Dream, Our Destination",
   heading = "Tennessee's Best Limousine Fleet",
+  subheading,
   items,
   serviceSlug,
 }) {
@@ -43,6 +44,9 @@ export default function FleetSection({
         <div className="mb-10 text-center">
           <span className="eyebrow">{eyebrow}</span>
           <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">{heading}</h2>
+          {subheading ? (
+            <p className="mx-auto mt-4 max-w-3xl text-text-muted">{subheading}</p>
+          ) : null}
         </div>
         <CardSlider
           items={resolved.map((item) => ({ ...item, title: item.name }))}

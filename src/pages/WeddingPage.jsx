@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import PlaceholderImage from "../components/PlaceholderImage";
 import QuoteForm from "../components/QuoteForm";
 import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CustomerReviews from "../components/CustomerReviews";
+import FaqAccordion from "../components/FaqAccordion";
 import TrustBadges from "../components/TrustBadges";
 import CitiesWeServe from "../components/CitiesWeServe";
 import {
@@ -19,12 +19,15 @@ import {
 import {
   weddingImages,
   weddingFeatures,
-  weddingPricing,
-  weddingAffordablePerks,
   weddingPreferred,
   weddingOffers,
   weddingServiceFeatures,
   weddingSteps,
+  weddingServices,
+  weddingPlanningSteps,
+  weddingPricingFactors,
+  weddingServiceAreas,
+  weddingFaqs,
 } from "../data/weddingContent";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
@@ -43,23 +46,34 @@ export default function WeddingPage() {
 
         <div className="relative z-10 flex w-full flex-col items-start gap-6 px-5 py-10 sm:gap-10 sm:px-10 sm:py-14 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 rounded-lg bg-black/50 p-5 sm:p-6 lg:max-w-lg">
-            <span className="eyebrow">Luxury Wedding Transportation in Nashville</span>
+            <span className="eyebrow">Nashville Wedding Transportation</span>
             <h1 className="font-serif text-[2rem] leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[56px]">
-              Make Your <span className="text-gold italic">Grand Entrance</span>
+              Wedding Transportation & Limo Service in Nashville, TN
             </h1>
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-fg-muted">
+              Luxury wedding transportation in Nashville, TN, with professional chauffeurs, stretch limousines, SUVs,
+              Sprinter vans, and group vehicles for every part of your celebration.
+            </p>
+            <p className="mt-4 text-[13px] font-semibold tracking-wide text-gold">
+              Rated 4.9 · Licensed &amp; Insured · Professional Chauffeurs
+            </p>
             <TrustBadges />
             <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
               <a href={PHONE} className="btn btn-gold">
                 <PhoneIcon width={15} height={15} /> Call Now
               </a>
-              <Link to="/contact" className="btn btn-outline border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light">
-                Contact Us
-              </Link>
+              <a href="#quote" className="btn btn-outline border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light">
+                Get Your Wedding Quote
+              </a>
             </div>
           </div>
 
           <div className="w-full max-w-md lg:flex-shrink-0">
-            <QuoteForm />
+            <QuoteForm
+              heading={<>Get a Nashville Wedding Transportation <span className="text-gold">Quote</span></>}
+              submitLabel="Check Availability & Pricing"
+              defaultVehicle="Wedding Transportation"
+            />
           </div>
         </div>
       </section>
@@ -69,15 +83,18 @@ export default function WeddingPage() {
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <span className="eyebrow">Best Wedding Transportation Service in Nashville</span>
+            <span className="eyebrow">Wedding Transportation</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Your Wedding Day Deserves Perfection
+              Luxury Wedding Transportation in Nashville, TN
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              Your wedding day deserves more than just transportation; it deserves perfection. At Swift Chauffeurs, we understand the importance of every moment. Our professional chauffeurs are dedicated to delivering exceptional service, ensuring every detail is flawlessly handled. With years of expertise in luxury transportation in Nashville, we focus on creating smooth and peaceful journeys so you can concentrate on celebrating your love.
+              Your wedding transportation should feel organized, elegant, and effortless. Swift Chauffeurs coordinates
+              professionally chauffeured vehicles for couples, wedding parties, families, and guests throughout
+              Nashville.
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Imagine stepping into a luxurious vehicle with sleek leather interiors, advanced climate control, and plenty of space for flowing gowns and joyful laughter. Whether it is a ride to the ceremony, reception, or a dreamy photo location, our Nashville wedding transportation ensures you arrive in style, comfort, and right on time. At Swift Chauffeurs, we do not just get you to your destination — we make every mile magical. From the moment you step into one of our elegant limos, you will feel the luxury, care, and attention to detail that enhances the beauty of your big day.
+              From the first pickup to the final departure, our team helps align the vehicle, timing, route, and
+              passenger needs with your wedding-day schedule.
             </p>
             <ul className="mt-7 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
               {weddingFeatures.map((line) => (
@@ -88,23 +105,23 @@ export default function WeddingPage() {
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href={PHONE} className="btn btn-gold">
+              <a href="#quote" className="btn btn-gold">
+                Check Availability &amp; Pricing
+              </a>
+              <a href={PHONE} className="btn btn-outline">
                 <PhoneIcon width={15} height={15} /> Call Now
               </a>
-              <Link to="/contact" className="btn btn-outline">
-                Contact Us
-              </Link>
             </div>
           </div>
 
-          {/* Pricing card */}
+          {/* Wedding image */}
           <div className="overflow-hidden rounded-xl border border-border bg-panel">
             <div className="relative aspect-[16/9]">
-              <PlaceholderImage src={weddingImages.introImg} alt="Luxury wedding limo" />
+              <PlaceholderImage src={weddingImages.introImg} alt="Nashville wedding limousine" />
             </div>
             <div className="p-6">
-              <a href={PHONE} className="btn btn-gold mt-5 w-full">
-                Reserve Now
+              <a href="#quote" className="btn btn-gold mt-5 w-full">
+                Check Availability &amp; Pricing
               </a>
             </div>
           </div>
@@ -114,7 +131,8 @@ export default function WeddingPage() {
       {/* Premium Fleet */}
       <FleetSection
         eyebrow="Your Dream, Our Destination"
-        heading="Our Premium Fleet"
+        heading="Wedding Limousines & Group Transportation Fleet"
+        subheading="Choose from stretch limousines, luxury SUVs, Sprinter vans, mini coaches, and group vehicles for the couple, wedding party, family, and guests."
         serviceSlug="wedding"
       />
 
@@ -125,12 +143,14 @@ export default function WeddingPage() {
             <PlaceholderImage src={weddingImages.whyImg} alt="Wedding limousine" />
           </div>
           <div className="order-1 lg:order-2">
-            <span className="eyebrow">Why Couples Choose Swift Chauffeurs</span>
+            <span className="eyebrow">Why Choose Us</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Your Wedding Day Deserves Nothing Less Than Perfection
+              Why Couples Choose Swift Chauffeurs
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Your wedding day deserves nothing less than perfection, and the best limo service in Nashville is here to deliver an experience as exceptional as the occasion. From the moment you book with us, every detail is designed to elevate your day and provide unmatched luxury and ease. Here's why couples trust us:
+              Wedding transportation requires timing, communication, and careful coordination. Swift Chauffeurs helps
+              couples select the right vehicles and organize pickups, stops, and schedules for a smooth wedding-day
+              experience.
             </p>
             <div className="mt-7 flex flex-col gap-5">
               {weddingPreferred.map((item) => (
@@ -164,20 +184,45 @@ export default function WeddingPage() {
               Every wedding is unique, and so are your transportation needs. Whether you're planning a grand entrance, coordinating bridal party arrivals, or ensuring seamless transportation for your guests, our customizable wedding limo services in Nashville are here to make it happen.
             </p>
             <a href="#quote" className="btn btn-gold mt-6">
-                  Book Now
+                  Check Availability &amp; Pricing
                 </a>
           </div>
         </div>
       </section>
 
-      {/* What We Offer */}
+      {/* Wedding Transportation Designed Around Your Day — service scenarios */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="mb-10 max-w-2xl">
+            <span className="eyebrow">Wedding Services</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
+              Wedding Transportation Designed Around Your Day
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+              From getting-ready locations and ceremony arrivals to reception transfers, photo stops, and the final
+              getaway, your transportation plan should follow the timing and flow of your celebration.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {weddingServices.map((item) => (
+              <div key={item.title} className="rounded-xl border border-border bg-panel p-6">
+                <h3 className="text-[15px] font-semibold text-text">{item.title}</h3>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wedding Transportation for Every Part of Your Celebration */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
-            <span className="eyebrow">Reasons for Choosing Swift Chauffeurs</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Setting the Standard for Nashville Wedding Chauffeurs</h2>
+            <span className="eyebrow">Why Choose Swift Chauffeurs</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Wedding Transportation for Every Part of Your Celebration</h2>
             <p className="mx-auto mt-3 max-w-2xl text-[15px] text-text-muted">
-              While ride-sharing apps are convenient, they often fall short in reliability and luxury. The perks we offer includes: Guaranteed Availability, Professional Chauffeurs, Luxury Vehicles, Personalized Experience.
+              From the couple and wedding party to families and guests, we help coordinate professional, reliable
+              transportation for every stage of your wedding day. Check availability for your date to get started.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -203,7 +248,9 @@ export default function WeddingPage() {
               Step Into Your Dream Wedding
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Wedding Limousine with Red Carpet. Our luxurious wedding limousine service includes a stunning red carpet entrance, ensuring you arrive in style. With premium service and attention to detail, we turn your grand entrance into a moment of elegance and pure celebration.
+              Wedding limousine with an optional red carpet arrival. A red carpet entrance may be available as an
+              add-on depending on the vehicle and venue. With premium service and attention to detail, we help turn
+              your grand entrance into a moment of elegance and celebration.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
@@ -221,14 +268,96 @@ export default function WeddingPage() {
         </div>
       </section>
 
+      {/* How to Plan Your Nashville Wedding Transportation */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="mb-10 max-w-2xl">
+            <span className="eyebrow">Planning Guide</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
+              How to Plan Your Nashville Wedding Transportation
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {weddingPlanningSteps.map((s) => (
+              <article key={s.step} className="rounded-xl border border-border bg-panel p-7">
+                <span className="font-serif text-4xl text-gold/30">{s.step}</span>
+                <h3 className="mt-3 text-[15px] font-semibold text-text">{s.title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-text-muted">{s.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What Affects Nashville Wedding Transportation Pricing? */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-start gap-12 lg:grid-cols-2">
+          <div>
+            <span className="eyebrow">Pricing</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
+              What Affects Nashville Wedding Transportation Pricing?
+            </h2>
+            <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
+              Wedding transportation pricing is tailored to your day. Share your details and we'll build a clear quote
+              rather than a fixed, one-size-fits-all rate. Pricing may depend on:
+            </p>
+          </div>
+          <ul className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:mt-4">
+            {weddingPricingFactors.map((line) => (
+              <li key={line} className="flex items-start gap-3 text-sm text-text-muted">
+                <CheckCircleIcon width={20} height={20} className="mt-0.5 flex-shrink-0 text-gold" />
+                {line}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Nashville Wedding Transportation Service Areas */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="mb-8 max-w-2xl">
+            <span className="eyebrow">Service Areas</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
+              Nashville Wedding Transportation Service Areas
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+              Swift Chauffeurs provides wedding transportation throughout Nashville and surrounding Middle Tennessee
+              communities, including Franklin, Brentwood, Murfreesboro, Hendersonville, Mt. Juliet, and Spring Hill.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {weddingServiceAreas.map((area) => (
+              <span
+                key={area}
+                className="rounded-full border border-border bg-panel px-4 py-2 text-sm font-semibold text-text"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CitiesWeServe />
+
+      {/* Nashville Wedding Transportation FAQs */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-10 text-center">
+            <span className="eyebrow">FAQ</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Nashville Wedding Transportation FAQs</h2>
+          </div>
+          <FaqAccordion items={weddingFaqs} />
+        </div>
+      </section>
 
       {/* Booking steps */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
-            <span className="eyebrow">Book the Best Wedding Chauffeur Service</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Here's how you can book your premium wedding limo service in Nashville, today</h2>
+            <span className="eyebrow">Book Wedding Transportation</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Get Your Nashville Wedding Transportation Quote</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {weddingSteps.map((s) => (
@@ -241,15 +370,16 @@ export default function WeddingPage() {
           </div>
           <div className="mt-12 flex flex-col items-center gap-5 text-center">
             <p className="max-w-xl text-[15px] text-text-muted">
-              Reserve your ride now and make your wedding day truly unforgettable with comfort, style, and peace of mind.
+              Share your wedding date, venues, passenger count, and preferred vehicles so our team can help plan the
+              right transportation for your celebration.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={PHONE} className="btn btn-gold">
-                <PhoneIcon width={15} height={15} /> Call Now
+              <a href="#quote" className="btn btn-gold">
+                Check Availability &amp; Pricing
               </a>
-              <Link to="/contact" className="btn btn-outline">
-                Contact Us <ArrowRightIcon />
-              </Link>
+              <a href={PHONE} className="btn btn-outline">
+                <PhoneIcon width={15} height={15} /> Call Now <ArrowRightIcon />
+              </a>
             </div>
           </div>
         </div>

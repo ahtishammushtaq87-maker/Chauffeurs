@@ -4,6 +4,7 @@ import QuoteForm from "../components/QuoteForm";
 import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CustomerReviews from "../components/CustomerReviews";
+import FaqAccordion from "../components/FaqAccordion";
 import TrustBadges from "../components/TrustBadges";
 import CitiesWeServe from "../components/CitiesWeServe";
 import {
@@ -24,7 +25,16 @@ import {
   blackCarOffers,
   blackCarServiceFeatures,
   blackCarSteps,
+  blackCarFaqs,
 } from "../data/blackCarContent";
+
+const relatedServices = [
+  { label: "Airport Transportation", path: "/car-service-nashville-airport" },
+  { label: "Corporate Chauffeur Service", path: "/executive-chauffeur" },
+  { label: "Concert Transportation", path: "/concert-transportation" },
+  { label: "Wedding Transportation", path: "/wedding-limo-chauffeur" },
+  { label: "Stretch Limousine", path: "/stretch-limousine-hire-nashville" },
+];
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
 const serviceIcons = [ClockIcon, ShieldIcon, AwardIcon, DiamondIcon];
@@ -42,23 +52,27 @@ export default function BlackCarPage() {
 
         <div className="relative z-10 flex w-full flex-col items-start gap-6 px-5 py-10 sm:gap-10 sm:px-10 sm:py-14 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 rounded-lg bg-black/50 p-5 sm:p-6 lg:max-w-lg">
-            <span className="eyebrow">Luxury Black Car Service</span>
+            <span className="eyebrow">Private Travel, Professionally Chauffeured</span>
             <h1 className="font-serif text-[2rem] leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[56px]">
-              Get an <span className="text-gold italic">Instant Quote</span>
+              Luxury Black Car Service in Nashville, TN
             </h1>
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-fg-muted">
+              Travel throughout Nashville with professional black car service tailored to airport transfers, corporate
+              schedules, special events, and private journeys.
+            </p>
             <TrustBadges />
             <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
               <a href={PHONE} className="btn btn-gold">
                 <PhoneIcon width={15} height={15} /> Call Now
               </a>
-              <Link to="/contact" className="btn btn-outline border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light">
-                Contact Us
-              </Link>
             </div>
           </div>
 
           <div className="w-full max-w-md lg:flex-shrink-0">
-            <QuoteForm />
+            <QuoteForm
+              heading={<>Get a Nashville Black Car <span className="text-gold">Quote</span></>}
+              submitLabel="Check Availability & Pricing"
+            />
           </div>
         </div>
       </section>
@@ -68,12 +82,14 @@ export default function BlackCarPage() {
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <span className="eyebrow">Luxury Black Limo & Car Service Nashville</span>
+            <span className="eyebrow">Nashville Black Car Service</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Dominate Your Commute with Class
+              Professional Black Car Transportation in Nashville
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              We are offering the most affordable and luxury black car transportation Nashville, Tennessee. Whether it's a corporate transfer or a stylish ride for a special occasion, we deliver chauffeur service that goes beyond standard transportation.
+              Swift Chauffeurs provides private black car service for business travel, airport transportation, special
+              events, and personal journeys. Expect professional chauffeurs, clean vehicles, punctual pickups, and
+              service tailored to your schedule.
             </p>
             <ul className="mt-7 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
               {blackCarFeatures.map((line) => (
@@ -95,16 +111,6 @@ export default function BlackCarPage() {
             </div>
             <div className="p-6">
               <p className="text-[13px] text-text-muted">{blackCarPricing.desc}</p>
-              <p className="mt-5 text-sm font-semibold tracking-wide text-gold uppercase">{blackCarPricing.route}</p>
-              <div className="mt-3 grid grid-cols-2 gap-3">
-                {blackCarPricing.rates.map((r) => (
-                  <div key={r.label} className="rounded-lg border border-border bg-bg-alt p-4 text-center">
-                    <p className="text-xs text-text-faint">{r.label}</p>
-                    <p className="mt-1 font-serif text-2xl text-gold">{r.price}</p>
-                    <p className="text-[11px] text-text-muted">{r.note}</p>
-                  </div>
-                ))}
-              </div>
               <a href={PHONE} className="btn btn-gold mt-5 w-full">
                 Reserve Now
               </a>
@@ -116,7 +122,7 @@ export default function BlackCarPage() {
       {/* Premium Fleet */}
       <FleetSection
         eyebrow="Your Dream, Our Destination"
-        heading="Our Premium Fleet"
+        heading="Our Nashville Black Car Fleet"
         serviceSlug="black-car"
       />
 
@@ -127,9 +133,9 @@ export default function BlackCarPage() {
             <PlaceholderImage src={blackCarImages.serviceImg} alt="Luxury black car" />
           </div>
           <div>
-            <span className="eyebrow">Swift Chauffeurs is Nashville's Preferred Choice Black Car Service</span>
+            <span className="eyebrow">Private Black Car Transportation</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Luxury Black Limo & Car Service Nashville
+              Comfort, Discretion, and Reliable Service
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
               Swift Chauffeurs isn't just an executive black car hire Nashville that provides transportation service from point A to point B. Our professional chauffeurs are dedicated to offering exceptional service, combining punctuality, discretion, and a high level of attention to detail. With years of experience, they're skilled in providing a smooth, safe, and luxurious ride, whether you're navigating through the city of Nashville. For those who appreciate elegance and sophistication, our sleek black cars transportation Nashville offer the perfect mix of style and comfort. With luxurious leather seating, advanced climate control, and an enjoyable ride, you'll experience true luxury from start to finish. No matter the size of your group, our fleet is ready to accommodate your needs, with a range of options to ensure everyone travels in comfort and luxury.
@@ -148,12 +154,14 @@ export default function BlackCarPage() {
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <span className="eyebrow">Swift Chauffeurs is Nashville's Preferred Choice Black Car Service</span>
+            <span className="eyebrow">Why Choose Us</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Ultimate VIP Black Car Transportation Nashville | Elite Chauffeur Service
+              Why Choose Swift Chauffeurs for Black Car Service?
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              Every driver of Swift Chauffeurs is licensed and courteous extensively trained to provide safe, efficient, and courteous service. You'll experience premium hospitality from pick-up to drop-off. Whether you're heading to a downtown office or commuting to a suburban location, our black car service Nashville ensures that your daily journey becomes the highlight of your routine.
+              Every Swift Chauffeurs reservation is handled by a licensed, professional chauffeur focused on safe,
+              efficient, and courteous service. From a downtown office to a suburban pickup, our Nashville black car
+              service is built around punctuality, comfort, and clear communication from pickup to drop-off.
             </p>
             <div className="mt-7 flex flex-col gap-5">
               {blackCarPreferred.map((item) => (
@@ -182,12 +190,13 @@ export default function BlackCarPage() {
         </div>
         <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
           <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-m">
-            <h3 className="font-serif text-2xl text-text">Travel in Style with Luxury Black Car & Chauffeur Service Nashville, TN</h3>
+            <h3 className="font-serif text-2xl text-text">Reserve Professional Black Car Service in Nashville, TN</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              We understand that every client has unique needs, which is why we offer personalized packages designed to fit any occasion or preference. Book your ride today and experience why Swift Chauffeurs is Nashville's trusted black car chauffeur company.
+              Tell us your pickup details, destination, passenger count, and preferred vehicle to receive a personalized
+              quote. Book your ride today and experience why Swift Chauffeurs is Nashville's trusted black car company.
             </p>
             <a href="#quote" className="btn btn-gold mt-6">
-                  Book Now
+                  Check Availability &amp; Pricing
                 </a>
           </div>
         </div>
@@ -246,12 +255,37 @@ export default function BlackCarPage() {
 
       <CitiesWeServe />
 
+      {/* Nashville Black Car Service FAQs */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-10 text-center">
+            <span className="eyebrow">FAQ</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Nashville Black Car Service FAQs</h2>
+          </div>
+          <FaqAccordion items={blackCarFaqs} />
+          <div className="mt-12 text-center">
+            <p className="text-[13px] font-semibold tracking-wide text-text-muted uppercase">Explore Related Services</p>
+            <div className="mt-4 flex flex-wrap justify-center gap-3">
+              {relatedServices.map((s) => (
+                <Link
+                  key={s.path}
+                  to={s.path}
+                  className="rounded-full border border-border bg-panel px-4 py-2 text-sm font-semibold text-text hover:border-gold hover:text-gold"
+                >
+                  {s.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Booking steps */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Book the Best Black Car Service</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Here's how you can book your premium black car service in Nashville, today</h2>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Reserve Your Nashville Black Car Service</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {blackCarSteps.map((s) => (

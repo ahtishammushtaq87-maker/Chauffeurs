@@ -45,17 +45,45 @@ export const concertReviews = [
 
 export const concertPreferred = [
   {
-    title: "Attention to Detail",
-    desc: "Every vehicle is meticulously maintained and prepared to provide a first-class experience.",
+    title: "Coordinated Pickup Planning",
+    desc: "Pickups and routes are planned in advance so you arrive on time and stress-free.",
   },
   {
-    title: "Affordable Luxury",
-    desc: "Enjoy premium concert transportation at competitive rates that fit your entertainment budget.",
+    title: "Professional Chauffeurs",
+    desc: "Licensed, experienced chauffeurs focused on safe, punctual, and courteous service.",
   },
   {
-    title: "Customer-Focused Service",
-    desc: "Our team is dedicated to creating a seamless and enjoyable experience from booking to drop-off.",
+    title: "Vehicle Options for Couples and Groups",
+    desc: "Choose the right sedan, SUV, limousine, or group vehicle for your party size.",
   },
+  {
+    title: "Transparent Pricing",
+    desc: "Receive a clear quote based on your vehicle, hours, route, and trip details.",
+  },
+  {
+    title: "Return Transportation After the Show",
+    desc: "Arrange a coordinated post-show pickup so you skip the traffic and rideshare surge.",
+  },
+];
+
+// Event types covered (§5). Confirm before launch that each is genuinely offered.
+export const concertEventTypes = [
+  { title: "Concerts", desc: "Private transportation to headline shows and live-music nights across Nashville." },
+  { title: "Music Festivals", desc: "Group-friendly travel to multi-day festivals with coordinated pickups." },
+  { title: "Album-Release Events", desc: "Arrive in style for launch parties and industry showcases." },
+  { title: "VIP Experiences", desc: "Discreet, premium transportation for VIP and hospitality guests." },
+  { title: "Corporate Entertainment", desc: "Client and team transportation for corporate event nights." },
+  { title: "Group Nights Out", desc: "Keep your whole group together from pickup to final drop-off." },
+];
+
+// Nashville venues served (§5). Verify names/coverage before launch.
+export const concertVenues = [
+  { name: "Bridgestone Arena", desc: "Downtown arena hosting major touring concerts and events." },
+  { name: "Nissan Stadium", desc: "Stadium-scale shows and large live-music events." },
+  { name: "Ascend Amphitheater", desc: "Riverfront amphitheater for open-air concerts." },
+  { name: "Ryman Auditorium", desc: "Historic downtown venue for iconic live performances." },
+  { name: "Grand Ole Opry House", desc: "Landmark venue for country and live-music nights." },
+  { name: "Marathon Music Works", desc: "Popular mid-size venue in the Marathon Village area." },
 ];
 
 export const concertOffers = [
@@ -113,17 +141,45 @@ export const concertAreas = [
 export const concertSteps = [
   {
     step: "01",
-    title: "Enter Your Details",
-    desc: "Share your pick-up location, destination, date, and time, along with any special requests for a personalized experience.",
+    title: "Share Your Plans",
+    desc: "Tell us your concert date, pickup time, pickup location, venue, return details, passenger count, and hours.",
   },
   {
     step: "02",
-    title: "Choose A Vehicle",
-    desc: "Select from our fleet of luxury limousines, sedans, SUVs, or sprinter vans that match your style and group size.",
+    title: "Choose Your Vehicle",
+    desc: "Our team helps match your group size with the right sedan, SUV, limousine, or group vehicle and confirms availability.",
   },
   {
     step: "03",
-    title: "Confirm and Relax",
-    desc: "Review your details, make a secure payment, and receive instant confirmation with chauffeur contact info for a premium journey.",
+    title: "Confirm Your Reservation",
+    desc: "Approve your clear quote and receive confirmation with the details for your scheduled concert transportation.",
+  },
+];
+
+// "Nashville Concert Transportation FAQs" — CONFIRM pricing, coverage, and policies before launch.
+export const concertFaqs = [
+  {
+    q: "How much does concert transportation cost in Nashville?",
+    a: "Pricing may depend on the vehicle, date, hours, pickup location, distance, stops, and event demand. Share your concert date, venue, and itinerary for a clear quote rather than a general estimate.",
+  },
+  {
+    q: "Can you coordinate return pickup after the show?",
+    a: "Yes. We can arrange a coordinated post-show pickup so you skip the parking rush and rideshare surge. Share your return plans when you request a quote.",
+  },
+  {
+    q: "Can we make multiple stops?",
+    a: "Yes. Multiple stops for dinner, drinks, or additional pickups can be arranged when provided in advance so the schedule and pricing reflect the full itinerary.",
+  },
+  {
+    q: "Which vehicle is best for our group?",
+    a: "It depends on your group size and comfort preferences. Share your passenger count and we'll recommend the right sedan, SUV, limousine, or group vehicle and confirm its verified capacity.",
+  },
+  {
+    q: "Do you provide transportation to venues outside downtown?",
+    a: "Yes. We provide concert transportation to venues throughout Nashville and surrounding Tennessee communities, with longer-distance travel based on the route and vehicle availability.",
+  },
+  {
+    q: "How far in advance should we reserve?",
+    a: "Earlier booking provides more vehicle choice, especially for major concerts, festivals, holidays, and busy weekends. Reserve as soon as your event date and group size are set.",
   },
 ];

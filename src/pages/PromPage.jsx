@@ -4,6 +4,7 @@ import QuoteForm from "../components/QuoteForm";
 import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CustomerReviews from "../components/CustomerReviews";
+import FaqAccordion from "../components/FaqAccordion";
 import TrustBadges from "../components/TrustBadges";
 import CitiesWeServe from "../components/CitiesWeServe";
 import {
@@ -22,6 +23,7 @@ import {
   promSpotlightFeatures,
   promTrust,
   promSteps,
+  promFaqs,
 } from "../data/promContent";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
@@ -53,16 +55,28 @@ export default function PromPage() {
 
         <div className="relative z-10 flex w-full flex-col items-start gap-6 px-5 py-10 sm:gap-10 sm:px-10 sm:py-14 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 rounded-lg bg-black/50 p-5 sm:p-6 lg:max-w-lg">
-            <span className="eyebrow">Prom Night Chauffeur Service</span>
+            <span className="eyebrow">Make Prom Night Unforgettable</span>
             <h1 className="font-serif text-[2rem] leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[56px]">
-              Arrive in Style on <span className="text-gold italic">Prom Night</span>
+              Luxury Prom Limo Service in Nashville, TN
             </h1>
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-fg-muted">
+              Celebrate prom night with professionally chauffeured limousine and group transportation designed for a
+              safe, stylish, and memorable evening in Nashville.
+            </p>
             <TrustBadges />
-            <CtaButtons phone={PHONE} className="mt-9" />
+            <div className="mt-9 flex flex-wrap gap-4">
+              <a href={PHONE} className="btn btn-gold">
+                <PhoneIcon width={15} height={15} /> Call Now
+              </a>
+            </div>
           </div>
 
           <div className="w-full max-w-md lg:flex-shrink-0">
-            <QuoteForm />
+            <QuoteForm
+              heading={<>Get a Nashville Prom Limo <span className="text-gold">Quote</span></>}
+              submitLabel="Check Availability & Pricing"
+              defaultVehicle="Prom Transportation"
+            />
           </div>
         </div>
       </section>
@@ -74,17 +88,11 @@ export default function PromPage() {
           <div>
             <span className="eyebrow">Your Dream, Our Destination</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              An Unforgettable Night, From Pick-Up to After-Party
+              Prom Transportation Planned for Safety, Style, and Comfort
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              Our professional, licensed chauffeurs are dedicated to your safety and comfort, while our fleet of
-              elegant limousines adds a touch of luxury to your big night. From black car service in Nashville to
-              sprinter van rentals, we take care of everything so you can focus on making memories with friends.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Imagine stepping into a stunning limo with plush leather seats, soft ambient lighting, and advanced
-              climate control that keeps you comfortable no matter the weather. Whether it's a ride to dinner, the prom
-              venue, or the after-party, we ensure you arrive in style.
+              Swift Chauffeurs helps families and groups coordinate prom transportation with professional chauffeurs,
+              verified vehicle details, clear pickup plans, and options for couples or larger parties.
             </p>
             <ul className="mt-7 flex flex-col gap-3.5">
               {[
@@ -107,8 +115,8 @@ export default function PromPage() {
 
       {/* Premium Fleet */}
       <FleetSection
-        eyebrow="Our Premium Fleet"
-        heading="Ride in Signature Luxury"
+        eyebrow="Our Fleet"
+        heading="Our Nashville Prom Limousine Fleet"
         serviceSlug="prom"
       />
 
@@ -119,9 +127,9 @@ export default function PromPage() {
             <PlaceholderImage src={promImages.whyImg} alt="Customers enjoying a limo arrival" />
           </div>
           <div className="order-1 lg:order-2">
-            <span className="eyebrow">Why Choose Apex Motors for Prom Night?</span>
+            <span className="eyebrow">Why Choose Us</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Your Prom Deserves More Than Just Transportation
+              Why Choose Swift Chauffeurs for Prom Night?
             </h2>
             <p className="mt-4 text-[15px] text-text-muted">
               Here's why Nashville students and parents trust us for prom limo rentals:
@@ -153,13 +161,14 @@ export default function PromPage() {
             <PlaceholderImage src={promImages.partyImg} alt="Prom party celebration" />
           </div>
           <div>
-            <span className="eyebrow">Affordable Luxury for Prom Night</span>
+            <span className="eyebrow">Prom Pricing</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Make an Impression That Lasts
+              Prom Limousine Packages for Every Group
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              At Apex Motors, we make luxury affordable for your prom night. Our limo rental service in Nashville
-              blends style, comfort, and value to create an enjoyable experience for you and your friends.
+              Pricing may depend on the vehicle, prom date, rental hours, passenger count, pickup area, stops,
+              distance, and seasonal demand. Share your plans and we'll build a tailored quote that fits your group and
+              your night.
             </p>
             <blockquote className="mt-7 border-l-2 border-gold pl-5 font-serif text-lg text-text italic">
               "Luxury isn't about the price you pay; it's about the experience that leaves a lasting impression."
@@ -178,7 +187,7 @@ export default function PromPage() {
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">Step Into the Spotlight</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-ink-fg md:text-4xl">
-              Prom Limousine Rental with Red Carpet Service
+              Prom Limousine Service with a Red Carpet Arrival
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-ink-fg-muted">
               Turn your prom night into a truly unforgettable experience. Our luxurious limos and signature red carpet
@@ -204,9 +213,9 @@ export default function PromPage() {
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <span className="eyebrow">Nashville's Top Prom Limo Rental Service</span>
+            <span className="eyebrow">Nashville's Trusted Prom Limo Service</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Reasons to Trust Apex Motors for Prom Night
+              Reasons to Trust Swift Chauffeurs for Prom Night
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
               The elegance and dependability of a professional chauffeur service are unmatched by ride-sharing apps.
@@ -234,12 +243,23 @@ export default function PromPage() {
 
       <CitiesWeServe />
 
+      {/* Nashville Prom Limo FAQs */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-10 text-center">
+            <span className="eyebrow">FAQ</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Nashville Prom Limo FAQs</h2>
+          </div>
+          <FaqAccordion items={promFaqs} />
+        </div>
+      </section>
+
       {/* Booking steps */}
-      <section className="px-6 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
-            <span className="eyebrow">Book the Best Prom Limo in Nashville</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Reserve in Three Simple Steps</h2>
+            <span className="eyebrow">Plan Your Nashville Prom Night Ride</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Get Your Nashville Prom Limo Quote</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {promSteps.map((s) => (

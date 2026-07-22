@@ -4,6 +4,7 @@ import QuoteForm from "../components/QuoteForm";
 import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CustomerReviews from "../components/CustomerReviews";
+import FaqAccordion from "../components/FaqAccordion";
 import { CheckIcon, PhoneIcon, ShieldIcon, AwardIcon, ClockIcon, DiamondIcon, ArrowRightIcon } from "../components/Icons";
 import TrustBadges from "../components/TrustBadges";
 import CitiesWeServe from "../components/CitiesWeServe";
@@ -13,6 +14,7 @@ import {
   birthdayHighlights,
   birthdaySteps,
   birthdayServiceFeatures,
+  birthdayFaqs,
 } from "../data/birthdayContent";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
@@ -31,23 +33,28 @@ export default function BirthdayPage() {
 
         <div className="relative z-10 flex w-full flex-col items-start gap-6 px-5 py-10 sm:gap-10 sm:px-10 sm:py-14 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 rounded-lg bg-black/50 p-5 sm:p-6 lg:max-w-lg">
-            <span className="eyebrow">Party Bus Rental in Nashville</span>
+            <span className="eyebrow">Celebrate in Style</span>
             <h1 className="font-serif text-[2rem] leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[56px]">
-              Arrive in Style and <span className="text-gold italic">Elegance</span>
+              Birthday Party Bus Rentals in Nashville, TN
             </h1>
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-fg-muted">
+              Celebrate your birthday with a private, chauffeured party bus in Nashville, TN, designed for group fun,
+              comfortable travel, and a memorable night from pickup to final drop-off.
+            </p>
             <TrustBadges />
             <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
               <a href={PHONE} className="btn btn-gold">
                 <PhoneIcon width={15} height={15} /> Call Now
               </a>
-              <a href="#quote" className="btn btn-outline border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light">
-                  Book Now
-                </a>
             </div>
           </div>
 
           <div className="w-full max-w-md lg:flex-shrink-0">
-            <QuoteForm />
+            <QuoteForm
+              heading={<>Get a Birthday Party Bus <span className="text-gold">Quote</span></>}
+              submitLabel="Check Availability & Pricing"
+              defaultVehicle="Birthday Party Bus"
+            />
           </div>
         </div>
       </section>
@@ -57,25 +64,14 @@ export default function BirthdayPage() {
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <span className="eyebrow">Best Luxury Car Service Nashville</span>
+            <span className="eyebrow">Nashville Birthday Transportation</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              A Birthday Celebration You Deserve
+              Nashville Birthday Transportation Made for Your Celebration
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              Your birthday is more than just a day; it is a celebration of you. Our goal is to make every moment of
-              your big day one to remember — that's why we offer more than just a ride. We provide an extraordinary
-              experience designed to enhance your birthday celebration.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Our spacious sprinter vans are perfect for any birthday event, whether it's an intimate gathering or an
-              exciting party with all your friends. With premium leather seating, vibrant party lighting, high-quality
-              sound systems, and climate-controlled interiors, our buses create the ideal atmosphere for fun and
-              celebration.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              From pickups and drop-offs to cruising around Nashville in style, we take care of all the transportation
-              details so you can focus on enjoying yourself. Rent a luxurious party bus from us to make your birthday
-              one to remember.
+              From milestone birthdays and surprise parties to dinners, nightlife, and group celebrations, Swift
+              Chauffeurs provides private birthday transportation tailored to your plans. Enjoy professional chauffeur
+              service and dependable travel throughout Nashville.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href={PHONE} className="btn btn-gold">
@@ -109,7 +105,7 @@ export default function BirthdayPage() {
       {/* Premium Fleet */}
       <FleetSection
         eyebrow="Your Dream, Our Destination"
-        heading=" Premium Party Bus Fleet"
+        heading="Our Nashville Birthday Party Bus Fleet"
         serviceSlug="birthday"
       />
 
@@ -122,7 +118,7 @@ export default function BirthdayPage() {
           <div>
             <span className="eyebrow">Enjoying True Luxury</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Create Lasting Memories With Our Party Bus Rentals
+              Celebrate Every Birthday Moment in Comfort and Style
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
               Picture stepping onto a lively, colorful party bus, instantly filled with excitement — balloons,
@@ -156,11 +152,11 @@ export default function BirthdayPage() {
           <div>
             <span className="eyebrow">Nashville's Top Choice</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Why Choose Swift Chauffeurs for Birthday Party Buses
+              Why Choose Swift Chauffeurs for Birthday Party Bus Rentals?
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              We provide more than just transportation; we deliver an experience custom to your celebration. Here's
-              why our party bus rentals in Nashville stand out:
+              We provide more than just transportation; we deliver an experience built around your celebration. Here's
+              why our birthday party bus rentals in Nashville stand out:
             </p>
             <div className="mt-7 flex flex-col gap-5">
               {birthdayWhy.map((item) => (
@@ -189,7 +185,7 @@ export default function BirthdayPage() {
         </div>
         <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
           <div>
-            <span className="eyebrow">Exceptional Services for Your Birthday Celebration</span>
+            <span className="eyebrow">Birthday Party Bus Service Designed Around Your Plans</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-ink-fg md:text-4xl">
               What Makes Us Nashville's Top Choice
             </h2>
@@ -205,11 +201,11 @@ export default function BirthdayPage() {
           <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-sm">
             <h3 className="font-serif text-2xl text-text">Plan Your Birthday Party Bus Rental</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Let Apex Motors make your birthday extraordinary. Contact us now to rent the best birthday party bus and
-              get ready for a celebration like no other.
+              Let Swift Chauffeurs make your birthday extraordinary. Contact us now to reserve the right birthday party
+              bus and get ready for a celebration like no other.
             </p>
             <a href="#quote" className="btn btn-gold mt-6">
-                  Book Now
+                  Check Availability &amp; Pricing
                 </a>
           </div>
         </div>
@@ -221,11 +217,11 @@ export default function BirthdayPage() {
           <div className="mb-10 max-w-2xl">
             <span className="eyebrow">Celebrate in Style on Your Birthday</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Exclusive Party Buses for a VIP Experience
+              Private Birthday Transportation for Groups of Every Size
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Organize your trip, choose your bus, and customize your preferences with a few clicks or a fast phone
-              call. Trust Apex Motors to provide more than just a party bus service.
+              Organize your trip, choose your bus, and share your preferences with a few clicks or a fast phone call.
+              Trust Swift Chauffeurs to provide more than just a party bus service.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
@@ -245,12 +241,23 @@ export default function BirthdayPage() {
 
       <CitiesWeServe />
 
+      {/* Nashville Birthday Party Bus FAQs */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-10 text-center">
+            <span className="eyebrow">FAQ</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Nashville Birthday Party Bus FAQs</h2>
+          </div>
+          <FaqAccordion items={birthdayFaqs} />
+        </div>
+      </section>
+
       {/* Booking steps */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
             <span className="eyebrow">Book the Best Party Buses in Nashville</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Reserve in Three Simple Steps</h2>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Plan Your Nashville Birthday Party Bus</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {birthdaySteps.map((s) => (

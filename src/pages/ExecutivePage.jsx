@@ -4,6 +4,7 @@ import QuoteForm from "../components/QuoteForm";
 import HeroMarquee from "../components/HeroMarquee";
 import FleetSection from "../components/FleetSection";
 import CustomerReviews from "../components/CustomerReviews";
+import FaqAccordion from "../components/FaqAccordion";
 import TrustBadges from "../components/TrustBadges";
 import CitiesWeServe from "../components/CitiesWeServe";
 import {
@@ -22,6 +23,8 @@ import {
   executiveOffers,
   executiveServiceFeatures,
   executiveSteps,
+  executiveUseCases,
+  executiveFaqs,
 } from "../data/executiveContent";
 import { useSiteSettings, toTelHref } from "../context/SiteSettingsContext";
 
@@ -40,23 +43,31 @@ export default function ExecutivePage() {
 
         <div className="relative z-10 flex w-full flex-col items-start gap-6 px-5 py-10 sm:gap-10 sm:px-10 sm:py-14 md:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
           <div className="flex-shrink-0 rounded-lg bg-black/50 p-5 sm:p-6 lg:max-w-lg">
-            <span className="eyebrow">Corporate Chauffeur Service in Nashville</span>
+            <span className="eyebrow">Professional Transportation for Nashville Business Travel</span>
             <h1 className="font-serif text-[2rem] leading-[1.15] font-medium text-ink-fg sm:text-5xl md:text-[56px]">
-              Travel Nashville Like <span className="text-gold italic">An Executive</span>
+              Corporate Chauffeur Service in Nashville, TN
             </h1>
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-fg-muted">
+              Professional chauffeured transportation for executives, corporate teams, meetings, airport transfers,
+              roadshows, and business events throughout Nashville.
+            </p>
             <TrustBadges />
             <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
               <a href={PHONE} className="btn btn-gold">
                 <PhoneIcon width={15} height={15} /> Call Now
               </a>
-              <a href="#quote" className="btn btn-outline border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light">
-                  Book Now
-                </a>
+              <Link to="/contact" className="btn btn-outline border-ink-border-strong text-ink-fg hover:border-gold-light hover:text-gold-light">
+                Discuss a Corporate Account
+              </Link>
             </div>
           </div>
 
           <div className="w-full max-w-md lg:flex-shrink-0">
-            <QuoteForm />
+            <QuoteForm
+              heading={<>Request a Corporate Transportation <span className="text-gold">Quote</span></>}
+              submitLabel="Check Availability & Pricing"
+              defaultVehicle="Corporate Chauffeur"
+            />
           </div>
         </div>
       </section>
@@ -66,15 +77,13 @@ export default function ExecutivePage() {
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <span className="eyebrow">Corporate Chauffeur Service in Nashville</span>
+            <span className="eyebrow">Business Travel</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Luxury You Deserve, Efficiency You Can Rely On
+              Executive Transportation Built Around Your Business Schedule
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              Our commitment to excellence makes Apex Motors your premier choice for corporate travel in Nashville.
-              We realize that professionalism and reliability make a difference, so our stress-free chauffeur service
-              is designed to meet busy professionals' needs. Highly trained chauffeurs, immaculate black cars, and
-              meticulous attention to detail ensure that each ride reflects your professional image.
+              Swift Chauffeurs supports executives, assistants, event planners, and corporate teams with punctual
+              pickups, flexible scheduling, professional chauffeurs, and vehicles selected for each itinerary.
             </p>
             <div className="mt-7 flex flex-col gap-5">
               {executiveIntro.map((item) => (
@@ -103,7 +112,7 @@ export default function ExecutivePage() {
       {/* Premium Fleet */}
       <FleetSection
         eyebrow="Your Dream, Our Destination"
-        heading="Our Best Fleet"
+        heading="Our Nashville Corporate Transportation Fleet"
         serviceSlug="executive"
       />
 
@@ -114,16 +123,14 @@ export default function ExecutivePage() {
             <PlaceholderImage src={executiveImages.whyImg} alt="Confident business executive" />
           </div>
           <div>
-            <span className="eyebrow">Apex Motors is Nashville's Preferred Choice</span>
+            <span className="eyebrow">Why Choose Us</span>
             <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Corporate Chauffeur Service in Nashville
+              Why Nashville Businesses Choose Swift Chauffeurs
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-text-muted">
-              When choosing Apex Motors, each detail matters. We pride ourselves on delivering a top-end travel
-              experience that marries professionalism, comfort, and reliability. Our trained chauffeurs are keenly
-              observant of your personal time and satisfaction, thereby creating an easeful journey. If you're VIP, a
-              corporate executive, or it's a group booking, our services adapt perfectly to your needs — as luxurious
-              as it gets without denting your pocketbook.
+              With Swift Chauffeurs, every detail matters. We deliver a professional travel experience built on
+              punctuality, comfort, and reliability, with chauffeurs who respect your time and schedule. Whether it's a
+              VIP, a corporate executive, or a group booking, our service adapts to your business needs.
             </p>
             <div className="mt-7 flex flex-col gap-5">
               {executivePreferred.map((item) => (
@@ -152,14 +159,14 @@ export default function ExecutivePage() {
         </div>
         <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
           <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-sm">
-            <h3 className="font-serif text-2xl text-text">Travel Like a Boss with Apex Motors</h3>
+            <h3 className="font-serif text-2xl text-text">Transparent Corporate Transportation Pricing</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Ready to transform your corporate travel experience? Book your executive chauffeur service with the
-              best limo service in Nashville now. Our professional drivers and luxurious vehicles are here to ensure
-              your journey is business class.
+              Ready to streamline your corporate travel? Share your itinerary and passenger details to receive a clear
+              quote based on your vehicle, schedule, and route. Our professional chauffeurs and business-ready vehicles
+              keep every trip organized and on time.
             </p>
             <a href="#quote" className="btn btn-gold mt-6">
-                  Book Now
+                  Check Availability &amp; Pricing
                 </a>
           </div>
         </div>
@@ -169,13 +176,13 @@ export default function ExecutivePage() {
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
-            <span className="eyebrow">Why Apex Motors Stands Out</span>
+            <span className="eyebrow">Why Choose Swift Chauffeurs</span>
             <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">
-              Exceeding Expectations in Corporate Transportation Services
+              Corporate Transportation Designed for Reliability
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-[15px] text-text-muted">
-              We give a seamless, first-class ride experience, highly skilled drivers, very clean Mercedes-Benz
-              vehicles, and a guarantee of being on time for appointments. This is why we're your number one choice:
+              We deliver a seamless, professional ride experience with skilled chauffeurs, clean and well-maintained
+              vehicles, and a focus on being on time for every appointment. Here's what sets our corporate service apart:
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -192,6 +199,26 @@ export default function ExecutivePage() {
         </div>
       </section>
 
+      {/* Corporate Transportation Services in Nashville — business use cases */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="mb-10 max-w-2xl">
+            <span className="eyebrow">Business Services</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
+              Corporate Transportation Services in Nashville
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {executiveUseCases.map((item) => (
+              <div key={item.title} className="rounded-xl border border-border bg-panel p-6">
+                <h3 className="text-[15px] font-semibold text-text">{item.title}</h3>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Exceptional Service features */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
@@ -201,9 +228,8 @@ export default function ExecutivePage() {
             True Luxury on the Go
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Simplify your travel with Apex Motors. Booking your premium chauffeur service is quick and easy.
-              Simply provide your details, choose from our fleet of luxurious Mercedes-Benz vehicles, and receive
-              instant confirmation.
+              Simplify your travel with Swift Chauffeurs. Booking your corporate chauffeur service is quick and easy.
+              Share your itinerary, choose from our business-ready fleet, and receive clear confirmation for your trip.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
@@ -223,12 +249,23 @@ export default function ExecutivePage() {
 
       <CitiesWeServe />
 
+      {/* Corporate Chauffeur Service FAQs */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-10 text-center">
+            <span className="eyebrow">FAQ</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Corporate Chauffeur Service FAQs</h2>
+          </div>
+          <FaqAccordion items={executiveFaqs} />
+        </div>
+      </section>
+
       {/* Booking steps */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
-            <span className="eyebrow">Book the Best Executive Chauffeur Service</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Reserve in Three Simple Steps</h2>
+            <span className="eyebrow">Book Corporate Chauffeur Service</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Schedule Corporate Chauffeur Service in Nashville</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {executiveSteps.map((s) => (

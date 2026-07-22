@@ -70,20 +70,70 @@ export const executiveReviews = [
 
 export const executivePreferred = [
   {
-    title: "Discreet & Professional",
-    desc: "Perfect for VIPs and executives who value privacy.",
+    title: "Punctual Scheduling",
+    desc: "Pickups and routes planned in advance so you stay on schedule for every meeting and flight.",
   },
   {
-    title: "Customizable Rides",
-    desc: "Adapted to your group size, tastes, and schedule.",
+    title: "Professional Chauffeurs",
+    desc: "Licensed, experienced chauffeurs who present well and represent your business image.",
   },
   {
-    title: "Competitive Pricing",
-    desc: "Luxury services at a cost-effective price.",
+    title: "Discreet Service",
+    desc: "Private, professional transportation for executives and VIP guests.",
   },
   {
-    title: "Punctual Service",
-    desc: "Always on time, so you can stay on schedule.",
+    title: "Flight and Itinerary Coordination",
+    desc: "Flight-aware pickups and multi-stop itineraries coordinated around your day.",
+  },
+  {
+    title: "Flexible Vehicle Options",
+    desc: "Executive sedans, SUVs, and group vehicles selected to match each trip.",
+  },
+  {
+    title: "Corporate Account Support",
+    desc: "Recurring transportation and account coordination for teams and assistants.",
+  },
+];
+
+// Business use cases (§6). Confirm each service is genuinely offered before launch.
+export const executiveUseCases = [
+  { title: "Executive Airport Transfers", desc: "Flight-aware private transfers to and from BNA and area facilities." },
+  { title: "Meetings and Conferences", desc: "On-time transportation for meetings, conferences, and downtown offices." },
+  { title: "Corporate Roadshows", desc: "Multi-stop roadshow coordination for busy, changing schedules." },
+  { title: "Hourly Chauffeur Service", desc: "Keep a chauffeur on call for flexible, back-to-back itineraries." },
+  { title: "Client and Guest Transportation", desc: "Professional transportation for clients, speakers, and visiting guests." },
+  { title: "Group and Event Transportation", desc: "Coordinated vehicles for teams and corporate event nights." },
+];
+
+// "Corporate Chauffeur Service FAQs" — include account/invoicing answers only when genuinely offered.
+export const executiveFaqs = [
+  {
+    q: "Can we create a corporate account?",
+    a: "Yes. We can set up recurring corporate transportation and account coordination for teams and assistants. Share your company details and travel needs to get started.",
+  },
+  {
+    q: "Do you provide executive airport transfers?",
+    a: "Yes. We provide flight-aware private transfers to and from Nashville International Airport (BNA) and area aviation facilities, with luggage assistance and meet-and-greet options.",
+  },
+  {
+    q: "Can an assistant manage reservations?",
+    a: "Yes. Executive assistants and travel coordinators can book, adjust, and manage reservations on behalf of travelers.",
+  },
+  {
+    q: "Do you offer hourly chauffeur service?",
+    a: "Yes. Hourly chauffeur service is available for meetings, multi-stop schedules, and flexible itineraries. Share your start time and estimated hours when requesting a quote.",
+  },
+  {
+    q: "Can you coordinate multi-stop roadshows?",
+    a: "Yes. We coordinate multi-stop roadshows and changing schedules. Provide the planned stops and timing so the itinerary and pricing reflect the full day.",
+  },
+  {
+    q: "What vehicles are available for groups?",
+    a: "We offer executive sedans, SUVs, and larger group vehicles. Share your passenger count and we'll confirm the right vehicle and its verified capacity.",
+  },
+  {
+    q: "Do you provide itemized receipts or invoicing?",
+    a: "Share your billing and account preferences when booking, and our team will confirm the receipt or invoicing options available for your reservation or corporate account.",
   },
 ];
 
@@ -142,17 +192,17 @@ export const executiveAreas = [
 export const executiveSteps = [
   {
     step: "01",
-    title: "Enter Your Details",
-    desc: "Share your pick-up location, destination, date, and time, along with any special requests for a personalized experience.",
+    title: "Share Your Plans",
+    desc: "Tell us your company, service type, pickup date and time, pickup location, destination, passenger count, and itinerary.",
   },
   {
     step: "02",
-    title: "Choose A Vehicle",
-    desc: "Select from our fleet of luxury limousines, sedans, SUVs, or sprinter vans that match your style and group size.",
+    title: "Choose Your Vehicle",
+    desc: "Our team helps match your business travel with the right executive sedan, SUV, or group vehicle and confirms availability.",
   },
   {
     step: "03",
-    title: "Confirm and Relax",
-    desc: "Review your details, make a secure payment, and receive instant confirmation with chauffeur contact info for a premium journey.",
+    title: "Confirm Your Reservation",
+    desc: "Approve your clear quote and receive confirmation with the details for your scheduled corporate transportation.",
   },
 ];

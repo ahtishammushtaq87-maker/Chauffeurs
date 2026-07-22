@@ -12,54 +12,76 @@ export const aboutImages = {
   safetyImg2,
 };
 
-export const aboutHeroBadges = ["Licensed Chauffeurs", "Diverse Fleet", "Discounted Rates"];
+export const aboutHeroBadges = ["Professional Chauffeurs", "Diverse Luxury Fleet", "Transparent Pricing"];
 
+// "How to Reserve Your Chauffeur Service" — three-step booking process.
 export const aboutSteps = [
   {
     icon: "pin",
-    title: "Plan Your Journey",
-    desc: "Simply enter your pickup and drop-off locations or specify the number of hours you'd like to reserve a vehicle and driver.",
+    title: "Share Your Journey Details",
+    desc: "Provide the date, pickup location, destination, passenger count, and service requirements.",
   },
   {
     icon: "car",
-    title: "Reserve Your Chauffeur",
-    desc: "Our chauffeur service can be booked through our website or by calling our customer support team for prompt responses.",
+    title: "Review Your Vehicle and Quote",
+    desc: "Our team will help match your needs with an appropriate vehicle and clear reservation details.",
   },
   {
-    icon: "heart",
-    title: "Get Instant Quote",
-    desc: "Get an instant quote for your chauffeur service in Tennessee (TN). Just confirm the quote, and your ride will be on its way.",
+    icon: "check",
+    title: "Confirm Your Reservation",
+    desc: "Approve the quote and receive confirmation for your scheduled chauffeur service.",
   },
 ];
 
 export const aboutWhyChoose = [
   {
     icon: "award",
-    title: "Exceptional Service",
-    desc: "With our professional team, we provide professional service, making certain to offer a safe and reliable ride for any type of occasion.",
+    title: "Personalized Professional Service",
+    desc: "Every journey is coordinated around your schedule, passenger count, destination, and preferred level of service. Our team focuses on clear communication and a polished experience from reservation to arrival.",
   },
   {
     icon: "car",
-    title: "Diverse Fleet Options",
-    desc: "Whether you need one of our elegant sedans or a unique party bus, we have something that can comfortably put a number of guests in the same vehicle.",
+    title: "A Versatile Fleet for Every Journey",
+    desc: "Choose from luxury sedans, SUVs, Sprinter vans, stretch limousines, party buses, and group transportation options based on your occasion and passenger needs.",
   },
   {
     icon: "percent",
-    title: "Transparent Pricing",
-    desc: "Enjoy affordable luxury without hidden fees. We provide clear quotes so you know exactly what to expect for your journey.",
+    title: "Clear, Upfront Pricing",
+    desc: "Receive a detailed quote based on the selected vehicle, schedule, passenger requirements, route, and reservation details, so you understand the transportation cost before confirming.",
   },
 ];
 
+// CONFIRM before launch: founding year and the live review rating/count.
 export const aboutStats = [
-  { value: "400+", label: "Affiliated Companies" },
-  { value: "1,500+", label: "Available Vehicles" },
-  { value: "97%", label: "5 Star Rating" },
+  { value: "2017", label: "Founded" },
+  { value: "24/7", label: "Reservation Support" },
+  { value: "4.9", label: "Verified Customer Rating" },
 ];
 
 export const aboutSafetyFeatures = [
-  { icon: "shield", title: "Thorough Vehicle Inspections" },
-  { icon: "check", title: "Passenger Safety Features" },
-  { icon: "clock", title: "24/7 Support" },
+  { icon: "shield", title: "Professionally Maintained Vehicles" },
+  { icon: "check", title: "Professional Chauffeurs" },
+  { icon: "clock", title: "24/7 Reservation Support" },
+];
+
+// "About Swift Chauffeurs FAQs" — CONFIRM founding year, service area, and vehicle categories before launch.
+export const aboutFaqs = [
+  {
+    q: "When was Swift Chauffeurs founded?",
+    a: "Swift Chauffeurs was founded in 2017 with a focus on professional, dependable, and personalized chauffeur service.",
+  },
+  {
+    q: "Where does Swift Chauffeurs provide service?",
+    a: "Swift Chauffeurs serves Nashville and destinations throughout Tennessee, with longer-distance transportation available based on the requested route and vehicle availability.",
+  },
+  {
+    q: "What types of vehicles does Swift Chauffeurs offer?",
+    a: "Available options may include luxury sedans, SUVs, Sprinter vans, stretch limousines, party buses, and group transportation vehicles. Confirm the passenger count and current availability when requesting a quote.",
+  },
+  {
+    q: "How do I request a chauffeur quote?",
+    a: "Provide your date, pickup location, destination, passenger count, preferred vehicle, and travel details through the quote form or contact the reservation team directly.",
+  },
 ];
 
 export const aboutReviews = [

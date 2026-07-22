@@ -14,20 +14,20 @@ export const birthdayImages = {
 
 export const birthdayWhy = [
   {
-    title: "Versatile Party Fleet",
-    desc: "Choose from our luxurious 20 passenger or spacious 30 passenger party buses to accommodate your group size comfortably.",
+    title: "Professionally Maintained Party Buses",
+    desc: "Our party buses are cleaned, inspected, and prepared before every reservation so your group travels in comfort.",
   },
   {
-    title: "Professional and Friendly Drivers",
-    desc: "Our expert chauffeurs ensure your journey is fun, safe, and stress-free.",
+    title: "Licensed Professional Chauffeurs",
+    desc: "Experienced chauffeurs handle the driving and coordination so you can relax and enjoy the celebration.",
   },
   {
-    title: "Party-Ready Amenities",
-    desc: "Enjoy LED lighting, premium sound systems, and plush seating for a VIP vibe.",
+    title: "Transparent, Upfront Pricing",
+    desc: "Receive a clear quote based on your date, hours, passenger count, and itinerary before you confirm.",
   },
   {
-    title: "Punctual Service",
-    desc: "Count on us to arrive on time and make every moment of your celebration count.",
+    title: "Service Tailored to Your Birthday Plans",
+    desc: "From milestone birthdays to nightlife and dinners, your trip is planned around your schedule and stops.",
   },
 ];
 
@@ -78,18 +78,50 @@ export const birthdayReviews = [
 export const birthdaySteps = [
   {
     step: "01",
-    title: "Enter Your Details",
-    desc: "Share your pick-up location, destination, date, and time, along with any special requests for a personalized experience.",
+    title: "Share Your Plans",
+    desc: "Tell us your event date, pickup time, rental hours, passenger count, pickup location, and itinerary or destination.",
   },
   {
     step: "02",
-    title: "Choose A Vehicle",
-    desc: "Select from our fleet of luxury limousines, sedans, SUVs, or sprinter vans that match your style and group size.",
+    title: "Choose Your Vehicle",
+    desc: "Our team helps match your group size and birthday plans with the right party bus and confirms availability.",
   },
   {
     step: "03",
-    title: "Confirm and Relax",
-    desc: "Review your details, make a secure payment, and receive instant confirmation with chauffeur contact info for a premium journey.",
+    title: "Confirm Your Reservation",
+    desc: "Approve your clear quote and receive confirmation with the details for your scheduled birthday party bus.",
+  },
+];
+
+// "Nashville Birthday Party Bus FAQs" — CONFIRM pricing, capacity, and policy details before launch.
+export const birthdayFaqs = [
+  {
+    q: "How much does a Nashville birthday party bus cost?",
+    a: "Pricing depends on the vehicle, date, rental hours, pickup location, distance, and stops. Share your full itinerary — date, hours, pickup, and destinations — and we'll provide a clear quote rather than a general estimate.",
+  },
+  {
+    q: "How far in advance should I book?",
+    a: "Earlier booking provides more vehicle choice, especially for weekends, holidays, and major events. Reserve as soon as your birthday date and group size are set.",
+  },
+  {
+    q: "How many passengers can ride?",
+    a: "Capacity depends on the specific party bus. Share your group size and we'll confirm the right vehicle and its verified passenger capacity before booking.",
+  },
+  {
+    q: "Can we make multiple stops?",
+    a: "Yes — multiple stops can be arranged when provided in advance. Include every planned location when you request a quote so the schedule and pricing reflect the full itinerary.",
+  },
+  {
+    q: "What amenities are available?",
+    a: "Amenities vary by vehicle and may include premium seating, party lighting, and sound systems. We confirm the verified features of your selected party bus before your reservation is finalized.",
+  },
+  {
+    q: "Are food and beverages allowed?",
+    a: "Onboard food and beverage policies depend on the vehicle and applicable laws. Ask when you book and we'll confirm what is permitted for your reservation.",
+  },
+  {
+    q: "Do you serve areas outside Nashville?",
+    a: "Yes — service is available throughout Nashville and surrounding Middle Tennessee communities, with longer-distance travel based on the requested route and vehicle availability.",
   },
 ];
 

@@ -91,16 +91,103 @@ export const weddingReviews = [
 
 export const weddingPreferred = [
   {
-    title: "Trained and Experienced Drivers",
-    desc: "Our chauffeurs are licensed and expertly trained to ensure a flawless, first-class experience.",
+    title: "Professional Wedding Chauffeurs",
+    desc: "Licensed, experienced chauffeurs focused on a polished, on-time wedding-day experience.",
   },
   {
-    title: "Impeccable Attention to Detail",
-    desc: "From spotless vehicles to personalized service, every aspect of your ride is meticulously crafted for your big day.",
+    title: "Thoughtful Wedding-Day Coordination",
+    desc: "We plan timelines, stops, venues, and passenger needs around the flow of your celebration.",
   },
   {
-    title: "Affordable Luxury",
-    desc: "Enjoy the elegance and sophistication of premium transportation without exceeding your wedding budget.",
+    title: "Clear, Upfront Pricing",
+    desc: "Receive a detailed quote based on your vehicles, hours, route, and itinerary before you confirm.",
+  },
+  {
+    title: "Clean, Prepared Vehicles",
+    desc: "Every vehicle is cleaned, inspected, and prepared for photos and your big day.",
+  },
+  {
+    title: "Flexible Group Transportation",
+    desc: "Coordinate the couple, wedding party, families, and guests with the right combination of vehicles.",
+  },
+];
+
+// Wedding transportation service scenarios (§7). Include only services genuinely offered.
+export const weddingServices = [
+  { title: "Bride and Groom Transportation", desc: "Private, elegant transportation for the couple throughout the day." },
+  { title: "Wedding Party Transportation", desc: "Keep the bridal party together for arrivals, photos, and transfers." },
+  { title: "Guest Shuttle Service", desc: "Coordinated shuttles to move guests between venues and hotels." },
+  { title: "Rehearsal Dinner Transportation", desc: "Chauffeured transportation for rehearsal dinners and pre-wedding events." },
+  { title: "Ceremony-to-Reception Transfers", desc: "Smooth, on-time transfers between your ceremony and reception." },
+  { title: "Photo-Location Stops", desc: "Planned stops at scenic Nashville photo locations along your route." },
+  { title: "Reception and After-Party Transportation", desc: "Late-night transportation to keep the celebration going safely." },
+  { title: "Getaway Car Service", desc: "A stylish final departure to close out your wedding day." },
+];
+
+// "How to Plan Your Nashville Wedding Transportation" (§8).
+export const weddingPlanningSteps = [
+  { step: "01", title: "Estimate Passenger Counts", desc: "Count the couple, wedding party, family, and any guests who need transportation." },
+  { step: "02", title: "Map Every Pickup, Venue, and Stop", desc: "List getting-ready locations, the ceremony, reception, and photo stops." },
+  { step: "03", title: "Choose the Right Vehicle Combination", desc: "Match limousines, SUVs, Sprinter vans, or shuttles to each group and stage." },
+  { step: "04", title: "Build a Realistic Wedding-Day Timeline", desc: "Allow time for travel, photos, and transfers between each part of the day." },
+  { step: "05", title: "Confirm Final Pickup Instructions", desc: "Lock in pickup times, locations, and contacts so the day runs smoothly." },
+];
+
+// "What Affects Nashville Wedding Transportation Pricing?" (§8).
+export const weddingPricingFactors = [
+  "Wedding date and season",
+  "Vehicle type and number of vehicles",
+  "Rental duration and total hours",
+  "Distance and waiting time",
+  "Additional stops and photo locations",
+  "Guest-shuttle schedule",
+  "Requested add-ons",
+];
+
+// Service areas (§8). Link only to genuine, completed location pages.
+export const weddingServiceAreas = [
+  "Nashville",
+  "Franklin",
+  "Brentwood",
+  "Murfreesboro",
+  "Hendersonville",
+  "Mt. Juliet",
+  "Spring Hill",
+];
+
+// "Nashville Wedding Transportation FAQs" (§10). Answers must reflect actual policies.
+export const weddingFaqs = [
+  {
+    q: "How far in advance should we book wedding transportation?",
+    a: "Wedding dates book quickly, so reserve as early as possible — often several months ahead — to secure your preferred vehicles, especially during peak season.",
+  },
+  {
+    q: "How much does wedding transportation cost in Nashville?",
+    a: "Pricing may depend on the wedding date, vehicle type, number of vehicles, rental duration, distance, waiting time, additional stops, guest-shuttle schedule, and requested add-ons. Share your details for a clear quote.",
+  },
+  {
+    q: "Which vehicle is best for the couple and wedding party?",
+    a: "It depends on your group size and style. Share your passenger counts and we'll recommend the right stretch limousine, SUV, Sprinter van, or combination of vehicles.",
+  },
+  {
+    q: "Can Swift Chauffeurs transport wedding guests between venues?",
+    a: "Yes. We coordinate guest shuttle service between hotels, the ceremony, and the reception. Provide your guest count and schedule so we can plan the right vehicles.",
+  },
+  {
+    q: "Can we schedule multiple pickup locations and photo stops?",
+    a: "Yes. Multiple pickups, venue transfers, and photo-location stops can be arranged when provided in advance so the timeline and pricing reflect the full day.",
+  },
+  {
+    q: "Is red carpet service available?",
+    a: "Red carpet service may be available as an add-on and can depend on the vehicle and venue. Ask when booking and we'll confirm what's available for your reservation.",
+  },
+  {
+    q: "Do you provide wedding transportation outside Nashville?",
+    a: "Yes. We serve Nashville and surrounding Middle Tennessee communities, with longer-distance travel based on the requested route and vehicle availability.",
+  },
+  {
+    q: "How much time should we allow between the ceremony and reception?",
+    a: "It depends on the distance, traffic, and photo plans. Our team helps build a realistic timeline with enough buffer for a smooth, unhurried transition.",
   },
 ];
 
@@ -159,17 +246,17 @@ export const weddingAreas = [
 export const weddingSteps = [
   {
     step: "01",
-    title: "Enter Your Details",
-    desc: "Share your pick-up location, destination, date, and time, along with any special requests for a personalized experience.",
+    title: "Share Your Plans",
+    desc: "Tell us your wedding date, venues, pickup locations, passenger counts, stops, and preferred vehicles.",
   },
   {
     step: "02",
-    title: "Choose A Vehicle",
-    desc: "Select from our fleet of luxury limousines, sedans, SUVs, or sprinter vans that match your style and group size.",
+    title: "Choose Your Vehicles",
+    desc: "Our team helps match each part of your day with the right limousine, SUV, Sprinter van, or shuttle and confirms availability.",
   },
   {
     step: "03",
-    title: "Confirm and Relax",
-    desc: "Review your details, make a secure payment, and receive instant confirmation with chauffeur contact info for a premium journey.",
+    title: "Confirm Your Reservation",
+    desc: "Approve your clear quote and receive confirmation with the details for your scheduled wedding transportation.",
   },
 ];
