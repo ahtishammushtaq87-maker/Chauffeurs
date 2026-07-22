@@ -49,9 +49,9 @@ const emptyForm = {
   consent: false,
 };
 
-export default function QuoteForm({ submitLabel = "Get My Quote", heading }) {
+export default function QuoteForm({ submitLabel = "Get My Quote", heading, defaultVehicle = "" }) {
   const { pathname } = useLocation();
-  const [form, setForm] = useState(emptyForm);
+  const [form, setForm] = useState(() => ({ ...emptyForm, vehicle: defaultVehicle }));
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
   const pickupRef = useRef(null);
@@ -81,7 +81,7 @@ export default function QuoteForm({ submitLabel = "Get My Quote", heading }) {
         ...form,
         sourcePath: pathname,
       });
-      setForm(emptyForm);
+      setForm({ ...emptyForm, vehicle: defaultVehicle });
       setStatus("success");
     } catch (err) {
       setError(err.message);
