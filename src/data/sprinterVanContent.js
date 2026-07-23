@@ -19,7 +19,7 @@ export const sprinterVanImages = {
 // Hero copy — targets "Mercedes Sprinter van rental Nashville" and clarifies
 // this is chauffeured, not self-drive.
 export const sprinterVanHero = {
-  eyebrow: "Chauffeured Mercedes Sprinter Van Nashville, TN",
+  eyebrow: "Chauffeured Mercedes Sprinter Van Nashville, TN | Swift Chauffeurs",
   h1: "Mercedes Sprinter Van Rental in Nashville, TN",
   tagline: "Travel Together. Arrive in Style.",
   subtext:

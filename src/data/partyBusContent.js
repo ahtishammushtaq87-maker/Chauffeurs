@@ -249,12 +249,12 @@ export const partyBusOnboard = {
     },
     {
       icon: "wineGlass",
-      title: "Fully Equipped Wet Bar",
+      title: "Built-In Wet Bar Area",
       desc: "Keep the drinks flowing all night long",
     },
     {
       icon: "seat",
-      title: "VIP Floating Seats",
+      title: "Wraparound Luxury Seating",
       desc: "Wrap-around luxury seating — everyone rides in comfort and style",
     },
     {

@@ -18,7 +18,7 @@ export const luxurySedanImages = {
 
 // Hero copy — targets "luxury sedan service Nashville" / "Mercedes sedan service Nashville".
 export const luxurySedanHero = {
-  eyebrow: "Luxury Mercedes Sedan Service Nashville, TN",
+  eyebrow: "Luxury Mercedes Sedan Service Nashville, TN | Swift Chauffeurs",
   h1: "Luxury Mercedes Sedan Service in Nashville, TN",
   tagline: "Arrive Refined. Travel Effortlessly.",
   subtext:

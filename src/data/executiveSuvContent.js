@@ -19,7 +19,7 @@ export const executiveSuvImages = {
 
 // Hero copy — targets "luxury SUV transportation Nashville".
 export const executiveSuvHero = {
-  eyebrow: "Luxury SUV Service in Nashville, TN",
+  eyebrow: "Luxury SUV Service in Nashville, TN | Swift Chauffeurs",
   h1: "Luxury SUV Transportation in Nashville, TN",
   tagline: "Travel in Comfort. Arrive in Style.",
   subtext:

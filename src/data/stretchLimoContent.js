@@ -20,7 +20,7 @@ export const stretchLimoImages = {
 
 // Hero copy — targets "stretch limousine rental Nashville".
 export const stretchLimoHero = {
-  eyebrow: "Luxury Stretch Limousine Rental Nashville, TN",
+  eyebrow: "Luxury Stretch Limousine Rental Nashville, TN | Swift Chauffeurs",
   h1: "Stretch Limousine Rental in Nashville, TN",
   tagline: "Arrive in Style. Travel Like a VIP.",
   subtext:

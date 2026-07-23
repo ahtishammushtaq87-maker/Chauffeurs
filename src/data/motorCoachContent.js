@@ -22,7 +22,7 @@ export const motorCoachImages = {
 
 // Hero copy — targets the primary "motor coach rental Nashville" search intent.
 export const motorCoachHero = {
-  eyebrow: "Motor Coach & Mini Coach Rental Nashville, TN",
+  eyebrow: "Motor Coach & Mini Coach Rental Nashville, TN | Swift Chauffeurs",
   h1: "Motor Coach Rental in Nashville, TN",
   tagline: "Travel Together. Arrive Comfortably.",
   subtext:
