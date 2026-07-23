@@ -145,29 +145,7 @@ export default function ConcertPage() {
         </div>
       </section>
 
-      {/* Customer reviews */}
-      <CustomerReviews />
-
-      {/* Luxury Transportation for Every Music Event */}
-      <section className="relative overflow-hidden border-y border-border">
-        <div className="absolute inset-0">
-          <PlaceholderImage src={concertImages.affordabilityBg} alt="Chauffeur driving at sunset" />
-        </div>
-        <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
-          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-m">
-            <h3 className="font-serif text-2xl text-text">Reserve Transportation for Your Next Nashville Concert</h3>
-            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Share your concert date, venue, pickup location, passenger count, and preferred vehicle to receive a
-              personalized quote. Our team will help build a transportation plan that matches your event and group size.
-            </p>
-            <a href="#quote" className="btn btn-gold mt-6">
-                  Check Availability &amp; Pricing
-                </a>
-          </div>
-        </div>
-      </section>
-
-      {/* What Sets Us Apart */}
+     {/* What Sets Us Apart */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
           <div className="mb-10 text-center">
@@ -192,6 +170,9 @@ export default function ConcertPage() {
         </div>
       </section>
 
+      {/* Customer reviews */}
+      <CustomerReviews />
+
       {/* Event types — Private Transportation for Every Nashville Music Event */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
@@ -208,6 +189,25 @@ export default function ConcertPage() {
                 <p className="mt-1.5 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Luxury Transportation for Every Music Event */}
+      <section className="relative overflow-hidden border-y border-border">
+        <div className="absolute inset-0">
+          <PlaceholderImage src={concertImages.affordabilityBg} alt="Chauffeur driving at sunset" />
+        </div>
+        <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
+          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-m">
+            <h3 className="font-serif text-2xl text-text">Reserve Transportation for Your Next Nashville Concert</h3>
+            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+              Share your concert date, venue, pickup location, passenger count, and preferred vehicle to receive a
+              personalized quote. Our team will help build a transportation plan that matches your event and group size.
+            </p>
+            <a href="#quote" className="btn btn-gold mt-6">
+                  Check Availability &amp; Pricing
+                </a>
           </div>
         </div>
       </section>

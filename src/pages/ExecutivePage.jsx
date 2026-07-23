@@ -152,53 +152,6 @@ export default function ExecutivePage() {
       {/* Customer reviews */}
       <CustomerReviews />
 
-      {/* Affordability */}
-      <section className="relative overflow-hidden border-y border-border">
-        <div className="absolute inset-0">
-          <PlaceholderImage src={executiveImages.affordabilityBg} alt="Nashville city skyline" />
-        </div>
-        <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
-          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-sm">
-            <h3 className="font-serif text-2xl text-text">Transparent Corporate Transportation Pricing</h3>
-            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Ready to streamline your corporate travel? Share your itinerary and passenger details to receive a clear
-              quote based on your vehicle, schedule, and route. Our professional chauffeurs and business-ready vehicles
-              keep every trip organized and on time.
-            </p>
-            <a href="#quote" className="btn btn-gold mt-6">
-                  Check Availability &amp; Pricing
-                </a>
-          </div>
-        </div>
-      </section>
-
-      {/* What We Offer */}
-      <section className="px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 text-center">
-            <span className="eyebrow">Why Choose Swift Chauffeurs</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">
-              Corporate Transportation Designed for Reliability
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-[15px] text-text-muted">
-              We deliver a seamless, professional ride experience with skilled chauffeurs, clean and well-maintained
-              vehicles, and a focus on being on time for every appointment. Here's what sets our corporate service apart:
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {executiveOffers.map((item) => (
-              <div key={item.title} className="rounded-xl border border-border bg-panel p-6">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-dim text-gold">
-                  <CheckIcon width={18} height={18} />
-                </span>
-                <h3 className="mt-4 text-[15px] font-semibold text-text">{item.title}</h3>
-                <p className="mt-1 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Corporate Transportation Services in Nashville — business use cases */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto max-w-(--breakpoint-xl)">
@@ -215,6 +168,26 @@ export default function ExecutivePage() {
                 <p className="mt-1.5 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Affordability */}
+      <section className="relative overflow-hidden border-y border-border">
+        <div className="absolute inset-0">
+          <PlaceholderImage src={executiveImages.affordabilityBg} alt="Nashville city skyline" />
+        </div>
+        <div className="relative z-10 mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-center gap-10 px-6 py-20 md:px-16 lg:grid-cols-2 lg:px-24">
+          <div className="rounded-2xl border border-border bg-panel/80 p-8 backdrop-blur-sm">
+            <h3 className="font-serif text-2xl text-text">Transparent Corporate Transportation Pricing</h3>
+            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+              Ready to streamline your corporate travel? Share your itinerary and passenger details to receive a clear
+              quote based on your vehicle, schedule, and route. Our professional chauffeurs and business-ready vehicles
+              keep every trip organized and on time.
+            </p>
+            <a href="#quote" className="btn btn-gold mt-6">
+                  Check Availability &amp; Pricing
+                </a>
           </div>
         </div>
       </section>

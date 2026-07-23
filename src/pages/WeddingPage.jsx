@@ -128,6 +128,31 @@ export default function WeddingPage() {
         </div>
       </section>
 
+      {/* Wedding Transportation for Every Part of Your Celebration */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="mb-10 text-center">
+            <span className="eyebrow">Why Choose Swift Chauffeurs</span>
+            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Wedding Transportation for Every Part of Your Celebration</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-[15px] text-text-muted">
+              From the couple and wedding party to families and guests, we help coordinate professional, reliable
+              transportation for every stage of your wedding day. Check availability for your date to get started.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {weddingOffers.map((item) => (
+              <div key={item.title} className="rounded-xl border border-border bg-panel p-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-dim text-gold">
+                  <CheckIcon width={18} height={18} />
+                </span>
+                <h3 className="mt-4 text-[15px] font-semibold text-text">{item.title}</h3>
+                <p className="mt-1 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Premium Fleet */}
       <FleetSection
         eyebrow="Your Dream, Our Destination"
@@ -135,6 +160,35 @@ export default function WeddingPage() {
         subheading="Choose from stretch limousines, luxury SUVs, Sprinter vans, mini coaches, and group vehicles for the couple, wedding party, family, and guests."
         serviceSlug="wedding"
       />
+
+      {/* Exceptional Service features */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="mb-10 max-w-2xl">
+            <span className="eyebrow">Exceptional Service</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
+              Step Into Your Dream Wedding
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+              Wedding limousine with an optional red carpet arrival. A red carpet entrance may be available as an
+              add-on depending on the vehicle and venue. With premium service and attention to detail, we help turn
+              your grand entrance into a moment of elegance and celebration.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
+            {weddingServiceFeatures.map((f, i) => {
+              const Ico = serviceIcons[i];
+              return (
+                <div key={f.title} className="rounded-xl border border-border bg-panel p-6">
+                  <Ico width={28} height={28} className="text-gold" />
+                  <h3 className="mt-4 text-[15px] font-semibold text-text">{f.title}</h3>
+                  <p className="mt-1 text-[13px] text-text-muted">{f.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* Why Couples Choose */}
       <section className="px-6 py-20 md:px-16 lg:px-24">
@@ -171,6 +225,27 @@ export default function WeddingPage() {
 
       {/* Customer reviews */}
       <CustomerReviews />
+
+      {/* How to Plan Your Nashville Wedding Transportation */}
+      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-(--breakpoint-xl)">
+          <div className="mb-10 max-w-2xl">
+            <span className="eyebrow">Planning Guide</span>
+            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
+              How to Plan Your Nashville Wedding Transportation
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {weddingPlanningSteps.map((s) => (
+              <article key={s.step} className="rounded-xl border border-border bg-panel p-7">
+                <span className="font-serif text-4xl text-gold/30">{s.step}</span>
+                <h3 className="mt-3 text-[15px] font-semibold text-text">{s.title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-text-muted">{s.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Affordable Luxury */}
       <section className="relative overflow-hidden border-y border-border">
@@ -214,81 +289,6 @@ export default function WeddingPage() {
         </div>
       </section>
 
-      {/* Wedding Transportation for Every Part of Your Celebration */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 text-center">
-            <span className="eyebrow">Why Choose Swift Chauffeurs</span>
-            <h2 className="font-serif text-3xl font-medium text-text md:text-4xl">Wedding Transportation for Every Part of Your Celebration</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-[15px] text-text-muted">
-              From the couple and wedding party to families and guests, we help coordinate professional, reliable
-              transportation for every stage of your wedding day. Check availability for your date to get started.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {weddingOffers.map((item) => (
-              <div key={item.title} className="rounded-xl border border-border bg-panel p-6">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-dim text-gold">
-                  <CheckIcon width={18} height={18} />
-                </span>
-                <h3 className="mt-4 text-[15px] font-semibold text-text">{item.title}</h3>
-                <p className="mt-1 text-[13px] leading-relaxed text-text-muted">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Exceptional Service features */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 max-w-2xl">
-            <span className="eyebrow">Exceptional Service</span>
-            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Step Into Your Dream Wedding
-            </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Wedding limousine with an optional red carpet arrival. A red carpet entrance may be available as an
-              add-on depending on the vehicle and venue. With premium service and attention to detail, we help turn
-              your grand entrance into a moment of elegance and celebration.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
-            {weddingServiceFeatures.map((f, i) => {
-              const Ico = serviceIcons[i];
-              return (
-                <div key={f.title} className="rounded-xl border border-border bg-panel p-6">
-                  <Ico width={28} height={28} className="text-gold" />
-                  <h3 className="mt-4 text-[15px] font-semibold text-text">{f.title}</h3>
-                  <p className="mt-1 text-[13px] text-text-muted">{f.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* How to Plan Your Nashville Wedding Transportation */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-10 max-w-2xl">
-            <span className="eyebrow">Planning Guide</span>
-            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              How to Plan Your Nashville Wedding Transportation
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {weddingPlanningSteps.map((s) => (
-              <article key={s.step} className="rounded-xl border border-border bg-panel p-7">
-                <span className="font-serif text-4xl text-gold/30">{s.step}</span>
-                <h3 className="mt-3 text-[15px] font-semibold text-text">{s.title}</h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-text-muted">{s.desc}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* What Affects Nashville Wedding Transportation Pricing? */}
       <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
         <div className="mx-auto grid max-w-(--breakpoint-xl) grid-cols-1 items-start gap-12 lg:grid-cols-2">
@@ -310,32 +310,6 @@ export default function WeddingPage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* Nashville Wedding Transportation Service Areas */}
-      <section className="border-t border-border px-6 py-20 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-(--breakpoint-xl)">
-          <div className="mb-8 max-w-2xl">
-            <span className="eyebrow">Service Areas</span>
-            <h2 className="font-serif text-3xl leading-tight font-medium text-text md:text-4xl">
-              Nashville Wedding Transportation Service Areas
-            </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-              Swift Chauffeurs provides wedding transportation throughout Nashville and surrounding Middle Tennessee
-              communities, including Franklin, Brentwood, Murfreesboro, Hendersonville, Mt. Juliet, and Spring Hill.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {weddingServiceAreas.map((area) => (
-              <span
-                key={area}
-                className="rounded-full border border-border bg-panel px-4 py-2 text-sm font-semibold text-text"
-              >
-                {area}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
