@@ -210,7 +210,7 @@ export default function QuoteForm({ submitLabel = "Get My Quote", heading, defau
 
         <div>
           <label htmlFor="notes" className="mb-1.5 block text-[13px] font-medium text-gold sm:text-sm">
-            Anything special you want us to know?
+            Any special requests?
           </label>
           <textarea
             id="notes"
