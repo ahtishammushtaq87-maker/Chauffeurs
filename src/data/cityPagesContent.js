@@ -22,6 +22,11 @@ import svcBlackcar from "../assets/images/svc-blackcar.jpg";
 import carMercedes from "../assets/images/car-mercedes.webp";
 import carRangeRover from "../assets/images/car-rangerover.webp";
 import fleetPartybus from "../assets/images/fleet-partybus.webp";
+import bdayHero from "../assets/images/bday-hero.webp";
+import promImage from "../assets/images/Create-an-image-of-a-1810590a--images-1024x579.webp";
+import fleetSedan from "../assets/images/fleet-sedan.webp";
+import secondLimo from "../assets/images/secondlimo.webp";
+import limo3 from "../assets/images/limo3.webp";
 
 // Reused four-point value grid. Individual cities can override `highlights`.
 const defaultHighlights = [
@@ -154,7 +159,7 @@ We also provide dependable transfers to and from Nashville International Airport
     intro: {
       eyebrow: "Service Area",
       heading: "Refined Limousine Service in Murfreesboro, Tennessee",
-      image: cityMurfreesboro,
+      image: secondLimo,
       text: `Swift Chauffeurs brings dependable, refined chauffeur service to Murfreesboro and the surrounding area. From Middle Tennessee State University (MTSU) and The Avenue to the historic town square and Stones River, our professional drivers keep you moving in comfort and style.
 
 Our Murfreesboro fleet includes luxury sedans, executive SUVs, sprinter vans, and limousines — ready for airport runs, corporate travel, weddings, and group celebrations. Reliable scheduling and local expertise mean you always arrive relaxed and on time.`,
@@ -204,7 +209,7 @@ We also serve Fort Campbell families, Austin Peay events, weddings, and business
     intro: {
       eyebrow: "Service Area",
       heading: "Premium Chauffeur Service in Spring Hill, Tennessee",
-      image: areaTown,
+      image: limo3,
       text: `Swift Chauffeurs proudly serves Spring Hill with luxury chauffeur and limousine transportation. From The Crossings of Spring Hill to historic Rippa Villa and the surrounding communities, our professional drivers deliver comfortable, reliable rides for every occasion.
 
 Whether you're commuting for work, catching a flight, or celebrating a milestone, our spotless fleet and courteous chauffeurs make every trip effortless. Sit back, relax, and enjoy a smooth, stress-free journey.`,
@@ -238,7 +243,7 @@ Cruise the Scenic City with your friends while a professional chauffeur handles 
     section: {
       eyebrow: "Group Celebrations",
       heading: "The Ultimate Birthday Ride in the Scenic City",
-      image: svcBirthday,
+      image: bdayHero,
       text: `From downtown Chattanooga and the Southside to Lookout Mountain and the riverfront, we keep your whole group together and the party rolling. No coordinating multiple cars, no designated-driver worries — just a safe, fun, and stylish experience for everyone.
 
 Book early for weekends and peak birthday season. Tell us your plans and we'll tailor the perfect itinerary, so all you have to do is show up and celebrate.`,
@@ -290,7 +295,7 @@ Our licensed, background-checked chauffeurs give parents peace of mind while stu
     section: {
       eyebrow: "Safe & Stylish",
       heading: "A Prom Night to Remember",
-      image: carRangeRover,
+      image: promImage,
       text: `From pickup to the venue and safely back home, we handle every detail so the night runs smoothly. Our spotless limousines and SUVs make a stunning entrance at any Chattanooga-area prom.
 
 Prom season books up fast — reserve early to guarantee your vehicle. Tell us your schedule and stops, and we'll craft the perfect timeline for your group.`,
@@ -316,7 +321,7 @@ Our meticulously maintained vehicles look beautiful in photos and provide a comf
     section: {
       eyebrow: "Your Perfect Day",
       heading: "Effortless Wedding Transportation in the Scenic City",
-      image: carMercedes,
+      image: fleetSedan,
       text: `From venues on Lookout Mountain to downtown Chattanooga and the riverfront, our chauffeurs know the area and plan for traffic so no one is ever left waiting. We coordinate multiple pickups and precise timing to keep your celebration running perfectly.
 
 Let us tailor the ideal package for your wedding — sedans, SUVs, sprinter vans, or limousines. Reserve early to secure your date and vehicles.`,
